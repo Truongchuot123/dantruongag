@@ -1,0 +1,306 @@
+:root {
+    --main-color: #191F3A;
+    --menu: white;
+    --text-menu: rgb(227, 227, 19);
+    --nut: #4d128b;
+    --background-trangchu: rgb(8, 8, 36);
+}
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;   
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.justify-cottent {
+    justify-content: space-between;
+}
+.container {
+    margin: auto;
+    max-width: 80%; 
+}
+.row  {
+    display: flex;
+    flex-wrap: wrap;
+}
+.top {
+    background-color: transparent;
+    position: fixed;
+    width: 100vw;
+    z-index: 99;
+    transition: background-color 0.4s ease; /* Thêm chuyển tiếp mượt mà */
+}
+
+.top.active {
+    background-color: var(--main-color); /* Thay đổi màu khi cuộn xuống */
+}
+.top::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+}
+.top.active::before {
+    transform: translateY(0);
+}
+.top .logo img {
+    width: 80px;
+}
+
+.top .menu-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999; /* Ensure the X button is on top of the menu */
+    position: relative; /* Make sure it's positioned relative to its parent */
+}
+
+.top .menu-bar.active {
+    position: absolute;
+    top: 30px;
+    right: 20px; /* Give space between the X and the side-nav */
+    transform: translateX(0);
+    z-index: 1000; /* Higher z-index to keep it above the menu */
+}
+
+.top .menu-bar span {
+    display: block;
+    height: 2px;
+    width: 40px;
+    background-color: var(--menu);
+    position: relative;
+}
+
+.top .menu-bar span::before,
+.top .menu-bar span::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--menu);
+}
+
+.top .menu-bar span::before {
+    transform: translateY(-10px);
+}
+
+.top .menu-bar span::after {
+    transform: translateY(10px);
+}
+
+.menu-bar.active span {
+    background-color: transparent;
+}
+
+.menu-bar.active span::before {
+    transform: rotate(-45deg);
+}
+
+.menu-bar.active span::after {
+    transform: rotate(45deg);
+}
+
+.side-nav {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--main-color);
+    right: 0;
+    top: 0;
+    padding: 100px 50px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 998; /* Ensure the menu is behind the close icon */
+}
+
+.side-nav.active {
+    transform: translateX(0);
+}
+
+.side-nav a {
+    color: var(--text-menu);
+    line-height: 40px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.gioithieu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.gioithieu::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(/hinhanh/Phong\ nề.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -2;
+    animation: Inout 5s infinite;
+}
+
+@keyframes Inout {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.gioithieu::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: -2;
+}
+
+.gioithieu .gioithieu-content {
+        text-align: center;
+        max-width: 100%;  /* Ensure content stays within bounds */
+        position: relative;
+        z-index: 1;
+        padding: 0 15px; /* Add padding to ensure text doesn't touch the sides */
+}
+
+.gioithieu .gioithieu-content p {
+    font-size: 300%; /* Kích thước bằng 300% so với kích thước mặc định */
+    color: white;
+    font-weight: bold;
+    margin: 2% 0; /* Lề trên và dưới bằng đơn vị % */
+    font-family: 'Times New Roman', Times, serif;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: wipeLeft 2s ease-out;
+}
+
+/* Đáp ứng cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .gioithieu .gioithieu-content p {
+        font-size: 200%;
+    }
+}
+
+@media (max-width: 480px) {
+    .gioithieu .gioithieu-content p {
+        font-size: 150%;
+    }
+}
+
+
+/* Animation for the text */
+@keyframes wipeLeft {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.btn {
+    background-color: #4d128b;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #5e1bbd;
+    transform: scale(1.05);
+}
+/* Menu cố định */
+.footer-section {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #190642;
+    border-top: 2px solid #ddd;
+}
+
+.menu-namngang {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.menu-namngang-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+}
+.menu-namngang-item i {
+    font-size: 2rem;
+    color: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+.menu-namngang-item p {
+    font-size: 1.2rem;
+    color: #f5f6f7;
+    margin: 0;
+}
+
+/* Chân trang */
+.chantrang {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+        .external-link a {
+            display: block;
+            text-align: center;
+            background-color: #4d128b;
+            color: white;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 18px;
+            text-decoration: none;
+            margin-bottom: 20px; /* Add some space before the footer */
+        }
+        .external-link a:hover {
+            background-color: #5e1bbd;
+        }

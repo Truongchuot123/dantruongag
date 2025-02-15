@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGUYỄN MAI ĐAN TRƯỜNG</title>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+.banner-mxh {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50;
+  }
+  .banner-wrapper {
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+  .banner {
+    width: calc(50% - 40px); 
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #fde2e4, #f8bbd0);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 3px solid #f8bbd0;
+  }
+  .banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  .banner img {
+    width: 260px;
+    border-radius: 15px;
+    transition: transform 0.3s;
+  }
+  .banner img:hover {
+    transform: scale(1.07);
+  }
+  .text-content {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .text-content h2 {
+    font-size: 28px;
+    color: #e91e63;
+    margin-bottom: 5px;
+  }
+  .text-content a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f7f8fa;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .text-content a:hover {
+    color: #f7f8fa;
+    text-decoration: underline;
+  }
+  .btn-view {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #e91e63;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-view:hover {
+  background-color: #d81b60;
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+/* Đối với màn hình nhỏ (dưới 768px) mỗi banner một hàng */
+@media (max-width: 768px) {
+  .banner {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Menu -->   
+    <section class="top">
+        <div class="container">
+            <div class="row justify-cottent">
+                <div class="logo">
+                    <a href="/index.html">
+                        <img src="/hinhanh/logo web.png" alt="Logo">
+                    </a>
+                </div>
+                
+                <div class="menu-bar" id="menu-bar">
+                    <span></span>
+                </div>
+                <div class="side-nav" id="side-nav">
+                    <ul>
+                        <li><a href="index.html">TRANG CHỦ</a></li>
+                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
+                        <li><a href="gopy.html">GÓP Ý</a></li>>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- giới thiệu -->
+    <section class="gioithieu">
+        <div class="gioithieu-content">
+            <p>CHÀO MỪNG BẠN <p>ĐẾN VỚI WEBSITE</p></p>
+            <a href="gopy.html">
+                <button class="gioithieu-content-btn btn">GÓP Ý</button>
+            </a>
+        </div>
+    </section>
+    <!--Nội dung -->    
+    <section class="banner-mxh"> 
+      <div class="banner-wrapper">
+        <div class="banner">
+          <img src="/hinhanh/banner ins.PNG" alt="">
+          <div class="text-content">
+            <h2>Trang Instagram của mình nè</h2>
+            <a href="https://www.instagram.com/dantruong_2004/?igsh=OGZqcjIzbmVnM2lm&utm_source=qr#" class="btn-view">Theo dõi</a>
+          </div>
+        </div>
+        <div class="banner">
+          <img src="/hinhanh/banner titok.PNG" alt="Chọn Quà">
+          <div class="text-content">
+            <h2>Trang TikTok của mình nè</h2>
+            <a href="https://www.tiktok.com/@dantruong187?_t=ZS-8tuHECUeE78&_r=1" class="btn-view">Theo dõi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <!--Chân trang -->
+        <section class="chantrang"></section>
+        <footer class="chantrang-footer">
+            <p>HÃY LIÊN HỆ VỚI TÔI.</p>
+            <p>Email: <a href="dantruong6904@gmail.com">nguyenmaidantruongttcspm9866@gmail.com</a></p>
+        </footer>
+    </section>
+    <!-- Chân trang cố định -->      
+    <section class="footer-section">
+        <div class="menu-namngang">
+            <a href="index.html">
+                <div class="menu-namngang-item">
+                    <i class="fas fa-home"></i>
+                    <p>Trang chủ</p>
+                </div>
+            </a>
+            <div class="menu-namngang-item" onclick="showContact()">
+                <i class="fas fa-phone"></i>
+                <p>Liên hệ</p>
+            </div>
+            <a href="/gopy.html">
+                <div class="menu-namngang-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Góp ý</p>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+
+    
+
+
+
+    <script src="/script.js"></script>
+</body>
+</html>

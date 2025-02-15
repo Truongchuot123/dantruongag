@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chọn Quà Chuẩn Gu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fce4ec;
+    }
+    .banner-mxh {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .banner-wrapper {
+      display: flex;
+      gap: 30px;
+      border: 3px solid #f8bbd0;
+      padding: 15px;
+      border-radius: 25px;
+      background-color: #fff;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    }
+    .banner-wrapper:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+    .banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(90deg, #fde2e4, #f8bbd0);
+      padding: 20px;
+      border-radius: 20px;
+      flex: 1;
+    }
+    .banner img {
+      width: 280px;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+    .banner img:hover {
+      transform: scale(1.08);
+    }
+    .text-content {
+      text-align: center;
+      color: #333;
+      padding-left: 20px;
+    }
+    .text-content h2 {
+      font-size: 30px;
+      color: #e91e63;
+      margin-bottom: 5px;
+    }
+    .text-content p {
+      font-size: 22px;
+      margin: 10px 0 15px;
+    }
+    .text-content a {
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .text-content a:hover {
+      color: #e91e63;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <section class="banner-mxh">
+    <div class="banner-wrapper">
+      <div class="banner">
+        <img src="image.png" alt="Chọn Quà">
+        <div class="text-content">
+          <h2>Chọn quà chuẩn gu</h2>
+          <p>Chinh phục chuẩn cách</p>
+          <a href="#">Tham khảo ngay</a>
+        </div>
+      </div>
+      <div class="banner">
+        <img src="image.png" alt="Chọn Quà">
+        <div class="text-content">
+          <h2>Quà tặng độc đáo</h2>
+          <p>Ngạc nhiên từng khoảnh khắc</p>
+          <a href="#">Khám phá ngay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
