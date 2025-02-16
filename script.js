@@ -89,3 +89,31 @@ function copyEmail() {
     // Show notification
     alert("Đã sao chép địa chỉ email");
 }
+
+// Sweet2 fllow loket
+// Hiển thị popup Locket sau 3 giây
+setTimeout(() => {
+    Swal.fire({
+      html: `
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <img src="hinhanh/banner locket.jpg" alt="Locket Invite" style="width: 150px; height: 150px; border-radius: 5px;">
+          <div>
+            <h2 class="swal2-title" style="margin-bottom: 12px;">Mình vừa tham gia Locket.Kết bạn với mình nhé!</h2>
+            <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" class="custom-button">Thêm ngay</a>
+          </div>
+        </div>
+      `,
+      showCloseButton: true,
+      showConfirmButton: false,
+      padding: '20px',
+      customClass: {
+        popup: 'custom-popup',
+        closeButton: 'custom-close-button'
+      },
+      background: 'linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.1)), url("hinhanh/phongne sweet2.jpg") center/cover no-repeat',
+      showClass: {
+        popup: 'swal2-animate-popup'
+      }
+    });
+  }, 3000);
+  
