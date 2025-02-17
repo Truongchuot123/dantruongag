@@ -363,3 +363,47 @@ footer a {
             opacity: 1;
           }
         }
+        .phone {
+            width: 120px;  /* Kích thước chiều rộng của điện thoại */
+            height: 200px; /* Kích thước chiều cao của điện thoại */
+            border-radius: 12px;
+            border: 8px solid black;
+            background: rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+          }
+          
+          .screen {
+            width: 100%;
+            height: 100%;
+            background: url('/hinhanh/banner%20locket.jpg') no-repeat center/cover;
+          }
+          
+          /* Media Queries để thay đổi kích thước cho các thiết bị khác nhau */
+          
+          /* Màn hình điện thoại nhỏ */
+          @media (max-width: 600px) {
+            .phone {
+              width: 150px;
+              height: 200px;
+            }
+          }
+          
+          /* Màn hình máy tính bảng (tablet) */
+          @media (max-width: 768px) {
+            .phone {
+              width: 150px;
+              height: 200px;
+            }
+          }
+          
+          /* Màn hình máy tính để bàn (desktop) */
+          @media (min-width: 1024px) {
+            .phone {
+              width: 300px;
+              height: 350px;
+            }
+          }
+          
+          
