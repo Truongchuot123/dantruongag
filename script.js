@@ -73,7 +73,6 @@ function showContact() {
                 </a>
             </div>
         `,
-        showCloseButton: true,
     });
 }
 
@@ -117,4 +116,4 @@ setTimeout(() => {
       popup: 'swal2-animate-popup'
     }
   });
-}, 3000);
+}, 5000);

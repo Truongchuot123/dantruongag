@@ -223,7 +223,7 @@ a {
 }
 
 .btn {
-    background-color: #4d128b;
+    background-color: #cc2896;
     color: white;
     padding: 15px 40px;
     border-radius: 30px;
@@ -338,7 +338,7 @@ footer a {
             to { opacity: 1; transform: translateY(0); }
           }
           .custom-close-button {
-          color: #060606 !important; /* Màu nút đóng (đỏ) */
+          color: #3d256d !important; /* Màu nút đóng (đỏ) */
           font-size: 20px !important;
           transition: color 0.3s ease-in-out;
         }
