@@ -4,6 +4,7 @@
     --text-menu: rgb(227, 227, 19);
     --nut: #4d128b;
     --background-trangchu: rgb(8, 8, 36);
+    --button_hover: #ff6b6b;
 }
 * {
     margin: 0;
@@ -54,7 +55,7 @@ a {
     transform: translateY(0);
 }
 .top .logo img {
-    width: 80px;
+    width: 60px;
 }
 
 .top .menu-bar {
@@ -65,6 +66,7 @@ a {
     z-index: 999; /* Ensure the X button is on top of the menu */
     position: relative; /* Make sure it's positioned relative to its parent */
 }
+
 
 .top .menu-bar.active {
     position: absolute;
@@ -134,96 +136,64 @@ a {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
-.gioithieu {
+/* Style for the login button */
+#login-btn {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--button-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 20px; /* Add some space between login and menu */
 }
 
-.gioithieu::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url(hinhanh/phongnen.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    z-index: -2;
-    animation: Inout 5s infinite;
-}
-
-@keyframes Inout {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-.gioithieu::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0.3;
-    z-index: -2;
-}
-
-.gioithieu .gioithieu-content {
-        text-align: center;
-        max-width: 100%;  /* Ensure content stays within bounds */
-        position: relative;
-        z-index: 1;
-        padding: 0 15px; /* Add padding to ensure text doesn't touch the sides */
-}
-
-.gioithieu .gioithieu-content p {
-    font-size: 300%; /* Kích thước bằng 300% so với kích thước mặc định */
-    color: white;
-    font-weight: bold;
-    margin: 2% 0; /* Lề trên và dưới bằng đơn vị % */
+#login-btn a {
+    color: var(--text-menu);
+    font-size: 16px;
+    text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: wipeLeft 2s ease-out;
 }
 
-/* Đáp ứng cho màn hình nhỏ hơn */
+#login-btn a:hover {
+    background-color: var(--button-hover);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Position the login button */
+.top .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top .logo {
+    margin-right: auto; /* Push logo to the left */
+}
+
+#login-btn {
+    order: 1; /* Make sure login comes before the menu button */
+}
+
+.top .menu-bar {
+    order: 2;
+}
+
+.top .side-nav {
+    order: 3;
+}
+
+/* Add responsiveness */
 @media (max-width: 768px) {
-    .gioithieu .gioithieu-content p {
-        font-size: 200%;
-    }
-}
-
-@media (max-width: 480px) {
-    .gioithieu .gioithieu-content p {
-        font-size: 150%;
-    }
-}
-
-
-/* Animation for the text */
-@keyframes wipeLeft {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
+    #login-btn {
+        padding: 8px 16px;
+        font-size: 14px;
     }
 }
 
 .btn {
-    background-color: #cc2896;
+    background-color: var(--nut);
     color: white;
     padding: 15px 40px;
     border-radius: 30px;
@@ -232,7 +202,7 @@ a {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 .btn:hover {
-    background-color: #5e1bbd;
+    background-color: var(--button_hover);
     transform: scale(1.05);
 }
 /* Menu cố định */
@@ -280,33 +250,56 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
     position: relative;
     bottom: 0;
     width: 100%;
 }
-footer a {
-    color: #4CAF50;
-    text-decoration: none;
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
 }
-
-        .external-link a {
-            display: block;
-            text-align: center;
-            background-color: #4d128b;
-            color: white;
-            padding: 15px;
-            border-radius: 30px;
-            font-size: 18px;
-            text-decoration: none;
-            margin-bottom: 20px; /* Add some space before the footer */
-        }
-        .external-link a:hover {
-            background-color: #5e1bbd;
-        }
-
-
-
+.footer-logo img {
+    max-width: 100px;
+}
+.footer-links a {
+    color: #fafdfbfc;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.footer-links a:hover {
+    background-color: var(--button_hover);
+    color: #fff;
+    transform: translateX(5px);
+}
+.footer-social a {
+    font-size: 24px;
+    color: #fff;
+    margin: 0 10px;
+    transition: transform 0.3s, color 0.3s;
+}
+.footer-social a:hover {
+    transform: scale(1.2);
+}
+.footer-social .fa-facebook-f:hover {
+    color: #4267B2;
+}
+.footer-social .fa-instagram:hover {
+    color: #E4405F;
+}
+.footer-social .fa-tiktok:hover {
+    color: #87f7f7;
+}
+.footer-social .fa-lock:hover {
+    color: #f8fb4d;
+}
 /* CSS SWWEET2 BANNER FLLOW LOCKET */
         .swal2-title {
             font-family: 'Arial', sans-serif;
@@ -379,6 +372,7 @@ footer a {
             height: 100%;
             background: url('/hinhanh/banner%20locket.jpg') no-repeat center/cover;
           }
+          .screen
           
           /* Media Queries để thay đổi kích thước cho các thiết bị khác nhau */
           
@@ -398,12 +392,81 @@ footer a {
             }
           }
           
-          /* Màn hình máy tính để bàn (desktop) */
+          
           @media (min-width: 1024px) {
             .phone {
               width: 300px;
               height: 350px;
             }
           }
+
+
+
+
+/****************** CSS BANNER TRANG CON CỦA TRANG CHỦ *********************/
+
+          .banner_trangcon {
+            font-family: 'Arial', sans-serif;
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(-60deg, #6e6787, #6e6787, #6e6787, #fbc2eb);
+            background-size: 600% 600%;
+            animation: gradientBG 10s ease infinite;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    
+        .banner_trangcon_header {
+            text-align: center;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 90%;
+        }
+    
+        .banner_trangcon_header h1 {
+            font-size: 5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 600px) {
+            .banner_trangcon_header h1 {
+                font-size: 1.5rem;
+            }
+          }
+          
+          /* Màn hình máy tính bảng (tablet) */
+          @media (max-width: 768px) {
+            .banner_trangcon_header h1 {
+                font-size: 2rem;
+            }
+          }
           
           
+          @media (min-width: 1024px) {
+            .banner_trangcon_header h1 {
+                font-size: 3rem;
+            }
+          }
+
+        .banner_trangcon_header p {
+            font-size: 1.5rem;
+            margin-top: 15px;
+        }
+    
+        .banner_trangcon_header_underline {
+            width: 300px;
+            height: 4px;
+            background-color: #00bfff;
+            margin: 20px auto 0;
+        }

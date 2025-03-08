@@ -6,6 +6,7 @@
     <title>NGUYỄN MAI ĐAN TRƯỜNG</title>
     <link rel="icon" href="hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="noidung.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -13,6 +14,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
+<<<<<<< HEAD
         form {
       max-width: 600px; margin: auto; padding: 20px;
       border: 1px solid #2e2b31; border-radius: 10px;
@@ -30,6 +32,40 @@
       cursor: pointer;
     }
     button:hover { background-color: #45A049; }
+=======
+      /* Phần CSS riêng cho form góp ý */
+.feedback-form {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #2e2b31;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.feedback-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #3f9f42;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background-color: #45A049;
+}
+>>>>>>> f50269f (Lưu thay đổi cục bộ)
 </style>
 </head>
 <body>
@@ -42,43 +78,56 @@
                         <img src="hinhanh/logo web.png" alt="Logo">
                     </a>
                 </div>
+                <div>
+                  <li id="login-btn">
+                    <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                        <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                    </a>
+                  </li>
+                </div>
                 
                 <div class="menu-bar" id="menu-bar">
                     <span></span>
                 </div>
                 <div class="side-nav" id="side-nav">
-                    <ul>
-                        <li><a href="index.html">TRANG CHỦ</a></li>
-                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="gopy.html">GÓP Ý</a></li>
-                    </ul>
+                  <ul>
+                      <li><a href="index.html">TRANG CHỦ</a></li>
+                      <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
+                      <li><a href="gopy.html">GÓP Ý</a></li>
+                  </ul>
                 </div>
             </div>
         </div>
     </section>
 
 <!-- giới thiệu -->
-    <section class="gioithieu">
-        <div class="gioithieu-content">
-            <p>GÓP Ý</p>
-        </div>
-    </section>
+<section class="banner_trangcon">
+  <div class="banner_trangcon_header">
+      <h1>GÓP Ý</h1>
+      <div class="banner_trangcon_header_underline"></div>
+      <p>
+      <a href="gopy.html">
+        <button class="gioithieu-content-btn btn">GÓP Ý</button>
+      </a>
+      </p>            
+  </div>
+</section>
     <section class="about-us">
         <div class="container">
             <!-- BIỂU MẪU GÓP Ý -->
-            <section id="gop-y" style="padding: 20px; border-radius: 10px;">
-                <h2 style="text-align: center;">HỘP THOẠI GÓP Ý</h2>
-                <form id="feedbackForm" action="https://script.google.com/macros/s/AKfycbwPAKiFv2PxrfMLOxnzUcTowOxCYBj0S1XfAEqxORDD6G_rUspQPkEMl8zJf6fUPPm4/exec" method="POST">
+            <section id="gop-y" style="padding: 50px; border-radius: 10px; margin-bottom: 20px;">
+                <h2 style="text-align: center;color: #e91e63;">HỘP THOẠI GÓP Ý</h2>
+                <form id="feedbackForm" class="feedback-form" action="https://script.google.com/macros/s/AKfycbyw7Y0n0-DWx2fX_DCztR7cq0F_RlX9oFHeW1qURjxalo0OpVIuwELlrxdFhDpLrNQp/exec" method="POST">
                   <input type="text" name="name" placeholder="Họ tên" required style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px;">
                   <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px;">
                   <textarea name="feedback" placeholder="Ý kiến" rows="4" required style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px;"></textarea>
-                  <button type="submit" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                  <button type="submit" style="width: 100%; padding: 10px; background-color: #4d128b; color: white; border: none; border-radius: 5px; cursor: pointer;">
                     Gửi ý kiến
                   </button>
                 </form>
 
                 <script>
-                  const scriptURL = "https://script.google.com/macros/s/AKfycbwPAKiFv2PxrfMLOxnzUcTowOxCYBj0S1XfAEqxORDD6G_rUspQPkEMl8zJf6fUPPm4/exec";
+                  const scriptURL = "https://script.google.com/macros/s/AKfycbyw7Y0n0-DWx2fX_DCztR7cq0F_RlX9oFHeW1qURjxalo0OpVIuwELlrxdFhDpLrNQp/exec";
                   document.getElementById("feedbackForm").addEventListener("submit", function(e) {
                     e.preventDefault();
                     var formData = new FormData(this);
@@ -117,37 +166,30 @@
                   });
                 </script>
               </section>
-
-    
-        <!--Chân trang -->
-        <section class="chantrang"></section>
-        <footer class="chantrang-footer">
-            <p>HÃY LIÊN HỆ VỚI TÔI.</p>
-            <p>Email: <a href="nguyenmaidantruongttcspm9866@gmail.com">nguyenmaidantruongttcspm9866@gmail.com</a></p>
-        </footer>
-    </section>
-    <!-- Chân trang cố định -->      
-    <section class="footer-section">
-        <div class="menu-namngang">
-            <a href="index.html">
-                <div class="menu-namngang-item">
-                    <i class="fas fa-home"></i>
-                    <p>Trang chủ</p>
+<!-- Chân tran cố định -->
+              <section class="footer-section">
+                <div class="menu-namngang">
+                    <a href="index.html">
+                        <div class="menu-namngang-item">
+                            <i class="fas fa-home"></i>
+                            <p>Trang chủ</p>
+                        </div>
+                    </a>
+                    <div class="menu-namngang-item" onclick="showContact()">
+                        <i class="fas fa-phone"></i>
+                        <p>Liên hệ</p>
+                    </div>
+                    <a href="gopy.html">
+                        <div class="menu-namngang-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>Góp ý</p>
+                        </div>
+                    </a>
                 </div>
-            </a>
-            <div class="menu-namngang-item" onclick="showContact()">
-                <i class="fas fa-phone"></i>
-                <p>Liên hệ</p>
-            </div>
-            <a href="gopy.html">
-                <div class="menu-namngang-item">
-                    <i class="fas fa-envelope"></i>
-                    <p>Góp ý</p>
-                </div>
-            </a>
-        </div>
-    </section>
+            </section>
+            
     
     <script src="script.js"></script>
+    <script src="noidung.js"></script>
 </body>
 </html>

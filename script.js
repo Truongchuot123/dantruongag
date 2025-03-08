@@ -59,7 +59,7 @@ function showContact() {
                     <i class="fab fa-facebook"></i>
                     <p>Facebook</p>
                 </a>
-                <a href="https://www.instagram.com/dantruong_2004?igsh=OGZqcjIzbmVnM2lm&utm_source=qr" target="_blank" class="social-item">
+                <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-item">
                     <i class="fab fa-instagram"></i>
                     <p>Instagram</p>
                 </a>
@@ -111,9 +111,183 @@ setTimeout(() => {
       popup: 'custom-popup',
       closeButton: 'custom-close-button'
     },
-    background: 'linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.1)), url("hinhanh/phongne%20sweet2.jpg") center/cover no-repeat',
+    background: 'linear-gradient(#fcf5f5, rgba(253, 251, 251, 0.1)), url("./hinhanh/phongne%20sweet2.jpg") center/cover no-repeat',
     showClass: {
       popup: 'swal2-animate-popup'
     }
   });
 }, 5000);
+
+
+
+// JS cho form đăng nhập
+const style = document.createElement('style');
+style.innerHTML = `
+    .swal2-popup .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .swal2-popup .login-form input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .swal2-popup .login-form button {
+        background: #007bff;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .swal2-popup .login-form button:hover {
+        background: #0056b3;
+    }
+    .swal2-popup .login-form .exit-btn {
+        background: #ff4d4d;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .swal2-popup .login-form .exit-btn:hover {
+        background: #cc0000;
+    }
+`;
+document.head.appendChild(style);
+
+// Kiểm tra trạng thái đăng nhập khi tải trang
+window.onload = function() {
+    const savedName = localStorage.getItem('loggedInUser');
+    if (savedName) {
+        updateLoginButton(savedName);
+        showContent();
+    } else {
+        hideContent();
+    }
+}
+
+function updateLoginButton(name) {
+    const loginBtn = document.getElementById('login-btn');
+    loginBtn.innerHTML = `
+        <div class="user-info" style="display: flex; flex-direction: column; color: rgba(247, 246, 248, 0.98); align-items: center; gap: 10px;">
+            <div class="user-details" style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-user-circle"></i>
+                <span class="username">${name}</span>
+            </div>
+            <a class="logout-btn" style="text-align: center; cursor: pointer;" onclick="logout()">Đăng xuất</a>
+        </div>
+        <style>
+            @media (max-width: 600px) {
+                .user-info {
+                    gap: 5px;
+                    padding: 10px;
+                }
+                .user-details {
+                    flex-direction: column;
+                    gap: 5px;
+                }
+                .logout-btn {
+                    font-size: 14px;
+                }
+            }
+        </style>
+    `;
+}
+
+// Hàm đăng xuất
+function logout() {
+    localStorage.removeItem('loggedInUser');
+    Swal.fire('Đã đăng xuất!', '', 'success').then(() => {
+        const loginBtn = document.getElementById('login-btn');
+        loginBtn.innerHTML = `
+            <div>
+                <li id="login-btn">
+                    <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                        <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                    </a>
+                </li>
+            </div>
+        `;
+        hideContent();
+    });
+}
+
+// Hiển thị nội dung khi đã đăng nhập
+function showContent() {
+    const protectedContent = document.getElementById('protected-content');
+    protectedContent.style.display = 'block';
+}
+
+// Ẩn nội dung khi chưa đăng nhập
+function hideContent() {
+    const protectedContent = document.getElementById('protected-content');
+    protectedContent.style.display = 'none';
+}
+
+// Hiển thị form đăng nhập
+function showLoginForm() {
+    Swal.fire({
+        title: 'Đăng nhập',
+        html: `
+            <form id="loginForm" class="login-form">
+                <input type="text" id="username" placeholder="Tên đăng nhập" required>
+                <div style="position: relative; display: flex; align-items: center;">
+                    <input type="password" id="password" placeholder="Mật khẩu" required style="width: 100%;">
+                    <i id="togglePassword" class="fas fa-eye" style="position: absolute; right: 10px; cursor: pointer;"></i>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                    <button type="button" class="exit-btn" onclick="Swal.close()" style="width: 48%;">Thoát</button>
+                    <button type="submit" style="width: 48%;">Đăng nhập</button>
+                </div>
+                <p style="margin-top: 10px; font-size: 1em; color: red; text-align: left;">
+                    *Nếu bạn quên mật khẩu hoặc chưa có tài khoản, vui lòng 
+                    <span style="color: blue; cursor: pointer; text-decoration: underline;" onclick="showContact()">liên hệ</span> để cấp lại mật khẩu hoặc cấp tài khoản.
+                </p>
+            </form>
+        `,
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        didRender: () => {
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+
+            togglePassword.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    togglePassword.classList.replace('fa-eye', 'fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    togglePassword.classList.replace('fa-eye-slash', 'fa-eye');
+                }
+            });
+
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                fetch(`https://script.google.com/macros/s/AKfycbxPan-KQDfgVodlpBL06ZjkSrIKUTgS3syVxJCZ67JhJaMktXfjz_99c6WptPuzjzLN_g/exec?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            const displayName = data.name || username;
+                            localStorage.setItem('loggedInUser', displayName);
+                            Swal.fire('Thành công!', 'Đăng nhập thành công!', 'success').then(() => {
+                                updateLoginButton(displayName);
+                                showContent();
+                            });
+                        } else {
+                            Swal.fire('Thất bại!', 'Tên đăng nhập hoặc mật khẩu không đúng.', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Lỗi:', error);
+                        Swal.fire('Lỗi!', 'Không thể kết nối đến máy chủ.', 'error');
+                    });
+            });
+        }
+    });
+}

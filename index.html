@@ -6,6 +6,7 @@
     <title>NGUYỄN MAI ĐAN TRƯỜNG</title>
     <link rel="icon" href="hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="noidung.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -14,6 +15,7 @@
 <!-- Thanh điều hướng nằm ngang CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <style>
 .banner-mxh {
     display: flex;
@@ -108,6 +110,13 @@
                         <img src="hinhanh/logo web.png" alt="Logo">
                     </a>
                 </div>
+                <div>
+                  <li id="login-btn">
+                    <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                        <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                    </a>
+                  </li>
+                </div>
                 <div class="menu-bar" id="menu-bar">
                     <span></span>
                 </div>
@@ -123,15 +132,19 @@
     </section>
 
 <!-- giới thiệu -->
-    <section class="gioithieu">
-        <div class="gioithieu-content">
-            <p>CHÀO MỪNG BẠN <p>ĐẾN VỚI WEBSITE</p><p>CỦA ĐAN TRƯỜNG</p></p>
-            <a href="gopy.html">
-                <button class="gioithieu-content-btn btn">GÓP Ý</button>
-            </a>
-        </div>
-    </section>
-    <!--Nội dung -->    
+  <section class="banner_trangcon">
+      <div class="banner_trangcon_header">
+          <h1>CHÀO MỪNG BẠN ĐẾN VỚI WEBSITE CỦA ĐAN TRƯỜNG</h1>
+          <div class="banner_trangcon_header_underline"></div>
+          <p>
+          <a href="gopy.html">
+            <button class="banner_trangcon_btn btn">GÓP Ý</button>
+          </a>
+          </p>            
+      </div>
+  </section>
+
+<!--Nội dung -->    
     <section class="banner-mxh"> 
       <div class="banner-wrapper">
 
@@ -160,37 +173,238 @@
       </div>
     </section>
     
-    
-    
-    <!--Chân trang -->
-        <section class="chantrang"></section>
-        <footer class="chantrang-footer">
-            <p>HÃY LIÊN HỆ VỚI TÔI.</p>
-            <p>Email: <a href="dantruong6904@gmail.com">dantruong6904@gmail.com</a></p>
-        </footer>
-    </section>
-    <!-- Chân trang cố định -->      
-    <section class="footer-section">
-        <div class="menu-namngang">
-            <a href="index.html">
-                <div class="menu-namngang-item">
-                    <i class="fas fa-home"></i>
-                    <p>Trang chủ</p>
+    <!------------------------------Nội dung hiển thị với người đăng nhập  -----------------> 
+    <section id="protected-content" style="display: none;">
+        <section class="noidung-noibat">
+          <div class="tieude-noidung-noibat">
+            <h1>NỘI DUNG NỔI BẬT</h1>
+            <div class="slider-container">
+              <button class="prev-btn">&#10094;</button>
+              <div class="noidung-noibat-row">
+                <div class="noidung-noibat-iten">
+                  <div class="noidung-noibat-ing">
+                    <img src="hinhanh/Trang chủ/GPSL.png" alt="Logo">
+                  </div>
+                  <div class="noidung-noibat-text">
+                      <h2>GIẢI PHẨU</h2>
+                      <a href="">
+                      <a href="">
+                      <button>XEM NGAY</button>
+                      </a>
+                      </a>
+                  </div>
                 </div>
-            </a>
-            <div class="menu-namngang-item" onclick="showContact()">
-                <i class="fas fa-phone"></i>
-                <p>Liên hệ</p>
+      
+                <div class="noidung-noibat-iten">
+                  <div class="noidung-noibat-ing">
+                    <img src="hinhanh/Trang chủ/benhhoc.png" alt="Logo">
+                  </div>
+                  <div class="noidung-noibat-text">
+                      <h2>BỆNH HỌC</h2>
+                      <a href="benhhoc/trangchu_benhhoc.html">
+                      <button>XEM NGAY</button>
+                      </a>
+                  </div>
+                </div>
+      
+                <div class="noidung-noibat-iten">
+                  <div class="noidung-noibat-ing">
+                    <img src="hinhanh/Trang chủ/sinhlybenh.png" alt="Logo">
+                  </div>
+                  <div class="noidung-noibat-text">
+                      <h2>SINH LÝ BỆNH</h2>
+                      <a href="">
+                      <button>XEM NGAY</button>
+                      </a>
+                  </div>
+                </div>
+                <div class="noidung-noibat-iten">
+                  <div class="noidung-noibat-ing">
+                    <img src="hinhanh/Trang chủ/hoahoc.png" alt="Logo">
+                  </div>
+                  <div class="noidung-noibat-text">
+                      <h2>HÓA HỌC</h2>
+                      <a href="">
+                      <button>XEM NGAY</button>
+                      </a>
+                  </div>
+                </div>
+                <div class="noidung-noibat-iten">
+                  <div class="noidung-noibat-ing">
+                    <img src="hinhanh/Trang chủ/chandoanhinhanh.jpg.png" alt="Logo">
+                  </div>
+                  <div class="noidung-noibat-text">
+                      <h2>CHẲN ĐOÁN HÌNH ẢNH</h2>
+                      <button onclick="window.location.href='index.html'">XEM NGAY</button>
+                  </div>
+                </div>
+                <div class="noidung-noibat-iten">
+                  <div class="noidung-noibat-ing">
+                    <img src="hinhanh/Trang chủ/phcn.png" alt="Logo">
+                  </div>
+                  <div class="noidung-noibat-text">
+                      <h2>PHỤC HỒI CHỨC NĂNG</h2>
+                      <a href="">
+                      <button>XEM NGAY</button>
+                      </a>
+                  </div>
+                </div>
+              </div>
+              <button class="next-btn">&#10095;</button>
             </div>
-            <a href="gopy.html">
-                <div class="menu-namngang-item">
-                    <i class="fas fa-envelope"></i>
-                    <p>Góp ý</p>
-                </div>
-            </a>
-        </div>
+          </div>
+        </section>
+<!--HỆ THỐNG TRA CỨU -->  
+<section class="he_thong">
+  <div class="he_thong_tra_cuu">
+      <h1>HỆ THỐNG TRA CỨU</h1>
+      <div class="tabs">
+          <button class="tab-button active" onclick="switchTab('documents')">📚 Tra cứu tài liệu</button>
+          <button class="tab-button" onclick="switchTab('points')">🔍 Tra cứu huyệt</button>
+      </div>
+      <div id="documents" class="search-section active">
+          <h2 style="color: #007bff;">Tra cứu tài liệu</h2>
+          <div class="search-box">
+              <input id="docSearch" type="text" placeholder="Nhập tên tài liệu...">
+              <button onclick="fetchData('TAI_LIEU', 'docSearch')"><i class="fas fa-search"></i> Tìm kiếm</button>
+          </div>
+      </div>
+      <div id="points" class="search-section">
+          <h2 style="color: #ff6b6b;">Tra cứu huyệt</h2>
+          <div class="search-box">
+              <input id="pointSearch" type="text" placeholder="Nhập tên huyệt...">
+              <button onclick="fetchData('HUYET', 'pointSearch')"><i class="fas fa-search"></i> Tìm kiếm</button>
+          </div>
+      </div>
+      <div id="resultTable"></div>
+  </div>
+
+  <script>
+      function switchTab(tabId) {
+          const sections = document.querySelectorAll('.search-section');
+          const buttons = document.querySelectorAll('.tab-button');
+          sections.forEach(section => section.classList.remove('active'));
+          buttons.forEach(button => button.classList.remove('active'));
+          
+          document.getElementById(tabId).classList.add('active');
+          event.target.classList.add('active');
+      }
+
+      function fetchData(sheetName, inputId) {
+          const query = document.getElementById(inputId).value;
+          if (!query) return;
+          
+          Swal.fire({
+              title: 'Đang tìm kiếm...',
+              text: 'Vui lòng chờ trong giây lát.',
+              allowOutsideClick: false,
+              didOpen: () => {
+                  Swal.showLoading();
+              }
+          });
+
+          fetch(`https://script.google.com/macros/s/AKfycbzzkQRtZNf_k6lohBbe6kzzl64HLQAl1YGae3Cp0cBzNzBs7DU2f07idB1Thjg4jqSa/exec?sheet=${sheetName}&query=${query}`)
+              .then(response => response.json())
+              .then(data => {
+                  Swal.close();
+                  if (data.length === 0) {
+                      Swal.fire('Không tìm thấy kết quả', 'Vui lòng thử lại với từ khóa khác!', 'warning');
+                  }
+                  renderTable(data, sheetName);
+              })
+              .catch(error => {
+                  Swal.close();
+                  console.error('Lỗi:', error);
+                  Swal.fire('Lỗi tìm kiếm', 'Có lỗi xảy ra khi tìm kiếm dữ liệu. Vui lòng thử lại!', 'error');
+              });
+      }
+
+      function renderTable(data, sheetName) {
+          const tableContainer = document.getElementById('resultTable');
+          if (data.length === 0) {
+              tableContainer.innerHTML = '';
+              return;
+          }
+
+          let table = '<table><colgroup>';
+          if (sheetName === 'HUYET') {
+              table += '<col style="width: 8%;"><col style="width: 20%;"><col style="width: 13%;"><col style="width: 25%;"><col style="width: 25%;">';
+          } else if (sheetName === 'TAI_LIEU') {
+              table += '<col style="width: 8%;"><col style="width: 20%;"><col style="width: 20%;"><col style="width: 40%;"><col style="width: 12%;">';
+          }
+          table += '</colgroup><tr>';
+          
+          Object.keys(data[0]).forEach(key => {
+              table += `<th>${key}</th>`;
+          });
+          table += '</tr>';
+
+          data.forEach(row => {
+              table += '<tr>';
+              Object.values(row).forEach(cell => {
+                  table += `<td>${cell}</td>`;
+              });
+              table += '</tr>';
+          });
+
+          table += '</table>';
+          tableContainer.innerHTML = table;
+      }
+  </script>
+</section>
+  
+  
+  
+  
+  
+    </section>
+ <!-- Chân trang cố định ---------->      
+ <section class="footer-section">
+  <div class="menu-namngang">
+      <a href="index.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-home"></i>
+              <p>Trang chủ</p>
+          </div>
+      </a>
+      <div class="menu-namngang-item" onclick="showContact()">
+          <i class="fas fa-phone"></i>
+          <p>Liên hệ</p>
+      </div>
+      <a href="gopy.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-envelope"></i>
+              <p>Góp ý</p>
+          </div>
+      </a>
+  </div>
+</section>
+
+    <!--Chân trang ------------------->
+    <section class="chantrang">
+      <footer class="chantrang-footer">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <a href="index.html">
+                  <img src="hinhanh/logo web.png" alt="Logo" />
+              </a>
+            </div>
+              <div class="footer-links">
+                  <a href="index.html">Trang chủ</a>
+                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
+                  <a href="gopy.html">Góp ý</a>
+              </div>
+              <div class="footer-social">
+                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@dantruong187?_t=ZS-8tuHECUeE78&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
+              </div>
+          </div>
+      </footer>
     </section>
     
     <script src="script.js"></script>
+    <script src="noidung.js"></script>
 </body>
 </html>
