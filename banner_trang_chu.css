@@ -202,6 +202,7 @@
 @media screen and (max-width: 768px) {
 .title_gio_trai_dat {
 font-size: 22px;
+margin-top: 20px;
 }
 
 .title-container_gio_trai_dat-img {
@@ -217,9 +218,9 @@ font-size: 30px;
 }
 
 .countdown {
-flex-direction: column;
-gap: 10px;
-}
+    flex-direction: row; /* Đảm bảo các ô countdown vẫn nằm trên một hàng */
+    flex-wrap: nowrap; /* Ngăn các phần tử xuống dòng */
+    gap: 5px; /* Giảm khoảng cách giữa các ô */
 
 .time-box {
 min-width: 60px;
@@ -237,6 +238,7 @@ font-size: 1.5em;
 @media screen and (max-width: 480px) {
 .title_gio_trai_dat {
 font-size: 18px;
+margin-top: 20px;
 }
 
 .title-container_gio_trai_dat-img {
