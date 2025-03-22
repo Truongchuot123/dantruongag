@@ -7,6 +7,8 @@
     <link rel="icon" href="hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="noidung.css">
+    <link rel="stylesheet" href="banner_trang_chu.css">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -16,88 +18,126 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
 <style>
-.banner-mxh {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50;
-  }
-  .banner-wrapper {
-    display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-  .banner {
-    width: calc(50% - 40px); 
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #fde2e4, #f8bbd0);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 3px solid #f8bbd0;
-  }
-  .banner:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  .banner img {
-    width: 260px;
-    border-radius: 15px;
-    transition: transform 0.3s;
-  }
-  .banner img:hover {
-    transform: scale(1.07);
-  }
-  .text-content {
-    text-align: center;
-    margin-top: 15px;
-  }
-  .text-content h2 {
-    font-size: 28px;
-    color: #e91e63;
-    margin-bottom: 5px;
-  }
-  .text-content a {
-    font-size: 16px;
-    font-weight: bold;
-    color: #f7f8fa;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .text-content a:hover {
-    color: #f7f8fa;
-    text-decoration: underline;
-  }
-  .btn-view {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #e91e63;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      .banner_mxh {
+        font-family: Arial, sans-serif;;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+      }
+      .swiper {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Tránh bị vỡ hình ảnh */
+            border-radius: 20px;
+        }
+        .profile-text {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: #fff;
+            text-align: right;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .swiper-slide-active .profile-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .profile-text h2 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .profile-text a {
+            display: inline-block;
+            padding: 10px 40px;
+            font-size: 18px;
+            background: #4d128b;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        .profile-text a:hover {
+            background: #d81b60;
+        }
+
+        /* Thanh trượt nằm ở phía dưới */
+        .swiper-pagination {
+            position: absolute;
+            bottom: -10px; /* Dịch xuống dưới ảnh */
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .swiper-pagination-progressbar-fill {
+            background: #4d128b; /* Màu thanh chạy */
+        }
+
+        /* Nút chuyển tiếp */
+        .swiper-button-prev, .swiper-button-next {
+            color: #ff9800;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 20%;
+            transition: background 0.3s;
+        }
+        .swiper-button-prev:hover, .swiper-button-next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+/* Nút điều hướng & h1 thích nghi với màn hình nhỏ */
+@media (max-width: 768px) {
+    .profile-text h2 {
+        font-size: 5vw; /* Co giãn theo màn hình nhỏ */
+    }
+    .profile-text a {
+        font-size: 0.9rem;
+        padding: 6px 20px;
+    }
+    .swiper-button-prev, .swiper-button-next {
+        padding: 10px; /* Giảm kích thước nút điều hướng */
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
 }
 
-.btn-view:hover {
-  background-color: #d81b60;
-  transform: translateY(-3px);
-  text-decoration: none;
+/* Cực nhỏ (dưới 480px, điện thoại nhỏ) */
+@media (max-width: 480px) {
+    .profile-text h2 {
+        font-size: 6vw; /* Chữ lớn hơn một chút để dễ đọc */
+    }
+    .swiper-button-prev, .swiper-button-next {
+        width: 10px;
+        height: 20px;
+        padding: 8px;
+    }
 }
-/* Đối với màn hình nhỏ (dưới 768px) mỗi banner một hàng */
-@media (max-width: 768px) {
-  .banner {
-    width: 100%;
-  }
-}
+
 </style>
 </head>
 <body>
@@ -107,7 +147,7 @@
             <div class="row justify-cottent">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="hinhanh/logo web.png" alt="Logo">
+                        <img src="hinhanh/logo web.png" alt="">
                     </a>
                 </div>
                 <div>
@@ -131,7 +171,7 @@
         </div>
     </section>
 
-<!-- giới thiệu -->
+<!------------------- giới thiệu ------------------->
   <section class="banner_trangcon">
       <div class="banner_trangcon_header">
           <h1>CHÀO MỪNG BẠN ĐẾN VỚI WEBSITE CỦA ĐAN TRƯỜNG</h1>
@@ -142,36 +182,93 @@
           </a>
           </p>            
       </div>
+
+    <!-------------------Banner ngày quốc tế hạnh phúc 20/03 ------------------->
+      <div class="banner_2003">
+        <canvas id="fireworks"></canvas>
+        <div class="banner_2003_noidung">
+            <img src="/hinhanh/Trang chủ/BANNER 20th3.png" alt="Gia đình hạnh phúc">
+        </div>
+        <div class="banner_2003_text_conten">
+            <h1>CHÚC MỪNG <br>NGÀY QUỐC TẾ HẠNH PHÚC</h1>
+            <p id="typing-text"></p>
+        </div>
+    </div>
+
+    <!---------------------------Banner giờ trái đất ------------------->
+    <div class="banner_gio_trai_dat">
+        <!--Nội dung banner giờ trái đất -->
+        <div class="title_gio_trai_dat">CHUYỂN DỊCH XANH - TƯƠNG LAI XANH</div>
+
+        <div class="title-container_gio_trai_dat">
+            <img src="/hinhanh/60_banner_gio_trai_dat.png" alt="60" class="title-container_gio_trai_dat-img">
+        </div>
+    
+        <div class="subtitle_gio_trai_dat">Tắt đèn! Dành trọn vẹn một giờ cho Trái đất.</div>
+    
+        <span class="time_gio_trai_dat">22.03.2025 | 8:30 tối</span>
+         <!--Countdown giờ trái đất -->
+        <div class="countdown">
+            <div class="time-container">
+                <div class="time-box" id="days">00</div>
+                <div class="label">Ngày</div>
+            </div>
+            <div class="time-container">
+                <div class="time-box" id="hours">00</div>
+                <div class="label">Giờ</div>
+            </div>
+            <div class="time-container">
+                <div class="time-box" id="minutes">00</div>
+                <div class="label">Phút</div>
+            </div>
+            <div class="time-container">
+                <div class="time-box" id="seconds">00</div>
+                <div class="label">Giây</div>
+            </div>
+        </div>
+        
+        
+      <!--Đếm ngược khi còn 10s -->
+        <div class="big-countdown" id="big-countdown">
+            <span id="big-seconds">10</span>
+        </div>
+    
+        <div class="message" id="earth-hour-message">Hãy tắt đèn và thiết bị điện để bảo vệ Trái Đất!</div>
+    </div>
   </section>
 
-<!--Nội dung -->    
-    <section class="banner-mxh"> 
-      <div class="banner-wrapper">
 
-        <div class="banner">
-          <img src="hinhanh/banner locket index.jpg" alt="">
-            <div class="text-content">
-              <h2>Trang Locket của Trường nè</h2>
-              <a href="https://locket.camera/links/X8Epe1ezj5Sedyeq8" class="btn-view">Thêm ngay</a>
+<!--Nội dung -->
+  <section class="banner_mxh">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../hinhanh/banner titok.PNG" alt="" class="profile-image">
+                <div class="profile-text">
+                    <h2>Trang titok</h2>
+                    <a href="https://www.tiktok.com/@dantruong187?_t=ZS-8tuHECUeE78&_r=1" target="_blank">Xem ngay</a>
+                </div>
             </div>
-          </div>
-
-          <div class="banner">
-        <img src="hinhanh/banner ins.PNG" alt="">
-          <div class="text-content">
-            <h2>Trang Instagram của Trường nè</h2>
-            <a href="https://www.instagram.com/dantruong_ag?igsh=OGZqcjIzbmVnM2lm&utm_source=qr" class="btn-view">Theo dõi ngay</a>
-          </div>
+            <div class="swiper-slide">
+                <img src="../hinhanh/banner fb.jpg" alt="" class="profile-image">
+                <div class="profile-text">
+                    <h2>Trang Facebook</h2>
+                    <a href="https://www.facebook.com/dantruong187/" target="_blank">Xem ngay</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="../hinhanh/banner ins.PNG" alt="" class="profile-image">
+                <div class="profile-text">
+                    <h2>Trang Instagram</h2>
+                    <a href="https://www.instagram.com/dantruong_ag/" target="_blank">Theo dõi</a>
+                </div>
+            </div>
         </div>
-        <div class="banner">
-        <img src="hinhanh/banner titok.PNG" alt="">
-          <div class="text-content">
-            <h2>Trang Tiktok của Trường nè</h2>
-            <a href="https://www.tiktok.com/@dantruong187?_t=ZS-8tuHECUeE78&_r=1" class="btn-view">Theo dõi ngay</a>
-          </div>
-        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div> <!-- Thanh trượt ngang -->
       </div>
-    </section>
+</section>  
     
     <!------------------------------Nội dung hiển thị với người đăng nhập  -----------------> 
     <section id="protected-content" style="display: none;">
@@ -183,7 +280,7 @@
               <div class="noidung-noibat-row">
                 <div class="noidung-noibat-iten">
                   <div class="noidung-noibat-ing">
-                    <img src="hinhanh/Trang chủ/GPSL.png" alt="Logo">
+                    <img src="hinhanh/Trang chủ/GPSL.png" alt="">
                   </div>
                   <div class="noidung-noibat-text">
                       <h2>GIẢI PHẨU</h2>
@@ -263,14 +360,14 @@
           <button class="tab-button" onclick="switchTab('points')">🔍 Tra cứu huyệt</button>
       </div>
       <div id="documents" class="search-section active">
-          <h2 style="color: #007bff;">Tra cứu tài liệu</h2>
+          <h2 style="color: #007bff;margin-bottom: 15px;">Tra cứu tài liệu</h2>
           <div class="search-box">
               <input id="docSearch" type="text" placeholder="Nhập tên tài liệu...">
               <button onclick="fetchData('TAI_LIEU', 'docSearch')"><i class="fas fa-search"></i> Tìm kiếm</button>
           </div>
       </div>
       <div id="points" class="search-section">
-          <h2 style="color: #ff6b6b;">Tra cứu huyệt</h2>
+          <h2 style="color: #ff6b6b;margin-bottom: 15px;">Tra cứu huyệt</h2>
           <div class="search-box">
               <input id="pointSearch" type="text" placeholder="Nhập tên huyệt...">
               <button onclick="fetchData('HUYET', 'pointSearch')"><i class="fas fa-search"></i> Tìm kiếm</button>
@@ -328,9 +425,9 @@
 
           let table = '<table><colgroup>';
           if (sheetName === 'HUYET') {
-              table += '<col style="width: 8%;"><col style="width: 20%;"><col style="width: 13%;"><col style="width: 25%;"><col style="width: 25%;">';
+              table += '<col style="width: 11%;"><col style="width: 20%;"><col style="width: 13%;"><col style="width: 25%;"><col style="width: 25%;">';
           } else if (sheetName === 'TAI_LIEU') {
-              table += '<col style="width: 8%;"><col style="width: 20%;"><col style="width: 20%;"><col style="width: 40%;"><col style="width: 12%;">';
+              table += '<col style="width: 11%;"><col style="width: 20%;"><col style="width: 17%;"><col style="width: 37%;"><col style="width: 15%;">';
           }
           table += '</colgroup><tr>';
           
@@ -386,7 +483,7 @@
           <div class="footer-content">
             <div class="footer-logo">
               <a href="index.html">
-                  <img src="hinhanh/logo web.png" alt="Logo" />
+                  <img src="hinhanh/logo web.png" alt="" />
               </a>
             </div>
               <div class="footer-links">
@@ -406,5 +503,6 @@
     
     <script src="script.js"></script>
     <script src="noidung.js"></script>
+    <script src="banner_trang_chu_js"></script>
 </body>
 </html>

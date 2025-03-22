@@ -8,7 +8,6 @@
     padding: 80px 20px;
     background-color: #f5e8e8;
 }
-
 .noidung-noibat-row {
     display: flex;
     transition: transform 0.5s ease;
@@ -207,20 +206,6 @@
     font-weight: bold;
     transition: transform 0.2s, background 0.3s ease;
 }
-
-@media (max-width: 768px) { /* Màn hình nhỏ hơn 768px (tablet) */
-    .tab-button {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {/* Màn hình nhỏ hơn 480px (mobile) */
-    .tab-button {
-        padding: 8px 15px;
-        font-size: 12px;
-    }
-}
 .tab-button.active {
     background: #ff6b6b;
     transform: scale(1.1);
@@ -261,6 +246,22 @@
     background: var(--tieude_noi_dung);
     transform: translateY(-2px);
 }
+@media screen and (max-width: 768px) {
+    .search-box {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+    .search-box input {
+        width: 100%; /* Để input chiếm hết chiều rộng */
+    }
+    
+    .search-box button {
+        width: 100%; /* Nút tìm kiếm cũng chiếm hết chiều rộng */
+    }
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -276,6 +277,7 @@ table, th, td {
 th {
     background: var(--nut);
     color: #fff;
+    font-size: 16px;
     text-align: center;
     vertical-align: middle;
     position: sticky;
@@ -285,4 +287,29 @@ th {
 @keyframes fadeIn {
     0% { opacity: 0; transform: translateY(-10px); }
     100% { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) { /* Màn hình nhỏ hơn 768px (tablet) */
+    .tab-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    td {
+        font-size: 12px;
+    }
+    th {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {/* Màn hình nhỏ hơn 480px (mobile) */
+    .tab-button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    td {
+        font-size: 8px;
+    }
+    th {
+        font-size: 6px;
+    }
 }

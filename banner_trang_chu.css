@@ -1,0 +1,278 @@
+/************ CSS BANNER NGÀY QUỐC TẾ HẠNH ***********/
+.banner_2003 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 900px;
+    width: 90%;
+    padding: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.banner_2003_noidung {
+    width: 50%;
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.5s forwards;
+}
+.banner_2003_noidung img {
+    width: 100%;
+    display: block;
+}
+.banner_2003_text_conten {
+    width: 50%;
+}
+.banner_2003 h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #eefe0d;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: inline-block;
+    animation: wave 1.5s infinite alternate ease-in-out;
+}
+.banner_2003 p {
+    font-size: 18px;
+    font-style: italic;
+    color: #ffffff;
+    line-height: 1.5;
+    overflow: hidden;
+    display: inline-block;
+    min-width: fit-content;
+    white-space: normal;
+    width: 0;
+    animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes wave {
+    0% { transform: rotate(-3deg); }
+    100% { transform: rotate(3deg); }
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+@keyframes blink {
+    50% { border-color: #4e342e; }
+}
+
+    canvas#fireworks {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+@media (max-width: 768px) {
+    .banner_2003 h1 {
+        font-size: 20px;
+    }
+    .banner_2003 p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner_2003 h1 {
+        font-size: 15px;
+    }
+    .banner_2003 p {
+        font-size: 10px;
+    }
+}
+
+
+
+/************ CSS BANNER GIỜ TRÁI ĐẤT ***********/
+.banner_gio_trai_dat {
+    color: #b3ff01;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.title_gio_trai_dat {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.title-container_gio_trai_dat {
+    display: inline-block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.title-container_gio_trai_dat-img {
+    width: 300px; /* Điều chỉnh kích thước ảnh */
+    height: auto;
+    display: block;
+    margin-top: 15px;
+}
+
+.subtitle_gio_trai_dat {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+    opacity: 1;
+}
+
+.time_gio_trai_dat {
+    justify-content: center;
+    align-items: center;
+    color: #B7D8A7;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.time-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-box {
+    background: #fff;
+    color: #2d3e2f;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.big-countdown {
+    font-size: 6em;
+    font-weight: bold;
+    display: none;
+    position: relative;
+    margin-top: 50px;
+    animation: glow 0.5s infinite alternate;
+}
+
+@keyframes blink {
+    0% { opacity: 1; color: yellow; text-shadow: 0 0 10px yellow, 0 0 20px orange; }
+    50% { opacity: 0.3; color: red; text-shadow: 0 0 10px red, 0 0 20px darkred; }
+    100% { opacity: 1; color: yellow; text-shadow: 0 0 10px yellow, 0 0 20px orange; }
+}
+.message {
+    display: none;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@media screen and (max-width: 768px) {
+.title_gio_trai_dat {
+font-size: 22px;
+}
+
+.title-container_gio_trai_dat-img {
+width: 200px; /* Thu nhỏ ảnh trên màn hình nhỏ */
+}
+
+.subtitle_gio_trai_dat {
+font-size: 18px;
+}
+
+.time_gio_trai_dat {
+font-size: 30px;
+}
+
+.countdown {
+flex-direction: column;
+gap: 10px;
+}
+
+.time-box {
+min-width: 60px;
+padding: 10px;
+}
+
+.big-countdown {
+font-size: 4em;
+}
+
+.message {
+font-size: 1.5em;
+}
+}
+@media screen and (max-width: 480px) {
+.title_gio_trai_dat {
+font-size: 18px;
+}
+
+.title-container_gio_trai_dat-img {
+width: 150px;
+}
+
+.subtitle_gio_trai_dat {
+font-size: 16px;
+}
+
+.time_gio_trai_dat {
+font-size: 24px;
+}
+
+.countdown {
+flex-direction: row; /* Đảm bảo các ô countdown vẫn nằm trên một hàng */
+flex-wrap: nowrap; /* Ngăn các phần tử xuống dòng */
+gap: 5px; /* Giảm khoảng cách giữa các ô */
+font-size: 1.2em;
+}
+
+.time-box {
+min-width: 45px;
+padding: 6px;
+font-size: 16px;
+}
+
+.label {
+font-size: 0.7em;
+}
+
+.big-countdown {
+font-size: 3em;
+}
+
+.message {
+font-size: 1.2em;
+}
+}

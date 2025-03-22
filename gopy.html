@@ -14,58 +14,58 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-<<<<<<< HEAD
-        form {
-      max-width: 600px; margin: auto; padding: 20px;
-      border: 1px solid #2e2b31; border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      background-color: #402870
-    }
-    input, textarea {
-      width: 100%; padding: 10px; margin: 10px 0;
-      border-radius: 5px; border: 1px solid #ccc; 
-    }
-    button {
-      width: 100%; padding: 10px;
-      background-color: #3f9f42; color: white;
-      border: none; border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover { background-color: #45A049; }
-=======
-      /* Phần CSS riêng cho form góp ý */
-.feedback-form {
-  max-width: 1200px;
-  margin: auto;
-  padding: 30px;
+      form, .feedback-form {
+  padding: 20px;
   border: 1px solid #2e2b31;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #402870;
 }
 
-.feedback-form input,
-.feedback-form textarea {
+/* Điều chỉnh kích thước input, textarea */
+input, textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-size: 16px;
 }
 
-.feedback-form button {
+/* Điều chỉnh nút */
+button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #3f9f42;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.feedback-form button:hover {
+button:hover {
   background-color: #45A049;
 }
->>>>>>> f50269f (Lưu thay đổi cục bộ)
+
+/* Thích nghi màn hình nhỏ */
+@media screen and (max-width: 480px) {
+  form, .feedback-form {
+    padding: 15px;
+  }
+
+  input, textarea {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 14px;
+  }
+}
+
+
 </style>
 </head>
 <body>

@@ -111,7 +111,7 @@ setTimeout(() => {
       popup: 'custom-popup',
       closeButton: 'custom-close-button'
     },
-    background: 'linear-gradient(#fcf5f5, rgba(253, 251, 251, 0.1)), url("./hinhanh/phongne%20sweet2.jpg") center/cover no-repeat',
+    background: 'linear-gradient(#fcf5f5, rgba(253, 251, 251, 0.1)), url("../hinhanh/phongne%20sweet2.jpg") center/cover no-repeat',
     showClass: {
       popup: 'swal2-animate-popup'
     }
@@ -291,3 +291,24 @@ function showLoginForm() {
         }
     });
 }
+
+
+// JS CHO BANNER MẠNG XÃ HỘI 
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+        delay: 5000, // Chuyển slide sau 5 giây
+        disableOnInteraction: false,
+    },
+    speed: 800, // Tăng tốc độ chuyển slide
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'progressbar', // Hiển thị thanh trượt ngang
+    },
+});
+
+

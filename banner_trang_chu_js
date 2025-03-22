@@ -1,0 +1,130 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
+    const bannerHeader = document.querySelector(".banner_trangcon_header");
+    const banner2003 = document.querySelector(".banner_2003");
+    const bannerGioTraiDat = document.querySelector(".banner_gio_trai_dat");
+    
+    if (day === 20 && month === 3) {
+        bannerHeader.style.display = "none";
+        banner2003.style.display = "flex";
+    } else if (day === 23 && month === 3) {
+        bannerHeader.style.display = "none";
+        banner2003.style.display = "none";
+        bannerGioTraiDat.style.display = "block";
+    } else {
+        bannerHeader.style.display = "block";
+        banner2003.style.display = "none";
+        bannerGioTraiDat.style.display = "none";
+    }
+});
+
+// Hiệu ứng gõ chữ cho ngày Quốc tế Hạnh phúc
+const text = "Hạnh phúc đến từ những điều giản dị nhất. Chúc bạn luôn vui vẻ, an nhiên và tràn đầy năng lượng!";
+let index = 0;
+const speed = 50;
+function typeEffect() {
+    const p = document.getElementById("typing-text");
+    if (index < text.length) {
+        p.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, speed);
+    }
+}
+setTimeout(typeEffect, 1000);
+
+// Pháo hoa cho ngày 20/03
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+function setCanvasSize() {
+    const container = document.querySelector(".banner_2003");
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
+}
+window.addEventListener("resize", setCanvasSize);
+setCanvasSize();
+
+let particles = [];
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
+class Particle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = random(2, 4);
+        this.speedX = random(-2, 2);
+        this.speedY = random(-2, 2);
+        this.color = `hsl(${random(0, 360)}, 100%, 60%)`;
+        this.opacity = 1;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.opacity -= 0.02;
+    }
+    draw() {
+        ctx.globalAlpha = this.opacity;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+}
+function createFirework() {
+    const x = random(20, canvas.width - 20);
+    const y = random(20, canvas.height - 20);
+    for (let i = 0; i < 30; i++) {
+        particles.push(new Particle(x, y));
+    }
+}
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles = particles.filter(p => p.opacity > 0);
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
+}
+function launchFireworks() {
+    setInterval(createFirework, 1000);
+}
+animate();
+launchFireworks();
+
+// Đếm ngược Giờ Trái Đất
+function updateCountdown() {
+    const eventDate = new Date("March 22, 2025 20:30:00").getTime();
+    const oneDayBefore = eventDate - 24 * 60 * 60 * 1000;
+    const oneHourAfter = eventDate + 60 * 60 * 1000;
+    const now = new Date().getTime();
+    const timeLeft = eventDate - now;
+    const bannerGioTraiDat = document.querySelector(".banner_gio_trai_dat");
+    const bannerTrangConHeader = document.querySelector(".banner_trangcon_header");
+    
+    if (now >= oneDayBefore && now < eventDate) {
+        bannerGioTraiDat.style.display = "block";
+        bannerTrangConHeader.style.display = "none";
+        document.getElementById("earth-hour-message").style.display = "block";
+        document.getElementById("earth-hour-message").innerText = "Giờ Trái Đất sắp diễn ra";
+    }
+    
+    if (timeLeft > 0) {
+        document.getElementById("days").innerText = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerText = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerText = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerText = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    } else {
+        document.querySelector(".countdown").style.display = "none";
+        document.getElementById("earth-hour-message").innerText = "HÃY TẮT ĐÈN NGAY BÂY GIỜ!";
+        document.body.style.backgroundColor = "black";
+        setTimeout(() => {
+            bannerGioTraiDat.style.display = "none";
+            bannerTrangConHeader.style.display = "block";
+        }, 60 * 60 * 1000);
+    }
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
