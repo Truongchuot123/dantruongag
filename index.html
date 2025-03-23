@@ -138,6 +138,90 @@
     }
 }
 
+/* CSS BANNER NGÀY NHẬN THỨC TỰ KỶ 02/04 DO LỖI */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.ngay_nhan_thuc_tu_ky_0204 {
+    text-align: center;
+    border-radius: 10px;
+    max-width: 100%;
+}
+.text_ngay_nhan_thuc_tu_ky_0204 {
+    text-align: center;
+    white-space: nowrap;
+}
+.title_ngay_nhan_thuc_tu_ky_0204 {
+    font-size: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    animation: bounce 2s infinite;
+}
+.subtitle_ngay_nhan_thuc_tu_ky_0204 {
+    font-size: 32px;
+    color: rgb(13, 234, 61);
+    padding: 8px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+.subtitle_ngay_nhan_thuc_tu_ky_0204:hover {
+    transform: scale(1.1);
+}
+
+.thongdiep_ngay_nhan_thuc_tu_ky_0204 {
+    font-size: 28px;
+    color: rgba(255, 234, 117, 0.984);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+.thongdiep_ngay_nhan_thuc_tu_ky_0204:hover {
+    color: rgb(217, 255, 140);
+}
+.mirror_thongdiep_ngay_nhan_thuc_tu_ky_0204 {
+    font-size: 28px;
+    color: rgb(217, 255, 140);
+    font-weight: bold;
+    transform: scaleY(-1);
+    opacity: 0.5;
+}
+.puzzle_ribbon_ngay_nhan_thuc_tu_ky_0204 {
+    width: 90px;
+    height: auto;
+    margin-top: 10px;
+    transition: transform 0.5s;
+}
+.puzzle_ribbon_ngay_nhan_thuc_tu_ky_0204:hover {
+    transform: rotate(15deg);
+}
+.image_ngay_nhan_thuc_tu_ky_0204 {
+    width: 220px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+.title_ngay_nhan_thuc_tu_ky_0204 { font-size: 24px; } /* Giảm kích thước H1 */
+.subtitle_ngay_nhan_thuc_tu_ky_0204 { font-size: 20px; } /* Giảm kích thước H2 */
+.thongdiep_ngay_nhan_thuc_tu_ky_0204, 
+.mirror_thongdiep_ngay_nhan_thuc_tu_ky_0204 { font-size: 18px; } /* Giảm kích thước P */
+}
+
+/* Điều chỉnh trên màn hình nhỏ hơn 480px (Điện thoại) */
+@media (max-width: 480px) {
+.ngay_nhan_thuc_tu_ky_0204 {
+flex-wrap: wrap; /* Chuyển thành hàng dọc khi màn hình nhỏ */
+.title_ngay_nhan_thuc_tu_ky_0204 { font-size: 20px; }
+.subtitle_ngay_nhan_thuc_tu_ky_0204 { font-size: 22px; }
+.thongdiep_ngay_nhan_thuc_tu_ky_0204, 
+.mirror_thongdiep_ngay_nhan_thuc_tu_ky_0204 { font-size: 18px; }
+}
+}
+
 </style>
 </head>
 <body>
@@ -235,7 +319,31 @@
     
         <div class="message" id="earth-hour-message">Hãy tắt đèn và thiết bị điện để bảo vệ Trái Đất!</div>
     </div>
-  </section>
+
+    <!---------------------------Banner ngày thế giới phòng chống lao ------------------->
+    <div class="ngay_the_gioi_phong_chong_lao">
+        <h1>NGÀY THẾ GIỚI<br>PHÒNG CHỐNG LAO</h1>
+        <div class="date-banner_ngay_the_gioi_phong_chong_lao">
+            <span>24.03.2025</span>
+        </div>
+        <div class="image_ngay_the_gioi_phong_chong_lao">
+            <img src="/hinhanh/banner_the_gioi_phong_chong_lao.png" alt="Hình minh họa phổi">
+        </div>
+        <p class="chu-de_ngay_the_gioi_phong_chong_lao">Việt Nam cam kết, đầu tư, hành động để chấm dứt bệnh lao</p>
+    </div>
+    <!---------------------------Banner ngày thế giới nhận thức về tự kt ------------------->
+    <div class="ngay_nhan_thuc_tu_ky_0204">
+        <div class="text_ngay_nhan_thuc_tu_ky_0204">
+            <h1 class="title_ngay_nhan_thuc_tu_ky_0204">Ngày Thế giới nhận thức về tự kỷ</h1>
+            <h2 class="subtitle_ngay_nhan_thuc_tu_ky_0204">WORLD AUTISM AWARENESS DAY</h2>
+            <img class="image_ngay_nhan_thuc_tu_ky_0204" src="/hinhanh/banner_0204.png" alt="">
+            <div class="date_ngay_nhan_thuc_tu_ky_0204" id="current-date"></div>
+            <p class="thongdiep_ngay_nhan_thuc_tu_ky_0204">YÊU THƯƠNG – THẤU HIỂU – ĐỒNG HÀNH</p>
+            <p class="mirror_thongdiep_ngay_nhan_thuc_tu_ky_0204">YÊU THƯƠNG – THẤU HIỂU – ĐỒNG HÀNH</p>
+        </div>
+        <img class="puzzle_ribbon_ngay_nhan_thuc_tu_ky_0204" src="/hinhanh//banner_0204.2.png" alt="">
+    </div>
+</section>
 
 
 <!--Nội dung -->
