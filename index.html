@@ -13,6 +13,7 @@
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <!-- Thanh điều hướng nằm ngang CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,209 +21,6 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
-<style>
-      .banner_mxh {
-        font-family: Arial, sans-serif;;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-      }
-      .swiper {
-            width: 100%;
-            max-width: 900px;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        .swiper-slide {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Tránh bị vỡ hình ảnh */
-            border-radius: 20px;
-        }
-        .profile-text {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            color: #fff;
-            text-align: right;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-        .swiper-slide-active .profile-text {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .profile-text h2 {
-            font-size: 36px;
-            font-weight: bold;
-        }
-        .profile-text a {
-            display: inline-block;
-            padding: 10px 40px;
-            font-size: 18px;
-            background: #4d128b;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-        }
-        .profile-text a:hover {
-            background: #d81b60;
-        }
-
-        /* Thanh trượt nằm ở phía dưới */
-        .swiper-pagination {
-            position: absolute;
-            bottom: -10px; /* Dịch xuống dưới ảnh */
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .swiper-pagination-progressbar-fill {
-            background: #4d128b; /* Màu thanh chạy */
-        }
-
-        /* Nút chuyển tiếp */
-        .swiper-button-prev, .swiper-button-next {
-            color: #ff9800;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 20%;
-            transition: background 0.3s;
-        }
-        .swiper-button-prev:hover, .swiper-button-next:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-/* Nút điều hướng & h1 thích nghi với màn hình nhỏ */
-@media (max-width: 768px) {
-    .profile-text h2 {
-        font-size: 5vw; /* Co giãn theo màn hình nhỏ */
-    }
-    .profile-text a {
-        font-size: 0.9rem;
-        padding: 6px 20px;
-    }
-    .swiper-button-prev, .swiper-button-next {
-        padding: 10px; /* Giảm kích thước nút điều hướng */
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-    }
-}
-
-/* Cực nhỏ (dưới 480px, điện thoại nhỏ) */
-@media (max-width: 480px) {
-    .profile-text h2 {
-        font-size: 6vw; /* Chữ lớn hơn một chút để dễ đọc */
-    }
-    .swiper-button-prev, .swiper-button-next {
-        width: 10px;
-        height: 20px;
-        padding: 8px;
-    }
-}
-
-/* CSS BANNER NGÀY NHẬN THỨC TỰ KỶ 02/04 DO LỖI */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-.ngay_nhan_thuc_tu_ky_0204 {
-    text-align: center;
-    border-radius: 10px;
-    max-width: 100%;
-}
-.text_ngay_nhan_thuc_tu_ky_0204 {
-    text-align: center;
-    white-space: nowrap;
-}
-.title_ngay_nhan_thuc_tu_ky_0204 {
-    font-size: 40px;
-    color: #ffffff;
-    font-weight: bold;
-    animation: bounce 2s infinite;
-}
-.subtitle_ngay_nhan_thuc_tu_ky_0204 {
-    font-size: 32px;
-    color: rgb(13, 234, 61);
-    padding: 8px;
-    font-weight: bold;
-    transition: transform 0.3s;
-}
-.subtitle_ngay_nhan_thuc_tu_ky_0204:hover {
-    transform: scale(1.1);
-}
-
-.thongdiep_ngay_nhan_thuc_tu_ky_0204 {
-    font-size: 28px;
-    color: rgba(255, 234, 117, 0.984);
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: color 0.3s ease-in-out;
-}
-.thongdiep_ngay_nhan_thuc_tu_ky_0204:hover {
-    color: rgb(217, 255, 140);
-}
-.mirror_thongdiep_ngay_nhan_thuc_tu_ky_0204 {
-    font-size: 28px;
-    color: rgb(217, 255, 140);
-    font-weight: bold;
-    transform: scaleY(-1);
-    opacity: 0.5;
-}
-.puzzle_ribbon_ngay_nhan_thuc_tu_ky_0204 {
-    width: 90px;
-    height: auto;
-    margin-top: 10px;
-    transition: transform 0.5s;
-}
-.puzzle_ribbon_ngay_nhan_thuc_tu_ky_0204:hover {
-    transform: rotate(15deg);
-}
-.image_ngay_nhan_thuc_tu_ky_0204 {
-    width: 220px;
-    animation: fadeIn 1.5s ease-in-out;
-}
-/* RESPONSIVE */
-@media (max-width: 768px) {
-.title_ngay_nhan_thuc_tu_ky_0204 { font-size: 24px; } /* Giảm kích thước H1 */
-.subtitle_ngay_nhan_thuc_tu_ky_0204 { font-size: 20px; } /* Giảm kích thước H2 */
-.thongdiep_ngay_nhan_thuc_tu_ky_0204, 
-.mirror_thongdiep_ngay_nhan_thuc_tu_ky_0204 { font-size: 18px; } /* Giảm kích thước P */
-}
-
-/* Điều chỉnh trên màn hình nhỏ hơn 480px (Điện thoại) */
-@media (max-width: 480px) {
-.ngay_nhan_thuc_tu_ky_0204 {
-flex-wrap: wrap; /* Chuyển thành hàng dọc khi màn hình nhỏ */
-.title_ngay_nhan_thuc_tu_ky_0204 { font-size: 20px; }
-.subtitle_ngay_nhan_thuc_tu_ky_0204 { font-size: 22px; }
-.thongdiep_ngay_nhan_thuc_tu_ky_0204, 
-.mirror_thongdiep_ngay_nhan_thuc_tu_ky_0204 { font-size: 18px; }
-}
-}
-
-</style>
 </head>
 <body>
 <!-- Menu -->   
@@ -343,8 +141,78 @@ flex-wrap: wrap; /* Chuyển thành hàng dọc khi màn hình nhỏ */
         </div>
         <img class="puzzle_ribbon_ngay_nhan_thuc_tu_ky_0204" src="/hinhanh//banner_0204.2.png" alt="">
     </div>
-</section>
+    <!---------------------------Banner ngày thế giới phòng chống sốt rét 25/4 ------------------->
+    <div class="banner_ngay_the_gioi_phong_chong_sot_ret">
+        <h1 class="title_ngay_the_gioi_phong_chong_sot_ret">NGÀY THẾ GIỚI PHÒNG CHỐNG SỐT RÉT</h1>
+        <p class="date_ngay_the_gioi_phong_chong_sot_ret">25/4/2025</p>
+        <img src="/hinhanh/the_gioi_phong_chong_sot_ret.png" class="image_ngay_the_gioi_phong_chong_sot_ret" alt="">
+    </div>
+        <!---------------------------Banner ngày quốc tế lao động ------------------->
+        <div class="banner_ngay_quoc_te_lao_dong_01_05">
+            <h1><span>Kỷ Niệm </span><span id="year-anniversary">139 năm</span></h1> 
+            <h2>Ngày Quốc Tế Lao Động
+            <img src="/hinhanh//banner_quoctelaodong0105.png" alt="" class="logo-banner_phat_sang">
 
+            <span id="time_ngay_quoc_te_lao_dong_01_05">1/5/1886 - 1/5/2025</span></h2>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let currentYear = new Date().getFullYear();
+                let yearsPassed = currentYear - 1886;
+                document.getElementById("year-anniversary").innerText = `139 năm`;  // Thay số năm với giá trị tính được
+                document.getElementById("time_ngay_quoc_te_lao_dong_01_05").innerText = `1/5/1886 - 1/5/${currentYear}`;
+            });
+        </script>
+    </section>
+     <!---------------------------Banner ngày giổ tổ hùng vương ------------------->
+    <section class="ngay_gio_to_hung_vuong">
+        <div class="title_ngay_gio_to_hung_vuong">
+            <h1>GIỖ TỔ</h1>
+            <h2>HÙNG VƯƠNG</h2>
+            <div class="noidung_ngay_gio_to_hung_vuong">
+                <p class="text_ngay_gio_to_hung_vuong">
+                    <span class="line1_ngay_gio_to_hung_vuong">“Dù ai đi ngược về xuôi</span><br>
+                    <span class="line2_ngay_gio_to_hung_vuong">Nhớ ngày Giỗ Tổ mồng mười tháng Ba”</span>
+                </p>
+            </div>
+        </div>
+        </section>
+
+    <!---------------------------Banner ngày giải phóng miền nam thống nhất đất nước ------------------->
+    <section class="banner_giai_phong_mien_nam_30-4">
+        <div class="overlay"></div>
+        <div class="noidung_giai_phong_mien_nam_30-4">
+            <div class="title_giai_phong_mien_nam_30-4">KỶ NIỆM</div>
+            <img src="/hinhanh/ngaygiaiphongmiennam30-4.2.png" alt="" class="logo-banner_phat_sang">
+                  <h2>NGÀY GIẢI PHÓNG MIỀN NAM<br>THỐNG NHẤT ĐẤT NƯỚC</h2>
+                  <p class="time_giai_phong_mien_nam_30-4">30/4/1975 - 30/4/2025</p>
+        </div>
+      </section>
+      <script>
+        function launchConfettiInSection() {
+            const section = document.querySelector(".banner_giai_phong_mien_nam_30-4");
+            if (!section) return;
+      
+            setInterval(() => {
+                const rect = section.getBoundingClientRect(); // Lấy vị trí section trên màn hình
+                const x = (rect.left + rect.right) / 2 / window.innerWidth; // Xác định vị trí ngang trong section
+                const y = (rect.top + rect.bottom) / 2 / window.innerHeight; // Xác định vị trí dọc trong section
+      
+                confetti({
+                    particleCount: 7, // Số lượng hạt pháo mỗi lần bắn
+                    spread: 180, // Phạm vi bắn rộng nhưng chỉ trong section
+                    startVelocity: 30, // Tốc độ hạt pháo
+                    origin: { x, y }, // Chỉ nổ trong phạm vi section
+                    colors: ['#ffcc00', '#ff0000', '#00ff00', '#ff6600', '#00ccff'], // Màu sắc pháo hoa
+                    gravity: 0.8, // Giảm tốc độ rơi
+                    scalar: 1.2 // Tăng kích thước hạt pháo
+                });
+            }, 600); // Bắn pháo hoa mỗi 600ms
+        }
+      
+        // Kích hoạt pháo hoa khi trang tải xong
+        window.onload = launchConfettiInSection;
+      </script>
 
 <!--Nội dung -->
   <section class="banner_mxh">

@@ -1,20 +1,49 @@
-// Chuyển đổi Menu
-document.getElementById("menu-bar").addEventListener("click", function () {
-    this.classList.toggle("active");
-    document.getElementById("side-nav").classList.toggle("active");
-});
+document.addEventListener("DOMContentLoaded", function () {
+    // Chuyển đổi Menu
+    const menuBar = document.getElementById("menu-bar");
+    const sideNav = document.getElementById("side-nav");
 
-// Thay đổi màu nền khi cuộn
-const toP = document.querySelector(".top");
-window.addEventListener("scroll", function () {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (menuBar && sideNav) {
+        menuBar.addEventListener("click", function () {
+            this.classList.toggle("active");
+            sideNav.classList.toggle("active");
+        });
+    }
 
-    if (scrollTop > 300) {
-        toP.classList.add("active"); // Thêm màu nền
-    } else {
-        toP.classList.remove("active");
+    // Thay đổi màu nền khi cuộn
+    const toP = document.querySelector(".top");
+    if (toP) {
+        window.addEventListener("scroll", function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            toP.classList.toggle("active", scrollTop > 300);
+        });
     }
 });
+
+// Hiệu ứng pháo hoa
+function launchConfettiInSection() {
+    const section = document.querySelector(".banner_giai_phong_mien_nam_30-4");
+    if (!section) return;
+
+    setInterval(() => {
+        const rect = section.getBoundingClientRect();
+        const x = (rect.left + rect.right) / 2 / window.innerWidth;
+        const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
+
+        confetti({
+            particleCount: 7,
+            spread: 180,
+            startVelocity: 30,
+            origin: { x, y },
+            colors: ['#ffcc00', '#ff0000', '#00ff00', '#ff6600', '#00ccff'],
+            gravity: 0.8,
+            scalar: 1.2
+        });
+    }, 600);
+}
+
+// Kích hoạt pháo hoa khi trang tải xong
+window.addEventListener("load", launchConfettiInSection);
 // Tự động đóng menu trên thiết bị di động
 document.querySelectorAll('.side-nav a').forEach(link => {
     link.addEventListener('click', () => {

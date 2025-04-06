@@ -214,6 +214,8 @@ a {
     right: 0;
     background-color: #190642;
     border-top: 2px solid #ddd;
+    z-index: 1000;
+
 }
 
 .menu-namngang {
@@ -255,6 +257,7 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+    z-index: 1000;
 }
 .footer-content {
     display: flex;
@@ -471,3 +474,120 @@ footer {
             background-color: #00bfff;
             margin: 20px auto 0;
         }
+
+
+        .banner_mxh {
+            font-family: Arial, sans-serif;;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+          }
+          .swiper {
+                width: 100%;
+                max-width: 900px;
+                border-radius: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+            .swiper-slide {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .profile-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Tránh bị vỡ hình ảnh */
+                border-radius: 20px;
+            }
+            .profile-text {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                color: #fff;
+                text-align: right;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.5s ease;
+            }
+            .swiper-slide-active .profile-text {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .profile-text h2 {
+                font-size: 36px;
+                font-weight: bold;
+            }
+            .profile-text a {
+                display: inline-block;
+                padding: 10px 40px;
+                font-size: 18px;
+                background: #4d128b;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                transition: background 0.3s;
+            }
+            .profile-text a:hover {
+                background: #d81b60;
+            }
+    
+            /* Thanh trượt nằm ở phía dưới */
+            .swiper-pagination {
+                position: absolute;
+                bottom: -10px; /* Dịch xuống dưới ảnh */
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            .swiper-pagination-progressbar-fill {
+                background: #4d128b; /* Màu thanh chạy */
+            }
+    
+            /* Nút chuyển tiếp */
+            .swiper-button-prev, .swiper-button-next {
+                color: #ff9800;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 20px;
+                border-radius: 20%;
+                transition: background 0.3s;
+            }
+            .swiper-button-prev:hover, .swiper-button-next:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+    
+    /* Nút điều hướng & h1 thích nghi với màn hình nhỏ */
+    @media (max-width: 768px) {
+        .profile-text h2 {
+            font-size: 5vw; /* Co giãn theo màn hình nhỏ */
+        }
+        .profile-text a {
+            font-size: 0.9rem;
+            padding: 6px 20px;
+        }
+        .swiper-button-prev, .swiper-button-next {
+            padding: 10px; /* Giảm kích thước nút điều hướng */
+            width: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+    }
+    
+    /* Cực nhỏ (dưới 480px, điện thoại nhỏ) */
+    @media (max-width: 480px) {
+        .profile-text h2 {
+            font-size: 6vw; /* Chữ lớn hơn một chút để dễ đọc */
+        }
+        .swiper-button-prev, .swiper-button-next {
+            width: 10px;
+            height: 20px;
+            padding: 8px;
+        }
+    }
+    
