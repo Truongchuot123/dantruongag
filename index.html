@@ -214,6 +214,268 @@
         window.onload = launchConfettiInSection;
       </script>
 
+    <!---------------------------Banner kỉ niệm chiến thắng Điện Biên Phủ  ------------------->
+    <section class="banner_chien_thang_dien_bien_phu">
+        <div class="noidung_chien_thang_dien_bien_phu">
+            <div class="title_chien_thang_dien_bien_phu">KỶ NIỆMv</div>
+                  <h2>CHIẾN THẮNG ĐIỆN BIÊN PHỦ</h2>
+                  <p class="time_chien_thang_dien_bien_phu">07/05/1954 - 07/05/2025</p>
+        </div>
+      </section>
+
+    <!---------------------------Banner ngày sinh chủ tịch HỒ CHÍ MINH  ------------------->
+      <section class="banner_ngay_sinh_chu_tich_HCM_1905">
+        <div class="noidung_ngay_sinh_chu_tich_HCM_1905">
+            <div class="title_ngay_sinh_chu_tich_HCM_1905">KỶ NIỆMv</div>
+                  <h2>NGÀY SINH CHỦ TỊCH HỒ CHÍ MINH</h2>
+                  <p class="time_ngay_sinh_chu_tich_HCM_1905">19/05/1890 - 19/05/2025</p>
+        </div>
+      </section>
+    <!---------------------------Banner ngày thế giới không hút thuốc lá  ------------------->
+      <section class="banner_ngay_the_gioi_khong_hut_thuoc_la_3105">
+        <div class="noidung_ngay_the_gioi_khong_hut_thuoc_la_3105">
+            <div class="title_ngay_the_gioi_khong_hut_thuoc_la_3105">HƯỞNG ỨNG</div>
+                  <h1>NGÀY THẾ GIỚI KHÔNG HÚT THUỐC LÁ</h1>
+                  <h2>"Bảo vệ trẻ em trước những tác động của ngành công nghiệp thuốc lá"</h2>
+        </div>
+      </section>
+    <!---------------------------Banner ngày quốc tế thiếu nhi ------------------->
+      <section class="banner_ngay_quoc_te_thieu_nhi_0106">
+        <div class="noidung_ngay_quoc_te_thieu_nhi_0106">
+            <div class="title_ngay_quoc_te_thieu_nhi_0106">CHÀO MỪNG</div>
+                  <h1>NGÀY QUỐC TẾ THIẾU NHI</h1>
+                  <h2>1-6</h2>
+        </div>
+      </section>
+    <!---------------------------Banner ngày môi trương thế giới ------------------->
+      <section class="banner_ngay_moi_truong_the_gioi_0506">
+        <div class="noidung_ngay_moi_truong_the_gioi_0506">
+            <div class="title_ngay_moi_truong_the_gioi_0506">CHÀO MỪNG</div>
+                  <h1>NGÀY MÔI TRƯỜNG THẾ GIỚI</h1>
+                  <h2>5-6</h2>
+        </div>
+      </section>
+    <!---------------------------Banner ngày gia đình Việt Nam ------------------->
+      <section class="banner_ngay_gia-dinh_viet_nam_2806">
+        <div class="noidung_ngay_gia-dinh_viet_nam_2806">
+            <div class="title_ngay_gia-dinh_viet_nam_2806">CHÀO MỪNG</div>
+                  <h1>NGÀY GIA ĐÌNH VIỆT NAM</h1>
+                  <h2>5-6</h2>
+        </div>
+      </section>
+
+    <!---------------------------Banner ngày sinh nhật ------------------->
+        <section class="banner_ngay_sinh_nhat_1807">
+            <div class="noidung_ngay_sinh_nhat_1807">
+                <img src="/hinhanh/Trang chủ/HAPPY BIRTHDAY.png" alt="Happy Birthday" class="ing_happybirthday" />
+                <div class="text_ngay_sinh_nhat_1807">ĐAN TRƯỜNG</div>
+                <div class="date_ngay_sinh_nhat_1807">18 - 07 - 2025</div>
+                <!-- NÚT GỬI LỜI CHÚC -->
+                <button id="nut_form_gui_loi_chuc">
+                    💌 Gửi lời chúc
+                </button>
+
+
+                <!-- FORM lời chúc có hiệu ứng xổ xuống -->
+                <div id="form_gui_loi_chuc" style="overflow: hidden; max-height: 0; display: none; transition: max-height 0.5s ease;">
+                    <div class="card_form_gui_loi_chuc">
+                        <div class="title_form_gui_loi_chuc">
+                            <img src="/hinhanh/Trang chủ//HAPPY BIRTHDAY.2.png" alt="Happy Birthday" />
+                        </div>
+                        <div class="noidung_loi_chuc"><textarea placeholder="Nhập lời chúc tại đây"></textarea></div>                  
+                        <!-- NÚT GỬI-->
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button id="nut_gui_loi_chuc" style="padding: 10px 25px; background-color: #ffd700; border: none; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">
+                                💌 Gửi lời chúc
+                            </button>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            <!-- Nhạc nền -->
+            <audio id="birthdayMusic" autoplay loop style="display: none">
+                <source src="/happybirthday.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        </section>   
+            
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const targetSelector = '.banner_ngay_sinh_nhat_1807';
+        
+                const initScript = () => {
+                    const bannerSection = document.querySelector(targetSelector);
+                    if (!bannerSection || bannerSection.offsetParent === null) return;
+        
+                    observer.disconnect(); // Ngắt sau khi đã thấy banner
+        
+                    const nut_form_gui_loi_chuc = document.getElementById('nut_form_gui_loi_chuc');
+                    const form = document.getElementById('form_gui_loi_chuc');
+                    const textarea = form.querySelector('textarea');
+                    const submitBtn = document.getElementById('nut_gui_loi_chuc');
+                    const music = document.getElementById('birthdayMusic');
+        
+                    textarea.addEventListener('input', () => {
+                        textarea.style.height = 'auto';
+                        textarea.style.height = `${textarea.scrollHeight}px`;
+                    });
+        
+                    nut_form_gui_loi_chuc.addEventListener('click', () => {
+                        const isOpen = form.style.maxHeight !== '0px' && form.style.maxHeight !== '';
+                        form.style.maxHeight = isOpen ? '0px' : '800px';
+                        if (!isOpen) form.style.display = 'block';
+                        else setTimeout(() => form.style.display = 'none', 500);
+                    });
+        
+                    submitBtn.addEventListener('click', () => {
+                        const message = textarea.value.trim();
+                        if (message === '') {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Oops...',
+                                text: 'Bạn chưa nhập lời chúc!',
+                                confirmButtonText: 'OK'
+                            });
+                            return;
+                        }
+        
+                        fetch("https://script.google.com/macros/s/AKfycbxPan-KQDfgVodlpBL06ZjkSrIKUTgS3syVxJCZ67JhJaMktXfjz_99c6WptPuzjzLN_g/exec", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/x-www-form-urlencoded",
+                            },
+                            body: `wish=${encodeURIComponent(message)}`
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "🎉 Gửi lời chúc thành công!",
+                                    text: "Lời chúc của bạn đã được lưu 💖"
+                                }).then(() => {
+                                    form.style.maxHeight = '0px';
+                                    setTimeout(() => form.style.display = 'none', 500);
+                                });
+        
+                                textarea.value = '';
+                                textarea.style.height = 'auto';
+                            } else {
+                                Swal.fire("Oops", data.message || "Đã xảy ra lỗi!", "error");
+                            }
+                        })
+                        .catch(() => {
+                            Swal.fire("Lỗi", "Không thể gửi lời chúc. Vui lòng thử lại.", "error");
+                        });
+                    });
+        
+                    // ✅ Chỉ phát nhạc nếu banner thực sự đang hiển thị
+                    const playPromise = music.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(() => {
+                            document.addEventListener('click', () => music.play(), { once: true });
+                        });
+                    }
+        
+                    // 🎈 Hiệu ứng bóng bay
+                    function createBalloon() {
+                        const balloon = document.createElement('div');
+                        balloon.className = 'balloon';
+                        balloon.style.left = `${5 + Math.random() * 90}%`;
+                        balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                        balloon.style.animationDuration = `${6 + Math.random() * 6}s`;
+        
+                        balloon.addEventListener('click', () => popBalloon(balloon));
+                        document.body.appendChild(balloon);
+                        setTimeout(() => balloon.remove(), 10000);
+                    }
+        
+                    function popBalloon(balloon) {
+                        const rect = balloon.getBoundingClientRect();
+                        const burst = document.createElement('div');
+                        burst.className = 'burst';
+                        burst.style.left = `${rect.left + rect.width / 2}px`;
+                        burst.style.top = `${rect.top + rect.height / 2}px`;
+        
+                        document.body.appendChild(burst);
+                        balloon.style.transition = 'transform 0.2s, opacity 0.2s';
+                        balloon.style.transform = 'scale(1.5)';
+                        balloon.style.opacity = 0;
+        
+                        setTimeout(() => {
+                            balloon.remove();
+                            burst.remove();
+                        }, 500);
+                    }
+        
+                    setInterval(createBalloon, 500);
+                };
+        
+                // ❌ Không gọi initScript() trực tiếp ở đây nữa
+                // ✅ Chỉ dùng observer để chắc chắn banner đã hiển thị
+        
+                const observer = new MutationObserver(() => {
+                    const section = document.querySelector(targetSelector);
+                    if (section && section.offsetParent !== null) {
+                        initScript(); // Gọi script đúng thời điểm
+                    }
+                });
+        
+                observer.observe(document.body, { childList: true, subtree: true });
+            });
+        </script>
+        
+        
+
+    <!---------------------------Banner ngày cách mạng tháng tám thành công ------------------->
+        <section class="banner_ngay_cach_mang_thang_tam">
+            <div class="noidung_ngay_cach_mang_thang_tam">
+                <div class="title_ngay_cach_mang_thang_tam">KỈ NIỆM</div>
+                    <h1>NGÀY CÁCH MẠNG THÁNG TÁM THÀNH CÔNG</h1>
+                    <h2>19/8/1945 - 19/8/2025</h2>
+            </div>
+        </section> 
+
+    <!---------------------------Banner ngày quốc khánh ------------------->
+        <section class="banner_ngay_quoc_khanh">
+            <div class="noidung_ngay_quoc_khanh">
+                <div class="title_ngay_quoc_khanh">KỈ NIỆM </div>
+                    <h1>QUỐC KHÁNH NƯỚC CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h1>
+                    <h2>2/9/1945 - 2/9/2025</h2>
+            </div>
+        </section> 
+    <!---------------------------Banner ngày phụ nữ Việt Nam ------------------->
+        <section class="banner_ngay_phu_nu_viet_nam_2010">
+            <div class="noidung_ngay_phu_nu_viet_nam_2010">
+                <div class="title_ngay_phu_nu_viet_nam_2010">CHÀO MỪNG </div>
+                      <h1>NGÀY PHỤ NỮ VIỆT NAM</h1>
+                      <h2>20-10</h2>
+            </div>
+        </section> 
+
+    <!---------------------------Banner Halloween------------>  
+    <section class="banner_halloween">
+    </section>
+
+    <!---------------------------Banner ngày nhà giáo Việt Nam------------>  
+    <section class="banner_ngay_nha_giao_viet_nam">
+        <div class="noidung_ngay_nha_giao_viet_nam">
+            <div class="title_ngay_nha_giao_viet_nam">CHÀO MỪNG </div>
+                  <h1>NGÀY NHÀ GIÁO VIỆT NAM</h1>
+                  <h2>20-11</h2>
+        </div>
+    </section> 
+
+    <!---------------------------Banner ngày the gioi phong chong HIV/AIDS------------>  
+    <section class="banner_ngay_the_gioi_phong_chong_HIV_AIDS">
+        <div class="noidung_ngay_the_gioi_phong_chong_HIV_AIDS">
+                  <h1>NGÀY THẾ GIỚI PHÒNG CHỐNG</h1>
+                  <img src="/hinhanh/Trang chủ/Picture1.png" alt="">
+                  <h2>01-12</h2>
+        </div>
+    </section> 
+
 <!--Nội dung -->
   <section class="banner_mxh">
       <div class="swiper">

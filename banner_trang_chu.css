@@ -564,12 +564,12 @@ flex-wrap: wrap; /* Chuyển thành hàng dọc khi màn hình nhỏ */
         @media (max-width: 1024px) {
             .ngay_gio_to_hung_vuong {
                 display: flex;
-                justify-content: center; /* Centers content horizontally */
-                align-items: center; /* Centers content vertically */
+                justify-content: center; 
+                align-items: center; 
                 position: relative;
                 background: url('/hinhanh/giotohungvuong.3.png.jpg') no-repeat center center;
                 background-size: cover;
-                height: 100vh; /* Ensure the container has a height (full viewport height in this case) */
+                height: 100vh; 
             }
             
             .ngay_gio_to_hung_vuong::before {
@@ -608,12 +608,12 @@ flex-wrap: wrap; /* Chuyển thành hàng dọc khi màn hình nhỏ */
         @media (max-width: 760px) {
             .ngay_gio_to_hung_vuong {
                 display: flex;
-                justify-content: center; /* Centers content horizontally */
-                align-items: center; /* Centers content vertically */
+                justify-content: center; 
+                align-items: center; 
                 position: relative;
                 background: url('/hinhanh/giotohungvuong.3.png.jpg') no-repeat center center;
                 background-size: cover;
-                height: 100vh; /* Ensure the container has a height (full viewport height in this case) */
+                height: 100vh; 
             }
             
             .ngay_gio_to_hung_vuong::before {
@@ -654,7 +654,7 @@ flex-wrap: wrap; /* Chuyển thành hàng dọc khi màn hình nhỏ */
 .banner_giai_phong_mien_nam_30-4 {
     position: relative;
     font-family: 'Arial', sans-serif;
-    min-height: 70vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -672,17 +672,17 @@ flex-wrap: wrap; /* Chuyển thành hàng dọc khi màn hình nhỏ */
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Điều chỉnh độ tối, 0.5 là mức trung bình */
-    z-index: 1; /* Giữ lớp phủ dưới nội dung */
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
 }
 
 .title_giai_phong_mien_nam_30-4 {
 position: absolute;
-top: 40px; /* Điều chỉnh vị trí dọc */
+top: 25vh;
 left: 30%; /* Điều chỉnh vị trí ngang */
 font-family: 'iCiel Helena', sans-serif;
 font-size: 48px;
-color: #fae422; /* Màu xanh đậm */
+color: #fae422; 
 font-weight: bold;
 }
 
@@ -695,7 +695,7 @@ font-weight: bold;
 position: relative;
 z-index: 2; /* Đảm bảo nội dung hiển thị trên overlay */
 text-align: center;
-padding-top: 80px;
+padding-top: 30vh;
 font-weight: bold;
 opacity: 0; /* Ẩn chữ lúc đầu */
 animation: fadeIn 1.5s ease-out forwards;
@@ -721,7 +721,7 @@ animation: fadeIn 1.5s ease-out forwards;
     50% { transform: translateY(-5px); }
 }
 
-/* Hiệu ứng phóng to khi hover */
+
 .logo-banner_phat_sang:hover {
     transform: scale(1.1) rotate(3deg);
 }
@@ -756,12 +756,12 @@ font-size: 50px;
 @media (max-width: 768px) {
 .banner_giai_phong_mien_nam_30-4 {
 display: flex;
-justify-content: center; /* Centers content horizontally */
-align-items: center; /* Centers content vertically */
+justify-content: center; 
+align-items: center; 
 position: relative;
-background: url('/hinhanh/background-giotohungvuong-mobile.png') no-repeat center center;
+background: url('/hinhanh/banner_ngay_giai_phong_mien_nam_mobile.png') no-repeat center center;
 background-size: cover;
-height: 100vh; /* Ensure the container has a height (full viewport height in this case) */
+height: 100vh; 
 }
 .noidung_giai_phong_mien_nam_30-4 {
     margin-top: 70px;
@@ -854,5 +854,1397 @@ font-size: 25px;
 @media (max-width: 760px) {
     .banner_ngay_quoc_te_lao_dong_01_05 h2 {
         font-size: 1.5em;
+    }
+}
+
+
+/* Banner chiến thắng Điện Biên Phủ */
+    .banner_chien_thang_dien_bien_phu {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh//banner_chien_thang_dien_bien_phu_0705.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_chien_thang_dien_bien_phu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+}
+
+.title_chien_thang_dien_bien_phu {
+font-family: 'iCiel Helena', sans-serif;
+font-size: 48px;
+color: #ff8e90;
+font-weight: bold;
+}
+
+@keyframes fadeIn {
+0% { opacity: 0; transform: translateY(20px); }
+100% { opacity: 1; transform: translateY(0); }
+}
+
+.noidung_chien_thang_dien_bien_phu {
+position: relative;
+z-index: 2; /* Đảm bảo nội dung hiển thị trên overlay */
+text-align: center;
+padding-top: 35vh;
+font-weight: bold;
+opacity: 0; /* Ẩn chữ lúc đầu */
+animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Hiệu ứng phát sáng nhẹ */
+@keyframes pulseGlow {
+    0% { filter: drop-shadow(0 0 5px rgba(255, 255, 253, 0.5)); }
+    100% { filter: drop-shadow(0 0 15px rgb(241, 241, 241)); }
+}
+
+/* Hiệu ứng rung nhẹ */
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.noidung_chien_thang_dien_bien_phu h2 {
+color: aliceblue;
+font-size: 50px;
+}
+.time_chien_thang_dien_bien_phu {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffcc00; /* Màu vàng nổi bật */
+    text-shadow: 0 0 10px #ef5858, 0 0 20px #ff6600, 0 0 30px #ffcc00;
+    animation: glow 1.5s infinite alternate, floatText 3s infinite ease-in-out;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Hiệu ứng nhấp nháy ánh sáng */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ff6600, 0 0 15px #ff0000; }
+    100% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff6600, 0 0 30px #ff0000; }
+}
+
+/* Hiệu ứng chữ trôi nhẹ lên xuống */
+@keyframes floatText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+
+@media (max-width: 1200px) {
+.banner_chien_thang_dien_bien_phu {
+display: flex;
+justify-content: center; 
+align-items: center; 
+position: relative;
+background: url('/hinhanh/banner_chien_thang_dien_bien_phu_0705_mobile.png') no-repeat center center;
+background-size: cover;
+height: 100vh; 
+}
+.noidung_chien_thang_dien_bien_phu {
+    margin-top: 35vh;
+}
+.title_chien_thang_dien_bien_phu {
+    left: 10%; /* Điều chỉnh vị trí ngang */
+    font-size: 40px;
+}
+.noidung_chien_thang_dien_bien_phu h2 {
+color: aliceblue;
+font-size: 25px;
+}
+}
+
+
+/* CSS NGÀY SINH CHỦ TỊCH HỒ CHÍ MINH */
+.banner_ngay_sinh_chu_tich_HCM_1905 {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/banner_ngay_sinh_chu_tich_HCM_1905.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_sinh_chu_tich_HCM_1905::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+}
+
+.title_ngay_sinh_chu_tich_HCM_1905 {
+font-family: 'iCiel Helena', sans-serif;
+text-align: center;
+font-size: 48px;
+color: #ff8e90; 
+font-weight: bold;
+}
+
+@keyframes fadeIn {
+0% { opacity: 0; transform: translateY(20px); }
+100% { opacity: 1; transform: translateY(0); }
+}
+
+.noidung_ngay_sinh_chu_tich_HCM_1905 {
+position: relative;
+z-index: 2; /* Đảm bảo nội dung hiển thị trên overlay */
+text-align: center;
+padding-top: 80px;
+font-weight: bold;
+opacity: 0; /* Ẩn chữ lúc đầu */
+animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Hiệu ứng phát sáng nhẹ */
+@keyframes pulseGlow {
+    0% { filter: drop-shadow(0 0 5px rgba(255, 255, 253, 0.5)); }
+    100% { filter: drop-shadow(0 0 15px rgb(241, 241, 241)); }
+}
+
+/* Hiệu ứng rung nhẹ */
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+
+
+.noidung_ngay_sinh_chu_tich_HCM_1905 h2 {
+color: aliceblue;
+font-size: 50px;
+}
+.time_ngay_sinh_chu_tich_HCM_1905 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffcc00; /* Màu vàng nổi bật */
+    text-shadow: 0 0 10px #ef5858, 0 0 20px #ff6600, 0 0 30px #ffcc00;
+    animation: glow 1.5s infinite alternate, floatText 3s infinite ease-in-out;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Hiệu ứng nhấp nháy ánh sáng */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ff6600, 0 0 15px #ff0000; }
+    100% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff6600, 0 0 30px #ff0000; }
+}
+
+/* Hiệu ứng chữ trôi nhẹ lên xuống */
+@keyframes floatText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+
+@media (max-width: 1200px) {
+.banner_ngay_sinh_chu_tich_HCM_1905 {
+display: flex;
+justify-content: center; 
+align-items: center; 
+position: relative;
+background: url('/hinhanh/banner_ngay_sinh_chu_tich_HCM_1905_mobile.png') no-repeat center center;
+background-size: cover;
+height: 100vh; 
+}
+.noidung_ngay_sinh_chu_tich_HCM_1905 {
+    margin-top: 35vh;
+}
+.title_ngay_sinh_chu_tich_HCM_1905 {
+    left: 10%; /* Điều chỉnh vị trí ngang */
+    font-size: 40px;
+}
+.noidung_ngay_sinh_chu_tich_HCM_1905 h2 {
+color: aliceblue;
+font-size: 25px;
+}
+}
+
+
+
+/* CSS NGAY THE GIOI KHÔNG HÚT THUỐC LÁ */
+.banner_ngay_the_gioi_khong_hut_thuoc_la_3105 {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/banner_ngay_the_gioi_khong_hut_thuoc_la.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_the_gioi_khong_hut_thuoc_la_3105::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Điều chỉnh độ tối, 0.5 là mức trung bình */
+    z-index: 1; /* Giữ lớp phủ dưới nội dung */
+}
+
+.title_ngay_the_gioi_khong_hut_thuoc_la_3105 {
+font-family: 'iCiel Helena', sans-serif;
+text-align: center;
+font-size: 48px;
+color: #ff8e90; 
+font-weight: bold;
+}
+
+@keyframes fadeIn {
+0% { opacity: 0; transform: translateY(20px); }
+100% { opacity: 1; transform: translateY(0); }
+}
+
+.noidung_ngay_the_gioi_khong_hut_thuoc_la_3105 {
+position: relative;
+z-index: 2; /* Đảm bảo nội dung hiển thị trên overlay */
+text-align: center;
+padding-top: 30vh;
+font-weight: bold;
+opacity: 0; /* Ẩn chữ lúc đầu */
+animation: fadeIn 1.5s ease-out forwards;
+}
+
+.noidung_ngay_the_gioi_khong_hut_thuoc_la_3105 h1 {
+color: aliceblue;
+font-size: 50px;
+}
+.noidung_ngay_the_gioi_khong_hut_thuoc_la_3105 h2 {
+    color: #c79cff;
+    font-size: 28px;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+@media (max-width: 1200px) {
+.banner_ngay_the_gioi_khong_hut_thuoc_la_3105 {
+display: flex;
+justify-content: center; 
+align-items: center; 
+position: relative;
+background: url('/hinhanh/banner_ngay_the_gioi_khong_hut_thuoc_la_mobile.png') no-repeat center center;
+background-size: cover;
+height: 100vh; 
+}
+.noidung_ngay_the_gioi_khong_hut_thuoc_la_3105 {
+    margin-top: 35vh;
+}
+.title_ngay_the_gioi_khong_hut_thuoc_la_3105 {
+    left: 10%; /* Điều chỉnh vị trí ngang */
+    font-size: 40px;
+}
+.noidung_ngay_the_gioi_khong_hut_thuoc_la_3105 h1 {
+color: aliceblue;
+font-size: 25px;
+}
+.noidung_ngay_the_gioi_khong_hut_thuoc_la_3105 h2 {
+    font-size: 18px;
+    padding: 0 15px;
+}
+}
+
+/* CSS NGÀY QUỐC TẾ THIẾU NHI */
+.banner_ngay_quoc_te_thieu_nhi_0106 {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/banner_ngay_quoc_te_thieu_nhi.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_quoc_te_thieu_nhi_0106::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_quoc_te_thieu_nhi_0106 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 35px;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.title_ngay_quoc_te_thieu_nhi_0106 {
+    font-family: 'iCiel Helena', cursive;
+    text-align: center;
+    font-size: 56px;
+    color: #ffcc00;
+    font-weight: 900;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1.2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+.noidung_ngay_quoc_te_thieu_nhi_0106 h1 {
+    color: #ffffff;
+    font-size: 42px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.noidung_ngay_quoc_te_thieu_nhi_0106 h2 {
+color: #fff44f;
+font-size: 72px; /* tăng kích thước */
+font-weight: 900;
+opacity: 0;
+text-shadow:
+    0 0 10px rgba(255, 255, 100, 0.7),
+    0 0 20px rgba(255, 255, 100, 0.9),
+    0 0 30px rgba(255, 200, 0, 0.5); /* hiệu ứng glow thêm */
+margin-top: 20px;
+font-family: 'Comic Neue', cursive;
+letter-spacing: 4px; /* tăng khoảng cách giữa các ký tự */
+animation: fadeIn 1.5s ease-out forwards, blink 1s 1.5s infinite;
+}
+
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 1200px) {
+    .banner_ngay_quoc_te_thieu_nhi_0106 {
+        background: url('/hinhanh/banner_ngay_quoc_te_thieu_nhi_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .noidung_ngay_quoc_te_thieu_nhi_0106 {
+        margin-top: 35vh;
+    }
+
+    .title_ngay_quoc_te_thieu_nhi_0106 {
+        font-size: 40px;
+    }
+
+    .noidung_ngay_quoc_te_thieu_nhi_0106 h1 {
+        font-size: 28px;
+    }
+}
+
+/* CSS NGÀY MÔI TRƯỜNG THẾ GIỚI*/
+
+.banner_ngay_moi_truong_the_gioi_0506 {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/banner_ngay_moi_truong_the_gioi.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_moi_truong_the_gioi_0506::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_moi_truong_the_gioi_0506 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 35vh;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.title_ngay_moi_truong_the_gioi_0506 {
+    font-family: 'iCiel Helena', cursive;
+    text-align: center;
+    font-size: 56px;
+    color: #ffcc00;
+    font-weight: 900;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1.2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+.noidung_ngay_moi_truong_the_gioi_0506 h1 {
+    color: #ffffff;
+    font-size: 42px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.noidung_ngay_moi_truong_the_gioi_0506 h2 {
+color: #fff44f;
+font-size: 72px; /* tăng kích thước */
+font-weight: 900;
+opacity: 0;
+text-shadow:
+    0 0 10px rgba(255, 255, 100, 0.7),
+    0 0 20px rgba(255, 255, 100, 0.9),
+    0 0 30px rgba(255, 200, 0, 0.5); /* hiệu ứng glow thêm */
+margin-top: 20px;
+font-family: 'Comic Neue', cursive;
+letter-spacing: 4px; /* tăng khoảng cách giữa các ký tự */
+animation: fadeIn 1.5s ease-out forwards, blink 1s 1.5s infinite;
+}
+
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1200px) {
+    .banner_ngay_moi_truong_the_gioi_0506 {
+        background: url('/hinhanh/banner_ngay_moi_truong_the_gioi_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .noidung_ngay_moi_truong_the_gioi_0506 {
+        margin-top: 35vh;
+    }
+
+    .title_ngay_moi_truong_the_gioi_0506 {
+        font-size: 40px;
+    }
+
+    .noidung_ngay_moi_truong_the_gioi_0506 h1 {
+        font-size: 28px;
+    }
+}
+/* CSS NGÀY GIA ĐÌNH VIỆT NAM*/
+.banner_ngay_gia-dinh_viet_nam_2806 {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/ngaygiadinhvietnam_2806.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_gia-dinh_viet_nam_2806::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_gia-dinh_viet_nam_2806 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 35vh;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.title_ngay_gia-dinh_viet_nam_2806 {
+    font-family: 'iCiel Helena', cursive;
+    text-align: center;
+    font-size: 56px;
+    color: #ffcc00;
+    font-weight: 900;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1.2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+.noidung_ngay_gia-dinh_viet_nam_2806 h1 {
+    color: #ffffff;
+    font-size: 42px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.noidung_ngay_gia-dinh_viet_nam_2806 h2 {
+color: #fff44f;
+font-size: 72px; /* tăng kích thước */
+font-weight: 900;
+opacity: 0;
+text-shadow:
+    0 0 10px rgba(255, 255, 100, 0.7),
+    0 0 20px rgba(255, 255, 100, 0.9),
+    0 0 30px rgba(255, 200, 0, 0.5); /* hiệu ứng glow thêm */
+margin-top: 20px;
+font-family: 'Comic Neue', cursive;
+letter-spacing: 4px; /* tăng khoảng cách giữa các ký tự */
+animation: fadeIn 1.5s ease-out forwards, blink 1s 1.5s infinite;
+}
+
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 1200px) {
+    .banner_ngay_gia-dinh_viet_nam_2806 {
+        background: url('/hinhanh/ngaygiadinhvietnam_2806_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .noidung_ngay_gia-dinh_viet_nam_2806 {
+        margin-top: 35vh;
+    }
+
+    .title_ngay_gia-dinh_viet_nam_2806 {
+        font-size: 40px;
+    }
+
+    .noidung_ngay_gia-dinh_viet_nam_2806 h1 {
+        font-size: 28px;
+    }
+}
+
+
+/* CSS BANNER SINH NHẬT */
+.banner_ngay_sinh_nhat_1807 {
+    position: relative;
+font-family: 'Arial', sans-serif;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+background: url('/hinhanh//banner_ngay_sinh_nhat_1807.png') no-repeat center center;
+background-size: cover;
+z-index: 1;
+transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_sinh_nhat_1807::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_sinh_nhat_1807 {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.ing_happybirthday {
+    width: 300px;
+    display: block;
+    animation: bounce 2s infinite;
+    filter: drop-shadow(0 0 10px gold);
+}
+
+.text_ngay_sinh_nhat_1807 {
+    margin-top: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 8px #000;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.date_ngay_sinh_nhat_1807 {
+    font-size: 2rem;
+    color: #ffd700;
+    text-shadow: 1px 1px 5px #000;
+    margin-top: 10px;
+    animation: fadeIn 2s ease-in-out 0.5s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Bong bóng */
+.balloon {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background-color: red;
+    border-radius: 50% 50% 45% 45%;
+    animation: float 8s linear infinite;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #555;
+    transform: translateX(-50%);
+}
+
+@keyframes float {
+    0% { bottom: -100px; opacity: 0; }
+    10% { opacity: 1; }
+    100% { bottom: 110%; transform: translateX(50px); opacity: 0; }
+}
+
+/* Hiệu ứng nổ */
+.burst {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, yellow, red);
+    animation: burstEffect 0.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 4;
+}
+
+@keyframes burstEffect {
+    0% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+
+.form_gui_loi_chuc {
+    z-index: 5;
+}
+.card_form_gui_loi_chuc {
+width: 100%;
+max-width: 2000px;
+background: #fff;
+border-radius: 20px;
+}
+#form_gui_loi_chuc .card_form_gui_loi_chuc {
+box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 215, 0, 0.5);
+background: linear-gradient(to bottom right, #d8d8d8, #cccccc);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#form_gui_loi_chuc .card_form_gui_loi_chuc:hover {
+transform: scale(1.02);
+box-shadow: 0 0 40px rgba(210, 210, 210, 0.9), 0 0 15px rgba(255, 105, 180, 0.6);
+}
+
+
+.title_form_gui_loi_chuc img {
+width: 100px;     /* Chiều rộng ảnh */
+height: auto;     /* Giữ tỉ lệ khung hình */
+display: block;   /* Giúp căn giữa dễ hơn */
+margin: 0 auto;   /* Căn giữa theo chiều ngang */
+}
+.noidung_loi_chuc textarea {
+border: none;
+font-family: 'Source Code Pro', monospace;
+background: transparent;
+width: 100%;
+min-height: 40px;
+font-size: 20px;
+padding: 10px 12px; /* thêm padding để thoáng hơn */
+outline: none;
+resize: none;
+overflow: hidden;
+line-height: 2; /* tăng khoảng cách dòng */
+white-space: pre-wrap;
+word-wrap: break-word;
+border-radius: 10px; /* cho đẹp */
+}
+#nut_form_gui_loi_chuc {
+margin-top: 30px; 
+background: #4a1693; 
+border: none; 
+padding: 20px 30px; 
+border-radius: 30px; 
+font-weight: bold; 
+cursor: pointer; 
+font-size: 20px; 
+color: white;
+box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+z-index: 5;
+}
+
+
+/* CSS BANNER NGÀY CÁCH MẠNG THÁNG TÁM */
+.banner_ngay_cach_mang_thang_tam {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/ki_niem_ngay_cach_mang_thang_tam_thanh_cong.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_cach_mang_thang_tam::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_cach_mang_thang_tam {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 30vh;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.title_ngay_cach_mang_thang_tam {
+    font-family: 'iCiel Helena', cursive;
+    text-align: center;
+    font-size: 56px;
+    color: #ffcc00;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1.2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+.noidung_ngay_cach_mang_thang_tam h1 {
+    color: #ffffff;
+    font-size: 42px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.noidung_ngay_cach_mang_thang_tam h2 {
+    color: #fff44f;
+    font-size: 44px;
+    font-weight: 900;
+    opacity: 0;
+    text-shadow:
+    0 0 10px rgba(255, 255, 100, 0.7),
+    0 0 20px rgba(255, 255, 100, 0.9),
+    0 0 30px rgba(255, 200, 0, 0.5); /* hiệu ứng glow thêm */
+margin-top: 20px;
+font-family: 'Comic Neue', cursive;
+letter-spacing: 4px; /* tăng khoảng cách giữa các ký tự */
+animation: fadeIn 1.5s ease-out forwards, blink 1s 1.5s infinite;
+}
+
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 1200px) {
+    .banner_ngay_cach_mang_thang_tam {
+        background: url('/hinhanh//banner_ki_niem_ngay_cach_mang_thang_tam_thanh_cong_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+    .title_ngay_cach_mang_thang_tam {
+        font-size: 40px;
+    }
+
+    .noidung_ngay_cach_mang_thang_tam h1 {
+        font-size: 25px;
+    }
+    .noidung_ngay_cach_mang_thang_tam h1 {
+        font-size: 20px;
+    }
+}
+
+/* CSS BANNER NGÀY QUỐC KHÁNH */
+.banner_ngay_quoc_khanh {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh//banner_quoc_khanh_0209.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_quoc_khanh::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_quoc_khanh {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 30vh;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.title_ngay_quoc_khanh {
+    font-family: 'iCiel Helena', cursive;
+    text-align: center;
+    font-size: 56px;
+    color: #ffcc00;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1.2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+.noidung_ngay_quoc_khanh h1 {
+    color: #ffffff;
+    font-size: 42px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.noidung_ngay_quoc_khanh h2 {
+    color: #fff44f;
+    font-size: 44px;
+    font-weight: 900;
+    opacity: 0;
+    text-shadow:
+    0 0 10px rgba(255, 255, 100, 0.7),
+    0 0 20px rgba(255, 255, 100, 0.9),
+    0 0 30px rgba(255, 200, 0, 0.5); /* hiệu ứng glow thêm */
+margin-top: 20px;
+font-family: 'Comic Neue', cursive;
+letter-spacing: 4px; /* tăng khoảng cách giữa các ký tự */
+animation: fadeIn 1.5s ease-out forwards, blink 1s 1.5s infinite;
+}
+
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive mobile */
+@media (max-width: 1200px) {
+    .banner_ngay_quoc_khanh {
+        background: url('/hinhanh/banner_quoc_khanh_0209_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+    .title_ngay_quoc_khanh {
+        font-size: 40px;
+    }
+
+    .noidung_ngay_quoc_khanh h1 {
+        font-size: 25px;
+    }
+    .noidung_ngay_quoc_khanh h2 {
+        font-size: 20px;
+    }
+}
+
+
+/* CSS NGÀY PHỤ NỮ VIỆT NAM 20-10 */
+.banner_ngay_phu_nu_viet_nam_2010 {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh//banner_ngay_phu_nu_viet_nam_2010.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_phu_nu_viet_nam_2010::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_phu_nu_viet_nam_2010 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 30vh;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.title_ngay_phu_nu_viet_nam_2010 {
+    font-family: 'iCiel Helena', cursive;
+    text-align: center;
+    font-size: 56px;
+    color: #ffcc00;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1.2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+.noidung_ngay_phu_nu_viet_nam_2010 h1 {
+    color: #ffffff;
+    font-size: 70px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.noidung_ngay_phu_nu_viet_nam_2010 h2 {
+    color: #fff44f;
+    font-size: 70px;
+    font-weight: 900;
+    opacity: 0;
+    text-shadow:
+    0 0 10px rgba(255, 255, 100, 0.7),
+    0 0 20px rgba(255, 255, 100, 0.9),
+    0 0 30px rgba(255, 200, 0, 0.5); /* hiệu ứng glow thêm */
+margin-top: 20px;
+font-family: 'Comic Neue', cursive;
+letter-spacing: 4px; /* tăng khoảng cách giữa các ký tự */
+animation: fadeIn 1.5s ease-out forwards, blink 1s 1.5s infinite;
+}
+
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive mobile */
+@media (max-width: 1200px) {
+    .banner_ngay_phu_nu_viet_nam_2010 {
+        background: url('/hinhanh/banner_ngay_phu_nu_viet_nam_2010_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+    .title_ngay_phu_nu_viet_nam_2010 {
+        font-size: 60px;
+    }
+    .noidung_ngay_phu_nu_viet_nam_2010 {
+        padding-top: 45vh;
+    }
+    .noidung_ngay_phu_nu_viet_nam_2010 h2 {
+        font-size: 60px;
+    }
+    .noidung_ngay_phu_nu_viet_nam_2010 h2 {
+        font-size: 60px;
+    }
+}
+
+
+/* CSS CHO BANNER Halloween */
+.banner_halloween {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/banner_halloween_3110.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+@media (max-width: 1200px) {
+.banner_halloween {
+        background: url('/hinhanh/banner_halloween_3110_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+}
+
+
+/* CSS CHO BANNER NGÀY NHÀ GIÁO VIỆT NAM */
+.banner_ngay_nha_giao_viet_nam {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/banner_ngay_nha_giao_viet_nam.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_nha_giao_viet_nam::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_nha_giao_viet_nam {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 30vh;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.title_ngay_nha_giao_viet_nam {
+    font-family: 'iCiel Helena', cursive;
+    text-align: center;
+    font-size: 56px;
+    color: #ffcc00;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1.2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+.noidung_ngay_nha_giao_viet_nam h1 {
+    color: #ffffff;
+    font-size: 70px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.noidung_ngay_nha_giao_viet_nam h2 {
+    color: #fff44f;
+    font-size: 70px;
+    font-weight: 900;
+    opacity: 0;
+    text-shadow:
+    0 0 10px rgba(255, 255, 100, 0.7),
+    0 0 20px rgba(255, 255, 100, 0.9),
+    0 0 30px rgba(255, 200, 0, 0.5); /* hiệu ứng glow thêm */
+margin-top: 20px;
+font-family: 'Comic Neue', cursive;
+letter-spacing: 4px; /* tăng khoảng cách giữa các ký tự */
+animation: fadeIn 1.5s ease-out forwards, blink 1s 1.5s infinite;
+}
+
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.ghost {
+  position: absolute;
+  top: 30%;
+  left: -100px;
+  width: 300px;
+  height: 80px;
+  background: url('/hinhanh/conma_halloween.png') no-repeat center/contain;
+  animation: fly-ghost 15s linear infinite;
+}
+
+@keyframes fly-ghost {
+  0% { left: -100px; }
+  100% { left: 110%; }
+}
+
+@media (max-width: 1200px) {
+    .banner_ngay_nha_giao_viet_nam {
+        background: url('/hinhanh/banner_ngay_nha_giao_viet_nam_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+    .title_ngay_nha_giao_viet_nam {
+        font-size: 60px;
+    }
+    .noidung_ngay_nha_giao_viet_nam {
+        padding-top: 45vh;
+    }
+    .noidung_ngay_nha_giao_viet_nam h1 {
+        font-size: 55px;
+    }
+    .noidung_ngay_nha_giao_viet_nam h2 {
+        font-size: 60px;
+    }
+}
+
+
+
+/* CSS BANNER NGÀY THẾ GIỚI PHÒNG CHỐNG HIV/AIDS */
+.banner_ngay_the_gioi_phong_chong_HIV_AIDS {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: url('/hinhanh/banner_ngay_giang_sinh.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+}
+
+.banner_ngay_the_gioi_phong_chong_HIV_AIDS::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.noidung_ngay_the_gioi_phong_chong_HIV_AIDS {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 30vh;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+.noidung_ngay_the_gioi_phong_chong_HIV_AIDS img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 12px; /* Bo tròn góc hình ảnh */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+    transition: transform 0.3s ease;
+}
+
+.title_ngay_the_gioi_phong_chong_HIV_AIDS {
+    font-family: 'iCiel Helena', cursive;
+    text-align: center;
+    font-size: 56px;
+    color: #ffcc00;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1.2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+.noidung_ngay_the_gioi_phong_chong_HIV_AIDS h1 {
+    color: #ffffff;
+    font-size: 70px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.noidung_ngay_the_gioi_phong_chong_HIV_AIDS h2 {
+    color: #fff44f;
+    font-size: 70px;
+    font-weight: 900;
+    opacity: 0;
+    text-shadow:
+    0 0 10px rgba(255, 255, 100, 0.7),
+    0 0 20px rgba(255, 255, 100, 0.9),
+    0 0 30px rgba(255, 200, 0, 0.5); /* hiệu ứng glow thêm */
+margin-top: 20px;
+font-family: 'Comic Neue', cursive;
+letter-spacing: 4px; /* tăng khoảng cách giữa các ký tự */
+animation: fadeIn 1.5s ease-out forwards, blink 1s 1.5s infinite;
+}
+
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+/* Responsive mobile */
+@media (max-width: 1200px) {
+    .banner_ngay_the_gioi_phong_chong_HIV_AIDS {
+        background: url('/hinhanh/banner_ngay_giang_sinh_mobile.png') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+    }
+    .title_ngay_the_gioi_phong_chong_HIV_AIDS {
+        font-size: 60px;
+    }
+    .noidung_ngay_the_gioi_phong_chong_HIV_AIDS h1 {
+        font-size: 55px;
+    }
+    .noidung_ngay_the_gioi_phong_chong_HIV_AIDS h2 {
+        font-size: 60px;
     }
 }

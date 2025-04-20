@@ -411,7 +411,7 @@ footer {
 
           .banner_trangcon {
             font-family: 'Arial', sans-serif;
-            min-height: 70vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
