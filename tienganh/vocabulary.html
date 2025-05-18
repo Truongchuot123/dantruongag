@@ -448,9 +448,9 @@ function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = 'en-GB'; // Ưu tiên tiếng Anh - Anh
 
-  // Chọn voice phù hợp với en-GB, nếu không có thì chọn en-US
-  let selectedVoice = voices.find(voice => voice.lang === 'en-GB') ||
-                      voices.find(voice => voice.lang === 'en-US');
+  // ✅ Ưu tiên giọng Daniel, sau đó fallback sang en-GB hoặc en-US
+  let selectedVoice = voices.find(voice => voice.name === 'Daniel') ||
+                      voices.find(voice => voice.lang === 'en-GB') ||
 
   if (selectedVoice) {
     utterance.voice = selectedVoice;
@@ -458,6 +458,7 @@ function speak(text) {
 
   speechSynthesis.speak(utterance);
 }
+
 
 function toggleDefinition(index) {
   const box = document.getElementById(`def-${index}`);
