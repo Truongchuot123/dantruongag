@@ -187,6 +187,27 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
+// JS CHO THÔNG BÁO ĐĂNG NHẬP MỚI TÌM KIẾM
+function handleSearchClick() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        window.location.href = "/timkiem.html";
+    } else {
+        Swal.fire({
+            title: 'Bạn vui lòng đăng nhập để sử dụng chức năng tìm kiếm.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Đăng nhập',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                showLoginForm(); // Gọi form đăng nhập dạng popup/modal
+            }
+        });
+    }
+}
+
+
 // Kiểm tra trạng thái đăng nhập khi tải trang
 window.onload = function() {
     const savedName = localStorage.getItem('loggedInUser');
@@ -339,5 +360,4 @@ const swiper = new Swiper('.swiper', {
         type: 'progressbar', // Hiển thị thanh trượt ngang
     },
 });
-
 

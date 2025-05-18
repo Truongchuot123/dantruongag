@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống học tiếng anh - NGUYỄN MAI ĐAN TRƯỜNG</title>
+    <link rel="icon" href="hinhanh/logo web.png" type="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+  #back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: #007aff;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Segoe UI", "Roboto", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    z-index: 999;
+  }
+
+  #back-button:hover {
+    background-color: #e6f0ff;
+  }
+
+  .arrow-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+  }
+
+
+    h2, #stats {
+      text-align: center;
+      color: #2c3e50;
+      margin: 10px 0;
+    }
+
+    #controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #search {
+      width: 90%;
+      max-width: 300px;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      font-size: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .filter-btn {
+      margin: 5px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      background: #dfe6e9;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .filter-btn.active {
+      background: #f91818;
+      color: white;
+    }
+
+    #vocab-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      background: #fff;
+      width: 95%;
+      max-width: 500px;
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .card.highlight {
+      background-color: #d6f5e3;
+    }
+
+    .word {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .info {
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    .word {
+      color: #144667;
+    }
+
+    .vietnamese, .antonym {
+      display: none;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .checkbox {
+      transform: scale(1.3);
+      accent-color: #3498db;
+    }
+    .highlight-scroll {
+      box-shadow: 0 0 12px 4px #f1c40f !important;
+      background-color: antiquewhite;
+      transition: box-shadow 0.5s ease;
+    }
+
+    .clickable-antonym {
+  color: #2ecc71;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.speak-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 5px;
+}
+.speak-btn:hover {
+  color: #2980b9;
+}
+.synonym {
+  display: none;
+  font-size: 15px;
+  color: #333;
+}
+.clickable-synonym {
+  color: #8e44ad;
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* CSS ĐỊNH NGHĨA */
+.definition-box {
+  display: none;
+  background-color: #fff8e1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #020202;
+  margin: 8px 0;
+}
+
+/* Cải tiến ô tìm kiếm */
+#search {
+  width: 90%;
+  max-width: 400px;
+  padding: 12px 18px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 17px;
+  transition: box-shadow 0.3s;
+}
+#search:focus {
+  box-shadow: 0 0 8px #3498db;
+  outline: none;
+}
+.see-more-btn {
+  background: none;
+  border: none;
+  color: #007BFF;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1rem;
+  padding-left: 10px;
+}
+
+.example-line {
+  font-size: 1rem;
+  display: block;
+  margin-top: 3px;
+}
+
+.extra-example {
+  margin-top: 5px;
+  color: #2c3e50;
+}
+
+  </style>
+</head>
+<body>
+<div id="back-button" onclick="goBack()">
+  <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+  </svg>
+  <span class="label">Thoát</span>
+</div>
+
+
+
+  <h2>Hệ thống học từ vựng tiếng Anh</h2>
+  <div id="stats">Tổng: 0 | Đã học: 0 | Chưa học: 0</div>
+
+  <div id="controls">
+    <input type="text" id="search" placeholder="Tìm từ tiếng Anh, tiếng Việt, trái nghĩa" />
+    <div style="margin-top: 10px;">
+      <button class="filter-btn active" onclick="setFilter('all', this)">Tất cả</button>
+      <button class="filter-btn" onclick="setFilter('checked', this)">Đã học</button>
+      <button class="filter-btn" onclick="setFilter('unchecked', this)">Chưa học</button>
+    </div>
+  </div>
+
+  <div id="vocab-list"></div>
+
+  <script>
+    // JS cho nút quay về
+    function goBack() {
+      window.history.back();
+    }
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmrAr3kY3fK2465RjQr7_j-2-Ly-85qxrisQxVvlN2frWx4uJbBsueMHK_F9EP9hExUw/exec';
+
+    let allWords = [];
+    let currentFilter = 'all';
+
+    async function loadVocabulary() {
+      try {
+        const response = await fetch(SCRIPT_URL);
+        const data = await response.json();
+
+          allWords = data.map((word, index) => {
+        const english = word.english;
+        const checked = localStorage.getItem(`vocab_checked_${english}`) === "true";
+
+        const synonyms = word.synonym ? word.synonym.split(/,\s*/).map(s => s.trim()) : [];
+        const antonyms = word.antonym ? word.antonym.split(/,\s*/).map(a => a.trim()) : [];
+
+        return {
+          english,
+          type: word.type || '',
+          ipa: word.ipa || '',
+          synonym: synonyms,
+          vietnamese: word.vietnamese || '',
+          antonym: antonyms,
+          definition: word.definition || '',
+          example: word.example || '',
+          checked,
+          index
+        };
+      });
+
+      displayVocabulary(); // ✅ Đặt sau khi xử lý xong
+
+
+
+
+        displayVocabulary();
+      } catch (error) {
+        alert("Xin lỗi! Hệ thống đang bị lỗi");
+        console.error("Fetch error:", error);
+      }
+    }
+
+    function setFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      displayVocabulary();
+    }
+
+    function displayVocabulary() {
+      const container = document.getElementById('vocab-list');
+      container.innerHTML = '';
+      const searchQuery = document.getElementById('search').value.toLowerCase();
+
+      let filteredWords = allWords.filter(word =>
+        word.english.toLowerCase().includes(searchQuery) ||
+        word.vietnamese.toLowerCase().includes(searchQuery) ||
+        word.antonym.join(', ').toLowerCase().includes(searchQuery) ||
+        word.synonym.join(', ').toLowerCase().includes(searchQuery)
+      );
+
+
+      if (currentFilter === 'checked') {
+        filteredWords = filteredWords.filter(w => w.checked);
+      } else if (currentFilter === 'unchecked') {
+        filteredWords = filteredWords.filter(w => !w.checked);
+      }
+
+      filteredWords.forEach(word => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.id = `card-${word.english.toLowerCase()}`.replace(/\s+/g, '-');
+
+
+        // highlight if checked
+        if(word.checked) card.classList.add('highlight');
+
+            card.innerHTML = `
+        <div style="flex:1;">
+          <div style="min-width: 150px;">
+            <span class="word">
+              ${word.english} ${word.ipa ? `<small>[${word.ipa}]</small>` : ''} ${word.type ? `<small>(${word.type})</small>` : ''}
+              <button class="speak-btn" title="Đọc từ" onclick="speak('${word.english}')">🔊</button>
+              ${word.definition ? `<button class="speak-btn" title="Hiện định nghĩa" onclick="toggleDefinition(${word.index})" style="font-size: 20px;">👁</button>` : ''}
+            </span><br/>
+              <div class="definition-box" id="def-${word.index}">
+                ${formatDefinition(word.definition)}
+              </div>
+            <span class="vietnamese">${word.vietnamese}</span><br/>
+              ${word.synonym.length ? `<span class="synonym"><strong>Đồng nghĩa:</strong> ${word.synonym.map(s => `<span class="clickable-synonym">${s}</span>`).join(', ')}</span><br/>` : ''}
+              ${word.antonym.length ? `<span class="antonym"><strong>Trái nghĩa:</strong> ${word.antonym.map(a => `<span class="clickable-antonym">${a}</span>`).join(', ')}</span><br/>` : ''}
+              ${formatExamples(word.example, word.english)}
+
+
+          </div>
+        </div>
+        <input type="checkbox" class="checkbox" ${word.checked ? 'checked' : ''} title="Đánh dấu đã học" />
+      `;
+
+
+function formatDefinition(definition) {
+  if (!definition) return '';
+
+  return definition
+    .split(/\n|[;；]/)  // tách các định nghĩa theo dòng hoặc dấu ;
+    .map(line => {
+      const match = line.match(/^(.+?)\s*\((.+?)\)$/); // khớp dạng: từ (giải thích)
+      if (match) {
+        return `<div><strong>${match[1].trim()}</strong>: ${match[2].trim()}</div>`;
+      } else {
+        return `<div>${line.trim()}</div>`;
+      }
+    })
+    .join('');
+}
+
+
+        //  Thêm chức năng click vào từ đồngi nghĩa để cuộn đến thẻ tương ứng:
+          card.querySelectorAll('.clickable-synonym').forEach(syn => {
+            syn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const text = syn.textContent.toLowerCase().replace(/\s+/g, '-');
+              const targetCard = document.getElementById(`card-${text}`);
+              if (targetCard) {
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                targetCard.classList.add('highlight-scroll');
+                setTimeout(() => targetCard.classList.remove('highlight-scroll'), 2000);
+              } else {
+                alert(`Không tìm thấy thẻ cho từ đồng nghĩa: "${syn.textContent}"`);
+              }
+            });
+          });
+
+          card.querySelectorAll('.clickable-antonym').forEach(ant => {
+            ant.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const text = ant.textContent.toLowerCase().replace(/\s+/g, '-');
+              const targetCard = document.getElementById(`card-${text}`);
+              if (targetCard) {
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                targetCard.classList.add('highlight-scroll');
+                setTimeout(() => targetCard.classList.remove('highlight-scroll'), 2000);
+              } else {
+                alert(`Không tìm thấy thẻ cho từ trái nghĩa: "${ant.textContent}"`);
+              }
+            });
+          });
+
+        // show Vietnamese and antonym on hover
+        card.onmouseenter = () => {
+          card.querySelector('.vietnamese').style.display = 'inline';
+          if (word.synonym) card.querySelector('.synonym').style.display = 'inline';
+          if (word.antonym) card.querySelector('.antonym').style.display = 'inline';
+        }
+        card.onmouseleave = () => {
+          card.querySelector('.vietnamese').style.display = 'none';
+          if (word.synonym) card.querySelector('.synonym').style.display = 'none';
+          if (word.antonym) card.querySelector('.antonym').style.display = 'none';
+        }
+
+
+        const checkbox = card.querySelector('input[type=checkbox]');
+        checkbox.addEventListener('change', () => {
+          word.checked = checkbox.checked;
+          localStorage.setItem(`vocab_checked_${word.english}`, checkbox.checked);
+          card.classList.toggle('highlight', checkbox.checked);
+          updateStats();
+          displayVocabulary();
+        });
+
+        container.appendChild(card);
+      });
+
+      updateStats();
+    }
+
+    function updateStats() {
+      const total = allWords.length;
+      const checkedCount = allWords.filter(w => w.checked).length;
+      const uncheckedCount = total - checkedCount;
+      document.getElementById('stats').textContent = `Tổng: ${total} | Đã học: ${checkedCount} | Chưa học: ${uncheckedCount}`;
+    }
+function speak(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-GB'; // ✅ Giọng Anh - Anh
+  speechSynthesis.speak(utterance);
+}
+function toggleDefinition(index) {
+  const box = document.getElementById(`def-${index}`);
+  if (box) {
+    box.style.display = box.style.display === 'none' || box.style.display === '' ? 'block' : 'none';
+  }
+}
+
+    function formatExamples(exampleText) {
+      if (!exampleText) return '';
+
+      const examples = exampleText.split(/\n|[;；]/).map(e => e.trim()).filter(e => e);
+      if (examples.length === 1) {
+        return `<div class="info">
+                  <strong>Ví dụ:</strong><br/>
+                  <span class="example-line">${examples[0]}</span>
+                </div>`;
+      }
+
+      const first = examples[0];
+      const rest = examples.slice(1).map(e => `<div class="extra-example example-line" style="display:none;">${e}</div>`).join('');
+      const buttonId = `btn-${Math.random().toString(36).substr(2, 9)}`;
+
+      return `
+        <div class="info">
+          <strong>Ví dụ:</strong><br/>
+          <span class="example-line">${first} <button class="see-more-btn" onclick="toggleExamples('${buttonId}')">Xem thêm</button></span>
+          <div id="${buttonId}">${rest}</div>
+        </div>
+      `;
+    }
+
+function formatExamples(exampleText, word) {
+  if (!exampleText) return '';
+
+  const regex = new RegExp(`\\b(${word})\\b`, 'gi'); // tìm từ đầy đủ, không phải chuỗi con
+  const examples = exampleText.split(/\n|[;；]/).map(e => e.trim()).filter(e => e);
+
+  const highlightedExamples = examples.map(e => 
+    e.replace(regex, `<span style="color: #e74c3c; font-weight: bold;">$1</span>`)
+  );
+
+  if (highlightedExamples.length === 1) {
+    return `<div class="info">
+              <strong>Ví dụ:</strong><br/>
+              <span class="example-line">${highlightedExamples[0]}</span>
+            </div>`;
+  }
+
+  const first = highlightedExamples[0];
+  const rest = highlightedExamples.slice(1).map(e => `<div class="extra-example example-line" style="display:none;">${e}</div>`).join('');
+  const buttonId = `btn-${Math.random().toString(36).substr(2, 9)}`;
+
+  return `
+    <div class="info">
+      <strong>Ví dụ:</strong><br/>
+      <span class="example-line">${first} <button class="see-more-btn" onclick="toggleExamples('${buttonId}')">Xem thêm</button></span>
+      <div id="${buttonId}">${rest}</div>
+    </div>
+  `;
+}
+
+
+function toggleExamples(id) {
+  const container = document.getElementById(id);
+  if (container) {
+    const children = container.querySelectorAll('.extra-example');
+    children.forEach(child => {
+      child.style.display = child.style.display === 'none' ? 'block' : 'none';
+    });
+  }
+}
+
+
+
+
+    document.getElementById('search').addEventListener('input', displayVocabulary);
+
+    loadVocabulary();
+  </script>
+</body>
+</html>

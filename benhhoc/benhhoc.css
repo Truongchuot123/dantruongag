@@ -50,15 +50,15 @@
     @media (max-width: 1024px) {
         .noidung_benh {
             grid-template-columns: repeat(2, auto);
-            font-size: 12px;
+            font-size: 20px;
         }
     }
 
     @media (max-width: 768px) {
         .noidung_benh {
-            grid-template-columns: repeat(2, auto);
+            grid-template-columns: repeat(1, auto);
         }
         .noidung_benh i {
-        font-size: 10px;
+        font-size: 16px;
     }
     }

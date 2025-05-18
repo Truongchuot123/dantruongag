@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+    <title>Tìm kiếm-Nguyễn Mai Đan Trường</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="noidung.css">
+  <link rel="stylesheet" href="banner_trang_chu.css">    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <style>
+
+body {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url('/hinhanh/background\ search\ page.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+}
+    /* Ô tìm kiếm */
+    .search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px auto;
+  max-width: 500px;
+  width: 90%;
+  padding-top: 60px;
+}
+
+.search-box input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: var(--main-color, #007bff);
+  box-shadow: 0 0 8px var(--main-color, #007bff);
+  background-color: #fff;
+}
+
+.search-box input::placeholder {
+  color: #d1cfcf;
+  font-style: italic;
+}
+/* Thông báo không tìm thấy */
+.no-results {
+  display: none;
+  margin-top: 30px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  max-width: 500px;
+  margin: 20px auto;
+}
+.noidung_search {
+  margin-bottom: 100px;
+}
+
+/* Các mục kết quả */
+.item {
+  max-width: 500px;
+  margin: 12px auto;
+  display: none;
+}
+
+.item a {
+  display: block;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.item a:hover {
+  background-color: #e6f7ff;
+  transform: translateX(5px);
+}
+
+.item .main-title {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.item .sub-title {
+  font-size: 14px;
+  color: #777;
+}
+/* Responsive cho màn nhỏ hơn 600px (mobile) */
+@media (max-width: 600px) {
+  .search-box {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .no-results,
+  .item {
+    width: 95%;
+  }
+
+  .item a {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+  </style>
+</head>
+<body>
+<!-- Menu -->   
+<section class="top">
+  <div class="container">
+      <div class="row justify-cottent">
+          <div class="logo">
+              <a href="index.html">
+                  <img src="hinhanh/logo web.png" alt="">
+              </a>
+          </div>
+          <div>
+            <li id="login-btn">
+              <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                  <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+              </a>
+            </li>
+          </div>
+          <div class="menu-bar" id="menu-bar">
+              <span></span>
+          </div>
+          <div class="side-nav" id="side-nav">
+              <ul>
+                  <li><a href="index.html">TRANG CHỦ</a></li>
+                  <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
+                  <li><a href="gopy.html">GÓP Ý</a></li>>
+              </ul>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- Ô tìm kiếm -->
+<div class="search-box">
+  <input type="text" placeholder="Tìm kiếm...">
+</div>
+
+<!-- Thông báo không tìm thấy -->
+<div class="no-results">Không có kết quả nào phù hợp với tìm kiếm của bạn</div>
+
+<!-- Các mục tìm kiếm -->
+ <div class="noidung_search">
+    <div class="item">
+      <a href="/tienganh/tienganh.html">
+        <div class="main-title">Tiếng anh</div>
+        <div class="sub-title">Hệ thống học từ vựng và giao tiếp được tích hợp giúp bạn học ngoại ngữ dễ dàng hơn</div>
+      </a>
+    </div>
+    <div class="item">
+      <a href="">
+        <div class="main-title">Bệnh học</div>
+        <div class="sub-title">Bệnh là bắt kì sự sai lệch hoặc tổn thương về cấu trúc và chức năng của bắt kỳ bộ phận, cơ quan, hệ thống nào của cơ thể, biểu hiện bằng một tập hợp triệu chứng đặc trưng, giúp cho thầy thuốc có thể chẳn đoán xác định và chẳn đoán phân biệt bệnh.....</div>
+      </a>
+    </div>
+            <div class="item">
+              <a href="">
+                <div class="main-title">Bệnh học > Hô hấp</div>
+                <div class="sub-title">Các bệnh lý đường hô hấp thường gặp nhất bao gồm: các bệnh tai mũi họng, nhiễm trùng, dị ứng, khối u</div>
+              </a>
+            </div>
+
+            <div class="item">
+              <a href="">
+                <div class="main-title">Bệnh học > Tiêu hóa</div>
+                <div class="sub-title">Chuyên đề hệ bệnh tiêu hóa</div>
+              </a>
+            </div>
+
+            <div class="item">
+              <a href="">
+                <div class="main-title">Bệnh học > Tim mạch</div>
+                <div class="sub-title">Bệnh lý tim mạch có thể chia thành 2 nhóm chính: bệnh tim mạch do xơ vữa mạch máu như bệnh động mạch vành, mạch máu, mạch ngoại vi và các vi mạch và bệnh tim mạch không do xơ vữa như bệnh tim bẩm sinh, bệnh tim liên quan đến nhiễm trùng</div>
+              </a>
+            </div>
+            <div class="item">
+              <a href="">
+                <div class="main-title">Bệnh học > Nội tiết</div>
+                <div class="sub-title">Bệnh lý tim mạch có thể chia thành 2 nhóm chính: bệnh tim mạch do xơ vữa mạch máu như bệnh động mạch vành, mạch máu, mạch ngoại vi và các vi mạch và bệnh tim mạch không do xơ vữa như bệnh tim bẩm sinh, bệnh tim liên quan đến nhiễm trùng</div>
+              </a>
+            </div>
+            <div class="item">
+              <a href="">
+                <div class="main-title">Bệnh học > Cơ xương khớp</div>
+                <div class="sub-title">Bệnh lý tim mạch có thể chia thành 2 nhóm chính: bệnh tim mạch do xơ vữa mạch máu như bệnh động mạch vành, mạch máu, mạch ngoại vi và các vi mạch và bệnh tim mạch không do xơ vữa như bệnh tim bẩm sinh, bệnh tim liên quan đến nhiễm trùng</div>
+              </a>
+            </div>
+    <div class="item">
+      <a href="">
+        <div class="main-title">Sinh lý bệnh</div>
+        <div class="sub-title">Sinh lý bệnh là môn học nghiên cứu về những thay đổi chức năng của cơ thể, cơ quan, mô và tế bào khi bị bệnh</div>
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <div class="main-title">Phục hồi chức năng</div>
+        <div class="sub-title">Tài liệu hỗ trợ điều trị bệnh</div>
+      </a>
+    </div>
+    <div class="item">
+      <a href="">
+        <div class="main-title">ĐJDỌI</div>
+        <div class="sub-title">Tài liệu hỗ trợ điều trị bệnh</div>
+      </a>
+    </div>
+ </div>
+ <!-- Chân trang cố định ---------->      
+ <section class="footer-section">
+  <div class="menu-namngang">
+      <a href="index.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-home"></i>
+              <p>Trang chủ</p>
+          </div>
+      </a>
+      <div class="menu-namngang-item" onclick="showContact()">
+          <i class="fas fa-phone"></i>
+          <p>Liên hệ</p>
+      </div>
+      <a href="gopy.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-envelope"></i>
+              <p>Góp ý</p>
+          </div>
+      </a>
+  </div>
+  </section>
+    
+<script>
+  const searchInput = document.querySelector('.search-box input');
+  const items = document.querySelectorAll('.item');
+  const noResults = document.querySelector('.no-results');
+
+  // Xóa dấu tiếng Việt
+  function removeVietnameseTones(str) {
+    return str.normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .replace(/đ/g, "d").replace(/Đ/g, "D");
+  }
+
+  // Xử lý tìm kiếm
+  searchInput.addEventListener('input', function() {
+    const keyword = removeVietnameseTones(this.value.trim().toLowerCase());
+    let found = false;
+
+    items.forEach(item => {
+      const text = removeVietnameseTones(item.textContent.toLowerCase());
+      if (keyword && text.includes(keyword)) {
+        item.style.display = 'block';
+        found = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = (!found && keyword) ? 'block' : 'none';
+  });
+</script>
+    
+<script src="script.js"></script>
+<script src="noidung.js"></script>
+<script src="banner_trang_chu_js"></script>
+</body>
+</html>

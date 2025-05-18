@@ -3,30 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGUYỄN MAI ĐAN TRƯỜNG</title>
-    <link rel="icon" href="hinhanh/logo web.png" type="">
+    <title>Tiếng anh-Nguyễn Mai Đan Trường</title>
+    <link rel="icon" href="../hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../noidung.css">
-    <link rel="stylesheet" href="benhhoc.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <!-- Thanh điều hướng nằm ngang CSS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+<style>
+.intro-features {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+  background-color: #f9f9f9;
+}
+
+.intro-features a {
+  text-decoration: none;
+  color: inherit;
+  flex: 1 1 30%;
+  max-width: 300px;
+  min-width: 260px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+}
+
+.intro-features a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.feature img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Animation khi xuất hiện */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.feature:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.feature:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.feature:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Tablet: Hiển thị 2 cột */
+@media (max-width: 992px) {
+  .intro-features {
+    gap: 30px;
+  }
+
+  .intro-features a {
+    flex: 1 1 45%;
+  }
+}
+
+/* Mobile: Hiển thị 2 cột */
+@media (max-width: 600px) {
+    .intro-features {
+    gap: 20px;
+  }
+  .intro-features a {
+    flex: 1 1 48%;
+  }
+}
+
+
+
+</style>
 <body>
 <!-- Menu -->   
     <section class="top">
         <div class="container">
             <div class="row justify-cottent">
                 <div class="logo">
-                    <a href="../index.html">
-                        <img src="../hinhanh/logo web.png" alt="Logo">
+                    <a href="index.html">
+                        <img src="hinhanh/logo web.png" alt="">
                     </a>
                 </div>
                 <div>
@@ -39,11 +134,14 @@
                 <div class="menu-bar" id="menu-bar">
                     <span></span>
                 </div>
+                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
+                    <i class="fas fa-search"></i>
+                </div>
                 <div class="side-nav" id="side-nav">
                     <ul>
-                        <li><a href="../index.html">TRANG CHỦ</a></li>
+                        <li><a href="index.html">TRANG CHỦ</a></li>
                         <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="../gopy.html">GÓP Ý</a></li>>
+                        <li><a href="gopy.html">GÓP Ý</a></li>>
                     </ul>
                 </div>
             </div>
@@ -55,7 +153,7 @@
 <section id="protected-content" style="display: none;">
 <section class="banner_trangcon">
     <div class="banner_trangcon_header">
-        <h1>BỆNH HỌC</h1>
+        <h1>TIẾNG ANH</h1>
         <div class="banner_trangcon_header_underline"></div>
         <p>
         <a href="gopy.html">
@@ -65,16 +163,23 @@
     </div>
 </section>
 
-<div class="tieude">
-    <i class="fas fa-lungs"></i> BỆNH HÔ HẤP
-</div>
-<section class="noidung_">
-    <div class="noidung_benh">
-        <a href="#">Lao phổi</a>
-        <a href="#">Viêm phổi cộng đồng</a>
-        <a href="#">Bệnh phổi tắc nghẽn mãn tính (COPD)</a>
-    </div>
-  </section>
+
+
+<section class="intro-features">
+  <a href="/tienganh/vocabulary.html" class="feature" data-aos="fade-up" data-aos-delay="0">
+    <img src="/tienganh/hinhanh.tienganh/vocabulary.png" alt="">
+    <p><strong>Hệ thống học từ vựng tiếng anh</strong></p>
+  </a>
+  <a href="ngu-phap.html" class="feature" data-aos="fade-up" data-aos-delay="100">
+    <img src="/tienganh/hinhanh.tienganh/communicate.png" alt="">
+    <p><strong>Hệ thống học giao tiếp tiếng anh</strong></p>
+  </a>
+  <a href="ky-nang-thi.html" class="feature" data-aos="fade-up" data-aos-delay="200">
+    <img src="/tienganh/hinhanh.tienganh/vocabulary.png" alt="">
+    <p><strong>Luyện tập </strong></p>
+  </a>
+</section>
+
 
  <!-- Chân trang cố định ---------->      
  <section class="footer-section">
@@ -124,6 +229,12 @@
   </section>  
       <script src="../script.js"></script>
       <script src="../noidung.js"></script>
+      <!-- AOS Animation JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
   </body>
   </html>
   

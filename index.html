@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGUYỄN MAI ĐAN TRƯỜNG</title>
     <link rel="icon" href="hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="noidung.css">
     <link rel="stylesheet" href="banner_trang_chu.css">    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -41,6 +39,9 @@
                 </div>
                 <div class="menu-bar" id="menu-bar">
                     <span></span>
+                </div>
+                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
+                    <i class="fas fa-search"></i>
                 </div>
                 <div class="side-nav" id="side-nav">
                     <ul>
@@ -333,8 +334,7 @@
                         if (message === '') {
                             Swal.fire({
                                 icon: 'warning',
-                                title: 'Oops...',
-                                text: 'Bạn chưa nhập lời chúc!',
+                                title: 'BẠN CHƯA NHẬP LỜI CHÚC',
                                 confirmButtonText: 'OK'
                             });
                             return;
@@ -352,8 +352,7 @@
                             if (data.success) {
                                 Swal.fire({
                                     icon: "success",
-                                    title: "🎉 Gửi lời chúc thành công!",
-                                    text: "Lời chúc của bạn đã được lưu 💖"
+                                    title: "Cảm ơn bạn nhiều nhé! Mình rất vui khi nhận được lời chúc từ bạn",
                                 }).then(() => {
                                     form.style.maxHeight = '0px';
                                     setTimeout(() => form.style.display = 'none', 500);
@@ -369,15 +368,6 @@
                             Swal.fire("Lỗi", "Không thể gửi lời chúc. Vui lòng thử lại.", "error");
                         });
                     });
-        
-                    // ✅ Chỉ phát nhạc nếu banner thực sự đang hiển thị
-                    const playPromise = music.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(() => {
-                            document.addEventListener('click', () => music.play(), { once: true });
-                        });
-                    }
-        
                     // 🎈 Hiệu ứng bóng bay
                     function createBalloon() {
                         const balloon = document.createElement('div');
@@ -411,10 +401,7 @@
         
                     setInterval(createBalloon, 500);
                 };
-        
-                // ❌ Không gọi initScript() trực tiếp ở đây nữa
-                // ✅ Chỉ dùng observer để chắc chắn banner đã hiển thị
-        
+                
                 const observer = new MutationObserver(() => {
                     const section = document.querySelector(targetSelector);
                     if (section && section.offsetParent !== null) {
@@ -516,13 +503,25 @@
             <div class="slider-container">
               <button class="prev-btn">&#10094;</button>
               <div class="noidung-noibat-row">
+
+                <div class="noidung-noibat-iten">
+                  <div class="noidung-noibat-ing">
+                    <img src="hinhanh/Trang chủ/tienganh.png" alt="Logo">
+                  </div>
+                  <div class="noidung-noibat-text">
+                      <h2>TIẾNG ANH</h2>
+                      <a href="/tienganh/tienganh.html">
+                      <button>XEM NGAY</button>
+                      </a>
+                  </div>
+                </div>
+
                 <div class="noidung-noibat-iten">
                   <div class="noidung-noibat-ing">
                     <img src="hinhanh/Trang chủ/GPSL.png" alt="">
                   </div>
                   <div class="noidung-noibat-text">
                       <h2>GIẢI PHẨU</h2>
-                      <a href="">
                       <a href="">
                       <button>XEM NGAY</button>
                       </a>

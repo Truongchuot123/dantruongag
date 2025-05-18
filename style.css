@@ -72,7 +72,7 @@ a {
 .top .menu-bar.active {
     position: absolute;
     top: 30px;
-    right: 20px; /* Give space between the X and the side-nav */
+    right: 20px;
     transform: translateX(0);
     z-index: 1000; /* Higher z-index to keep it above the menu */
 }
@@ -113,7 +113,16 @@ a {
 .menu-bar.active span::after {
     transform: rotate(45deg);
 }
-
+.search-icon {
+    font-size: 24px;
+    color: white; /* hoặc màu bạn muốn */
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
 .side-nav {
     position: fixed;
     width: 250px;
@@ -147,7 +156,7 @@ a {
     background-color: var(--button-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    margin-right: 20px; /* Add some space between login and menu */
+    margin-right: 5px; /* Add some space between login and menu */
 }
 
 #login-btn a {
@@ -376,10 +385,7 @@ footer {
             height: 100%;
             background: url('hinhanh/banner%20locket.jpg') no-repeat center/cover;
           }
-          .screen
-          
-          /* Media Queries để thay đổi kích thước cho các thiết bị khác nhau */
-          
+          .screen   
           /* Màn hình điện thoại nhỏ */
           @media (max-width: 600px) {
             .phone {
@@ -590,4 +596,3 @@ footer {
             padding: 8px;
         }
     }
-    
