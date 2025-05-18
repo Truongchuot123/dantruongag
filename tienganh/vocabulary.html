@@ -429,17 +429,43 @@ function formatDefinition(definition) {
       const uncheckedCount = total - checkedCount;
       document.getElementById('stats').textContent = `Tổng: ${total} | Đã học: ${checkedCount} | Chưa học: ${uncheckedCount}`;
     }
+let voices = [];
+
+// Lấy danh sách voice khi sẵn sàng
+function loadVoices() {
+  voices = speechSynthesis.getVoices();
+  if (voices.length === 0) {
+    // Nếu chưa có, đợi sự kiện voiceschanged
+    speechSynthesis.onvoiceschanged = () => {
+      voices = speechSynthesis.getVoices();
+    };
+  }
+}
+
+loadVoices();
+
 function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-GB'; // ✅ Giọng Anh - Anh
+  utterance.lang = 'en-GB'; // Ưu tiên tiếng Anh - Anh
+
+  // Chọn voice phù hợp với en-GB, nếu không có thì chọn en-US
+  let selectedVoice = voices.find(voice => voice.lang === 'en-GB') ||
+                      voices.find(voice => voice.lang === 'en-US');
+
+  if (selectedVoice) {
+    utterance.voice = selectedVoice;
+  }
+
   speechSynthesis.speak(utterance);
 }
+
 function toggleDefinition(index) {
   const box = document.getElementById(`def-${index}`);
   if (box) {
     box.style.display = box.style.display === 'none' || box.style.display === '' ? 'block' : 'none';
   }
 }
+
 
     function formatExamples(exampleText) {
       if (!exampleText) return '';
