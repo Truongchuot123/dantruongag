@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giao tiếp tiếng Anh theo nhóm</title>
+  <style>
+    :root {
+    --nut: #4d128b;
+    --button_hover: #ff6b6b;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      background: #faffb7;
+    }
+    .sidebar {
+    width: 180px;
+    background: var(--nut);
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    padding: 20px;
+}
+
+    .logo {
+    text-align: center;
+    }
+    .logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 60px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar li {
+      margin: 10px 0;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+    .sidebar a:hover {
+      background-color: var(--button_hover);
+    }
+    .sidebar a.active {
+    background-color: var(--button_hover) !important;
+    font-weight: bold;
+  }
+
+    /* Main content */
+    .content {
+    margin-left: 200px; /* tăng nhẹ để tránh đè lên menu */
+    padding: 30px;
+    width: calc(100% - 200px);
+    }
+    .group {
+      margin-bottom: 50px;
+      scroll-margin-top: 100px;
+    }
+    .group h2 {
+      color: #1d4ed8;
+      margin-bottom: 10px;
+    }
+
+    /* Conversation step */
+    .step {
+      counter-increment: step;
+      background: white;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .circle::before {
+      content: counter(step);
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background: #1f4aa7;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      text-align: center;
+      line-height: 32px;
+      margin-right: 10px;
+    }
+    .question {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .translation {
+      font-style: italic;
+      font-size: 14px;
+      color: #555;
+      margin-top: 2px;
+    }
+    .answer {
+      background: #eef6ff;
+      padding: 10px 15px;
+      margin-top: 12px;
+      border-radius: 6px;
+    }
+    .inline-input {
+      border: none;
+      border-bottom: 1px dotted #333;
+      background: transparent;
+      font-size: 16px;
+      text-align: center;
+      width: 120px;
+      outline: none;
+    }
+    .vocab-list {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+    .vocab-list li::marker {
+      font-weight: bold;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    #menu {
+    flex-grow: 1;
+    margin-top: 20px;
+    overflow-y: auto;
+    }
+
+    /* Nút sát đáy nhưng không quá xa */
+    .vocab-button {
+    margin-top: auto;
+    padding-top: 10px;
+    }
+
+    .vocab-button a {
+    display: block;
+    background-color: #10ff50;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    }
+    .vocab-button a:hover {
+    background-color: var(--button_hover);
+    }
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .logo img {
+    max-height: 50px;
+  }
+
+  .vocab-button {
+    margin-top: 0;
+    margin-left: auto;
+  }
+
+  .vocab-button a {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+    padding: 24px;
+    font-size: 18px;
+  }
+
+  .step {
+    padding: 20px;
+  }
+
+  .inline-input {
+    font-size: 18px;
+    width: 160px;
+  }
+
+  .question {
+    font-size: 20px;
+  }
+
+  .translation {
+    font-size: 16px;
+  }
+
+  .answer {
+    font-size: 18px;
+  }
+
+  .vocab-list {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .group h2 {
+    font-size: 22px;
+  }
+
+  .circle::before {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+  }
+
+  #menu {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0;
+  }
+
+  #menu li {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 16px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">
+    <img src="/hinhanh//logo web.png" alt="Logo" />
+    </div>
+  <ul id="menu"></ul>
+    <!-- Nút ở cuối màn hình -->
+  <div class="vocab-button">
+    <a href="link-den-hoc-tu-vung.html" target="_blank">Học Từ Vựng</a>
+  </div>
+</div>
+
+
+<div class="content" id="container">
+  <h1>🗂️ HỆ THỐNG HỌC GIAO TIẾP</h1>
+</div>
+
+<script>
+const groups = [
+  {
+    id: 'chao-hoi',
+    title: "👋 Chào hỏi",
+    items: [
+      {
+        en: "What's your name?",
+        vi: "Bạn tên là gì?",
+        examples: [
+          {
+            example_en: "Hi! What's your name?",
+            en: "My name is Truong.",
+            vi: "Tôi tên là Truong."
+          },
+          {
+            example_en: "What's your name?",
+            en: "My first name is Truong, My middle name is Mai Dan, And my last name is Nguyen",
+            vi: "Tên tôi là Truong, Tên đệm của tôi là Mai Dan. Và họ của tôi là Nguyen"
+          },
+          {
+            example_en: "What's your name?",
+            en: "I'm called <input type='text' class='inline-input' oninput='update(this, \"{index}\")'>.",
+            vi: "Tôi được gọi là <span class='fill'></span>."
+          }
+        ],
+        vocab: []
+      },
+      {
+        en: "What is your`s last name/family name? ",
+        vi: "Họ của bạn là gì?",
+        examples: [
+          {
+            example_en: "What is Truong`s last name/family name?",
+            en: "My last name/family name is Nguyen",
+            vi: "Họ của tôi là Nguyen"
+          }
+        ],
+        vocab: [["Last name", "Họ"], ["Family name", "Họ"]]
+      },
+      {
+        en: "How are you?",
+        vi: "Bạn khỏe không?",
+        examples: [
+          {
+            example_en: "How are you?",
+            en: "I`m fine, thank you",
+            vi: "Tôi khỏe, cảm ơn bạn"
+          },
+          {
+            example_en: "How are you?",
+            en: "Everything is great",
+            vi: "Mọi thứ đều rất tốt."
+          },
+          {
+            example_en: "How are you?",
+            en: "Fine, thanks",
+            vi: "Khỏe, cảm ơn"
+          },
+          {
+            example_en: "How are you?",
+            en: "I'm all right",
+            vi: "Tôi ổn"
+          },
+          {
+            example_en: "How are you?",
+            en: "Note so well",
+            vi: "Không được khỏe lắm"
+          },
+        ],
+        vocab: []
+      },
+       {
+            en: "How is everything?",
+            vi: "Mọi thứ như thế nào? Mọi thứ ổn chứ?",
+            examples: [
+            {
+                example_en: "“Hi! Long time no see. How is everything?”",
+                en: "I`m fine, thank you",                
+                vi: "Chào bạn! Lâu rồi không gặp. Mọi thứ dạo này thế nào?"
+            },
+            {
+                // Dòng mô tả thêm vào
+                note: "Trong nhà hàng hoặc dịch vụ – hỏi khách có hài lòng không",
+                en: "“How is everything? Is the food okay?”",
+                vi: "Mọi thứ thế nào ạ? Món ăn có ổn không ạ?"
+            },
+            {
+                en: "How is everything at work? With your family?",
+                vi: "Công việc của bạn thế nào? Gia đình vẫn ổn chứ?"
+            }
+            ],
+            vocab: []
+      },
+        {
+        "en": "How are you doing?",
+        "vi": "Bạn dạo này thế nào? / Bạn khỏe không?",
+        "examples": [
+            {
+            "en": "Hi there! How are you doing?",
+            "vi": "Chào bạn! Dạo này bạn thế nào?"
+            },
+            {
+            "en": "Hey! I'm doing well, thanks. How are you doing?",
+            "vi": "Chào! Mình ổn, cảm ơn. Còn bạn thì sao?"
+            }
+        ],
+        "vocab": []
+        }
+
+      
+    ]
+  },
+
+
+  {
+    id: 'so-thich',
+    title: "🎯 Sở thích",
+    items: [
+      {
+        en: "What do you like to do?",
+        vi: "Bạn thích làm gì?",
+        examples: [
+          {
+            en: "I like <input type='text' class='inline-input' oninput='update(this, \"{index}\")'>.",
+            vi: "Tôi thích <span class='fill'></span>."
+          }
+        ],
+        vocab: [["Like", "Thích"], ["Do", "Làm"]]
+      },
+      {
+        en: "Do you like music?",
+        vi: "Bạn có thích âm nhạc không?",
+        examples: [
+          {
+            en: "Yes, I like <input type='text' class='inline-input' oninput='update(this, \"{index}\")'>.",
+            vi: "Vâng, tôi thích <span class='fill'></span>."
+          }
+        ],
+        vocab: [["Music", "Âm nhạc"], ["Yes", "Vâng"]]
+      }
+    ]
+  }
+];
+
+const container = document.getElementById("container");
+const menu = document.getElementById("menu");
+let globalIndex = 0;
+
+function createExampleHTML(example, index) {
+  return `
+    <div class="answer">
+      <p style="font-style: italic; color: #666;">${example.example_en}</p>
+      <p>${example.en.replace("{index}", index)}</p>
+      <p class="translation" id="vi${index}">${example.vi.replace("{index}", index)}</p>
+    </div>
+  `;
+}
+
+
+groups.forEach(group => {
+  // Menu
+  const menuItem = document.createElement("li");
+  menuItem.innerHTML = `<a href="#${group.id}">${group.title}</a>`;
+  menu.appendChild(menuItem);
+
+  // Nhóm
+  const groupDiv = document.createElement("div");
+  groupDiv.className = "group";
+  groupDiv.id = group.id;
+  groupDiv.innerHTML = `<h2>${group.title}</h2>`;
+
+  group.items.forEach(item => {
+    const step = document.createElement("div");
+    step.className = "step";
+
+    // Câu hỏi + dịch
+    let examplesHTML = "";
+    item.examples.forEach((ex, i) => {
+      examplesHTML += createExampleHTML(ex, `${globalIndex}_${i}`);
+    });
+
+    // Từ vựng
+    const vocabHTML = item.vocab.map(([en, vi]) => `<li>${en}: ${vi}</li>`).join("");
+
+    step.innerHTML = `
+      <div class="circle"></div>
+      <div class="question">${item.en}</div>
+      <div class="translation">${item.vi}</div>
+      ${examplesHTML}
+      <ul class="vocab-list">${vocabHTML}</ul>
+    `;
+
+    groupDiv.appendChild(step);
+    globalIndex++;
+  });
+
+  container.appendChild(groupDiv);
+});
+
+
+function update(input, index) {
+  const value = input.value.trim();
+  const span = document.querySelector(`#vi${index} .fill`);
+  if (span) {
+    span.innerText = value || "...";
+  }
+}
+
+window.addEventListener("scroll", () => {
+  let fromTop = window.scrollY + 100;
+  document.querySelectorAll(".sidebar a").forEach(link => {
+    let section = document.querySelector(link.getAttribute("href"));
+    if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+});
+</script>
+
+
+
+</body>
+</html>

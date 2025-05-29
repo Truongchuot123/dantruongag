@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Câu hỏi từng bước (Trộn)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #question-box {
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    #progress {
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #666;
+    }
+
+    #question {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .prev-btn {
+      background-color: #999;
+    }
+
+    .prev-btn:hover {
+      background-color: #888;
+    }
+
+    .next-btn {
+      background-color: #4CAF50;
+    }
+
+    .next-btn:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 480px) {
+      .btn-group {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="question-box">
+    <div id="progress">Câu 1 / ?</div>
+    <div id="question">...</div>
+    <div class="btn-group">
+      <button class="prev-btn" onclick="prevQuestion()">Quay lại</button>
+      <button class="next-btn" onclick="nextQuestion()">Tiếp theo</button>
+    </div>
+  </div>
+
+  <script>
+    // Danh sách câu hỏi gốc
+    const originalQuestions = [
+      "Câu 1: Nêu định nghĩa Xơ hoá cơ ức đòn chũm là gì?",
+      "Câu 2: Trình bày Kỹ thuật tập vận động Xơ hoá cơ ức đòn chũm",
+      "Câu 3: Trình bày định nghĩa bệnh Bại não và nêu dấu hiệu nhận biết sớm bệnh Bại não?",
+      "Câu 4: Trình bày nguyên nhân bệnh Bại não?",
+      "Câu 5: Nêu phân loại theo thể lâm sàng bệnh Bại não?",
+      "Câu 6: Nêu phân loại theo mức độ bệnh Bại não?",
+      "Câu 7: Trình bày các mức phát triển bình thường của hệ thần kinh trung ương bệnh Bại não.",
+      "Câu 8: Trình bày phản xạ thu hồi gấp và phản xạ duỗi chéo bệnh Bại não.",
+      "Câu 9: Trình bày phản xạ bật duỗi và phản xạ trương lục cổ không đối xứng bệnh Bại não.",
+      "Câu 10: Trình bày phản xạ cổ đối xứng và phản xạ mê đạo trương lực sấp và ngửa bệnh Bại não",
+      "Câu 11: Trình bày Phản xạ nâng đỗ hữu hiệu và Phản xạ chỉnh thể cổ bệnh Bại não",
+      "Câu 12: Trình bày Tư thế khám trọng lực thị giác và Phản ứng thăng bằng ở tư thế nằm ngửa bệnh Bại não",
+      "Câu 13: Trình bày  Phản ứng thăng bằng ở tư thế nằm sấp và Phản ứng thăng bằng ở tư thế quỳ bệnh Bại não.",
+      "Câu 14: Trình bày  Phản ứng thăng bằng ở tư thế ngồi và Phản ứng thăng bằng khi bước bệnh Bại não"
+    ];
+   // Hàm trộn câu hỏi
+    function shuffle(array) {
+      let currentIndex = array.length, randomIndex;
+      while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex], array[currentIndex]
+        ];
+      }
+      return array;
+    }
+
+    // Tạo danh sách đã trộn
+    const questions = shuffle([...originalQuestions]);
+    let currentIndex = 0;
+
+    function showQuestion(index) {
+      document.getElementById("question").textContent = questions[index];
+      document.getElementById("progress").textContent = `Câu ${index + 1} / ${questions.length}`;
+      document.querySelector(".prev-btn").disabled = index === 0;
+      document.querySelector(".next-btn").disabled = index === questions.length - 1;
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        showQuestion(currentIndex);
+      }
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showQuestion(currentIndex);
+      }
+    }
+
+    // Bắt đầu hiển thị
+    showQuestion(currentIndex);
+  </script>
+
+</body>
+</html>

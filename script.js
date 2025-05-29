@@ -222,28 +222,13 @@ window.onload = function() {
 function updateLoginButton(name) {
     const loginBtn = document.getElementById('login-btn');
     loginBtn.innerHTML = `
-        <div class="user-info" style="display: flex; flex-direction: column; color: rgba(247, 246, 248, 0.98); align-items: center; gap: 10px;">
-            <div class="user-details" style="display: flex; align-items: center; gap: 10px;">
+        <div class="user-info">
+            <div class="user-details">
                 <i class="fas fa-user-circle"></i>
                 <span class="username">${name}</span>
             </div>
-            <a class="logout-btn" style="text-align: center; cursor: pointer;" onclick="logout()">Đăng xuất</a>
+            <a class="logout-btn" onclick="logout()">Đăng xuất</a>
         </div>
-        <style>
-            @media (max-width: 600px) {
-                .user-info {
-                    gap: 5px;
-                    padding: 10px;
-                }
-                .user-details {
-                    flex-direction: column;
-                    gap: 5px;
-                }
-                .logout-btn {
-                    font-size: 14px;
-                }
-            }
-        </style>
     `;
 }
 

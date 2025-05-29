@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lượng giá chức năng-Nguyễn Mai Đan Trường</title>
+    <link rel="icon" href="../hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../noidung.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+    --nut: #4d128b;
+    --button_hover: #ff6b6b;
+}
+.thuco-section {
+  padding: 60px 20px;
+  background: linear-gradient(to right, #fef6f9, #fde3e9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin: 40px 20px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.thuco-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+}
+
+.thuco-text {
+  flex: 1 1 450px;
+  text-align: left;
+}
+
+.thuco-text h2 {
+  font-size: 36px;
+  color: #222;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.thuco-text .highlight {
+  color: #503d8e;
+  font-weight: bold;
+}
+
+.thuco-text p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.thuco-button {
+  padding: 12px 28px;
+  font-size: 16px;
+  background-color: var(--nut);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto; /* Nút căn giữa */
+}
+
+.thuco-button:hover {
+  background-color: var(--button_hover);
+  transform: translateY(-2px);
+}
+
+.thuco-image {
+  flex: 1 1 550px;
+  text-align: center;
+}
+
+.thuco-image img {
+  width: 400px;         /* hoặc kích thước bạn mong muốn */
+  height: 300px;        /* hoặc kích thước bạn mong muốn */
+  object-fit: cover;    /* giúp hình ảnh cắt đều, không bị méo */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.center-text {
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ Responsive: Màn hình nhỏ chia 2 cột ngang (text bên trái – hình bên phải) */
+@media screen and (max-width: 768px) {
+  .thuco-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+    text-align: left;
+  }
+
+  .thuco-section {
+    padding: 30px 10px;
+    margin: 20px 10px;
+  }
+
+  .thuco-text h2 {
+    font-size: 22px;
+  }
+
+  .thuco-text p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .thuco-button {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 0 auto;
+  }
+
+  .thuco-image img {
+    max-height: 160px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+
+</style>
+</head>
+<body>
+<!-- Menu -->   
+    <section class="top">
+        <div class="container">
+            <div class="row justify-cottent">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../hinhanh/logo web.png" alt="">
+                    </a>
+                </div>
+                <div class="menu-bar" id="menu-bar">
+                    <span></span>
+                </div>
+                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="side-nav" id="side-nav">
+                    <div>
+                        <li id="login-btn">
+                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                            </a>
+                        </li>
+                    </div>
+                    <ul>
+                        <li><a href="../index.html">TRANG CHỦ</a></li>
+                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
+                        <li><a href="../gopy.html">GÓP Ý</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- giới thiệu khi đăng nhập -->
+<section id="protected-content" style="display: none;">
+<section class="banner_trangcon">
+    <div class="banner_trangcon_header">
+        <h1>LƯỢNG GIÁ CHỨC NĂNG</h1>
+        <div class="banner_trangcon_header_underline"></div>
+        <p>
+        <a href="gopy.html">
+          <button class="banner_trangcon_btn btn">GÓP Ý</button>
+        </a>
+        </p>            
+    </div>
+</section>
+
+<div class="thuco-section">
+  <div class="thuco-content">
+    <div class="thuco-text">
+        <h2 class="highlight center-text">THỬ CƠ</h2>
+      <p>Thử cơ là phương pháp đánh giá một cách khách quan khả năng của người bệnh điều khiển một cơ hoặc một nhóm cơ hoạt động</p>
+      <a href="#">
+        <button class="thuco-button">Xem ngay</button>
+      </a>
+    </div>
+    <div class="thuco-image">
+      <img src="/luonggiachucnang/hinhanh_LGCN/thuco.png" alt="" />
+    </div>
+  </div>
+</div>
+
+<div class="thuco-section">
+  <div class="thuco-content">
+    <div class="thuco-text">
+        <h2 class="highlight center-text">ĐO TẦM VẬN ĐỘNG KHỚP</h2>
+      <p>Đo tầm vận động khớp là phương pháp giúp xác định giới hạn và khả năng vận động mà một khớp đã thực hiện được trên một mặt phẳng nhất định từ đó đánh giá tình trạng của người bệnh dựa trên các giá trị bình thường của tầm vận động khớp</p>
+      <a href="#">
+        <button class="thuco-button">Xem ngay</button>
+      </a>
+    </div>
+    <div class="thuco-image">
+      <img src="../luonggiachucnang/hinhanh_LGCN/ROM.png" alt="" />
+    </div>
+  </div>
+</div>
+
+<div class="thuco-section">
+  <div class="thuco-content">
+    <div class="thuco-text">
+        <h2 class="highlight center-text">LƯỢNG GIÁ CHỨC NĂNG</h2>
+      <p>Lượng giá chức năng nhằm xác định mức độ ảnh hưởng của bệnh lý, khiếm khuyết lên các chức năng của người bệnh, mà chủ yếu là các chức năng vận động và thần kinh cao cấp. Từ những chức năng còn lại của người bệnh mà bác sĩ có thể đưa ra một chương trình can thiệp tăng tiến nhằm giúp người bệnh dần dần đạt được chức năng ban đầu đã giảm hoặc mất.</p>
+      <a href="#">
+        <button class="thuco-button">Xem ngay</button>
+      </a>
+    </div>
+    <div class="thuco-image">
+      <img src="../luonggiachucnang/hinhanh_LGCN/luonggiachucnang.png" alt="" />
+    </div>
+  </div>
+</div>
+
+
+
+
+
+ <!-- Chân trang cố định ---------->      
+ <section class="footer-section">
+  <div class="menu-namngang">
+      <a href="../index.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-home"></i>
+              <p>Trang chủ</p>
+          </div>
+      </a>
+      <div class="menu-namngang-item" onclick="showContact()">
+          <i class="fas fa-phone"></i>
+          <p>Liên hệ</p>
+      </div>
+      <a href="../gopy.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-envelope"></i>
+              <p>Góp ý</p>
+          </div>
+      </a>
+  </div>
+</section>
+
+    <!--Chân trang ------------------->
+    <section class="chantrang">
+      <footer class="chantrang-footer">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <a href="../index.html">
+                  <img src="../hinhanh/logo web.png" alt="Logo" />
+              </a>
+            </div>
+              <div class="footer-links">
+                  <a href="../index.html">Trang chủ</a>
+                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
+                  <a href="../gopy.html">Góp ý</a>
+              </div>
+              <div class="footer-social">
+                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@dantruong187?_t=ZS-8tuHECUeE78&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
+              </div>
+          </div>
+      </footer>
+    </section>
+</section>  
+    <script src="../script.js"></script>
+    <script src="../noidung.js"></script>
+</body>
+</html>

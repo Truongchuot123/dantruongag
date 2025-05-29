@@ -7,19 +7,6 @@
     margin: 0;
     padding: 20px;
 }
-.tieude {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    font-size: 2em;
-    font-weight: bold;
-    color: #ff6b6b;
-    margin-top: 30px;
-}
-.tieude i {
-    color: #245080;
-}
 .noidung_benh {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -87,9 +87,6 @@
 .feature:nth-child(3) {
   animation-delay: 0.6s;
 }
-
-/* --- Responsive Breakpoints --- */
-
 /* Tablet: Hiển thị 2 cột */
 @media (max-width: 992px) {
   .intro-features {
@@ -110,7 +107,15 @@
     flex: 1 1 48%;
   }
 }
+@media (max-width: 480px) {
+  .intro-features {
+    gap: 16px;
+  }
 
+  .intro-features a {
+    flex: 1 1 48%; /* Hoặc 50% nếu bạn muốn đều hơn */
+  }
+}
 
 
 </style>
@@ -120,16 +125,9 @@
         <div class="container">
             <div class="row justify-cottent">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="hinhanh/logo web.png" alt="">
+                    <a href="../index.html">
+                        <img src="../hinhanh/logo web.png" alt="">
                     </a>
-                </div>
-                <div>
-                  <li id="login-btn">
-                    <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
-                        <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
-                    </a>
-                  </li>
                 </div>
                 <div class="menu-bar" id="menu-bar">
                     <span></span>
@@ -138,10 +136,17 @@
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="side-nav" id="side-nav">
+                    <div>
+                        <li id="login-btn">
+                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                            </a>
+                        </li>
+                    </div>
                     <ul>
-                        <li><a href="index.html">TRANG CHỦ</a></li>
+                        <li><a href="../index.html">TRANG CHỦ</a></li>
                         <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="gopy.html">GÓP Ý</a></li>>
+                        <li><a href="../gopy.html">GÓP Ý</a></li>>
                     </ul>
                 </div>
             </div>
@@ -164,8 +169,11 @@
 </section>
 
 
-
 <section class="intro-features">
+  <a href="/tienganh/vocabulary.html" class="feature" data-aos="fade-up" data-aos-delay="0">
+    <img src="/tienganh/hinhanh.tienganh/IPA.png" alt="">
+    <p><strong>Ngữ âm IPA</strong></p>
+  </a>
   <a href="/tienganh/vocabulary.html" class="feature" data-aos="fade-up" data-aos-delay="0">
     <img src="/tienganh/hinhanh.tienganh/vocabulary.png" alt="">
     <p><strong>Hệ thống học từ vựng tiếng anh</strong></p>
@@ -179,6 +187,7 @@
     <p><strong>Luyện tập </strong></p>
   </a>
 </section>
+
 
 
  <!-- Chân trang cố định ---------->      
@@ -227,7 +236,7 @@
         </footer>
       </section>
   </section>  
-      <script src="../script.js"></script>
+      <script src="../script.js"></scrip>
       <script src="../noidung.js"></script>
       <!-- AOS Animation JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

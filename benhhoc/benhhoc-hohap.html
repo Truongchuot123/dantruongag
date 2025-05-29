@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bệnh học hô hấp-Nguyễn Mai Đan Trường</title>
-    <link rel="icon" href="hinhanh/logo web.png" type="">
+    <link rel="icon" href="../hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../noidung.css">
     <link rel="stylesheet" href="benhhoc.css">
@@ -26,20 +26,23 @@
             <div class="row justify-cottent">
                 <div class="logo">
                     <a href="../index.html">
-                        <img src="../hinhanh/logo web.png" alt="Logo">
+                        <img src="../hinhanh/logo web.png" alt="">
                     </a>
-                </div>
-                <div>
-                  <li id="login-btn">
-                    <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
-                        <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
-                    </a>
-                  </li>
                 </div>
                 <div class="menu-bar" id="menu-bar">
                     <span></span>
                 </div>
+                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
+                    <i class="fas fa-search"></i>
+                </div>
                 <div class="side-nav" id="side-nav">
+                    <div>
+                        <li id="login-btn">
+                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                            </a>
+                        </li>
+                    </div>
                     <ul>
                         <li><a href="../index.html">TRANG CHỦ</a></li>
                         <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
@@ -55,7 +58,7 @@
 <section id="protected-content" style="display: none;">
 <section class="banner_trangcon">
     <div class="banner_trangcon_header">
-        <h1>BỆNH HỌC</h1>
+        <h1>BỆNH HỌC HÔ HẤP</h1>
         <div class="banner_trangcon_header_underline"></div>
         <p>
         <a href="gopy.html">
@@ -64,10 +67,6 @@
         </p>            
     </div>
 </section>
-
-<div class="tieude">
-    <i class="fas fa-lungs"></i> BỆNH HÔ HẤP
-</div>
 <section class="noidung_">
     <div class="noidung_benh">
         <a href="#">Lao phổi</a>
