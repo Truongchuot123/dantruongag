@@ -214,6 +214,24 @@
   color: #2c3e50;
 }
 
+#add-word-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+  #add-word-btn:hover {
+    background-color: #45a049;
+  }
   </style>
 </head>
 <body>
@@ -240,7 +258,8 @@
   </div>
 
   <div id="vocab-list"></div>
-
+<!-- Nút thêm từ -->
+<button id="add-word-btn" title="Thêm từ mới">＋</button>
   <script>
     // JS cho nút quay về
     function goBack() {
@@ -520,7 +539,7 @@ function formatExamples(exampleText, word) {
   `;
 }
 
-
+// Toggle hiển thị ví dụ bổ sung
 function toggleExamples(id) {
   const container = document.getElementById(id);
   if (container) {
@@ -530,6 +549,177 @@ function toggleExamples(id) {
     });
   }
 }
+// Chèn CSS 1 lần duy nhất
+const swalStyle = document.createElement('style');
+swalStyle.textContent = `
+  .swal2-popup {
+    width: 95vw;
+    max-width: 700px;
+    padding: 20px;
+  }
+
+  .swal2-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding-top: 10px;
+  }
+
+  .swal2-input, .swal2-textarea {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 44px;
+  }
+
+  .swal2-input:focus, .swal2-textarea:focus {
+    border-color: #007BFF;
+    background-color: #f0f8ff;
+    outline: none;
+  }
+
+  .swal2-input.filled, .swal2-textarea.filled {
+    border-color: #28a745 !important;
+    background-color: #e6ffed !important;
+  }
+
+  .swal2-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .required::placeholder {
+    color: red;
+    opacity: 0.7;
+  }
+`;
+document.head.appendChild(swalStyle);
+
+// Gắn sự kiện cho nút "Thêm từ"
+document.getElementById('add-word-btn').addEventListener('click', async () => {
+  let isFormDirty = false;
+
+  const swalInstance = Swal.fire({
+    title: "Thêm từ vựng mới",
+    html: `
+      <div class="swal2-grid">
+        <input id="swal-eng" class="swal2-input required" placeholder="* Tiếng Anh">
+        <input id="swal-ipa" class="swal2-input required" placeholder="* IPA">
+        <input id="swal-type" class="swal2-input" placeholder="Kiểu từ (noun, verb...)">
+        <textarea id="swal-def" class="swal2-textarea" placeholder="Định nghĩa"></textarea>
+        <input id="swal-viet" class="swal2-input required" placeholder="* Tiếng Việt">
+        <input id="swal-syn" class="swal2-input" placeholder="Đồng nghĩa (cách nhau bằng ,)">
+        <input id="swal-ant" class="swal2-input" placeholder="Trái nghĩa (cách nhau bằng ,)">
+        <textarea id="swal-ex" class="swal2-textarea" placeholder="Ví dụ"></textarea>
+        <textarea id="swal-note" class="swal2-textarea" placeholder="Ghi chú"></textarea>
+      </div>
+    `,
+    focusConfirm: false,
+    showCancelButton: true,
+    confirmButtonText: 'Gửi',
+    allowOutsideClick: () => {
+      if (isFormDirty) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Bạn có chắc muốn thoát?',
+          text: 'Thông tin đã nhập sẽ bị mất!',
+          showCancelButton: true,
+          confirmButtonText: 'Thoát',
+          cancelButtonText: 'Quay lại'
+        }).then(result => {
+          if (result.isConfirmed) Swal.close();
+        });
+        return false;
+      }
+      return true;
+    },
+    allowEscapeKey: () => {
+      if (isFormDirty) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Bạn có chắc muốn thoát?',
+          text: 'Thông tin đã nhập sẽ bị mất!',
+          showCancelButton: true,
+          confirmButtonText: 'Thoát',
+          cancelButtonText: 'Quay lại'
+        }).then(result => {
+          if (result.isConfirmed) Swal.close();
+        });
+        return false;
+      }
+      return true;
+    },
+    didOpen: () => {
+      document.querySelectorAll('.swal2-input, .swal2-textarea').forEach(input => {
+        input.addEventListener('input', () => {
+          input.classList.toggle('filled', input.value.trim() !== '');
+          isFormDirty = true;
+        });
+      });
+    },
+    preConfirm: () => {
+      const eng = document.getElementById('swal-eng').value.trim();
+      const ipa = document.getElementById('swal-ipa').value.trim();
+      const viet = document.getElementById('swal-viet').value.trim();
+
+      if (!eng || !ipa || !viet) {
+        let msg = 'Các trường bắt buộc không được để trống:';
+        if (!eng) msg += '<br>• Tiếng Anh';
+        if (!ipa) msg += '<br>• IPA';
+        if (!viet) msg += '<br>• Tiếng Việt';
+
+        Swal.showValidationMessage(msg);
+        return false;
+      }
+
+      const fields = [
+        'swal-eng', 'swal-ipa', 'swal-type', 'swal-def',
+        'swal-viet', 'swal-syn', 'swal-ant', 'swal-ex', 'swal-note'
+      ];
+      return fields.map(id => document.getElementById(id).value.trim());
+    }
+  });
+
+  const { value: formValues } = await swalInstance;
+
+  if (formValues) {
+    try {
+      const [english, ipa, type, definition, vietnamese, synonym, antonym, example, note] = formValues;
+      const formData = new FormData();
+
+      formData.append("action", "add");
+      formData.append("english", english);
+      formData.append("ipa", ipa);
+      formData.append("type", type);
+      formData.append("definition", definition);
+      formData.append("vietnamese", vietnamese);
+      formData.append("synonym", synonym);
+      formData.append("antonym", antonym);
+      formData.append("example", example);
+      formData.append("note", note);
+
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+      });
+
+      Swal.fire("Thành công!", "Từ vựng đã được thêm", "success");
+      loadVocabulary(); // Tải lại danh sách từ
+    } catch (error) {
+      console.error("Lỗi:", error);
+      Swal.fire("Lỗi!", "Không thể gửi dữ liệu", "error");
+    }
+  }
+});
+
+
+
+
 
 
 
