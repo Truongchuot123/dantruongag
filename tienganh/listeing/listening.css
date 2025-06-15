@@ -1,0 +1,119 @@
+    html {
+  scroll-behavior: smooth;
+    }
+    .hotel_listening {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4a148c;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .content {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      flex: 1 1 45%;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-2px);
+    }
+
+    .box-header {
+      font-size: 20px;
+      color: #6a1b9a;
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .box-content {
+      padding: 20px;
+      display: none;
+    }
+
+    .box p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .speaker-a {
+    color: #5b498c; 
+    font-weight: bold;
+    }
+    .speaker-b {
+    color: #000000; 
+    font-weight: bold;
+    }
+
+    .speaker-c {
+    color: #12b347; 
+    font-weight: bold;
+    }
+    .phrase-section {
+      margin-top: 40px;
+    }
+
+    .phrase-box {
+      background: #ffffff;
+      padding: 15px 20px;
+      border-left: 5px solid #4a148c;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+
+    .phrase-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .phrase-en {
+      font-weight: bold;
+      font-size: 17px;
+      color: #4a148c;
+      margin-bottom: 6px;
+    }
+
+    .phrase-vi {
+      font-size: 15px;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+
+      .box {
+        flex: 1 1 100%;
+      }
+    }

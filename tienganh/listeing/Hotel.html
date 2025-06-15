@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Hệ thống học nghe tiếng anh-Nguyễn Mai Đan Trường</title>
     <link rel="icon" href="../hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/tienganh/listeing/listening.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -16,125 +17,6 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <style>
-    html {
-  scroll-behavior: smooth;
-    }
-    .hotel_listening {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      padding: 20px;
-      color: #333;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #4a148c;
-    }
-
-    audio {
-      width: 100%;
-      margin-bottom: 30px;
-    }
-
-    .content {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .box {
-      flex: 1 1 45%;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .box:hover {
-      transform: translateY(-2px);
-    }
-
-    .box-header {
-      font-size: 20px;
-      color: #6a1b9a;
-      padding: 15px 20px;
-      border-bottom: 1px solid #eee;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .box-content {
-      padding: 20px;
-      display: none;
-    }
-
-    .box p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .speaker-a {
-    color: #5b498c; /* tím đậm */
-    font-weight: bold;
-    }
-
-    /* Tô màu chữ cho nhân vật B */
-    .speaker-b {
-    color: #000000; /* xanh dương đậm */
-    font-weight: bold;
-    }
-
-    .phrase-section {
-      margin-top: 40px;
-    }
-
-    .phrase-box {
-      background: #ffffff;
-      padding: 15px 20px;
-      border-left: 5px solid #4a148c;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
-    }
-
-    .phrase-box:hover {
-      transform: translateY(-2px);
-    }
-
-    .phrase-en {
-      font-weight: bold;
-      font-size: 17px;
-      color: #4a148c;
-      margin-bottom: 6px;
-    }
-
-    .phrase-vi {
-      font-size: 15px;
-      color: #555;
-    }
-
-    @media (max-width: 768px) {
-      .content {
-        flex-direction: column;
-      }
-
-      .box {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
 </head>
 <body>
 <section class="hotel_listening">
@@ -154,14 +36,14 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
   <div class="box-content">
-<p><span class="speaker-a">Tony: </span> <span class="speaker-a"> Excuse me, I have a problem with my room.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> I’m sorry to hear that. What seems to be the issue?</span></p>
-<p><span class="speaker-a">Tony: </span> <span class="speaker-a"> The air conditioner isn’t working. It’s really hot inside.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> I understand. Let me send maintenance to fix it right away.</span></p>
-<p><span class="speaker-a">Tony: </span> <span class="speaker-a"> Thank you. I’d really appreciate that.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> You’re welcome. If it takes too long, we can move you to another room.</span></p>
-<p><span class="speaker-a">Tony: </span> <span class="speaker-a"> That sounds good. Thanks for your help.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> No problem at all. We want you to enjoy your stay.</span></p>
+<p><span class="speaker-a">Tony: </span> <span class="noidung_speaker-a"> Excuse me, I have a problem with my room.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> I’m sorry to hear that. What seems to be the issue?</span></p>
+<p><span class="speaker-a">Tony: </span> <span class="noidung_speaker-a"> The air conditioner isn’t working. It’s really hot inside.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> I understand. Let me send maintenance to fix it right away.</span></p>
+<p><span class="speaker-a">Tony: </span> <span class="noidung_speaker-a"> Thank you. I’d really appreciate that.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> You’re welcome. If it takes too long, we can move you to another room.</span></p>
+<p><span class="speaker-a">Tony: </span> <span class="noidung_speaker-a"> That sounds good. Thanks for your help.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> No problem at all. We want you to enjoy your stay.</span></p>
 
   </div>
 </div>
@@ -170,14 +52,14 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
   <div class="box-content">
- <p><span class="speaker-a">Tony: </span> <span class="speaker-a"> Xin lỗi, tôi gặp vấn đề với phòng của mình. </span></p>
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b"> Tôi rất tiếc khi nghe điều đó. Vấn đề là gì vậy ạ? </span></p>
-<p><span class="speaker-a">Tony: </span> <span class="speaker-a"> Máy điều hòa không hoạt động. Trong phòng rất nóng. </span></p>
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b"> Tôi hiểu rồi. Để tôi cử nhân viên bảo trì đến sửa ngay. </span></p>
-<p><span class="speaker-a">Tony: </span> <span class="speaker-a"> Cảm ơn. Tôi rất cảm kích điều đó. </span></p>
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b"> Không có gì đâu ạ. Nếu sửa lâu quá, chúng tôi có thể chuyển anh sang phòng khác. </span></p>
-<p><span class="speaker-a">Tony: </span> <span class="speaker-a"> Nghe ổn đấy. Cảm ơn vì đã giúp đỡ. </span></p>
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b"> Không có vấn đề gì cả. Chúng tôi muốn anh có một kỳ nghỉ thoải mái. </span></p>
+ <p><span class="speaker-a">Tony: </span> <span class="noidung_speaker-a"> Xin lỗi, tôi gặp vấn đề với phòng của mình. </span></p>
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b"> Tôi rất tiếc khi nghe điều đó. Vấn đề là gì vậy ạ? </span></p>
+<p><span class="speaker-a">Tony: </span> <span class="noidung_speaker-a"> Máy điều hòa không hoạt động. Trong phòng rất nóng. </span></p>
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b"> Tôi hiểu rồi. Để tôi cử nhân viên bảo trì đến sửa ngay. </span></p>
+<p><span class="speaker-a">Tony: </span> <span class="noidung_speaker-a"> Cảm ơn. Tôi rất cảm kích điều đó. </span></p>
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b"> Không có gì đâu ạ. Nếu sửa lâu quá, chúng tôi có thể chuyển anh sang phòng khác. </span></p>
+<p><span class="speaker-a">Tony: </span> <span class="noidung_speaker-a"> Nghe ổn đấy. Cảm ơn vì đã giúp đỡ. </span></p>
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b"> Không có vấn đề gì cả. Chúng tôi muốn anh có một kỳ nghỉ thoải mái. </span></p>
 
   </div>
 </div>
@@ -212,14 +94,14 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
   <div class="box-content">
-<p><span class="speaker-a">Receptionist:</span> <span class="speaker-a"> Welcome. Do you have a reservation?
- <p><span class="speaker-b">John Smith: </span> <span class="speaker-b"> Yes, I'm John Smith. I have a reservation for a king room for today.
-<p><span class="speaker-a">Receptionist:</span> <span class="speaker-a"> Yes, Mr. Smith. May I see your passport, please?
- <p><span class="speaker-b">John Smith: </span> <span class="speaker-b"> Here you go.
-<p><span class="speaker-a">Receptionist:</span> <span class="speaker-a"> Thank you. Here is your room card. Your room is 816.
- <p><span class="speaker-b">John Smith: </span> <span class="speaker-b">> Okay. What time is breakfast served?
-<p><span class="speaker-a">Receptionist:</span> <span class="speaker-a"> From 6 a.m. to 9 a.m. at the restaurant on the second floor. Enjoy your stay!
- <p><span class="speaker-b">John Smith: </span> <span class="speaker-b"> Thank you.
+<p><span class="speaker-a">Receptionist:</span> <span class="noidung_speaker-a"> Welcome. Do you have a reservation?
+ <p><span class="speaker-b">John Smith: </span> <span class="noidung_speaker-b"> Yes, I'm John Smith. I have a reservation for a king room for today.
+<p><span class="speaker-a">Receptionist:</span> <span class="noidung_speaker-a"> Yes, Mr. Smith. May I see your passport, please?
+ <p><span class="speaker-b">John Smith: </span> <span class="noidung_speaker-b"> Here you go.
+<p><span class="speaker-a">Receptionist:</span> <span class="noidung_speaker-a"> Thank you. Here is your room card. Your room is 816.
+ <p><span class="speaker-b">John Smith: </span> <span class="noidung_speaker-b">> Okay. What time is breakfast served?
+<p><span class="speaker-a">Receptionist:</span> <span class="noidung_speaker-a"> From 6 a.m. to 9 a.m. at the restaurant on the second floor. Enjoy your stay!
+ <p><span class="speaker-b">John Smith: </span> <span class="noidung_speaker-b"> Thank you.
 
   </div>
 </div>
@@ -228,14 +110,14 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
   <div class="box-content">
-<p><span class="speaker-a">Lễ tân:</span> <span class="speaker-a"> Chào mừng anh. anh có đặt phòng trước không?
- <p><span class="speaker-b">John Smith: </span> <span class="speaker-b"> Vâng, tôi là John Smith. Tôi đã đặt một phòng giường king cho hôm nay.
-<p><span class="speaker-a">Lễ tân:</span> <span class="speaker-a"> Vâng, ông Smith. Vui lòng cho tôi xem hộ chiếu.
- <p><span class="speaker-b">John Smith: </span> <span class="speaker-b">> Đây ạ.
-<p><span class="speaker-a">Lễ tân:</span> <span class="speaker-a"> Cảm ơn ông. Đây là thẻ phòng của ông. Phòng ông là 816.
- <p><span class="speaker-b">John Smith: </span> <span class="speaker-b">> Vâng. Bữa sáng được phục vụ lúc mấy giờ vậy?
-<p><span class="speaker-a">Lễ tân:</span> <span class="speaker-a"> Từ 6 giờ sáng đến 9 giờ sáng tại nhà hàng tầng hai. Chúc ông kỳ nghỉ vui vẻ!
- <p><span class="speaker-b">John Smith: </span> <span class="speaker-b">> Cảm ơn.
+<p><span class="speaker-a">Lễ tân:</span> <span class="noidung_speaker-a"> Chào mừng anh. anh có đặt phòng trước không?
+ <p><span class="speaker-b">John Smith: </span> <span class="noidung_speaker-b"> Vâng, tôi là John Smith. Tôi đã đặt một phòng giường king cho hôm nay.
+<p><span class="speaker-a">Lễ tân:</span> <span class="noidung_speaker-a"> Vâng, ông Smith. Vui lòng cho tôi xem hộ chiếu.
+ <p><span class="speaker-b">John Smith: </span> <span class="noidung_speaker-b">> Đây ạ.
+<p><span class="speaker-a">Lễ tân:</span> <span class="noidung_speaker-a"> Cảm ơn ông. Đây là thẻ phòng của ông. Phòng ông là 816.
+ <p><span class="speaker-b">John Smith: </span> <span class="noidung_speaker-b">> Vâng. Bữa sáng được phục vụ lúc mấy giờ vậy?
+<p><span class="speaker-a">Lễ tân:</span> <span class="noidung_speaker-a"> Từ 6 giờ sáng đến 9 giờ sáng tại nhà hàng tầng hai. Chúc ông kỳ nghỉ vui vẻ!
+ <p><span class="speaker-b">John Smith: </span> <span class="noidung_speaker-b">> Cảm ơn.
   </div>
 </div>
     <!-- Mẫu câu nên dùng -->
@@ -276,27 +158,27 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
   <div class="box-content">
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Hi there, do you have any rooms available for tonight?</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Hello! Let me check.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Yes, we do have a few rooms left. Are you looking for a single or a double room?</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">A single room, please.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Would you prefer a room with a view or a quieter one facing the courtyard?</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">The quieter one sounds better.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Great. That would be $95 for the night. Would you like to include breakfast?</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Yes, please. What time is breakfast served?</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> It's from 7 to 10 A.M. in the dining area on the first floor.</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Perfect. Does the room come with free Wi-Fi?</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Yes, and we also offer free access to the gym and pool.</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Nice! Can I pay by card?</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Absolutely. May I see your ID, please?</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Sure. Here you go.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Thank you. Just a moment. Alright, everything is set. Here's your room key – Room 308 on the third floor.</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Is there an elevator?</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Yes, just around the corner to your right.</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Great. One last question. Is late checkout possible tomorrow?</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> Yes, we can offer a late checkout at 1 PM. Just let us know in the morning.</span></p>
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Will do. Thanks so much for your help!</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b"> You're welcome! Enjoy your stay.</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Hi there, do you have any rooms available for tonight?</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Hello! Let me check.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Yes, we do have a few rooms left. Are you looking for a single or a double room?</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">A single room, please.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Would you prefer a room with a view or a quieter one facing the courtyard?</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">The quieter one sounds better.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Great. That would be $95 for the night. Would you like to include breakfast?</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Yes, please. What time is breakfast served?</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> It's from 7 to 10 A.M. in the dining area on the first floor.</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Perfect. Does the room come with free Wi-Fi?</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Yes, and we also offer free access to the gym and pool.</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Nice! Can I pay by card?</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Absolutely. May I see your ID, please?</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Sure. Here you go.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Thank you. Just a moment. Alright, everything is set. Here's your room key – Room 308 on the third floor.</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Is there an elevator?</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Yes, just around the corner to your right.</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Great. One last question. Is late checkout possible tomorrow?</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> Yes, we can offer a late checkout at 1 PM. Just let us know in the morning.</span></p>
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Will do. Thanks so much for your help!</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b"> You're welcome! Enjoy your stay.</span></p>
 
 
   </div>
@@ -306,27 +188,27 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
   <div class="box-content">
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Chào bạn, tối nay còn phòng không?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Chào bạn! Để tôi kiểm tra nhé.
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Vâng, chúng tôi còn một vài phòng. Bạn muốn phòng đơn hay phòng đôi?
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Là phòng đơn nhé.
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Bạn muốn phòng có view hay phòng yên tĩnh hướng vào sân trong?
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Phòng yên tĩnh nghe có vẻ ổn hơn.
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Tuyệt. Giá là 95 đô cho một đêm. Bạn có muốn bao gồm bữa sáng không?
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Có, làm ơn. Bữa sáng được phục vụ lúc mấy giờ?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Từ 7 giờ đến 10 giờ sáng, tại khu ăn uống ở tầng một.
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Hoàn hảo. Phòng có Wi-Fi miễn phí không?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Có, và chúng tôi cũng cung cấp quyền sử dụng miễn phí phòng gym và hồ bơi.
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Tuyệt quá! Tôi có thể thanh toán bằng thẻ không?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Dĩ nhiên rồi. Cho tôi xem thẻ căn cước của bạn nhé.
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Vâng. Đây ạ.
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Cảm ơn bạn. Chờ tôi một chút nhé. Rồi, mọi thứ đã xong. Đây là chìa khóa phòng của bạn – Phòng 308 ở tầng ba.
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Có thang máy không vậy?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Có, ngay góc đó bên phải bạn.
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Tuyệt. Câu hỏi cuối cùng nhé. Ngày mai tôi có thể trả phòng muộn không?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Được chứ, chúng tôi có thể hỗ trợ trả phòng muộn lúc 1 giờ chiều. Chỉ cần báo cho lễ tân vào buổi sáng là được.
-<p><span class="speaker-a">Alexander: </span> <span class="speaker-a">Tôi sẽ báo. Cảm ơn bạn rất nhiều vì đã giúp đỡ!
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Rất hân hạnh! Chúc bạn có kỳ nghỉ tuyệt vời.
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Chào bạn, tối nay còn phòng không?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Chào bạn! Để tôi kiểm tra nhé.
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Vâng, chúng tôi còn một vài phòng. Bạn muốn phòng đơn hay phòng đôi?
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Là phòng đơn nhé.
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Bạn muốn phòng có view hay phòng yên tĩnh hướng vào sân trong?
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Phòng yên tĩnh nghe có vẻ ổn hơn.
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Tuyệt. Giá là 95 đô cho một đêm. Bạn có muốn bao gồm bữa sáng không?
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Có, làm ơn. Bữa sáng được phục vụ lúc mấy giờ?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Từ 7 giờ đến 10 giờ sáng, tại khu ăn uống ở tầng một.
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Hoàn hảo. Phòng có Wi-Fi miễn phí không?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Có, và chúng tôi cũng cung cấp quyền sử dụng miễn phí phòng gym và hồ bơi.
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Tuyệt quá! Tôi có thể thanh toán bằng thẻ không?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Dĩ nhiên rồi. Cho tôi xem thẻ căn cước của bạn nhé.
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Vâng. Đây ạ.
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Cảm ơn bạn. Chờ tôi một chút nhé. Rồi, mọi thứ đã xong. Đây là chìa khóa phòng của bạn – Phòng 308 ở tầng ba.
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Có thang máy không vậy?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Có, ngay góc đó bên phải bạn.
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Tuyệt. Câu hỏi cuối cùng nhé. Ngày mai tôi có thể trả phòng muộn không?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Được chứ, chúng tôi có thể hỗ trợ trả phòng muộn lúc 1 giờ chiều. Chỉ cần báo cho lễ tân vào buổi sáng là được.
+<p><span class="speaker-a">Alexander: </span> <span class="noidung_speaker-a">Tôi sẽ báo. Cảm ơn bạn rất nhiều vì đã giúp đỡ!
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Rất hân hạnh! Chúc bạn có kỳ nghỉ tuyệt vời.
   </div>
 </div>
     <!-- Mẫu câu nên dùng -->
@@ -369,14 +251,14 @@
   <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
   <div class="box-content">
 
-<p><span class="speaker-a">Lan </span> <span class="speaker-a">Hi, I`m locked out of my room. I left my key card inside</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">Oh no! What`s your room number?</span></p>
-<p><span class="speaker-a">Lan </span> <span class="speaker-a">Room 312.</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">Alright. Can I see some ID?</span></p>
-<p><span class="speaker-a">Lan </span> <span class="speaker-a">It`s the room too</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">No worries, I`ll send someone up to help you right away</span></p>
-<p><span class="speaker-a">Lan </span> <span class="speaker-a">Thank you so much!</span></p>
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">You`re welcome. They`ll be there in just a minute </span></p>
+<p><span class="speaker-a">Lan </span> <span class="noidung_speaker-a">Hi, I`m locked out of my room. I left my key card inside</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">Oh no! What`s your room number?</span></p>
+<p><span class="speaker-a">Lan </span> <span class="noidung_speaker-a">Room 312.</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">Alright. Can I see some ID?</span></p>
+<p><span class="speaker-a">Lan </span> <span class="noidung_speaker-a">It`s the room too</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">No worries, I`ll send someone up to help you right away</span></p>
+<p><span class="speaker-a">Lan </span> <span class="noidung_speaker-a">Thank you so much!</span></p>
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">You`re welcome. They`ll be there in just a minute </span></p>
   </div>
 </div>
 
@@ -384,14 +266,14 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
   <div class="box-content">
-<p><span class="speaker-a">Lan </span> <span class="speaker-a">Chào bạn, tôi bị khóa ngoài phòng rồi. Tôi để thẻ khóa ở bên trong.</span></p>
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Ôi không! Số phòng của bạn là bao nhiêu vậy?</span></p>
-<p><span class="speaker-a">Lan </span> <span class="speaker-a">Phòng 312.</span></p>
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Được rồi. Tôi có thể xem giấy tờ tùy thân của bạn không?</span></p>
-<p><span class="speaker-a">Lan </span> <span class="speaker-a">Nó cũng ở trong phòng luôn.</span></p>
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Không sao, tôi sẽ cử người lên giúp bạn ngay.</span></p>
-<p><span class="speaker-a">Lan </span> <span class="speaker-a">Cảm ơn bạn rất nhiều!</span></p>
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Không có gì. Họ sẽ đến trong ít phút nữa.</span></p>
+<p><span class="speaker-a">Lan </span> <span class="noidung_speaker-a">Chào bạn, tôi bị khóa ngoài phòng rồi. Tôi để thẻ khóa ở bên trong.</span></p>
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Ôi không! Số phòng của bạn là bao nhiêu vậy?</span></p>
+<p><span class="speaker-a">Lan </span> <span class="noidung_speaker-a">Phòng 312.</span></p>
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Được rồi. Tôi có thể xem giấy tờ tùy thân của bạn không?</span></p>
+<p><span class="speaker-a">Lan </span> <span class="noidung_speaker-a">Nó cũng ở trong phòng luôn.</span></p>
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Không sao, tôi sẽ cử người lên giúp bạn ngay.</span></p>
+<p><span class="speaker-a">Lan </span> <span class="noidung_speaker-a">Cảm ơn bạn rất nhiều!</span></p>
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Không có gì. Họ sẽ đến trong ít phút nữa.</span></p>
   </div>
 </div>
     <!-- Mẫu câu nên dùng -->
@@ -424,13 +306,13 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
   <div class="box-content">
-<p><span class="speaker-a">Nam </span> <span class="speaker-a">Hi! I`m staying in room 305. I was wondering if I could get an extra blanket.
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">Of course! I`ll have housekeeping bring one to your room shortly.
-<p><span class="speaker-a">Nam </span> <span class="speaker-a">That would be great! Thank you so much.
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">You`re welcome. Is there anything else I can help with?
-<p><span class="speaker-a">Nam </span> <span class="speaker-a">No, that`s all. I appreciate it!
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">My pleasure! The blanket should arrive in about 10 minutes. Have a wonderful night.
-<p><span class="speaker-a">Nam </span> <span class="speaker-a">Thanks! You too.
+<p><span class="speaker-a">Nam </span> <span class="noidung_speaker-a">Hi! I`m staying in room 305. I was wondering if I could get an extra blanket.
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">Of course! I`ll have housekeeping bring one to your room shortly.
+<p><span class="speaker-a">Nam </span> <span class="noidung_speaker-a">That would be great! Thank you so much.
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">You`re welcome. Is there anything else I can help with?
+<p><span class="speaker-a">Nam </span> <span class="noidung_speaker-a">No, that`s all. I appreciate it!
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">My pleasure! The blanket should arrive in about 10 minutes. Have a wonderful night.
+<p><span class="speaker-a">Nam </span> <span class="noidung_speaker-a">Thanks! You too.
   </div>
 </div>
 
@@ -438,13 +320,13 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
   <div class="box-content">
-<p><span class="speaker-a">Nam</span> <span class="speaker-a">Xin chào! Tôi đang ở phòng 305. Tôi muốn hỏi liệu tôi có thể xin thêm một cái chăn không?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Tất nhiên rồi! Tôi sẽ cho nhân viên dọn phòng mang lên phòng bạn ngay.
-<p><span class="speaker-a">Nam</span> <span class="speaker-a">Tuyệt vời! Cảm ơn bạn rất nhiều.
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Không có gì. Bạn còn cần tôi hỗ trợ gì nữa không?
-<p><span class="speaker-a">Nam</span> <span class="speaker-a">Không, vậy là đủ rồi. Tôi rất cảm kích!
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Rất hân hạnh! Chăn sẽ được mang lên trong khoảng 10 phút nữa. Chúc bạn một đêm tuyệt vời.
-<p><span class="speaker-a">Nam</span> <span class="speaker-a">Cảm ơn nhé! Chúc bạn cũng vậy!
+<p><span class="speaker-a">Nam</span> <span class="noidung_speaker-a">Xin chào! Tôi đang ở phòng 305. Tôi muốn hỏi liệu tôi có thể xin thêm một cái chăn không?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Tất nhiên rồi! Tôi sẽ cho nhân viên dọn phòng mang lên phòng bạn ngay.
+<p><span class="speaker-a">Nam</span> <span class="noidung_speaker-a">Tuyệt vời! Cảm ơn bạn rất nhiều.
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Không có gì. Bạn còn cần tôi hỗ trợ gì nữa không?
+<p><span class="speaker-a">Nam</span> <span class="noidung_speaker-a">Không, vậy là đủ rồi. Tôi rất cảm kích!
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Rất hân hạnh! Chăn sẽ được mang lên trong khoảng 10 phút nữa. Chúc bạn một đêm tuyệt vời.
+<p><span class="speaker-a">Nam</span> <span class="noidung_speaker-a">Cảm ơn nhé! Chúc bạn cũng vậy!
   </div>
 </div>
     <!-- Mẫu câu nên dùng -->
@@ -472,14 +354,14 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
   <div class="box-content">
-<p><span class="speaker-a">Ha: </span> <span class="speaker-a">Hi there! I just checked in and I`m looking for something fun to do around here. Any recommendations?
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">Of course! Are you interested in sightseeing, food or maybe a little shopping
-<p><span class="speaker-a">Ha: </span> <span class="speaker-a">Hmm.... a lot of everything, honestly. I`ve only got one day. So I want to make the most of it!
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">Got it! I`d sugggest starting with the old town walking tour. Lots of cool history. Then grab lunch at “Luna Cafe”, just two blocks away. Amazing local dishes!
-<p><span class="speaker-a">Ha: </span> <span class="speaker-a">That sounds perfect! And maybe a nice spot for sovenirs?
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">Try the artisan market by the river. It`s a five minute walk. You`ll love it.
-<p><span class="speaker-a">Ha: </span> <span class="speaker-a">Awesome, thank you so much!
-<p><span class="speaker-b">Receptionist:</span> <span class="speaker-b">Anytime! Enjoy your day
+<p><span class="speaker-a">Ha: </span> <span class="noidung_speaker-a">Hi there! I just checked in and I`m looking for something fun to do around here. Any recommendations?
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">Of course! Are you interested in sightseeing, food or maybe a little shopping
+<p><span class="speaker-a">Ha: </span> <span class="noidung_speaker-a">Hmm.... a lot of everything, honestly. I`ve only got one day. So I want to make the most of it!
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">Got it! I`d sugggest starting with the old town walking tour. Lots of cool history. Then grab lunch at “Luna Cafe”, just two blocks away. Amazing local dishes!
+<p><span class="speaker-a">Ha: </span> <span class="noidung_speaker-a">That sounds perfect! And maybe a nice spot for sovenirs?
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">Try the artisan market by the river. It`s a five minute walk. You`ll love it.
+<p><span class="speaker-a">Ha: </span> <span class="noidung_speaker-a">Awesome, thank you so much!
+<p><span class="speaker-b">Receptionist:</span> <span class="noidung_speaker-b">Anytime! Enjoy your day
   </div>
 </div>
 
@@ -487,14 +369,14 @@
 <div class="box">
   <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
   <div class="box-content">
-<p><span class="speaker-a">Ha: </span> <span class="speaker-a">Chào bạn! Tôi vừa mới nhận phòng và đang muốn tìm vài hoạt động vui vẻ ở quanh đây. Bạn có gợi ý nào không?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Tất nhiên rồi! Bạn thích tham quan, ăn uống hay mua sắm một chút?
-<p><span class="speaker-a">Ha: </span> <span class="speaker-a">Hmm... thật ra là tất cả luôn. Tôi chỉ có một ngày thôi nên muốn tận dụng thời gian thật tốt!
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Hiểu rồi! Tôi gợi ý bạn nên bắt đầu với tour đi bộ quanh khu phố cổ – có nhiều lịch sử thú vị lắm. Sau đó hãy ăn trưa ở “Luna Cafe”, chỉ cách đây hai dãy nhà. Món địa phương ở đó tuyệt vời!
-<p><span class="speaker-a">Ha: </span> <span class="speaker-a">Nghe hoàn hảo đấy! Còn chỗ nào mua quà lưu niệm đẹp không?
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Hãy thử chợ thủ công mỹ nghệ bên bờ sông. Đi bộ 5 phút là tới. Bạn sẽ thích nó đấy.
-<p><span class="speaker-a">Ha: </span> <span class="speaker-a">Tuyệt quá, cảm ơn bạn nhiều nhé!
-<p><span class="speaker-b">Lế tân:</span> <span class="speaker-b">Không có chi! Chúc bạn một ngày vui vẻ!
+<p><span class="speaker-a">Ha: </span> <span class="noidung_speaker-a">Chào bạn! Tôi vừa mới nhận phòng và đang muốn tìm vài hoạt động vui vẻ ở quanh đây. Bạn có gợi ý nào không?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Tất nhiên rồi! Bạn thích tham quan, ăn uống hay mua sắm một chút?
+<p><span class="speaker-a">Ha: </span> <span class="noidung_speaker-a">Hmm... thật ra là tất cả luôn. Tôi chỉ có một ngày thôi nên muốn tận dụng thời gian thật tốt!
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Hiểu rồi! Tôi gợi ý bạn nên bắt đầu với tour đi bộ quanh khu phố cổ – có nhiều lịch sử thú vị lắm. Sau đó hãy ăn trưa ở “Luna Cafe”, chỉ cách đây hai dãy nhà. Món địa phương ở đó tuyệt vời!
+<p><span class="speaker-a">Ha: </span> <span class="noidung_speaker-a">Nghe hoàn hảo đấy! Còn chỗ nào mua quà lưu niệm đẹp không?
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Hãy thử chợ thủ công mỹ nghệ bên bờ sông. Đi bộ 5 phút là tới. Bạn sẽ thích nó đấy.
+<p><span class="speaker-a">Ha: </span> <span class="noidung_speaker-a">Tuyệt quá, cảm ơn bạn nhiều nhé!
+<p><span class="speaker-b">Lế tân:</span> <span class="noidung_speaker-b">Không có chi! Chúc bạn một ngày vui vẻ!
   </div>
 </div>
     <!-- Mẫu câu nên dùng -->
