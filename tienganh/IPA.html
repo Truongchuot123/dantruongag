@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hệ thống học tập tiếng anh - Nguyễn Mai Đan Trường </title>
+    <link rel="icon" href="hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/noidung.css">
+    <link rel="stylesheet" href="/banner_trang_chu.css">    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+  <style>
+:root {
+    --nut: #4d128b;
+    --button_hover: #ff6b6b;
+}
+    .bang_phien_am_quoc_te {
+      color: #1e3a8a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5vw;
+      text-align: center;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bang_phien_am_quoc_te h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      color: #1d4ed8;
+      margin-bottom: 0.5em;
+    }
+
+    .subtitle_bang_phien_am_quoc_te {
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      color: #f06d6d;
+      margin-bottom: 1em;
+    }
+
+    .bang_phien_am_quoc_te p {
+      font-size: clamp(2rem, 3.5vw, 1.2rem);
+      color: #374151;
+      margin-bottom: 2em;
+      max-width: 800px;
+    }
+
+    .btn_bang_phien_am_quoc_te {
+      background: #2563eb;
+      color: white;
+      padding: 1em 2em;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn_bang_phien_am_quoc_te:hover {
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 400px) {
+      .btn_bang_phien_am_quoc_te {
+        padding: 0.8em 1.6em;
+        font-size: 0.95rem;
+      }
+    }
+    
+
+/* BẢNG IPA */
+.ipa-block {
+  width: 100%;
+  max-width: 800px; /* hoặc bạn có thể tăng lên nếu muốn rộng hơn */
+  margin: 0 auto 15px auto; /* căn giữa và tạo khoảng cách dưới */
+  border-bottom: 1px solid #ccc;
+}
+
+    .ipa-info {
+      background-color: #e0f7fa; /* Màu nền cho khối info */
+      padding: 10px 15px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .ipa-left {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .number-circle {
+      background-color: var(--button_hover);
+      color: white;
+      font-weight: bold;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+
+    .ipa-text {
+      font-size: 23px;
+      margin-right: 10px;
+    }
+
+    .learn-btn {
+      padding: 6px 14px;
+      background-color: var(--nut);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .learn-btn:hover {
+      background-color: var(--button_hover);
+    }
+
+    .video-frame {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      text-align: center;
+    }
+
+
+    .video-frame iframe {
+      width: 100%;
+      max-width: 480px;
+      height: 270px;
+      border: none;
+      border-radius: 10px;
+      opacity: 0;
+       transition: opacity 0.4s ease;
+    }
+    .video-frame.open {
+      max-height: 500px;
+    }
+    .video-frame.open iframe {
+      opacity: 1;
+    }
+
+    .bang_phien_am_quoc_te {
+  counter-reset: ipa-counter;
+}
+
+.ipa-block .number-circle::before {
+  counter-increment: ipa-counter;
+  content: counter(ipa-counter);
+}
+  </style>
+</head>
+<body>
+<!-- Menu -->   
+    <section class="top">
+        <div class="container">
+            <div class="row justify-cottent">
+                <div class="logo">
+                    <a href="/index.html">
+                        <img src="/hinhanh/logo web.png" alt="">
+                    </a>
+                </div>
+                <div class="menu-bar" id="menu-bar">
+                    <span></span>
+                </div>
+                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="side-nav" id="side-nav">
+                    <div>
+                        <li id="login-btn">
+                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                            </a>
+                        </li>
+                    </div>
+                    <ul>
+                        <li><a href="/index.html">TRANG CHỦ</a></li>
+                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
+                        <li><a href="/gopy.html">GÓP Ý</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!------------------- giới thiệu ------------------->
+  <section class="banner_trangcon">
+      <div class="banner_trangcon_header">
+          <h1>BẢNG PHIÊN ÂM QUỐC TẾ</h1>
+          <div class="banner_trangcon_header_underline"></div>
+          <p>
+          <a href="/gopy.html">
+            <button class="banner_trangcon_btn btn">GÓP Ý</button>
+          </a>
+          </p>            
+      </div>
+  </section>
+  
+<section class="bang_phien_am_quoc_te">
+  <h1>Bảng Phiên Âm Quốc Tế</h1>
+  <div class="subtitle_bang_phien_am_quoc_te">International Phonetic Alphabet</div>
+  <p>IPA là bảng ký hiệu ngữ âm quốc tế mà các bạn cần nắm vững khi bắt đầu học tiếng Anh.</p>
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /p/</div>
+    </div>
+    <button class="learn-btn" data-video="CxtAwAfEhao">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-0"
+      data-src="https://www.youtube.com/embed/CxtAwAfEhao?enablejsapi=1" 
+    frameborder="0"
+    allow="autoplay; encrypted-media; clipboard-write; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /b/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/fCenV8TgWpQ?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /t/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/EDfOv-WhWmE?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /d/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/xPPGX4dv5Eo?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /b/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/fCenV8TgWpQ?enablejsapi=1" 
+      frameborder="0"
+      allow="autoplay; encrypted-media; clipboard-write; gyroscope; picture-in-picture"
+      allowfullscreen>
+  </div>
+</div>
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /t/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/hIm7BwZMqPo?enablejsapi=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media; clipboard-write; gyroscope; picture-in-picture"
+      allowfullscreen>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /d/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/xPPGX4dv5Eo?enablejsapi=1"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /k/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/eMlci4X6SeI?enablejsapi=1"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /g/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/hIm7BwZMqPo?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /f/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/pz7QO_Ye3YQ?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /v/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/ui-UtFPZYds?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /θ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/iDlbkyzJNcY?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ð/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/kCHZoPZcPXg?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /s/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/Yof1BQPaRc4?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /z/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/dGTIMhKR4n0?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ʃ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/cN4ZkIktnTo?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ʒ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/mUCFMXqU43o?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ʧ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/WIvIrCz-k1M?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ʤ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/m8jaDyWq4zk?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /h/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/2AvwyD-bihM?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /m/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/8meCF9Hrj4U?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /n/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/AbAk0jnUMlg?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ŋ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/wnxutoJOLoQ?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /r/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+    <div class="video-frame">
+      <iframe 
+        id="player-1"
+        data-src="https://www.youtube.com/embed/ZMV0aNx-1Jg?enablejsapi=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media; clipboard-write; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /l/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/7Ma-SGB3fug?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /w/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/HpfPSzMF63Q?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /j/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/MTXxsNEE8EY?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ɪ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/HsKWHxhSwnc?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /i:/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/PjnoeDmSO_w?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ʊ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/cnqb2qGhdbU?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /u:/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/HOZngteqqzM?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /e/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/kmNc8FGNGMk?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ə/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/8gwWFwxbJNw?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ɜ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/Mhb55KK8P1g?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ɔ:/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/hUIpo2hD8b0?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!--block -->
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /æ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/ouMXAWG8hZ0?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ʌ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/5cOVsoZiuU0?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ɑ:/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/guge8DCl8ho?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /eə/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/pHARyStoz3w?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /eɪ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/26zPMG2rzuI?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ɔɪ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/aH1QN2CmkY0?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /əʊ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/hS6I--dmtkM?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /ɪə/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/HiwVDA-tjfo?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /aɪ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/Y4uYs85BoLU?enablejsapi=1"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+  <div class="checkmark" style="display: none;">✔</div>
+</div>
+
+<div class="ipa-block">
+  <div class="ipa-info">
+    <div class="ipa-left">
+      <div class="number-circle"></div>
+      <div class="ipa-text">Âm /aʊ/</div>
+    </div>
+    <button class="learn-btn" data-video="fCenV8TgWpQ">Học ngay</button>
+  </div>
+  <div class="video-frame">
+    <iframe 
+      id="player-1"
+      data-src="https://www.youtube.com/embed/8wSdmU8CmLU?enablejsapi=1" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+  </div>
+</div>
+</section>
+
+<script>
+  let players = {};
+
+  function onYouTubeIframeAPIReady() {
+    // Không cần tạo players ở đây
+  }
+
+  document.querySelectorAll('.learn-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const videoId = button.getAttribute('data-video');
+      const thisBlock = button.closest('.ipa-block');
+      const thisVideoContainer = thisBlock.querySelector('.video-frame');
+      const iframe = thisVideoContainer.querySelector('iframe');
+      const isOpen = thisVideoContainer.classList.contains('open');
+
+      // Tắt tất cả video
+      document.querySelectorAll('.ipa-block').forEach(block => {
+        const btn = block.querySelector('.learn-btn');
+        const vid = btn.getAttribute('data-video');
+        const frame = block.querySelector('.video-frame');
+        if (players[vid]) players[vid].pauseVideo();
+        btn.textContent = 'Học ngay';
+        btn.classList.remove('open');
+        frame.classList.remove('open');
+      });
+
+      if (!isOpen) {
+        // Gán src nếu chưa có (lazy load)
+        if (!iframe.src) {
+          iframe.id = `yt-player-${videoId}`;
+          iframe.src = iframe.getAttribute('data-src');
+        }
+
+        thisVideoContainer.classList.add('open');
+        button.textContent = '✖';
+        button.classList.add('open');
+
+        // Khởi tạo hoặc phát video
+        if (!players[videoId]) {
+          players[videoId] = new YT.Player(iframe.id, {
+            events: {
+              'onReady': event => event.target.playVideo()
+            }
+          });
+        } else {
+          players[videoId].playVideo();
+        }
+      }
+    });
+  });
+</script>
+
+
+
+
+ <!-- Chân trang cố định ---------->      
+ <section class="footer-section">
+  <div class="menu-namngang">
+      <a href="/index.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-home"></i>
+              <p>Trang chủ</p>
+          </div>
+      </a>
+      <div class="menu-namngang-item" onclick="showContact()">
+          <i class="fas fa-phone"></i>
+          <p>Liên hệ</p>
+      </div>
+      <a href="/gopy.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-envelope"></i>
+              <p>Góp ý</p>
+          </div>
+      </a>
+  </div>
+</section>
+
+    <!--Chân trang ------------------->
+    <section class="chantrang">
+      <footer class="chantrang-footer">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <a href="/index.html">
+                  <img src="/hinhanh/logo web.png" alt="" />
+              </a>
+            </div>
+              <div class="footer-links">
+                  <a href="/index.html">Trang chủ</a>
+                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
+                  <a href="/gopy.html">Góp ý</a>
+              </div>
+              <div class="footer-social">
+                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
+              </div>
+          </div>
+      </footer>
+    </section>
+    
+    <script src="/script.js"></script>
+    <script src="/noidung.js"></script>
+    <script src="/banner_trang_chu_js"></script>
+</body>
+</html>
+

@@ -119,33 +119,36 @@ function copyEmail() {
 }
 
 // Sweet2 fllow loket
-// Hiển thị popup Locket sau 3 giây
-setTimeout(() => {
-  Swal.fire({
-    html: `
-      <div style="display: flex; align-items: center; gap: 20px;">
-        <div class="phone">
-          <div class="screen"></div>
+// Kiểm tra nếu trang hiện tại là index.html
+if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
+  // Hiển thị popup Locket sau 5 giây
+  setTimeout(() => {
+    Swal.fire({
+      html: `
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div class="phone">
+            <div class="screen"></div>
+          </div>
+          <div>
+            <h2 class="swal2-title" style="margin-bottom: 12px;">Mình vừa tham gia Locket. Kết bạn với mình nhé!</h2>
+            <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" class="custom-button" target="_blank" rel="noopener noreferrer">Thêm ngay</a>
+          </div>
         </div>
-        <div>
-          <h2 class="swal2-title" style="margin-bottom: 12px;">Mình vừa tham gia Locket. Kết bạn với mình nhé!</h2>
-          <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" class="custom-button" target="_blank" rel="noopener noreferrer">Thêm ngay</a>
-        </div>
-      </div>
-    `,
-    showCloseButton: true,
-    showConfirmButton: false,
-    padding: '20px',
-    customClass: {
-      popup: 'custom-popup',
-      closeButton: 'custom-close-button'
-    },
-    background: 'linear-gradient(#fcf5f5, rgba(253, 251, 251, 0.1)), url("../hinhanh/phongne%20sweet2.jpg") center/cover no-repeat',
-    showClass: {
-      popup: 'swal2-animate-popup'
-    }
-  });
-}, 5000);
+      `,
+      showCloseButton: true,
+      showConfirmButton: false,
+      padding: '20px',
+      customClass: {
+        popup: 'custom-popup',
+        closeButton: 'custom-close-button'
+      },
+      background: 'linear-gradient(#fcf5f5, rgba(253, 251, 251, 0.1)), url("../hinhanh/phongne%20sweet2.jpg") center/cover no-repeat',
+      showClass: {
+        popup: 'swal2-animate-popup'
+      }
+    });
+  }, 5000);
+}
 
 
 

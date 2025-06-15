@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống học nghe tiếng anh-Nguyễn Mai Đan Trường</title>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Thanh điều hướng nằm ngang CSS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+  <style>
+    .communication {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column; /* THÊM DÒNG NÀY */
+      align-items: center;
+      padding: 20px;
+      gap: 30px; /* Tùy chọn: khoảng cách giữa các card */
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .card img {
+      width: 60%;
+      max-height: 280px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .text-box {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      background-color: #f3f3a6;
+      padding: 30px 20px;
+      border-top-left-radius: 60px;
+      border-bottom-left-radius: 60px;
+      box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+      animation: slideInRight 1s ease-out;
+    }
+
+    .text-box h2 {
+      color: #2c1a57;
+      margin-bottom: 10px;
+    }
+
+    .text-box p {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .text-box ol {
+      padding-left: 20px;
+    }
+
+    .text-box li {
+      margin-bottom: 10px;
+    }
+
+    .text-box a {
+      text-decoration: none;
+      color: #2a2a2a;
+      transition: color 0.3s;
+    }
+
+    .text-box a:hover {
+      color: #4d128b;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+  .communication {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .text-box h2 {
+    font-size: 1.2rem;
+  }
+
+  .text-box p,
+  .text-box li {
+    font-size: 1rem;
+  }
+
+  .text-box {
+    padding: 15px;
+  }
+
+  .card img {
+    max-height: 200px;
+  }
+}
+
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideInRight {
+      0% { transform: translateX(100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+    <section class="top">
+        <div class="container">
+            <div class="row justify-cottent">
+                <div class="logo">
+                    <a href="/index.html">
+                        <img src="/hinhanh/logo web.png" alt="">
+                    </a>
+                </div>
+                <div class="menu-bar" id="menu-bar">
+                    <span></span>
+                </div>
+                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="side-nav" id="side-nav">
+                    <div>
+                        <li id="login-btn">
+                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                            </a>
+                        </li>
+                    </div>
+                    <ul>
+                        <li><a href="/index.html">TRANG CHỦ</a></li>
+                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
+                        <li><a href="/gopy.html">GÓP Ý</a></li>>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- giới thiệu khi đăng nhập -->
+<section id="protected-content" style="display: none;">
+<section class="banner_trangcon">
+    <div class="banner_trangcon_header">
+        <h1>LISTENING</h1>
+        <div class="banner_trangcon_header_underline"></div>
+        <p>
+        <a href="/gopy.html">
+          <button class="banner_trangcon_btn btn">GÓP Ý</button>
+        </a>
+        </p>            
+    </div>
+</section>
+<section class="communication">
+  <div class="card">
+    <img src="/tienganh/hinhanh.tienganh/reception.png" alt="Boss Image">
+    <div class="text-box">
+      <h2>Communication at the hotel</h2>
+      <p>Choose a listening lesson</p>
+      <ol>
+        <li><a href="/tienganh/listeing/Hotel.html">Complain to the receptionist</a></li>
+        <li><a href="/tienganh/listeing/Hotel.html">Check in at the hotel</a></li>        
+        <li><a href="/tienganh/listeing/Hotel.html">Book hotel directly</a></li>
+        <li><a href="/tienganh/listeing/Hotel.html">Room key - request support</a></li>
+        <li><a href="/tienganh/listeing/Hotel.html">Asking for an extra blanket at a hotel</a></li>
+        <li><a href="/tienganh/listeing/Hotel.html">Local Travel Tips for a Short Stay</a></li>        
+      </ol>
+    </div>
+  </div>
+
+    <div class="card">
+    <img src="/hinhanh/banner_ngay_nha_giao_viet_nam.png" alt="Boss Image">
+    <div class="text-box">
+      <h2>Communication at the airport</h2>
+      <p>Choose a listening lesson.</p>
+      <ol>
+        <li><a href="page1.html">Request about the project deadline</a></li>
+        <li><a href="page2.html">Urgent meeting with the client</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+ <!-- Chân trang cố định ---------->      
+ <section class="footer-section">
+    <div class="menu-namngang">
+        <a href="/index.html">
+            <div class="menu-namngang-item">
+                <i class="fas fa-home"></i>
+                <p>Trang chủ</p>
+            </div>
+        </a>
+        <div class="menu-namngang-item" onclick="showContact()">
+            <i class="fas fa-phone"></i>
+            <p>Liên hệ</p>
+        </div>
+        <a href="/gopy.html">
+            <div class="menu-namngang-item">
+                <i class="fas fa-envelope"></i>
+                <p>Góp ý</p>
+            </div>
+        </a>
+    </div>
+  </section>
+      <section class="chantrang">
+        <footer class="chantrang-footer">
+            <div class="footer-content">
+              <div class="footer-logo">
+                <a href="/index.html">
+                    <img src="/hinhanh/logo web.png" alt="Logo" />
+                </a>
+              </div>
+                <div class="footer-links">
+                    <a href="/index.html">Trang chủ</a>
+                    <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
+                    <a href="/gopy.html">Góp ý</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
+                </div>
+            </div>
+        </footer>
+      </section>
+  </section>
+        <script src="/script.js"></script> 
+</body>
+</html>

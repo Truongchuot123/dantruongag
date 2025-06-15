@@ -3,30 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bệnh học hô hấp-Nguyễn Mai Đan Trường</title>
-    <link rel="icon" href="../hinhanh/logo web.png" type="">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../noidung.css">
-    <link rel="stylesheet" href="benhhoc.css">
+   <title>Hệ thống học viết tiếng anh-Nguyễn Mai Đan Trường</title>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <!-- Thanh điều hướng nằm ngang CSS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+  <style>
+    :root {
+    --nut: #4d128b;
+    --button_hover: #ff6b6b;
+}
+    .communication {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column; /* THÊM DÒNG NÀY */
+      align-items: center;
+      padding: 20px;
+      gap: 30px; /* Tùy chọn: khoảng cách giữa các card */
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .card img {
+      width: 60%;
+      max-height: 280px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+    }
+.text-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background-color: #f3f3a6;
+  padding: 30px 20px;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+  animation: slideInRight 1s ease-out;
+
+  /* Căn giữa nội dung */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text-box h2 {
+  color: #2c1a57;
+  margin-bottom: 20px;
+}
+
+.learn-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--nut);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn-btn:hover {
+  background-color: var(--button_hover);
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .card {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .card img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    max-height: 250px;
+  }
+
+  .text-box {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: none;
+    animation: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .communication {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .text-box h2 {
+    font-size: 1.2rem;
+  }
+
+  .text-box p,
+  .text-box li {
+    font-size: 1rem;
+  }
+
+  .text-box {
+    padding: 15px;
+  }
+
+  .card img {
+    max-height: 200px;
+  }
+}
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideInRight {
+      0% { transform: translateX(100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
 <body>
-<!-- Menu -->   
     <section class="top">
         <div class="container">
             <div class="row justify-cottent">
                 <div class="logo">
-                    <a href="../index.html">
-                        <img src="../hinhanh/logo web.png" alt="">
+                    <a href="/index.html">
+                        <img src="/hinhanh/logo web.png" alt="">
                     </a>
                 </div>
                 <div class="menu-bar" id="menu-bar">
@@ -44,9 +180,9 @@
                         </li>
                     </div>
                     <ul>
-                        <li><a href="../index.html">TRANG CHỦ</a></li>
+                        <li><a href="/index.html">TRANG CHỦ</a></li>
                         <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="../gopy.html">GÓP Ý</a></li>>
+                        <li><a href="/gopy.html">GÓP Ý</a></li>>
                     </ul>
                 </div>
             </div>
@@ -58,27 +194,29 @@
 <section id="protected-content" style="display: none;">
 <section class="banner_trangcon">
     <div class="banner_trangcon_header">
-        <h1>BỆNH HỌC HÔ HẤP</h1>
+        <h1>WRITTING</h1>
         <div class="banner_trangcon_header_underline"></div>
         <p>
-        <a href="gopy.html">
+        <a href="/gopy.html">
           <button class="banner_trangcon_btn btn">GÓP Ý</button>
         </a>
         </p>            
     </div>
 </section>
-<section class="noidung_">
-    <div class="noidung_benh">
-        <a href="#">Lao phổi</a>
-        <a href="#">Viêm phổi cộng đồng</a>
-        <a href="#">Bệnh phổi tắc nghẽn mãn tính (COPD)</a>
-    </div>
-  </section>
+<section class="communication">
 
+  <div class="card">
+    <img src="/tienganh/hinhanh.tienganh/city.webp" alt="Boss Image">
+    <div class="text-box">
+      <h2>Merging provinces and cities</h2>
+        <a href="/tienganh//writting/Merging provinces and cities.html" class="learn-btn">HỌC NGAY</a>
+    </div>
+  </div>
+</section>
  <!-- Chân trang cố định ---------->      
  <section class="footer-section">
     <div class="menu-namngang">
-        <a href="../index.html">
+        <a href="/index.html">
             <div class="menu-namngang-item">
                 <i class="fas fa-home"></i>
                 <p>Trang chủ</p>
@@ -88,7 +226,7 @@
             <i class="fas fa-phone"></i>
             <p>Liên hệ</p>
         </div>
-        <a href="../gopy.html">
+        <a href="/gopy.html">
             <div class="menu-namngang-item">
                 <i class="fas fa-envelope"></i>
                 <p>Góp ý</p>
@@ -96,20 +234,18 @@
         </a>
     </div>
   </section>
-  
-      <!--Chân trang ------------------->
       <section class="chantrang">
         <footer class="chantrang-footer">
             <div class="footer-content">
               <div class="footer-logo">
-                <a href="../index.html">
-                    <img src="../hinhanh/logo web.png" alt="Logo" />
+                <a href="/index.html">
+                    <img src="/hinhanh/logo web.png" alt="Logo" />
                 </a>
               </div>
                 <div class="footer-links">
-                    <a href="../index.html">Trang chủ</a>
+                    <a href="/index.html">Trang chủ</a>
                     <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
-                    <a href="../gopy.html">Góp ý</a>
+                    <a href="/gopy.html">Góp ý</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -120,9 +256,7 @@
             </div>
         </footer>
       </section>
-  </section>  
-      <script src="../script.js"></script>
-      <script src="../noidung.js"></script>
-  </body>
-  </html>
-  
+  </section>
+        <script src="/script.js"></script> 
+</body>
+</html>

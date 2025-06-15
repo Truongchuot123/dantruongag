@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống học viết tiếng anh-Nguyễn Mai Đan Trường</title>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<style>
+
+.writing {
+  padding: 30px 15px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.writing-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s ease;
+}
+
+.writing-card h2 {
+  color: #3a648f;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.english-text {
+  font-size: 20px;
+  margin: 15px 0;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+audio {
+  width: 100%;
+  margin: 10px 0 20px;
+}
+
+.toggle-btn {
+  display: block;
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 15px auto 0;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.vietnamese-text {
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-left: 5px solid #3498db;
+  border-radius: 8px;
+  animation: fadeIn 0.5s ease;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.hidden {
+  display: none;
+}
+/* Hiệu ứng xuất hiện mượt mà */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive cho thiết bị nhỏ */
+@media screen and (max-width: 600px) {
+  .writing-card {
+    padding: 20px;
+  }
+
+  .writing-card h2 {
+    font-size: 20px;
+  }
+
+  .english-text,
+  .vietnamese-text {
+    font-size: 16px;
+  }
+
+  .toggle-btn {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+}
+
+
+</style>
+<body>
+<!-- Menu -->   
+    <section class="top">
+        <div class="container">
+            <div class="row justify-cottent">
+                <div class="logo">
+                    <a href="/index.html">
+                        <img src="/hinhanh//logo web.png" alt="">
+                    </a>
+                </div>
+                <div class="menu-bar" id="menu-bar">
+                    <span></span>
+                </div>
+                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="side-nav" id="side-nav">
+                    <div>
+                        <li id="login-btn">
+                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                            </a>
+                        </li>
+                    </div>
+                    <ul>
+                        <li><a href="/index.html">TRANG CHỦ</a></li>
+                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
+                        <li><a href="gopy.html">GÓP Ý</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <section class="writing">
+    <section class="writing-card">
+      <h2>Merging provinces and cities (Sáp nhập tỉnh và thành phố) </h2>
+      <audio controls>
+        <source src="/tienganh//writting/mp3/Merging provinces and cities.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ phát âm thanh.
+      </audio>
+
+      <p class="english-text" id="writing-content">
+On Thursday, the National Assembly passed a resolution on the reorganization of provincial-level administrative units in 2025, approving the merger of the current 63 cities and provinces into 34. This decision aims to streamline the administrative apparatus, enhance the effectiveness and efficiency of state governance, promote socio-economic development, and improve public service delivery.
+      </p>
+      <button class="toggle-btn" onclick="toggleTranslation()">📘 Xem bản dịch tiếng Việt</button>
+      <div class="vietnamese-text hidden" id="translation">
+Vào thứ Năm, Quốc hội đã thông qua nghị quyết về việc sắp xếp lại các đơn vị hành chính cấp tỉnh vào năm 2025, theo đó sẽ tiến hành sáp nhập 63 tỉnh, thành phố trực thuộc trung ương hiện nay thành 34 đơn vị hành chính mới. Quyết định này nhằm tinh gọn bộ máy hành chính, nâng cao hiệu lực, hiệu quả quản lý nhà nước, đồng thời thúc đẩy phát triển kinh tế - xã hội và cải thiện chất lượng phục vụ người dân.
+
+      </div>
+    </section>
+</section>
+
+  <script>
+    function toggleTranslation() {
+      const translation = document.getElementById('translation');
+      translation.classList.toggle('hidden');
+    }
+  </script>
+ <!-- Chân trang cố định ---------->      
+ <section class="footer-section">
+  <div class="menu-namngang">
+      <a href="/index.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-home"></i>
+              <p>Trang chủ</p>
+          </div>
+      </a>
+      <div class="menu-namngang-item" onclick="showContact()">
+          <i class="fas fa-phone"></i>
+          <p>Liên hệ</p>
+      </div>
+      <a href="/gopy.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-envelope"></i>
+              <p>Góp ý</p>
+          </div>
+      </a>
+  </div>
+</section>
+
+    <!--Chân trang ------------------->
+    <section class="chantrang">
+      <footer class="chantrang-footer">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <a href="/index.html">
+                  <img src="/hinhanh/logo web.png" alt="" />
+              </a>
+            </div>
+              <div class="footer-links">
+                  <a href="/index.html">Trang chủ</a>
+                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
+                  <a href="/gopy.html">Góp ý</a>
+              </div>
+              <div class="footer-social">
+                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
+              </div>
+          </div>
+      </footer>
+    </section>
+    
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hệ thống học từ vựng tiếng anh-Nguyễn Mai Đan Trường</title>
+    <title>Hệ thống học từ vựng tiếng anh - Nguyễn Mai Đan Trường </title>
     <link rel="icon" href="../hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../noidung.css">
+    <link rel="stylesheet" href="../banner_trang_chu.css">   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -17,7 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <style>
-    body {
+    .vocabulary {
       font-family: 'Segoe UI', sans-serif;
       background: #f0f4f8;
       margin: 0;
@@ -227,7 +230,7 @@
     font-size: 28px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    z-index: 1000;
+    z-index: 1500;
   }
   #add-word-btn:hover {
     background-color: #45a049;
@@ -235,7 +238,7 @@
   </style>
 </head>
 <body>
-
+<section class="vocabulary">
 <div id="back-button" onclick="goBack()">
   <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
@@ -604,7 +607,7 @@ document.head.appendChild(swalStyle);
 document.getElementById('add-word-btn').addEventListener('click', async () => {
   let isFormDirty = false;
 
-  const swalInstance = Swal.fire({
+  const swalInstance = await Swal.fire({
     title: "Thêm từ vựng mới",
     html: `
       <div class="swal2-grid">
@@ -655,78 +658,128 @@ document.getElementById('add-word-btn').addEventListener('click', async () => {
       return true;
     },
     didOpen: () => {
-      document.querySelectorAll('.swal2-input, .swal2-textarea').forEach(input => {
+      const inputs = document.querySelectorAll('.swal2-input, .swal2-textarea');
+      inputs.forEach(input => {
         input.addEventListener('input', () => {
           input.classList.toggle('filled', input.value.trim() !== '');
           isFormDirty = true;
         });
       });
-    },
-    preConfirm: () => {
-      const eng = document.getElementById('swal-eng').value.trim();
-      const ipa = document.getElementById('swal-ipa').value.trim();
-      const viet = document.getElementById('swal-viet').value.trim();
 
-      if (!eng || !ipa || !viet) {
-        let msg = 'Các trường bắt buộc không được để trống:';
-        if (!eng) msg += '<br>• Tiếng Anh';
-        if (!ipa) msg += '<br>• IPA';
-        if (!viet) msg += '<br>• Tiếng Việt';
+      const confirmBtn = Swal.getConfirmButton();
+      confirmBtn.addEventListener('click', async () => {
+        const eng = document.getElementById('swal-eng').value.trim();
+        const ipa = document.getElementById('swal-ipa').value.trim();
+        const viet = document.getElementById('swal-viet').value.trim();
 
-        Swal.showValidationMessage(msg);
-        return false;
-      }
+        if (!eng || !ipa || !viet) {
+          let msg = 'Các trường bắt buộc không được để trống:';
+          if (!eng) msg += '<br>• Tiếng Anh';
+          if (!ipa) msg += '<br>• IPA';
+          if (!viet) msg += '<br>• Tiếng Việt';
 
-      const fields = [
-        'swal-eng', 'swal-ipa', 'swal-type', 'swal-def',
-        'swal-viet', 'swal-syn', 'swal-ant', 'swal-ex', 'swal-note'
-      ];
-      return fields.map(id => document.getElementById(id).value.trim());
-    }
-  });
+          Swal.showValidationMessage(msg);
+          return;
+        }
 
-  const { value: formValues } = await swalInstance;
+        const fields = [
+          'swal-eng', 'swal-ipa', 'swal-type', 'swal-def',
+          'swal-viet', 'swal-syn', 'swal-ant', 'swal-ex', 'swal-note'
+        ];
+        const values = fields.map(id => document.getElementById(id).value.trim());
 
-  if (formValues) {
-    try {
-      const [english, ipa, type, definition, vietnamese, synonym, antonym, example, note] = formValues;
-      const formData = new FormData();
+        try {
+          const [english, ipa, type, definition, vietnamese, synonym, antonym, example, note] = values;
+          const formData = new FormData();
 
-      formData.append("action", "add");
-      formData.append("english", english);
-      formData.append("ipa", ipa);
-      formData.append("type", type);
-      formData.append("definition", definition);
-      formData.append("vietnamese", vietnamese);
-      formData.append("synonym", synonym);
-      formData.append("antonym", antonym);
-      formData.append("example", example);
-      formData.append("note", note);
+          formData.append("action", "add");
+          formData.append("english", english);
+          formData.append("ipa", ipa);
+          formData.append("type", type);
+          formData.append("definition", definition);
+          formData.append("vietnamese", vietnamese);
+          formData.append("synonym", synonym);
+          formData.append("antonym", antonym);
+          formData.append("example", example);
+          formData.append("note", note);
 
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: formData
+          await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: formData
+          });
+
+          alert("Từ vựng đã được thêm thành công!");
+          isFormDirty = false;
+
+          // Xoá giá trị đã nhập
+          fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+              el.value = '';
+              el.classList.remove('filled');
+            }
+          });
+
+          loadVocabulary();
+        } catch (error) {
+          console.error("Lỗi:", error);
+          alert("Đã xảy ra lỗi khi gửi dữ liệu!");
+        }
       });
-
-      Swal.fire("Thành công!", "Từ vựng đã được thêm", "success");
-      loadVocabulary(); // Tải lại danh sách từ
-    } catch (error) {
-      console.error("Lỗi:", error);
-      Swal.fire("Lỗi!", "Không thể gửi dữ liệu", "error");
-    }
-  }
+    },
+    preConfirm: () => false // Không dùng để xử lý submit
+  });
 });
 
+document.getElementById('search').addEventListener('input', displayVocabulary);
+loadVocabulary();
 
-
-
-
-
-
-
-    document.getElementById('search').addEventListener('input', displayVocabulary);
-
-    loadVocabulary();
   </script>
+</section>
+ <!-- Chân trang cố định ---------->      
+ <section class="footer-section">
+  <div class="menu-namngang">
+      <a href="../index.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-home"></i>
+              <p>Trang chủ</p>
+          </div>
+      </a>
+      <div class="menu-namngang-item" onclick="showContact()">
+          <i class="fas fa-phone"></i>
+          <p>Liên hệ</p>
+      </div>
+      <a href="../gopy.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-envelope"></i>
+              <p>Góp ý</p>
+          </div>
+      </a>
+  </div>
+</section>
+
+    <!--Chân trang ------------------->
+    <section class="chantrang">
+      <footer class="chantrang-footer">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <a href="../index.html">
+                  <img src="../hinhanh/logo web.png" alt="" />
+              </a>
+            </div>
+              <div class="footer-links">
+                  <a href="../index.html">Trang chủ</a>
+                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
+                  <a href="../gopy.html../gopy.html">Góp ý</a>
+              </div>
+              <div class="footer-social">
+                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
+              </div>
+          </div>
+      </footer>
+    </section>
 </body>
 </html>
