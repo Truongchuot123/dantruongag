@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống học tiếng anh mỗi ngày - Nguyễn Mai Đan Trường </title>
+    <link rel="icon" href="hinhanh/logo web.png" type="">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<style>
+    :root {
+    --nut: #4d128b;
+    --button_hover: #ff6b6b;
+    --hethong: #dfe6e9;
+    --hethong_hower: #e42edb;
+}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f6fc;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .search-box {
+      max-width: 600px;
+      margin: 20px auto;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .btn {
+      background-color: var(--nut);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: var(--button_hover);
+    }
+    .form-popup {
+      display: none;
+      background: white;
+      border: 2px solid #3498db;
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 480px;
+      margin: 20px auto;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .form-popup input, .form-popup textarea {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .form-popup p {
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 16px;
+    }
+    #formPopup {
+        position: relative;
+        padding: 20px;
+        border: 2px solid #ff5050;
+        border-radius: 10px;
+        background: #fff;
+    }
+    .topic-group {
+      margin-bottom: 30px;
+      background: white;
+      border-left: 5px solid #3498db;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .topic-group h3 {
+      margin-top: 0;
+      color: #3498db;
+    }
+    .entry {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .entry .texts {
+      flex-grow: 1;
+    }
+    #topicNav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 30px auto 10px;
+    }
+    #topicNav button {
+      background: var(--hethong);
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+    #topicNav button:hover {
+      background: var(--hethong_hower);
+      color: white;
+    }
+    #topicNav button.active {
+      background: var(--hethong_hower);
+      color: white;
+    }
+    .stats-box {
+  background-color: #ff9f9f;
+  color: #0369a1;
+  padding: 10px 15px;
+  border-left: 5px solid #00b3ff;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+#loadingNotice {
+  background: #fff3cd;
+  color: #856404;
+  border-left: 5px solid #ffc107;
+  margin: 15px auto;
+  max-width: 600px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+#loadingNotice.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#contentArea {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#contentArea.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+
+  </style>
+</head>
+<body>
+
+<h1>Everyday English Learning</h1>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Tìm kiếm từ khoá hoặc chủ đề...">
+  <button class="btn" onclick="toggleForm()">➕ Thêm</button>
+  <button onclick="renderLearnedOnly(this)">📌 Đã học</button>
+</div>
+
+<div id="topicNav">
+    <button onclick="renderAll(this)" class="active">📋 Tất cả</button>
+</div>
+<div id="loadingNotice">🔄 Hệ thống đang lấy dữ liệu, bạn vui lòng chờ trong giây lát...</div>
+<div class="form-popup" id="formPopup">
+<button onclick="toggleForm()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; font-size: 20px; cursor: pointer;">❌</button>
+  <p>👀 Hôm nay bạn đã nhìn thấy gì xung quanh mình?</p>
+  <input list="topicList" id="topic" placeholder="Chủ đề (chọn hoặc nhập mới)" required>
+  <datalist id="topicList"></datalist>
+  <textarea id="vietnamese" placeholder="Tiếng Việt" required></textarea>
+  <textarea id="english" placeholder="Tiếng Anh" required></textarea>
+  <button class="btn" onclick="submitData()">Gửi</button>
+</div>
+
+<div id="contentArea"></div>
+
+<script>
+let data = [];
+function loadData() {
+  const notice = document.getElementById("loadingNotice");
+  notice.classList.add("show"); // Hiện
+
+  fetch('https://script.google.com/macros/s/AKfycbzO2-yifI9qNQxk2Z3H7kLRgZY7zGfUjzJYq3Nk0tOWNr5jVZkCsqO0KJwd9JWd91w2/exec')
+    .then(res => res.json())
+    .then(json => {
+      data = json;
+      renderData(data);
+      updateTopicList();
+      setTimeout(() => {
+        notice.classList.remove("show"); // Ẩn mượt mà sau 0.5s
+      }, 500); 
+    });
+}
+
+
+
+function toggleForm() {
+  const form = document.getElementById('formPopup');
+  const content = document.getElementById('contentArea');
+
+  const isVisible = form.style.display === 'block';
+
+  if (isVisible) {
+    form.style.display = 'none';
+    content.classList.remove('hidden');
+  } else {
+    form.style.display = 'block';
+    content.classList.add('hidden');
+  }
+}
+
+
+function updateTopicList() {
+  const topicSet = new Set(data.map(d => d.topic));
+  const datalist = document.getElementById("topicList");
+  const topicNav = document.getElementById("topicNav");
+  datalist.innerHTML = '';
+
+  // Xoá các nút chủ đề cũ nhưng giữ lại "Tất cả" và "Đã học"
+  const buttons = topicNav.querySelectorAll('button');
+  buttons.forEach((btn, i) => i > 1 && btn.remove());
+
+  // Tránh thêm nút trùng lặp bằng cách kiểm tra tồn tại trước khi thêm
+  topicSet.forEach(topic => {
+    const option = document.createElement("option");
+    option.value = topic;
+    datalist.appendChild(option);
+
+    // Kiểm tra nếu nút đã tồn tại
+    if (![...topicNav.children].some(btn => btn.innerText === topic)) {
+      const btn = document.createElement("button");
+      btn.innerText = topic;
+      btn.onclick = function () {
+        renderFilteredTopic(topic, btn);
+      };
+      topicNav.appendChild(btn);
+    }
+  });
+}
+
+
+function clearActiveNav() {
+  document.querySelectorAll('#topicNav button').forEach(btn => btn.classList.remove('active'));
+}
+
+// Hàm hiển thị toàn bộ dữ liệu khi nhấn "Tất cả"
+function renderAll(button) {
+  clearActiveNav();
+  button.classList.add('active');
+  renderData(data);
+}
+
+// Hàm hiển thị dữ liệu theo chủ đề
+function renderFilteredTopic(topic, button) {
+  clearActiveNav();
+  button.classList.add("active");
+  const filtered = data.filter(d => d.topic === topic);
+  renderData(filtered);
+}
+
+function renderData(filtered) {
+  const grouped = {};
+  filtered.forEach(item => {
+    if (!grouped[item.topic]) grouped[item.topic] = [];
+    grouped[item.topic].push(item);
+  });
+
+  let html = '';
+  for (const topic in grouped) {
+    html += `<div class="topic-group"><h3>${topic}</h3>`;
+    grouped[topic].forEach(item => {
+      const id = `${item.english}_${item.topic}`;
+      const checked = localStorage.getItem(id) ? 'checked' : '';
+      html += `
+        <div class="entry">
+          <div class="texts">
+            <b>${item.english}</b><br>
+            <span>${item.vietnamese}</span>
+          </div>
+          <div><input type="checkbox" ${checked} onchange="toggleLearned('${id}', this.checked)"></div>
+        </div>`;
+    });
+    html += `</div>`;
+  }
+  document.getElementById("contentArea").innerHTML = html;
+}
+
+
+function toggleLearned(id, status) {
+  if (status) localStorage.setItem(id, true);
+  else localStorage.removeItem(id);
+}
+
+
+function renderLearnedOnly(button) {
+  clearActiveNav();
+  button.classList.add('active');
+
+  const learnedIds = Object.keys(localStorage);
+  const filtered = data.filter(item => {
+    const id = `${item.english}_${item.topic}`;
+    return learnedIds.includes(id);
+  });
+
+  renderData(filtered);
+
+  // Thống kê
+  const total = data.length;
+  const learned = filtered.length;
+  const percent = total > 0 ? Math.round((learned / total) * 100) : 0;
+
+  const statsHtml = `
+    <div class="stats-box">
+      📊 Đã học được: <strong>${learned}/${total}</strong> từ (${percent}%)
+    </div>
+  `;
+  document.getElementById("contentArea").insertAdjacentHTML('afterbegin', statsHtml);
+}
+
+loadData();
+
+</script>
+
+</body>
+</html>

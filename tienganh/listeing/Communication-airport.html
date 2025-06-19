@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống học nghe tiếng anh-Nguyễn Mai Đan Trường</title>
+    <link rel="icon" href="../hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/tienganh/listeing/listening.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+<section class="hotel_listening">
+<div id="toc-container"></div>
+
+
+<section class="hotel_listening_1">
+  <div class="container">
+    <h1>Checking In at the Airport (Làm thủ tục tại sân bay) </h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Checking-In-at-the-Airport.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+<p><span class="speaker-a">Passenger Services Officer:</span> <span class="noidung_speaker-a">Good morning, where are you flying today?</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Good morning, I’m flying to London.</span></p>
+<p><span class="speaker-a">Passenger Services Officer:</span> <span class="noidung_speaker-a">May I see your passport and ticket please?</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Sure. Here they are.</span></p>
+<p><span class="speaker-a">Passenger Services Officer:</span> <span class="noidung_speaker-a">Thank you. Do you have any bags to check in?</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Yes just one suitcase.</span></p>
+<p><span class="speaker-a">Passenger Services Officer:</span> <span class="noidung_speaker-a">Please place it on the scale.</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Okay.</span></p>
+<p><span class="speaker-a">Passenger Services Officer:</span> <span class="noidung_speaker-a">Great, here is your boarding pass, your gate is B4 </span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Thank you. What time does boarding start?</span></p>
+<p><span class="speaker-a">Passenger Services Officer:</span> <span class="noidung_speaker-a">Boarding starts at 9:30 am</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Got it thanks a lot.</span></p>
+<p><span class="speaker-a">Passenger Services Officer:</span> <span class="noidung_speaker-a">You're welcome, have a nice flight</span></p>
+
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+<p><span class="speaker-a">Nhân viên thủ tục tại quầy:</span> <span class="noidung_speaker-a">Chào buổi sáng, hôm nay anh/chị bay đi đâu vậy?</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Chào buổi sáng, tôi bay đến London.</span></p>
+<p><span class="speaker-a">Nhân viên thủ tục tại quầy:</span> <span class="noidung_speaker-a">Tôi có thể xem hộ chiếu và vé của anh/chị được không?</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Dĩ nhiên, đây ạ.</span></p>
+<p><span class="speaker-a">Nhân viên thủ tục tại quầy:</span> <span class="noidung_speaker-a">Cảm ơn. Anh/chị có hành lý nào cần ký gửi không?</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Có, chỉ một vali thôi.</span></p>
+<p><span class="speaker-a">Nhân viên thủ tục tại quầy:</span> <span class="noidung_speaker-a">Xin vui lòng đặt nó lên cân.</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Được rồi.</span></p>
+<p><span class="speaker-a">Nhân viên thủ tục tại quầy:</span> <span class="noidung_speaker-a">Tuyệt vời, đây là thẻ lên máy bay của anh/chị, cổng lên máy bay là B4.</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Cảm ơn. Mấy giờ bắt đầu lên máy bay vậy?</span></p>
+<p><span class="speaker-a">Nhân viên thủ tục tại quầy:</span> <span class="noidung_speaker-a">Bắt đầu lên máy bay lúc 9 giờ 30 sáng.</span></p>
+<p><span class="speaker-b">Mrs Elie:</span> <span class="noidung_speaker-b">Hiểu rồi, cảm ơn nhiều.</span></p>
+<p><span class="speaker-a">Nhân viên thủ tục tại quầy:</span> <span class="noidung_speaker-a">Không có chi, chúc anh/chị có một chuyến bay vui vẻ.</span></p>
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hotel_listening_1">
+  <div class="container">
+    <h1>Lost Wallet at the Airport (Mất ví tại sân bay) </h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Lost-Wallet-at-the-Airport.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">Excuse me, I think I lost my wallet</span></p>
+<p><span class="speaker-b">Security officer:</span> <span class="noidung_speaker-b">>I`m sorry to hear that. Where did you last see it?</span></p>
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">I had it at the coffeeshop about thirty minutes ago.</span></p>
+<p><span class="speaker-b">Security officer:</span> <span class="noidung_speaker-b">Did you check with the staff at the coffee shop?</span></p>
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">Yes, but they did not find anything.</span></p>
+<p><span class="speaker-b">Security officer:</span> <span class="noidung_speaker-b">What does your wallet look like?</span></p>
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">It`s black and has a gold zipper.</span></p>
+<p><span class="speaker-b">Security officer:</span> <span class="noidung_speaker-b">Please wait here while I call the last and found office</span></p>
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">Thank you very much. I really appreciate your help</span></p>
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">Xin lỗi, tôi nghĩ là tôi đã làm mất ví.</span></p>
+<p><span class="speaker-b">Nhân viên an ninh:</span> <span class="noidung_speaker-b">Tôi rất tiếc khi nghe điều đó. Lần cuối bạn thấy nó ở đâu?</span></p>
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">Tôi đã có nó ở quán cà phê khoảng ba mươi phút trước.</span></p>
+<p><span class="speaker-b">Nhân viên an ninh:</span> <span class="noidung_speaker-b">Bạn đã kiểm tra với nhân viên ở quán cà phê chưa?</span></p>
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">Rồi, nhưng họ không tìm thấy gì cả.</span></p>
+<p><span class="speaker-b">Nhân viên an ninh:</span> <span class="noidung_speaker-b">Ví của bạn trông như thế nào?</span></p>
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">Nó màu đen và có khóa kéo màu vàng.</span></p>
+<p><span class="speaker-b">Nhân viên an ninh:</span> <span class="noidung_speaker-b">Vui lòng đợi ở đây trong khi tôi gọi cho văn phòng thất lạc.</span></p>
+<p><span class="speaker-a">Mrs Mery: </span> <span class="noidung_speaker-a">Cảm ơn bạn rất nhiều. Tôi thực sự biết ơn sự giúp đỡ của bạn.</span></p>
+<p><span class="speaker-b">Nhân viên an ninh:</span> <span class="noidung_speaker-b">Không có gì. Tôi hy vọng chúng ta sẽ sớm tìm thấy nó.</span></p>
+  </div>
+</div>
+ <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_2">
+  <div class="container">
+    <h1>Window Seat Dispute on a Trip (Tranh cãi chỗ ngồi cạnh cửa sổ trong chuyến đi) </h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Window-Seat-Dispute-on-a-Trip.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+<p><span class="speaker-a">Lan’s son </span> <span class="noidung_speaker-a">Mom, I want to sit by the window. I can’t see anything from here.</span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">Hello, can you let my child sit by the window? He really wants to see outside.</span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">I’m sorry, I paid for this seat.</span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">But he’s just a kid and it’s a short trip. Can’t you make an exception?</span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">I understand, but I have the right to sit in the seat I chose.  </span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">You’re going to say no to a child? Are you okay with him crying the whole trip? </span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">That’s your responsibility, not mine.</span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">Unbelievable! The world is so lacking in kindness these days.</span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">I’m a bad person for following the rules?</span></p>  
+<p><span class="speaker-a">Lan’s son </span> <span class="noidung_speaker-a">Mom, it’s okay. I can sit here.</span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">No, you deserve better! Some people just don’t understand kindness.</span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">Some people don’t understand that the world doesn’t revolve around their children.</span></p>  
+
+
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+
+<p><span class="speaker-a">Con của cô Lan </span> <span class="noidung_speaker-a">Mẹ ơi, con muốn ngồi cạnh cửa sổ. Ở đây con chẳng thấy gì cả.</span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">Chị ơi, chị có thể nhường chỗ ngồi cạnh cửa sổ cho con tôi được không? Nó rất muốn nhìn ra bên ngoài.  </span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">Xin lỗi, tôi đã trả tiền cho chỗ ngồi này.</span></p>    
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">Nhưng nó chỉ là một đứa trẻ và đây chỉ là chuyến đi ngắn mà. Chị không thể dễ tính một chút sao?  </span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">Tôi hiểu, nhưng tôi có quyền ngồi chỗ mà tôi đã chọn.</span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">Chị định từ chối một đứa trẻ à? Chị thoải mái nếu nó khóc suốt chuyến đi chứ?  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">Đó là trách nhiệm của chị, không phải của tôi.</span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">Không thể tin được! Thế giới này thật thiếu lòng tốt.</span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">Tôi là người xấu vì làm theo đúng quy định sao?</span></p>  
+<p><span class="speaker-a">Con của cô Lan </span> <span class="noidung_speaker-a">Mẹ ơi, không sao đâu. Con ngồi ở đây cũng được.</span></p>  
+<p><span class="speaker-b">Mrs Lan:</span> <span class="noidung_speaker-b">Không, con xứng đáng với điều tốt hơn! Một số người thật sự không hiểu thế nào là lòng tốt.  </span></p>  
+<p><span class="speaker-c">Mrs H<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a"></span> <span class="noidung_speaker-c">Một số người không hiểu rằng thế giới này không xoay quanh con cái của họ.   </span></p>    </div>
+</div>
+ <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_3">
+  <div class="container">
+    <h1>In-flight Seating Confusion (Sự nhầm lẫn chỗ ngồi khi lên máy bay) </h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/In-flight Seating Confusion.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Excuse me, I think this is my seat.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Oh? I thought this was 14A.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Yes, that's my seat number as well.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Hmm, perhaps I misread my boarding card. Let me have a look... Oh! I'm actually in 14B – my mistake.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">No problem! These numbers can be a bit confusing.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">I just sat down without double-checking. Apologies for that.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Happens all the time.</span></p>
+<p><span class="speaker-c">Airline catering staff:</span> <span class="noidung_speaker-c">Is everything alright here?</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Yes, just a small mix-up.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">I was in the wrong seat, but it's all sorted now.</span></p>
+<p><span class="speaker-c">Airline catering staff:</span> <span class="noidung_speaker-c">Alright, do let me know if you need any assistance.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">All sorted now. Window seat secured!</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">And I’ve got the middle seat – lucky me.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Hopefully we won’t end up fighting over the armrest!</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Deal – you have it for take-off, I’ll have it for landing.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Sounds fair!</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">By the way, is this your first time flying with this airline?</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Yes, I usually travel with a different one, but this was more affordable.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Same here! Let’s hope it’s a smooth flight.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Fingers crossed!</span></p>
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Xin lỗi, tôi nghĩ đây là chỗ ngồi của tôi.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Ồ? Tôi tưởng đây là ghế 14A.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Vâng, đó cũng là số ghế của tôi.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Ừm, có lẽ tôi đã đọc nhầm thẻ lên máy bay. Để tôi xem lại... Ồ! Thật ra tôi ở ghế 14B – lỗi của tôi rồi.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Không sao đâu! Mấy con số này đôi khi hơi gây nhầm lẫn.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Tôi ngồi xuống mà không kiểm tra kỹ. Xin lỗi bạn nhé.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Chuyện này thường xảy ra mà.</span></p>
+<p><span class="speaker-c">Tiếp viên:</span> <span class="noidung_speaker-c">Mọi thứ ổn chứ ở đây?</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Vâng, chỉ là một chút nhầm lẫn thôi.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Tôi ngồi nhầm chỗ, nhưng giờ ổn rồi.</span></p>
+<p><span class="speaker-c">Tiếp viên:</span> <span class="noidung_speaker-c">Được rồi, nếu cần hỗ trợ gì thì cứ gọi tôi nhé.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Ổn cả rồi. Đã giữ được ghế sát cửa sổ!</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Còn tôi thì ngồi ghế giữa – may mắn thật đấy.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Hy vọng chúng ta sẽ không tranh nhau cái chỗ gác tay!</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Thỏa thuận nhé – bạn dùng lúc cất cánh, tôi dùng lúc hạ cánh.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Nghe hợp lý đó!</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Nhân tiện, đây có phải lần đầu bạn bay với hãng hàng không này không?</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Đúng vậy, tôi thường đi hãng khác, nhưng lần này giá rẻ hơn.</span></p>
+<p><span class="speaker-b">Peter:</span> <span class="noidung_speaker-b">Tôi cũng vậy! Mong là chuyến bay sẽ suôn sẻ.</span></p>
+<p><span class="speaker-a">Mrs Ana:</span> <span class="noidung_speaker-a">Cầu mong vậy!</span></p>
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_4">
+  <div class="container">
+    <h1> Meal Service on the Plane (Phục vụ bữa ăn trên máy bay) </h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Meal-Service-on-the-Plane.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a">Good afternoon. Do you want something to eat or drink?
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Yes please. What meals do you have
+<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a">Chicken rice or beef noodles
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Chicken rice, please
+<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a">Any allergies or special needs 
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">No spicy food please
+<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a">Got it water or juice
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Apple juice, please
+<p><span class="speaker-a">Airline catering staff:</span> <span class="noidung_speaker-a">Here`s your meal enjoy
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Thank you
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+<p><span class="speaker-a">Tiếp viên:</span> <span class="noidung_speaker-A">Chào buổi chiều. Bạn có muốn ăn hoặc uống gì không?
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Có chứ. Anh/chị có món gì vậy?
+<p><span class="speaker-A">Tiếp viên:</span> <span class="noidung_speaker-A">Cơm gà hoặc mì bò.
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Cho tôi cơm gà.
+<p><span class="speaker-A">Tiếp viên:</span> <span class="noidung_speaker-A">Bạn có dị ứng hoặc yêu cầu đặc biệt nào không?
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Làm ơn không cay.
+<p><span class="speaker-A">Tiếp viên:</span> <span class="noidung_speaker-A">Rõ rồi. Nước lọc hay nước trái cây?
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Cho tôi nước táo.
+<p><span class="speaker-A">Tiếp viên:</span> <span class="noidung_speaker-A">Đây là bữa ăn của bạn. Chúc ngon miệng.
+<p><span class="speaker-b">Mr Jan:</span> <span class="noidung_speaker-b">Cảm ơn.
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_5">
+  <div class="container">
+    <h1>Immigration Check - Thủ tục nhập cảnh tại sân bay</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Immigration Check.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">Good morning. Passport, please.
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Sure, Here you go.
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">What`s the purpase of your visit?
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">I`m here on vacation
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">How long will you be staying?
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">About ten days.
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">Where will you be staying during your visit?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">I booked a hotel near the city center The Sunrise Hotel.</span></p>
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">Do you have a return ticket?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Yes, I fly back on the 18th. Here`s my return ticket </span></p>
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">Thank you. Do you have enough funds to support your stay?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Yes I do. I have my credit card and some cash as well</span></p>
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">Have you ever visited this country before?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">No, this is my first time. I`m really excited</span></p>
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">That great to hear. Do you have any family or friends here?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">No, I`m travelling alone this time </span></p>
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">Alright. Please look at the camera for a photo. Thank you. And place your fingers here for fingerprint scanning</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Okay</span></p>
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">All done. Your passport is in order. Welcome, and enjoy your stay</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Thank you so much! Have a nice day.
+<p><span class="speaker-a">Customs officer: </span> <span class="noidung_speaker-a">You too!</span></p>
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Chào buổi sáng. Vui lòng cho tôi xem hộ chiếu.</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Dạ được, đây ạ.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Mục đích chuyến đi của bạn là gì?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Tôi đi nghỉ dưỡng.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Bạn sẽ ở lại bao lâu?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Khoảng mười ngày.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Trong thời gian ở đây bạn sẽ lưu trú ở đâu?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Tôi đã đặt khách sạn gần trung tâm thành phố – Khách sạn The Sunrise.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Bạn có vé khứ hồi không?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Có, tôi bay về vào ngày 18. Đây là vé khứ hồi của tôi.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Cảm ơn bạn. Bạn có đủ tài chính để chi trả trong thời gian lưu trú không?
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Có, tôi có thẻ tín dụng và cả tiền mặt.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Bạn đã từng đến đất nước này chưa?</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Chưa, đây là lần đầu tiên. Tôi rất háo hức.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Thật tuyệt khi nghe điều đó. Bạn có người thân hay bạn bè ở đây không?
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Không, lần này tôi đi du lịch một mình.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Được rồi. Vui lòng nhìn vào máy ảnh để chụp ảnh. Cảm ơn. Và đặt các ngón tay của bạn vào đây để quét dấu vân tay.</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Vâng.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Xong rồi. Hộ chiếu của bạn hợp lệ. Chào mừng bạn và chúc bạn có kỳ nghỉ vui vẻ.</span></p>
+<p><span class="speaker-b">Nam:</span> <span class="noidung_speaker-b">Cảm ơn rất nhiều! Chúc anh một ngày tốt lành.</span></p>
+<p><span class="speaker-a">Nhân viên hải quanr: </span> <span class="noidung_speaker-a">Bạn cũng vậy nhé!</span></p>
+  </div>
+</div>
+
+
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hotel_listening_6">
+  <div class="container">
+    <h1>Lost Luggage Assistance (Hỗ trợ khi thất lạc hành lý) </h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Lost Luggage Assistance.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Excuse me. I can`t my luggage</span></p>
+<p><span class="speaker-b">Airline Customer Service Agent:</span> <span class="noidung_speaker-b">I`m sorry to hear that. Which fight were you on?</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Flight 108 from Tokyo</span></p>
+<p><span class="speaker-b">Airline Customer Service Agent:</span> <span class="noidung_speaker-b">Okay, let me check the system. Can I havve your baggage claim tag?</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Yes, here it is</span></p>
+<p><span class="speaker-b">Airline Customer Service Agent:</span> <span class="noidung_speaker-b">Thank. It looks like your bag was deloyed</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Oh no. When will I get it</span></p>
+<p><span class="speaker-b">Airline Customer Service Agent:</span> <span class="noidung_speaker-b">It should arrive on the next fight this evening</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Can you send it to my hotel</span></p>
+<p><span class="speaker-b">Airline Customer Service Agent:</span> <span class="noidung_speaker-b">Absolutely. Just fill out this form with your address</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Thank you so much</span></p>
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Xin lỗi. Tôi không thấy hành lý của mình.</span></p>
+<p><span class="speaker-b">Nhân viên dịch vụ khách hàng hàng không:</span> <span class="noidung_speaker-b">Tôi rất tiếc khi nghe điều đó. Anh đi chuyến bay nào?</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Chuyến bay 108 từ Tokyo.</span></p>
+<p><span class="speaker-b">Nhân viên dịch vụ khách hàng hàng không:</span> <span class="noidung_speaker-b">Được rồi, để tôi kiểm tra trong hệ thống. Anh có thể đưa tôi thẻ hành lý không?</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Vâng, đây ạ.</span></p>
+<p><span class="speaker-b">Nhân viên dịch vụ khách hàng hàng không:</span> <span class="noidung_speaker-b">Cảm ơn. Có vẻ như hành lý của Anh đã bị trễ.</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Ôi không. Khi nào tôi mới nhận được nó?</span></p>
+<p><span class="speaker-b">Nhân viên dịch vụ khách hàng hàng không:</span> <span class="noidung_speaker-b">Nó sẽ đến trên chuyến bay tiếp theo vào tối nay.</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Anh có thể gửi nó đến khách sạn của tôi không?</span></p>
+<p><span class="speaker-b">Nhân viên dịch vụ khách hàng hàng không:</span> <span class="noidung_speaker-b">Chắc chắn rồi. Chỉ cần Anh điền vào mẫu đơn này với địa chỉ khách sạn.</span></p>
+<p><span class="speaker-a">Thu: </span> <span class="noidung_speaker-a">Cảm ơn Anh rất nhiều.</span></p>
+
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</section>
+
+
+    <script src="/tienganh/listeing/listening.js"></script>
+</body>
+</html>

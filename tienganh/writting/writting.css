@@ -1,0 +1,249 @@
+    :root {
+    --nut: #4d128b;
+    --button_hover: #ff6b6b;
+}
+    .writting_index {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column; /* THÊM DÒNG NÀY */
+      align-items: center;
+      padding: 20px;
+      gap: 30px; /* Tùy chọn: khoảng cách giữa các card_writting_index */
+    }
+
+    .card_writting_index {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .card_writting_index img {
+      width: 60%;
+      max-height: 280px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+    }
+.text-box_writting_index {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background-color: #f3f3a6;
+  padding: 30px 20px;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+  animation: slideInRight 1s ease-out;
+
+  /* Căn giữa nội dung */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text-box_writting_index h2 {
+  color: #2c1a57;
+  margin-bottom: 20px;
+}
+
+.learn-btn_leanning {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--nut);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn-btn_leanning:hover {
+  background-color: var(--button_hover);
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .card_writting_index {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .card_writting_index img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    max-height: 250px;
+  }
+
+  .text-box_writting_index {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: none;
+    animation: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .writting_index {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .text-box_writting_index h2 {
+    font-size: 1.2rem;
+  }
+
+  .text-box_writting_index p,
+  .text-box_writting_index li {
+    font-size: 1rem;
+  }
+
+  .text-box_writting_index {
+    padding: 15px;
+  }
+
+  .card_writting_index img {
+    max-height: 200px;
+  }
+}
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideInRight {
+      0% { transform: translateX(100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+
+
+
+    
+.Lesson {
+  text-align: center;
+  font-size: 32px;  
+  font-weight: bold;
+  margin: 20px 0;  
+  color: #e45698; 
+}
+
+.writing {
+  padding: 30px 15px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.writing-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s ease;
+}
+
+.writing-card h2 {
+  color: #3a648f;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.english-text {
+  font-size: 20px;
+  margin: 15px 0;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+audio {
+  width: 100%;
+  margin: 10px 0 20px;
+}
+
+.toggle-btn {
+  display: block;
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 15px auto 0;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.vietnamese-text {
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-left: 5px solid #3498db;
+  border-radius: 8px;
+  animation: fadeIn 0.5s ease;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.hidden {
+  display: none;
+}
+/* Hiệu ứng xuất hiện mượt mà */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive cho thiết bị nhỏ */
+@media screen and (max-width: 600px) {
+  .writing-card {
+    padding: 20px;
+  }
+
+  .writing-card h2 {
+    font-size: 20px;
+  }
+
+  .english-text,
+  .vietnamese-text {
+    font-size: 16px;
+  }
+
+  .toggle-btn {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+}

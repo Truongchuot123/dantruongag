@@ -6,6 +6,7 @@
    <title>Hệ thống học viết tiếng anh-Nguyễn Mai Đan Trường</title>
     <link rel="icon" href="/hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/tienganh/writting/writting.css">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -20,141 +21,6 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-  <style>
-    :root {
-    --nut: #4d128b;
-    --button_hover: #ff6b6b;
-}
-    .communication {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column; /* THÊM DÒNG NÀY */
-      align-items: center;
-      padding: 20px;
-      gap: 30px; /* Tùy chọn: khoảng cách giữa các card */
-    }
-
-    .card {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1s ease-out;
-    }
-
-    .card img {
-      width: 60%;
-      max-height: 280px;
-      object-fit: cover;
-      display: block;
-      border-radius: 20px;
-    }
-.text-box {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 55%;
-  height: 100%;
-  background-color: #f3f3a6;
-  padding: 30px 20px;
-  border-top-left-radius: 60px;
-  border-bottom-left-radius: 60px;
-  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
-  animation: slideInRight 1s ease-out;
-
-  /* Căn giữa nội dung */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.text-box h2 {
-  color: #2c1a57;
-  margin-bottom: 20px;
-}
-
-.learn-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: var(--nut);
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 30px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.learn-btn:hover {
-  background-color: var(--button_hover);
-  transform: scale(1.05);
-}
-
-@media (max-width: 992px) {
-  .card {
-    flex-direction: column;
-    max-width: 100%;
-  }
-
-  .card img {
-    width: 100%;
-    border-radius: 20px 20px 0 0;
-    max-height: 250px;
-  }
-
-  .text-box {
-    position: static;
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    border-radius: 0 0 20px 20px;
-    box-shadow: none;
-    animation: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .communication {
-    padding: 10px;
-    gap: 20px;
-  }
-
-  .text-box h2 {
-    font-size: 1.2rem;
-  }
-
-  .text-box p,
-  .text-box li {
-    font-size: 1rem;
-  }
-
-  .text-box {
-    padding: 15px;
-  }
-
-  .card img {
-    max-height: 200px;
-  }
-}
-
-    /* Animations */
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: scale(0.95); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes slideInRight {
-      0% { transform: translateX(100%); opacity: 0; }
-      100% { transform: translateX(0); opacity: 1; }
-    }
-  </style>
 </head>
 <body>
     <section class="top">
@@ -203,13 +69,47 @@
         </p>            
     </div>
 </section>
-<section class="communication">
+<section class="writting_index">
 
-  <div class="card">
-    <img src="/tienganh/hinhanh.tienganh/city.webp" alt="Boss Image">
-    <div class="text-box">
+  <div class="card_writting_index">
+    <img src="/tienganh/hinhanh.tienganh/city.png" alt="">
+    <div class="text-box_writting_index">
       <h2>Merging provinces and cities</h2>
-        <a href="/tienganh//writting/Merging provinces and cities.html" class="learn-btn">HỌC NGAY</a>
+        <a href="/tienganh//writting/Merging provinces and cities.html" class="learn-btn_leanning">HỌC NGAY</a>
+    </div>
+  </div>
+
+    <div class="card_writting_index">
+    <img src="/tienganh/hinhanh.tienganh/Bentre.png" alt="">
+    <div class="text-box_writting_index">
+      <h2>Discovering Bến Tre – The Land of Coconuts in the Mekong Delta</h2>
+      <div class="vietnam h2"></div>
+        <a href="/tienganh/writting/travelling/Bentre_provinces.html" class="learn-btn_leanning">HỌC NGAY</a>
+    </div>
+  </div>
+
+
+    <div class="card_writting_index">
+    <img src="/tienganh/hinhanh.tienganh/Cau_rong_da_nang.png" alt="">
+    <div class="text-box_writting_index">
+      <h2>Dragon Bridge – The Symbol of Modern Da Nang</h2>
+        <a href="/tienganh/writting/travelling/Dragon Bridge – The Symbol of Modern Da Nang.html" class="learn-btn_leanning">HỌC NGAY</a>
+    </div>
+  </div>
+  
+      <div class="card_writting_index">
+    <img src="/tienganh/hinhanh.tienganh/Cho_noi.png" alt="">
+    <div class="text-box_writting_index">
+      <h2>Exploring the Floating Markets of Vietnam</h2>
+        <a href="/tienganh/writting/travelling/Exploring the Floating Markets of Vietnam.html" class="learn-btn_leanning">HỌC NGAY</a>
+    </div>
+  </div>
+
+  <div class="card_writting_index">
+    <img src="/tienganh/hinhanh.tienganh/an_giang.png" alt="">
+    <div class="text-box_writting_index">
+      <h2>Discovering the New An Giang Province after the 2025 Merge</h2>
+        <a href="/tienganh/writting/Discovering the New An Giang Province after the 2025 Merge.html" class="learn-btn_leanning">HỌC NGAY</a>
     </div>
   </div>
 </section>

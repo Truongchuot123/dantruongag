@@ -21,116 +21,142 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
   <style>
-    .communication {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column; /* THÊM DÒNG NÀY */
-      align-items: center;
-      padding: 20px;
-      gap: 30px; /* Tùy chọn: khoảng cách giữa các card */
-    }
+.communication {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
 
-    .card {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1s ease-out;
-    }
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
 
-    .card img {
-      width: 60%;
-      max-height: 280px;
-      object-fit: cover;
-      display: block;
-      border-radius: 20px;
-    }
+/* Container bao ảnh để ảnh co theo .text-box */
+.card .image-container {
+  width: 100%;
+  display: block;
+  position: relative;
+}
 
-    .text-box {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 55%;
-      height: 100%;
-      background-color: #f3f3a6;
-      padding: 30px 20px;
-      border-top-left-radius: 60px;
-      border-bottom-left-radius: 60px;
-      box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
-      animation: slideInRight 1s ease-out;
-    }
+.card img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 100%;
+  border-radius: 20px;
+}
 
-    .text-box h2 {
-      color: #2c1a57;
-      margin-bottom: 10px;
-    }
+/* Text box đè lên ảnh bên phải */
+.text-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f3f3a6;
+  padding: 30px 20px;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInRight 1s ease-out;
+}
 
-    .text-box p {
-      margin-bottom: 20px;
-      color: #333;
-    }
 
-    .text-box ol {
-      padding-left: 20px;
-    }
+.text-box h2 {
+  color: #2c1a57;
+  margin-bottom: 10px;
+}
 
-    .text-box li {
-      margin-bottom: 10px;
-    }
+.text-box p {
+  margin-bottom: 20px;
+  color: #333;
+}
 
-    .text-box a {
-      text-decoration: none;
-      color: #2a2a2a;
-      transition: color 0.3s;
-    }
+.text-box ul,
+.text-box ol {
+  padding-left: 20px;
+}
 
-    .text-box a:hover {
-      color: #4d128b;
-      text-decoration: underline;
-    }
+.text-box li {
+  margin-bottom: 10px;
+}
 
-    /* Responsive */
-    @media (max-width: 600px) {
-  .communication {
-    padding: 10px;
-    gap: 20px;
+.text-box a {
+  text-decoration: none;
+  color: #2a2a2a;
+  transition: color 0.3s;
+}
+
+.text-box a:hover {
+  color: #4d128b;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card .image-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .text-box {
+    position: static; /* bỏ absolute */
+    width: 100%;
+    height: auto;
+    background-color: #f3f3a6;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: none;
+    animation: fadeIn 0.8s ease-in-out;
   }
 
   .text-box h2 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .text-box p,
   .text-box li {
     font-size: 1rem;
   }
-
-  .text-box {
-    padding: 15px;
-  }
-
-  .card img {
-    max-height: 200px;
-  }
 }
 
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
 
-    /* Animations */
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: scale(0.95); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes slideInRight {
-      0% { transform: translateX(100%); opacity: 0; }
-      100% { transform: translateX(0); opacity: 1; }
-    }
+@keyframes slideInRight {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
   </style>
 </head>
 <body>
@@ -182,33 +208,76 @@
 </section>
 <section class="communication">
   <div class="card">
-    <img src="/tienganh/hinhanh.tienganh/reception.png" alt="Boss Image">
+    <img src="/tienganh/hinhanh.tienganh/reception.png" alt="Reception Image">
     <div class="text-box">
       <h2>Communication at the hotel</h2>
       <p>Choose a listening lesson</p>
-      <ol>
-        <li><a href="/tienganh/listeing/Hotel.html">Complain to the receptionist</a></li>
-        <li><a href="/tienganh/listeing/Hotel.html">Check in at the hotel</a></li>        
-        <li><a href="/tienganh/listeing/Hotel.html">Book hotel directly</a></li>
-        <li><a href="/tienganh/listeing/Hotel.html">Room key - request support</a></li>
-        <li><a href="/tienganh/listeing/Hotel.html">Asking for an extra blanket at a hotel</a></li>
-        <li><a href="/tienganh/listeing/Hotel.html">Local Travel Tips for a Short Stay</a></li>        
-      </ol>
+      <ul id="hotel-lessons"></ul> <!-- ID cụ thể để dùng trong JS -->
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="/tienganh/hinhanh.tienganh/cabin_plane.png" alt="Airport Image">
+    <div class="text-box">
+      <h2>Communication at the airport</h2>
+      <p>Choose a listening lesson.</p>
+      <ul id="airport-lessons">
+      </ul>
     </div>
   </div>
 
     <div class="card">
-    <img src="/tienganh/hinhanh.tienganh/airport.jpg" alt="Boss Image">
+    <img src="/tienganh/hinhanh.tienganh/departure lounge.png" alt="Airport Image">
     <div class="text-box">
-      <h2>Communication at the airport</h2>
+      <h2>Airport Announcements</h2>
       <p>Choose a listening lesson.</p>
-      <ol>
-        <li><a href="page1.html">Talking to Security about a Lost</a></li>
-        <li><a href="page2.html">Who is sitting in the wrong seat?</a></li>
-      </ol>
+      <ul id="Airport_announcements-lessons"></ul> <!-- ID cụ thể để dùng trong JS -->
+      </ul>
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Hàm lấy các thẻ h2 từ file HTML
+  function loadHeadings(filePath, targetListSelector) {
+    fetch(filePath)
+      .then(response => response.text())
+      .then(html => {
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = html;
+
+        const headings = tempDiv.querySelectorAll("h1"); // Lấy thẻ h2, KHÔNG phải h1
+        const list = document.querySelector(targetListSelector);
+
+        list.innerHTML = ""; // Xóa nội dung cũ
+
+        headings.forEach((h2, index) => {
+          const text = h2.textContent.trim();
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+
+          a.href = filePath + "#section" + (index + 1); // Nếu bạn có anchor
+          a.textContent = `${index + 1}. ${text}`;       // Thêm số thứ tự vào đầu
+          
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      })
+      .catch(err => {
+        console.error("Lỗi khi tải file:", filePath, err);
+      });
+  }
+
+  // Gọi hàm cho từng danh sách
+  loadHeadings("/tienganh/listeing/Hotel.html", "#hotel-lessons");
+  loadHeadings("/tienganh/listeing/Communication-airport.html", "#airport-lessons");
+  loadHeadings("/tienganh/listeing/Airport Announcements.html", "#Airport_announcements-lessons");
+});
+</script>
+
+
+
  <!-- Chân trang cố định ---------->      
  <section class="footer-section">
     <div class="menu-namngang">
@@ -254,5 +323,6 @@
       </section>
   </section>
         <script src="/script.js"></script> 
+        <script src="/tienganh/listeing/listening.js"></script>    
 </body>
 </html>

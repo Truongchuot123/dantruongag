@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống học nghe tiếng anh-Nguyễn Mai Đan Trường</title>
+    <link rel="icon" href="../hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/tienganh/listeing/listening.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+<section class="hotel_listening">
+<div id="toc-container"></div>
+<section class="hotel_listening_1">
+  <div class="container">
+    <h1>Missing Passenger Announcement (Tìm hành khách thất lạc)</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Missing-Passenger-Announcement.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+Ladies and Gentlemen, we are now making an announcemen to look for a passenger Mr Wang Qiang. If you can hear this announcement. Please contact the staff at the service counter of Gate 15 immediately. You family is anxiously waiting to get in touch with you
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+Quý hành khách thân mến! Chúng tôi xin thông báo để tìm hành khách ông Wang Qiang. Nếu ông nghe được thông báo này, vui lòng liên hệ với nhân viên tại quầy dịch vụ ở cổng số 15 ngay lập tức. Gia đình ông đang rất nóng lòng muốn liên lạc với với ông    
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_2">
+  <div class="container">
+    <h1>Flight Cancellation Announcement (Thông báo hủy chuyến)</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Flight Cancellation Announcement .mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+Attention please. We regret to announce that Flight TK912 to Istanbul has been cancelled due to technical issues. Affected passengers are requested to proceed to the service desk near Gate 12 for further assistance. We apologize for the inconvenience.
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+Xin quý khách chú ý. Chúng tôi rất tiếc phải thông báo rằng chuyến bay TK912 đi Istanbul đã bị hủy do sự cố kỹ thuật. Quý hành khách bị ảnh hưởng vui lòng đến quầy dịch vụ gần Cổng 12 để được hỗ trợ. Chúng tôi xin lỗi vì sự bất tiện này.    
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_3">
+  <div class="container">
+    <h1>Flight Delay Announcement (Thông báo hoãn chuyến bay)</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Flight-Delay-Announcement.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+Dear passengers, due to air traffic control restrictions, Flight QF123 to Sydney is expected to be delayed for four hours. The airport will provide you with catering and accommodation arrangements. Please go to the service desk in the waiting area if you need assistance. Thank you for your understanding and patience.
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+Kính thưa quý hành khách do kiểm soát không lưu. Chuyến bay QF123 đi Sydney dự kiến sẽ bị hoãn 4 tiếng. Sân bay sẽ cung cấp suất ăn và sắp xếp chỗ nghỉ ngơi cho quý khách. Vui lòng đến quầy dịch vụ tại khu vực cho nếu cần hỗ trợ. Xin cảm ơn quý khách đã thông cảm và kiên nhẫn    
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_4">
+  <div class="container">
+    <h1>Boarding Time Reminder (Nhắc hành khách về giờ lên máy bay)</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Boarding Time Reminder .mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+Ladies and gentlemen, this is a reminder that boarding for Flight JL528 to Tokyo will begin in 10 minutes at Gate 9. Please have your boarding passes ready. Thank you.
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+Kính thưa quý khách, đây là lời nhắc rằng chuyến bay JL528 đi Tokyo sẽ bắt đầu lên máy bay sau 10 phút tại Cổng số 9. Xin vui lòng chuẩn bị sẵn thẻ lên máy bay. Xin cảm ơn.    
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hotel_listening_5">
+  <div class="container">
+    <h1>Priority Boarding Announcement (Thông báo lên máy bay ưu tiên)</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Priority-Boarding-Announcement.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+Distinguished first class and Business Class passengers. As well as passengers with elderly people. Children and those in need of special assistance. Flight BA5678 to London is now ready for priority boarding. Please take your belongings and board through Gate 3. Thank you for your cooperation     
+
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+Kính mời quý hành khách hạng nhất và hạng thương gia. Cũng như hành khách đi cùng người cao tuổi, trẻ em hoặc những người cần hỗ trợ đặc biệt. Chuyến bay BA5678 đi London hiện đã sẫn sàng cho việc ưu tiên lên máy bay. Xin quý khách vui lòng mang theo hành lý và di chuyển đến cổng số 3 để lên máy bay. Xin cảm ơn sự hợp tác của quý khách
+
+</div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+      <div class="phrase-box">
+
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_6">
+  <div class="container">
+    <h1>Boarding Announcement (Thông báo lên máy bay)</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Boarding-Announcement.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+Ladies and gentlemen, Flight CA1234 to New York is now boarding. Please have your boarding pass ready and board the plane through Gate 2 in an orderly manner. Have a nice trip.
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+Kính thưa quý hành khách. Chuyến bay CA1234 đến New York hiện đang làm thủ tục lên máy bay. Xin vui lòng chuẩn bị sẫn thẻ lên máy bay và lên máy bay tại cổng số 2 một cách trật tự. Chúc quý khách có một chuyến đi vui vẻ     
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_7">
+  <div class="container">
+    <h1>Gate Change Announcements (Thông báo đổi cổng lên máy bay)</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Gate Change Announcements.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+Ladies and gentlemen, we regret to inform you that the departure gate for Flight CX782 to Hong Kong has been changed. The new boarding gate is now Gate 16. Please proceed to Gate 16 immediately. Thank you.
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+Kính thưa quý khách, chúng tôi xin thông báo rằng cổng khởi hành cho chuyến bay CX782 đi Hồng Kông đã thay đổi. Cổng lên máy bay mới là Cổng 16. Xin quý khách nhanh chóng di chuyển đến Cổng 16. Xin cảm ơn.
+  </div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+      <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hotel_listening_8">
+  <div class="container">
+    <h1>Final Boarding Call (Lời gọi cuối cùng lên máy bay)</h1>
+    
+    <!-- Thanh nghe MP3 -->
+    <audio controls>
+      <source src="/tienganh/listeing/mp3/Final Boarding Call.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ chức năng này.
+    </audio>
+
+<!-- Transcript -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📄 Transcript</div>
+  <div class="box-content">
+This is the final boarding call for Flight AF231 to Paris. Passenger Lisa Nguyen, please proceed to Gate 5 immediately. The aircraft is ready for departure. This is your final call.
+
+  </div>
+</div>
+
+<!-- Bản dịch -->
+<div class="box">
+  <div class="box-header" onclick="toggleBox(this)">📘 Bản dịch</div>
+  <div class="box-content">
+Đây là lời gọi cuối cùng cho chuyến bay AF231 đi Paris. Hành khách Lisa Nguyễn, vui lòng đến Cổng số 5 ngay lập tức. Máy bay đã sẵn sàng khởi hành. Đây là lời gọi cuối cùng dành cho bạn.
+
+</div>
+</div>
+    <!-- Mẫu câu nên dùng -->
+<div class="phrase-section">
+  <h2 class="toggle-phrase">🔑 Mẫu câu nên dùng</h2>
+
+  <div class="phrase-box">
+        <div class="phrase-en"></div>
+        <div class="phrase-vi"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+
+    <script src="/tienganh/listeing/listening.js"></script>
+</body>
+</html>
