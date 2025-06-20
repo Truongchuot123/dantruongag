@@ -177,6 +177,12 @@
 }
 
 
+mark {
+  background-color: #fffa91;
+  padding: 0 3px;
+  border-radius: 4px;
+}
+
   </style>
 </head>
 <body>
@@ -299,18 +305,25 @@ function renderData(filtered) {
   let html = '';
   for (const topic in grouped) {
     html += `<div class="topic-group"><h3>${topic}</h3>`;
-    grouped[topic].forEach(item => {
-      const id = `${item.english}_${item.topic}`;
-      const checked = localStorage.getItem(id) ? 'checked' : '';
-      html += `
-        <div class="entry">
-          <div class="texts">
-            <b>${item.english}</b><br>
-            <span>${item.vietnamese}</span>
-          </div>
-          <div><input type="checkbox" ${checked} onchange="toggleLearned('${id}', this.checked)"></div>
-        </div>`;
-    });
+      grouped[topic].forEach(item => {
+        const id = `${item.english}_${item.topic}`;
+        const checked = localStorage.getItem(id) ? 'checked' : '';
+        const learnedClass = checked ? 'learned' : '';
+    function highlightImportant(text) {
+      return text.replace(/\*(.*?)\*/g, '<mark>$1</mark>');
+    }
+
+    html += `
+      <div class="entry ${learnedClass}">
+        <div class="texts">
+          <b>${highlightImportant(item.english)}</b><br>
+          <span>${highlightImportant(item.vietnamese)}</span>
+        </div>
+        <div><input type="checkbox" ${checked} onchange="toggleLearned('${id}', this.checked)"></div>
+      </div>`;
+
+      });
+
     html += `</div>`;
   }
   document.getElementById("contentArea").innerHTML = html;
@@ -320,6 +333,7 @@ function renderData(filtered) {
 function toggleLearned(id, status) {
   if (status) localStorage.setItem(id, true);
   else localStorage.removeItem(id);
+  renderData(data); // cập nhật lại giao diện để thêm/lấy bỏ màu
 }
 
 
@@ -346,6 +360,44 @@ function renderLearnedOnly(button) {
     </div>
   `;
   document.getElementById("contentArea").insertAdjacentHTML('afterbegin', statsHtml);
+}
+
+function submitData() {
+  const english = document.getElementById("english").value.trim();
+  const vietnamese = document.getElementById("vietnamese").value.trim();
+  const topic = document.getElementById("topic").value.trim();
+
+  if (!english || !vietnamese || !topic) {
+    alert("❗ Vui lòng điền đầy đủ cả 3 trường: tiếng Anh, tiếng Việt và chủ đề.");
+    return;
+  }
+
+  const formData = new URLSearchParams();
+  formData.append("english", english);
+  formData.append("vietnamese", vietnamese);
+  formData.append("topic", topic);
+
+  fetch("https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.result === "success") {
+      alert("Gửi thành công!");
+      toggleForm();
+      loadData(); // tải lại dữ liệu
+      document.getElementById("english").value = "";
+      document.getElementById("vietnamese").value = "";
+      document.getElementById("topic").value = "";
+    } else {
+      throw new Error("Gửi thất bại");
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Lỗi khi gửi dữ liệu.");
+  });
 }
 
 loadData();

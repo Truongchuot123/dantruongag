@@ -18,3 +18,4 @@ allAudios.forEach(audio => {
     const translation = document.getElementById(id);
     translation.classList.toggle('hidden');
   }
+  
