@@ -1,408 +1,325 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Hệ thống học tiếng anh mỗi ngày - Nguyễn Mai Đan Trường </title>
-    <link rel="icon" href="hinhanh/logo web.png" type="">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- Thanh điều hướng nằm ngang CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<style>
-    :root {
-    --nut: #4d128b;
-    --button_hover: #ff6b6b;
-    --hethong: #dfe6e9;
-    --hethong_hower: #e42edb;
-}
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f6fc;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-    }
-    .search-box {
-      max-width: 600px;
-      margin: 20px auto;
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .search-box input {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    .btn {
-      background-color: var(--nut);
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .btn:hover {
-      background-color: var(--button_hover);
-    }
-    .form-popup {
-      display: none;
-      background: white;
-      border: 2px solid #3498db;
-      padding: 24px;
-      border-radius: 12px;
-      max-width: 480px;
-      margin: 20px auto;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-    .form-popup input, .form-popup textarea {
-      width: 100%;
-      margin-bottom: 12px;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-    .form-popup p {
-      font-weight: bold;
-      color: #2c3e50;
-      margin-bottom: 16px;
-    }
-    #formPopup {
-        position: relative;
-        padding: 20px;
-        border: 2px solid #ff5050;
-        border-radius: 10px;
-        background: #fff;
-    }
-    .topic-group {
-      margin-bottom: 30px;
-      background: white;
-      border-left: 5px solid #3498db;
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .topic-group h3 {
-      margin-top: 0;
-      color: #3498db;
-    }
-    .entry {
-      margin: 10px 0;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .entry .texts {
-      flex-grow: 1;
-    }
-    #topicNav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin: 30px auto 10px;
-    }
-    #topicNav button {
-      background: var(--hethong);
-      border: none;
-      border-radius: 6px;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: 0.2s;
-    }
-    #topicNav button:hover {
-      background: var(--hethong_hower);
-      color: white;
-    }
-    #topicNav button.active {
-      background: var(--hethong_hower);
-      color: white;
-    }
-    .stats-box {
-  background-color: #ff9f9f;
-  color: #0369a1;
-  padding: 10px 15px;
-  border-left: 5px solid #00b3ff;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-}
-#loadingNotice {
-  background: #fff3cd;
-  color: #856404;
-  border-left: 5px solid #ffc107;
-  margin: 15px auto;
-  max-width: 600px;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 15px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  pointer-events: none;
-}
-#loadingNotice.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-#contentArea {
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-#contentArea.hidden {
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-}
-
-
-mark {
-  background-color: #fffa91;
-  padding: 0 3px;
-  border-radius: 4px;
-}
-
-  </style>
+    <title>Luyện Nói Tiếng Anh Mỗi Ngày - Nâng cao</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .transition-all-custom {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .max-h-0 {
+            max-height: 0;
+        }
+        .max-h-screen {
+            max-height: 100vh;
+        }
+        .btn-press:active {
+            transform: scale(0.95);
+        }
+        /* Custom scrollbar for main body */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        body::-webkit-scrollbar-thumb {
+            background: #6366f1;
+            border-radius: 10px;
+        }
+        .dark body::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        
+        /* Custom scrollbar for horizontal TOC */
+        #toc-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        #toc-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #toc-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .dark #toc-container::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+        /* Style for the active TOC link */
+        .active-link {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            font-weight: 600;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
 
-<h1>Everyday English Learning</h1>
-
-<div class="search-box">
-  <input type="text" id="searchInput" placeholder="Tìm kiếm từ khoá hoặc chủ đề...">
-  <button class="btn" onclick="toggleForm()">➕ Thêm</button>
-  <button onclick="renderLearnedOnly(this)">📌 Đã học</button>
-</div>
-
-<div id="topicNav">
-    <button onclick="renderAll(this)" class="active">📋 Tất cả</button>
-</div>
-<div id="loadingNotice">🔄 Hệ thống đang lấy dữ liệu, bạn vui lòng chờ trong giây lát...</div>
-<div class="form-popup" id="formPopup">
-<button onclick="toggleForm()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; font-size: 20px; cursor: pointer;">❌</button>
-  <p>👀 Hôm nay bạn đã nhìn thấy gì xung quanh mình?</p>
-  <input list="topicList" id="topic" placeholder="Chủ đề (chọn hoặc nhập mới)" required>
-  <datalist id="topicList"></datalist>
-  <textarea id="vietnamese" placeholder="Tiếng Việt" required></textarea>
-  <textarea id="english" placeholder="Tiếng Anh" required></textarea>
-  <button class="btn" onclick="submitData()">Gửi</button>
-</div>
-
-<div id="contentArea"></div>
-
-<script>
-let data = [];
-function loadData() {
-  const notice = document.getElementById("loadingNotice");
-  notice.classList.add("show"); // Hiện
-
-  fetch('https://script.google.com/macros/s/AKfycbzO2-yifI9qNQxk2Z3H7kLRgZY7zGfUjzJYq3Nk0tOWNr5jVZkCsqO0KJwd9JWd91w2/exec')
-    .then(res => res.json())
-    .then(json => {
-      data = json;
-      renderData(data);
-      updateTopicList();
-      setTimeout(() => {
-        notice.classList.remove("show"); // Ẩn mượt mà sau 0.5s
-      }, 500); 
-    });
-}
-
-
-
-function toggleForm() {
-  const form = document.getElementById('formPopup');
-  const content = document.getElementById('contentArea');
-
-  const isVisible = form.style.display === 'block';
-
-  if (isVisible) {
-    form.style.display = 'none';
-    content.classList.remove('hidden');
-  } else {
-    form.style.display = 'block';
-    content.classList.add('hidden');
-  }
-}
-
-
-function updateTopicList() {
-  const topicSet = new Set(data.map(d => d.topic));
-  const datalist = document.getElementById("topicList");
-  const topicNav = document.getElementById("topicNav");
-  datalist.innerHTML = '';
-
-  // Xoá các nút chủ đề cũ nhưng giữ lại "Tất cả" và "Đã học"
-  const buttons = topicNav.querySelectorAll('button');
-  buttons.forEach((btn, i) => i > 1 && btn.remove());
-
-  // Tránh thêm nút trùng lặp bằng cách kiểm tra tồn tại trước khi thêm
-  topicSet.forEach(topic => {
-    const option = document.createElement("option");
-    option.value = topic;
-    datalist.appendChild(option);
-
-    // Kiểm tra nếu nút đã tồn tại
-    if (![...topicNav.children].some(btn => btn.innerText === topic)) {
-      const btn = document.createElement("button");
-      btn.innerText = topic;
-      btn.onclick = function () {
-        renderFilteredTopic(topic, btn);
-      };
-      topicNav.appendChild(btn);
-    }
-  });
-}
-
-
-function clearActiveNav() {
-  document.querySelectorAll('#topicNav button').forEach(btn => btn.classList.remove('active'));
-}
-
-// Hàm hiển thị toàn bộ dữ liệu khi nhấn "Tất cả"
-function renderAll(button) {
-  clearActiveNav();
-  button.classList.add('active');
-  renderData(data);
-}
-
-// Hàm hiển thị dữ liệu theo chủ đề
-function renderFilteredTopic(topic, button) {
-  clearActiveNav();
-  button.classList.add("active");
-  const filtered = data.filter(d => d.topic === topic);
-  renderData(filtered);
-}
-
-function renderData(filtered) {
-  const grouped = {};
-  filtered.forEach(item => {
-    if (!grouped[item.topic]) grouped[item.topic] = [];
-    grouped[item.topic].push(item);
-  });
-
-  let html = '';
-  for (const topic in grouped) {
-    html += `<div class="topic-group"><h3>${topic}</h3>`;
-      grouped[topic].forEach(item => {
-        const id = `${item.english}_${item.topic}`;
-        const checked = localStorage.getItem(id) ? 'checked' : '';
-        const learnedClass = checked ? 'learned' : '';
-    function highlightImportant(text) {
-      return text.replace(/\*(.*?)\*/g, '<mark>$1</mark>');
-    }
-
-    html += `
-      <div class="entry ${learnedClass}">
-        <div class="texts">
-          <b>${highlightImportant(item.english)}</b><br>
-          <span>${highlightImportant(item.vietnamese)}</span>
+    <main class="w-full max-w-5xl mx-auto p-4 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-2">Học Nói Tiếng Anh Mỗi Ngày</h1>
+            <p class="text-indigo-500 dark:text-indigo-400 font-semibold">Tất cả cấu trúc câu trong tay bạn</p>
+        </header>
+        
+        <div class="sticky top-0 bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-sm z-10 py-4 mb-6 rounded-lg">
+             <div class="relative mb-4">
+                 <input type="text" id="search-input" placeholder="Tìm kiếm cấu trúc hoặc chủ đề..." class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition">
+                 <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+             </div>
+             <details class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700" open>
+                 <summary class="font-semibold p-3 cursor-pointer">
+                     <i class="fa-solid fa-list-ul mr-2 text-indigo-500"></i> Mục lục chủ đề
+                 </summary>
+                 <nav id="toc-container" class="p-4 flex overflow-x-auto space-x-3 border-t border-slate-200 dark:border-slate-700">
+                     </nav>
+             </details>
         </div>
-        <div><input type="checkbox" ${checked} onchange="toggleLearned('${id}', this.checked)"></div>
-      </div>`;
 
-      });
+        <div id="content-container" class="space-y-10">
+            </div>
 
-    html += `</div>`;
-  }
-  document.getElementById("contentArea").innerHTML = html;
-}
+        <div id="no-results" class="hidden text-center py-12">
+            <i class="fa-solid fa-box-open text-5xl text-slate-400 mb-4"></i>
+            <p class="text-xl font-semibold">Không tìm thấy kết quả</p>
+            <p class="text-slate-500 dark:text-slate-400">Vui lòng thử một từ khóa khác.</p>
+        </div>
+        
+        <footer class="text-center mt-12 text-sm text-slate-500 dark:text-slate-400">
+            <p>Thiết kế bởi Gemini & Tích hợp Google Sheet/Apps Script</p>
+        </footer>
+    </main>
 
+    <script>
+    // --- CẤU HÌNH ---
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec';
+    // --- DỮ LIỆU MẪU ĐÃ ĐƯỢC LOẠI BỎ ---
 
-function toggleLearned(id, status) {
-  if (status) localStorage.setItem(id, true);
-  else localStorage.removeItem(id);
-  renderData(data); // cập nhật lại giao diện để thêm/lấy bỏ màu
-}
+    // --- DOM ELEMENTS ---
+    const tocContainer = document.getElementById('toc-container');
+    const contentContainer = document.getElementById('content-container');
+    const searchInput = document.getElementById('search-input');
+    const noResultsEl = document.getElementById('no-results');
 
-
-function renderLearnedOnly(button) {
-  clearActiveNav();
-  button.classList.add('active');
-
-  const learnedIds = Object.keys(localStorage);
-  const filtered = data.filter(item => {
-    const id = `${item.english}_${item.topic}`;
-    return learnedIds.includes(id);
-  });
-
-  renderData(filtered);
-
-  // Thống kê
-  const total = data.length;
-  const learned = filtered.length;
-  const percent = total > 0 ? Math.round((learned / total) * 100) : 0;
-
-  const statsHtml = `
-    <div class="stats-box">
-      📊 Đã học được: <strong>${learned}/${total}</strong> từ (${percent}%)
-    </div>
-  `;
-  document.getElementById("contentArea").insertAdjacentHTML('afterbegin', statsHtml);
-}
-
-function submitData() {
-  const english = document.getElementById("english").value.trim();
-  const vietnamese = document.getElementById("vietnamese").value.trim();
-  const topic = document.getElementById("topic").value.trim();
-
-  if (!english || !vietnamese || !topic) {
-    alert("❗ Vui lòng điền đầy đủ cả 3 trường: tiếng Anh, tiếng Việt và chủ đề.");
-    return;
-  }
-
-  const formData = new URLSearchParams();
-  formData.append("english", english);
-  formData.append("vietnamese", vietnamese);
-  formData.append("topic", topic);
-
-  fetch("https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec", {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.result === "success") {
-      alert("Gửi thành công!");
-      toggleForm();
-      loadData(); // tải lại dữ liệu
-      document.getElementById("english").value = "";
-      document.getElementById("vietnamese").value = "";
-      document.getElementById("topic").value = "";
-    } else {
-      throw new Error("Gửi thất bại");
+    /**
+     * Hiển thị thông báo lỗi trong vùng nội dung chính.
+     * @param {string} title - Tiêu đề của lỗi (ví dụ: "Hệ thống đang bị lỗi").
+     * @param {string} message - Thông điệp chi tiết hơn cho người dùng.
+     */
+    function displayError(title, message) {
+        tocContainer.innerHTML = ''; // Xóa các mục lục
+        contentContainer.innerHTML = `
+            <div class="text-center py-12 px-4 bg-white dark:bg-slate-800 rounded-lg shadow-md border border-red-200 dark:border-red-800">
+                <i class="fa-solid fa-triangle-exclamation text-5xl text-red-500 mb-4"></i>
+                <p class="text-xl font-semibold text-red-600 dark:text-red-400">${title}</p>
+                <p class="text-slate-500 dark:text-slate-400 mt-2">${message}</p>
+            </div>
+        `;
     }
-  })
-  .catch(err => {
-    console.error(err);
-    alert("Lỗi khi gửi dữ liệu.");
-  });
-}
+    
+    /**
+     * Groups an array of items by topic.
+     * Assumes the input is an array of objects, where each object has a 'topic' property.
+     * @param {Array<Object>} jsonData - The array of data from the Apps Script.
+     * @returns {Object} - An object where keys are topics and values are arrays of items.
+     */
+    function groupDataByTopic(jsonData) {
+        const groupedData = {};
+        const dataArray = jsonData.data || []; 
+        
+        for (const item of dataArray) {
+            const topic = item.topic;
+            if (!topic) continue; 
+            if (!groupedData[topic]) {
+                groupedData[topic] = [];
+            }
+            groupedData[topic].push(item);
+        }
+        return groupedData;
+    }
 
-loadData();
+    /**
+     * Generate HTML for all topics and cards and inject into the DOM
+     */
+    function renderContent(data) {
+        tocContainer.innerHTML = '';
+        contentContainer.innerHTML = '';
 
-</script>
+        // Add "Show All" button to TOC
+        const showAllBtn = document.createElement('a');
+        showAllBtn.href = '#';
+        showAllBtn.id = 'show-all-btn';
+        showAllBtn.textContent = 'Tất cả';
+        showAllBtn.className = "toc-link active-link whitespace-nowrap inline-block px-4 py-2 text-sm font-medium bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-600 hover:text-indigo-800 dark:hover:text-white transition-colors duration-200";
+        tocContainer.appendChild(showAllBtn);
 
+        for (const topic in data) {
+            const topicId = topic.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+
+            const tocLink = document.createElement('a');
+            tocLink.href = `#${topicId}`;
+            tocLink.textContent = topic;
+            tocLink.className = "toc-link whitespace-nowrap inline-block px-4 py-2 text-sm font-medium bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-600 hover:text-indigo-800 dark:hover:text-white transition-colors duration-200";
+            tocContainer.appendChild(tocLink);
+
+            const topicSection = document.createElement('section');
+            topicSection.id = topicId;
+            topicSection.className = "topic-section";
+            
+            const topicTitle = document.createElement('h2');
+            topicTitle.textContent = topic;
+            topicTitle.className = "text-2xl font-bold mb-4 pb-2 border-b-2 border-indigo-500 text-slate-700 dark:text-slate-100";
+            topicSection.appendChild(topicTitle);
+
+            const cardsContainer = document.createElement('div');
+            cardsContainer.className = "grid grid-cols-1 md:grid-cols-2 gap-6";
+            
+            data[topic].forEach(item => {
+                const card = document.createElement('div');
+                card.className = "practice-card bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden border border-slate-200 dark:border-slate-700 flex flex-col";
+                card.innerHTML = `<div class="p-5 flex-grow"><div class="mb-3"><p class="text-sm font-semibold text-slate-500 dark:text-slate-400">Cấu trúc:</p><p class="text-lg font-bold text-slate-900 dark:text-white">${item.structure||''}</p><p class="text-md text-slate-600 dark:text-slate-300 mt-1">${item.meaning||''}</p></div><div><p class="text-sm font-semibold text-slate-500 dark:text-slate-400">Ví dụ:</p><p class="text-lg text-slate-800 dark:text-slate-100 leading-relaxed">${item.example||''}</p></div><div class="translation-container transition-all-custom max-h-0 opacity-0 overflow-hidden"><hr class="my-3 border-slate-200 dark:border-slate-600"><p class="text-md text-emerald-600 dark:text-emerald-400">${item.translation||''}</p></div></div><div class="bg-slate-50 dark:bg-slate-800/50 px-5 py-3"><button class="translate-btn w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-slate-900 transition-all duration-200 btn-press">Dịch</button></div>`;
+                cardsContainer.appendChild(card);
+            });
+
+            topicSection.appendChild(cardsContainer);
+            contentContainer.appendChild(topicSection);
+        }
+    }
+
+    /**
+     * Handle translate button clicks using event delegation
+     */
+    contentContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('translate-btn')) {
+            const button = e.target;
+            const card = button.closest('.practice-card');
+            const translationContainer = card.querySelector('.translation-container');
+            const isTranslated = !translationContainer.classList.contains('max-h-0');
+
+            if (isTranslated) {
+                translationContainer.classList.add('max-h-0', 'opacity-0');
+                button.textContent = 'Dịch';
+            } else {
+                translationContainer.classList.remove('max-h-0', 'opacity-0');
+                button.textContent = 'Ẩn dịch';
+            }
+        }
+    });
+    
+    /**
+     * Handle TOC link clicks for filtering
+     */
+    tocContainer.addEventListener('click', function(e) {
+        const clickedLink = e.target.closest('a');
+        if (!clickedLink) return;
+
+        e.preventDefault();
+
+        // Update active state
+        document.querySelectorAll('#toc-container a').forEach(a => a.classList.remove('active-link'));
+        clickedLink.classList.add('active-link');
+        
+        // Filter content
+        if (clickedLink.id === 'show-all-btn') {
+            document.querySelectorAll('.topic-section').forEach(sec => sec.style.display = 'block');
+        } else {
+            const targetId = clickedLink.getAttribute('href').substring(1);
+            document.querySelectorAll('.topic-section').forEach(sec => {
+                if (sec.id === targetId) {
+                    sec.style.display = 'block';
+                    sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        }
+
+        // Reset search field when a topic is selected
+        searchInput.value = '';
+        document.querySelectorAll('.practice-card').forEach(card => card.style.display = 'flex');
+        noResultsEl.classList.add('hidden');
+    });
+
+    /**
+     * Handle search functionality
+     */
+    searchInput.addEventListener('input', function(e) {
+        // Reset topic filter to "All" when searching
+        document.querySelectorAll('#toc-container a').forEach(a => a.classList.remove('active-link'));
+        document.getElementById('show-all-btn')?.classList.add('active-link');
+        document.querySelectorAll('.topic-section').forEach(sec => sec.style.display = 'block');
+        
+        const searchTerm = e.target.value.toLowerCase().trim();
+        let totalVisibleCards = 0;
+
+        document.querySelectorAll('.topic-section').forEach(section => {
+            let visibleCardsInSection = 0;
+            section.querySelectorAll('.practice-card').forEach(card => {
+                if (card.innerText.toLowerCase().includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    visibleCardsInSection++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            // Hide topic if no cards inside match
+            if (visibleCardsInSection === 0) {
+                section.style.display = 'none';
+            } else {
+                section.style.display = 'block';
+                totalVisibleCards += visibleCardsInSection;
+            }
+        });
+
+        noResultsEl.classList.toggle('hidden', totalVisibleCards > 0);
+    });
+
+    /**
+     * Main function to fetch data and initialize the app
+     */
+    async function initializeApp() {
+        try {
+            const response = await fetch(GOOGLE_SCRIPT_URL);
+            
+            if (!response.ok) {
+                throw new Error(`Response status was not ok: ${response.status}`);
+            }
+            
+            const jsonData = await response.json();
+            
+            if (!jsonData || !jsonData.data || !Array.isArray(jsonData.data)) {
+                 throw new Error('Định dạng dữ liệu JSON không hợp lệ.');
+            }
+            
+            const data = groupDataByTopic(jsonData);
+
+            if (Object.keys(data).length === 0) {
+                console.warn("Dữ liệu từ Apps Script trống hoặc không phân tích được.");
+                displayError("Không có dữ liệu để hiển thị", "Dữ liệu nhận được từ máy chủ bị rỗng. Vui lòng kiểm tra lại nguồn dữ liệu.");
+            } else {
+                renderContent(data);
+            }
+        } catch (error) {
+            console.error('Không thể tải dữ liệu từ Google Apps Script.', error);
+            displayError("Hệ thống đang bị lỗi", "Không thể tải dữ liệu từ máy chủ. Vui lòng thử lại sau.");
+        }
+    }
+
+    // --- INITIALIZATION ---
+    document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
 </body>
+
 </html>

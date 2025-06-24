@@ -349,3 +349,28 @@ const swiper = new Swiper('.swiper', {
     },
 });
 
+// File: js/analytics.js
+
+// --- CẤU HÌNH ---
+const GA_MEASUREMENT_ID = "G-GZYHW8CJY9"; // <<== THAY MÃ CỦA BẠN VÀO ĐÂY
+// ----------------
+
+// Tạo thẻ script đầu tiên
+const script1 = document.createElement('script');
+script1.async = true;
+script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+
+// Tạo thẻ script thứ hai
+const script2 = document.createElement('script');
+script2.innerHTML = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_MEASUREMENT_ID}');
+`;
+
+// Chèn hai thẻ script này vào cuối của thẻ <head>
+document.head.appendChild(script1);
+document.head.appendChild(script2);
+
+console.log("Google Analytics tracking code injected."); // Dòng này để bạn kiểm tra trên trình duyệt
