@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 24 && month === 3) {    //Lấy banner ngày thế giới phòng chống lao
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 24 && month === 3) {    //Lấy banner ngày thế giới phòng chống lao
         bannerHeader.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";             
-    } else  if (day === 2 && month === 4) {     //Lấy banner ngày thế giới nhận thức về tự kỷ
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 2 && month === 4) {     //Lấy banner ngày thế giới nhận thức về tự kỷ
         bannerHeader.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -116,8 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 7 && month === 4) {     //Lấy banner giổ tổ hùng vương
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 7 && month === 4) {     //Lấy banner giổ tổ hùng vương
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -139,8 +139,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";         
-    } else  if (day === 25 && month === 4) {     //Lấy banner ngày thế giới phòng chống sốt rét
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 25 && month === 4) {     //Lấy banner ngày thế giới phòng chống sốt rét
         bannerHeader.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -162,8 +162,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 30 && month === 4) {     //Lấy banner ngày giải phóng miền nam thống nhất đất nước 
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 30 && month === 4) {     //Lấy banner ngày giải phóng miền nam thống nhất đất nước 
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -185,8 +185,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 1 && month === 5) {     //Lấy banner ngày quốc tế lao động 01/05
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 1 && month === 5) {     //Lấy banner ngày quốc tế lao động 01/05
         bannerHeader.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -208,8 +208,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 7 && month === 5) {     //Lấy banner ngày kỉ niệm chiến thắng Điện Biên Phủ
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 7 && month === 5) {     //Lấy banner ngày kỉ niệm chiến thắng Điện Biên Phủ
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -231,8 +231,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 19 && month === 5) {     //Lấy banner ngày sinh chủ tịch Hồ Chí Minh
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 19 && month === 5) {     //Lấy banner ngày sinh chủ tịch Hồ Chí Minh
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -254,8 +254,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 31 && month === 5) {     //Lấy banner ngày the gioi khong hut thuoc la
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 31 && month === 5) {     //Lấy banner ngày the gioi khong hut thuoc la
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -277,8 +277,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 1 && month === 6) {     //Lấy banner ngày quốc tế thiếu nhi
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 1 && month === 6) {     //Lấy banner ngày quốc tế thiếu nhi
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -300,8 +300,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 5 && month === 6) {     //Lấy banner ngày môi trường thế giới
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 5 && month === 6) {     //Lấy banner ngày môi trường thế giới
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -323,8 +323,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 29 && month === 6) {     //Lấy banner ngày gia đình Việt Nam
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 28 && month === 6) {     //Lấy banner ngày gia đình Việt Nam
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -346,8 +346,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";        
-    } else  if (day === 18 && month === 7) {     //Lấy banner ngày sinh nhật
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 18 && month === 7) {     //Lấy banner ngày sinh nhật
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
         ngaythegioiphongchongHIV.style.display = "none";
-    } else  if (day === 19 && month === 8) {     //Lấy banner ngày cách mạng tháng tám
+    } else if (day === 19 && month === 8) {     //Lấy banner ngày cách mạng tháng tám
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -392,8 +392,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";     
-    } else  if (day === 2 && month === 9) {     //Lấy banner ngày quốc khánh
+        ngaythegioiphongchongHIV.style.display = "none";
+    } else if (day === 2 && month === 9) {     //Lấy banner ngày quốc khánh
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
         ngaythegioiphongchongHIV.style.display = "none";
-    } else  if (day === 20 && month === 10) {     //Lấy banner ngày phụ nữ Việt Nam
+    } else if (day === 20 && month === 10) {     //Lấy banner ngày phụ nữ Việt Nam
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -439,7 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
         ngaythegioiphongchongHIV.style.display = "none";
-    } else  if (day === 31 && month === 10) {     //Lấy banner halloween
+    } else if (day === 31 && month === 10) {     //Lấy banner halloween
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -462,7 +462,7 @@ document.addEventListener("DOMContentLoaded", function () {
         halloween.style.display = "block";
         ngaynhagiaovietnam.style.display = "none";
         ngaythegioiphongchongHIV.style.display = "none";
-    } else  if (day === 20 && month === 11) {     //Lấy banner ngày nhà giáo Việt Nam
+    } else if (day === 20 && month === 11) {     //Lấy banner ngày nhà giáo Việt Nam
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -485,7 +485,7 @@ document.addEventListener("DOMContentLoaded", function () {
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "block";
         ngaythegioiphongchongHIV.style.display = "none";
-    } else  if (day === 19 && month === 4) {     //Lấy banner thế giới phòng chống HIV/AIDS
+    } else if (day === 19 && month === 4) {     //Lấy banner thế giới phòng chống HIV/AIDS
         bannerTrangCon.style.display = "none";
         banner2003.style.display = "none";
         bannerGioTraiDat.style.display = "none";
@@ -531,11 +531,11 @@ document.addEventListener("DOMContentLoaded", function () {
         ngayphunuvietnam_2010.style.display = "none";
         halloween.style.display = "none";
         ngaynhagiaovietnam.style.display = "none";
-        ngaythegioiphongchongHIV.style.display = "none";         
+        ngaythegioiphongchongHIV.style.display = "none";
     }
 });
- // Cập nhật ngày hiển thị trên trang
- document.getElementById("current-date").innerHTML = `02.04.${today.getFullYear()}`;
+// Cập nhật ngày hiển thị trên trang
+document.getElementById("current-date").innerHTML = `02.04.${today.getFullYear()}`;
 // Hiệu ứng gõ chữ cho ngày Quốc tế Hạnh phúc
 const text = "Hạnh phúc đến từ những điều giản dị nhất. Chúc bạn luôn vui vẻ, an nhiên và tràn đầy năng lượng!";
 let index = 0;
