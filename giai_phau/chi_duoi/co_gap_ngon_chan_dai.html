@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studying anatomy - Nguyễn Mai Đan Trường</title>
+    <link rel="icon" href="hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/giai_phau/giai_phau.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Thanh điều hướng nằm ngang CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <!-- Menu -->   
+    <section class="top">
+        <div class="container">
+            <div class="row justify-cottent">
+                <div class="logo">
+                    <a href="/index.html">
+                        <img src="/hinhanh/logo web.png" alt="">
+                    </a>
+                </div>
+                <div class="menu-bar" id="menu-bar">
+                    <span></span>
+                </div>
+                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="side-nav" id="side-nav">
+                    <div>
+                        <li id="login-btn">
+                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
+                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
+                            </a>
+                        </li>
+                    </div>
+                    <ul>
+                        <li><a href="/index.html">TRANG CHỦ</a></li>
+                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
+                        <li><a href="/gopy.html">GÓP Ý</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="noidung_giai_phau">
+    <main class="noidung_container" data-limb-type="chi-duoi">  
+    <article class="noidung_anatomy-card"> 
+        <h2 class="anatomy-title">Cơ Gập Các Ngón Chân Dài (Flexor Digitorum Longus Muscle)</h2>
+            <div class="noidung_anatomy-content"> <div class="anatomy-image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Biceps_brachii_muscle_-_animation_small.gif/250px-Biceps_brachii_muscle_-_animation_small.gif" alt="">
+                </div>
+                <div class="anatomy-details">
+                    <h3>Thông tin chi tiết</h3>
+                    <table>
+                        <tr>
+                            <td><strong>Nguyên ủy</strong></td>
+                            <td>
+                                <ul>
+                                    <li>Mặt sau xương chày.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bám tận</strong></td>
+                            <td>Mặt sau đốt xa các ngón II, III, IV, V.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chức năng</strong></td>
+                            <td>
+                                <ul>
+                                    <li>Gập các ngón chân.</li>
+                                    <li>Trợ giúp nghiêng trong và gập mặt lòng bàn chân.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thần kinh chi phối</strong></td>
+                            <td>Thần kinh chày (L5, S1).</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <section class="noidung_kham_pha_them"> <h3>KHÁM PHÁ THÊM</h3>
+
+            <div class="limb-section">
+                <h4>Chi trên</h4>
+                <div class="card_kha_meht_ahpm"> <button id="upper-scroll-left" class="scroll-btn left hidden">&#10094;</button>
+                    <div class="suggestion-container" id="suggestion-container-upper"></div>
+                    <button id="upper-scroll-right" class="scroll-btn right">&#10095;</button>
+                </div>
+            </div>
+
+            <div class="limb-section">
+                <h4>Chi dưới</h4>
+                <div class="card_kha_meht_ahpm"> <button id="lower-scroll-left" class="scroll-btn left hidden">&#10094;</button>
+                    <div class="suggestion-container" id="suggestion-container-lower"></div>
+                    <button id="lower-scroll-right" class="scroll-btn right">&#10095;</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</section>
+    <script src="/script.js"></script>
+    <script src="/giai_phau/giai_phau.js"></script>
+
+ <section class="footer-section">
+  <div class="menu-namngang">
+      <a href="/index.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-home"></i>
+              <p>Trang chủ</p>
+          </div>
+      </a>
+      <div class="menu-namngang-item" onclick="showContact()">
+          <i class="fas fa-phone"></i>
+          <p>Liên hệ</p>
+      </div>
+      <a href="/gopy.html">
+          <div class="menu-namngang-item">
+              <i class="fas fa-envelope"></i>
+              <p>Góp ý</p>
+          </div>
+      </a>
+  </div>
+</section>
+
+    <!--Chân trang ------------------->
+    <section class="chantrang">
+      <footer class="chantrang-footer">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <a href="/index.html">
+                  <img src="/hinhanh/logo web.png" alt="" />
+              </a>
+            </div>
+              <div class="footer-links">
+                  <a href="/index.html">Trang chủ</a>
+                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
+                  <a href="/gopy.html">Góp ý</a>
+              </div>
+              <div class="footer-social">
+                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
+              </div>
+          </div>
+      </footer>
+    </section>
+</body>
+</html>
