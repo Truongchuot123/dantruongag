@@ -1,153 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bệnh học-Nguyễn Mai Đan Trường</title>
-    <link rel="icon" href="../hinhanh/logo web.png" type="">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../noidung.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- Thanh điều hướng nằm ngang CSS -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-    /* Tạo lưới */
-    .noibat_benhhoc {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    }
-
-    /* Định dạng thẻ card_benhhoc */
-    .card_benhhoc {
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        border-radius: 10px;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    /* Hover hiệu ứng */
-    .card_benhhoc:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        background: #ff6b6b;
-    }
-
-    /* Định dạng icon */
-    .icon {
-        background-color: #e0f7ff;
-        border-radius: 50%;
-        padding: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .icon i {
-        color: #4d128b;
-        font-size: 24px;
-    }
-
-    .card_benhhoc span {
-        font-size: 18px;
-        font-weight: 500;
-        color: black;
-    }
-
-    /* Responsive cho các màn hình nhỏ */
-    @media (max-width: 1200px) {
-        .noibat_benhhoc {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        .icon i {
-        font-size: 23px;
-    }
-        .card_benhhoc span {
-        font-size: 16px;
-    }
-    }
-
-    @media (max-width: 768px) {
-        .noibat_benhhoc {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .icon i {
-        font-size: 22px;
-    }
-        .card_benhhoc span {
-        font-size: 14px;
-    }
-    }
-
-    @media (max-width: 480px) {
-        .noibat_benhhoc {
-            grid-template-columns: repeat(2, 0,5fr);
-        }
-        .icon i {
-        font-size: 21px;
-    }
-        .card_benhhoc span {
-        font-size: 12px;
-    }
-    }
-    .tieude-noidung-noibat h1 {
-        margin-top: 20px;
-    }
-</style>
+        <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/benhhoc/benhhoc.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-<!-- Menu -->   
-    <section class="top">
-        <div class="container">
-            <div class="row justify-cottent">
-                <div class="logo">
-                    <a href="../index.html">
-                        <img src="../hinhanh/logo web.png" alt="">
-                    </a>
-                </div>
-                <div class="menu-bar" id="menu-bar">
-                    <span></span>
-                </div>
-                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="side-nav" id="side-nav">
-                    <div>
-                        <li id="login-btn">
-                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
-                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
-                            </a>
-                        </li>
-                    </div>
-                    <ul>
-                        <li><a href="../index.html">TRANG CHỦ</a></li>
-                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="../gopy.html">GÓP Ý</a></li>>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <body class="bg-gray-900">
+<!-- Menu -->
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div>
 
-
+      
 <!-- giới thiệu khi đăng nhập -->
-<section id="protected-content" style="display: none;">
+
 <section class="banner_trangcon">
     <div class="banner_trangcon_header">
         <h1>BỆNH HỌC</h1>
@@ -159,132 +42,20 @@
         </p>            
     </div>
 </section>
-<!--Nội dung nổi bật -->
-        <div class="tieude-noidung-noibat">
-        <h1>DANH MỤC NỔI BẬT</h1>
-        <section class="noibat_benhhoc">
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-brain"></i></div>
-            <span>Tâm thần</span>
-        </a>
-        <a href="/benhhoc/benhhoc-thankinh.html" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-brain"></i></div>
-            <span>Thần kinh</span>
-        </a>       
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-dumbbell"></i></div>
-            <span>Cơ - Xương - Khớp</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-ribbon"></i></div>
-            <span>Ung thư</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-virus"></i></div>
-            <span>Truyền nhiễm</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-lightbulb"></i></div>
-            <span>Nội tiết - Chuyển hóa</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-hand-holding-medical"></i></div>
-            <span>Thận - Tiết niệu</span>
-        </a>        
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-allergies"></i></div>
-            <span>Dị ứng</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-bath"></i></div>
-            <span>Da - Tóc - Móng</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-heartbeat"></i></div>
-            <span>Tim mạch</span>
-        </a>
-        <a href="/benhhoc/benhhoc-hohap.html" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-lungs"></i></div>
-            <span>Hô hấp</span>
-        </a>        
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-tint"></i></div>
-            <span>Máu</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-capsules"></i></div>
-            <span>Vitamin - khoáng chất</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-syringe"></i></div>
-            <span>Tiểu đường</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-tooth"></i></div>
-            <span>Răng - Hàm - Mặt</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-hand-holding-medical"></i></div>
-            <span>Gan</span>
-        </a>
-        <a href="#" class="card_benhhoc">
-            <div class="icon"><i class="fas fa-hand-holding-medical"></i></div>
-            <span>Tiêu hóa</span>
-        </a>
-        </section>
-        </div>
-        
-
-
-
-
- <!-- Chân trang cố định ---------->      
- <section class="footer-section">
-  <div class="menu-namngang">
-      <a href="../index.html">
-          <div class="menu-namngang-item">
-              <i class="fas fa-home"></i>
-              <p>Trang chủ</p>
-          </div>
-      </a>
-      <div class="menu-namngang-item" onclick="showContact()">
-          <i class="fas fa-phone"></i>
-          <p>Liên hệ</p>
+<body class="text-gray-800">
+     <!-- Card Container: JS will populate this -->
+      <div id="card-container" class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-2 mb-12">
       </div>
-      <a href="../gopy.html">
-          <div class="menu-namngang-item">
-              <i class="fas fa-envelope"></i>
-              <p>Góp ý</p>
-          </div>
-      </a>
-  </div>
-</section>
+</body>
 
-    <!--Chân trang ------------------->
-    <section class="chantrang">
-      <footer class="chantrang-footer">
-          <div class="footer-content">
-            <div class="footer-logo">
-              <a href="../index.html">
-                  <img src="../hinhanh/logo web.png" alt="Logo" />
-              </a>
-            </div>
-              <div class="footer-links">
-                  <a href="../index.html">Trang chủ</a>
-                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
-                  <a href="../gopy.html">Góp ý</a>
-              </div>
-              <div class="footer-social">
-                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
-              </div>
-          </div>
-      </footer>
-    </section>
-</section>  
-    <script src="../script.js"></script>
-    <script src="../noidung.js"></script>
+
+
+
+    <!-- JS CHO CHÂN TRANG -->
+    <div id="footer-placeholder"></div>
+
+      <script src="/script.js"></script>
+        <script src="/search.js"></script>
+      <script src="/benhhoc/benhhoc.js"></script>
 </body>
 </html>

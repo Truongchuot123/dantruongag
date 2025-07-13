@@ -1,51 +1,30 @@
-.noidung_ {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 20px;
-}
-.noidung_benh {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    text-align: left;
-}
-.noidung_benh a {
-    text-decoration: none;
-    color: #007bff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border: 2px solid #dcdcdc;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    height: 100%;
-}
-.noidung_benh a:hover {
-    color: #ff6b6b;
-    border-color: #ff0000;
-    background-color: #fff5f5;
-}
-.noidung_benh i {
-    font-size: 1.2em;
-}
-    /* Responsive */
-    @media (max-width: 1024px) {
-        .noidung_benh {
-            grid-template-columns: repeat(2, auto);
-            font-size: 20px;
-        }
+    /* css cho tài liệu */
+        .text-gray-800 {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7faff; /* A slightly cooler background */
     }
-
-    @media (max-width: 768px) {
-        .noidung_benh {
-            grid-template-columns: repeat(1, auto);
-        }
-        .noidung_benh i {
-        font-size: 16px;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+    .animate-fadeInUp {
+      opacity: 0;
+      animation: fadeInUp 0.5s ease-out forwards;
     }
+    /* --- UPDATED --- Custom transition for a smoother effect */
+    .card-transition {
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    /* --- NEW --- Gradient text effect for the main heading */
+    .text-gradient {
+      background: linear-gradient(45deg, #4f46e5, #a855f7); /* Indigo to Purple gradient */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .icon {
+    font-size: 2rem;
+    color: #6366f1; /* màu indigo giống icon trước */
+    margin-bottom: 0.75rem;
+}

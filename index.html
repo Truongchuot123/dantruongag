@@ -1,603 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Trang chủ - Nguyễn Mai Đan Trường</title>
-    <link rel="icon" href="hinhanh/logo web.png" type="">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="noidung.css">
-    <link rel="stylesheet" href="/tienganh/writting/writting.css">   
-    <link rel="stylesheet" href="banner_trang_chu.css">
-    <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Hãy khám phá ngay thôi nào!" />
-    <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Hãy khám phá ngay thôi nào!" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- Thanh điều hướng nằm ngang CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>Trang Chủ - Nguyễn Mai Đan Trường</title>
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+        
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-<!-- Menu -->   
-    <section class="top">
-        <div class="container">
-            <div class="row justify-cottent">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="hinhanh/logo web.png" alt="">
-                    </a>
-                </div>
-                <div class="menu-bar" id="menu-bar">
-                    <span></span>
-                </div>
-                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="side-nav" id="side-nav">
-                    <div>
-                        <li id="login-btn">
-                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
-                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
-                            </a>
-                        </li>
-                    </div>
-                    <ul>
-                        <li><a href="index.html">TRANG CHỦ</a></li>
-                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="gopy.html">GÓP Ý</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <body class="bg-gray-900">
 
-<!------------------- giới thiệu ------------------->
-  <section class="banner_trangcon">
-      <div class="banner_trangcon_header">
-          <h1>CHÀO MỪNG BẠN ĐẾN VỚI WEBSITE CỦA ĐAN TRƯỜNG</h1>
-          <div class="banner_trangcon_header_underline"></div>
-          <p>
-          <a href="gopy.html">
-            <button class="banner_trangcon_btn btn">GÓP Ý</button>
-          </a>
-          </p>            
-      </div>
-    </section>
-     <!---------------------------Banner ngày giổ tổ hùng vương ------------------->
-    <section class="ngay_gio_to_hung_vuong">
-        <div class="title_ngay_gio_to_hung_vuong">
-            <h1>GIỖ TỔ</h1>
-            <h2>HÙNG VƯƠNG</h2>
-            <div class="noidung_ngay_gio_to_hung_vuong">
-                <p class="text_ngay_gio_to_hung_vuong">
-                    <span class="line1_ngay_gio_to_hung_vuong">“Dù ai đi ngược về xuôi</span><br>
-                    <span class="line2_ngay_gio_to_hung_vuong">Nhớ ngày Giỗ Tổ mồng mười tháng Ba”</span>
+    <!-- Menu -->
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Default Banner -->
+        <section class="banner_trangcon event-banner">
+            <div class="banner_trangcon_header">
+                <h1>CHÀO MỪNG BẠN ĐẾN VỚI WEBSITE CỦA ĐAN TRƯỜNG</h1>
+                <div class="banner_trangcon_header_underline"></div>
+                <p>
+                    <a href="/gopy.html">
+                        <button class="banner_trangcon_btn btn">GÓP Ý</button>
+                    </a>
                 </p>
             </div>
-        </div>
         </section>
 
-    <!---------------------------Banner ngày giải phóng miền nam thống nhất đất nước ------------------->
-    <section class="banner_giai_phong_mien_nam_30-4">
-        <div class="overlay"></div>
-        <div class="noidung_giai_phong_mien_nam_30-4">
-            <div class="title_giai_phong_mien_nam_30-4">KỶ NIỆM</div>
-            <img src="/hinhanh/ngaygiaiphongmiennam30-4.2.png" alt="" class="logo-banner_phat_sang">
-                  <h2>NGÀY GIẢI PHÓNG MIỀN NAM<br>THỐNG NHẤT ĐẤT NƯỚC</h2>
-                  <p class="time_giai_phong_mien_nam_30-4">30/4/1975 - 30/4/2025</p>
-        </div>
-      </section>
-      <script>
-        function launchConfettiInSection() {
-            const section = document.querySelector(".banner_giai_phong_mien_nam_30-4");
-            if (!section) return;
-      
-            setInterval(() => {
-                const rect = section.getBoundingClientRect(); // Lấy vị trí section trên màn hình
-                const x = (rect.left + rect.right) / 2 / window.innerWidth; // Xác định vị trí ngang trong section
-                const y = (rect.top + rect.bottom) / 2 / window.innerHeight; // Xác định vị trí dọc trong section
-      
-                confetti({
-                    particleCount: 7, // Số lượng hạt pháo mỗi lần bắn
-                    spread: 180, // Phạm vi bắn rộng nhưng chỉ trong section
-                    startVelocity: 30, // Tốc độ hạt pháo
-                    origin: { x, y }, // Chỉ nổ trong phạm vi section
-                    colors: ['#ffcc00', '#ff0000', '#00ff00', '#ff6600', '#00ccff'], // Màu sắc pháo hoa
-                    gravity: 0.8, // Giảm tốc độ rơi
-                    scalar: 1.2 // Tăng kích thước hạt pháo
-                });
-            }, 600); // Bắn pháo hoa mỗi 600ms
-        }
-      
-        // Kích hoạt pháo hoa khi trang tải xong
-        window.onload = launchConfettiInSection;
-      </script>
+        <!-- Giỗ Tổ Hùng Vương -->
+        <section class="ngay_gio_to_hung_vuong event-banner">
+            <div class="title_ngay_gio_to_hung_vuong">
+                <h1>GIỖ TỔ</h1>
+                <h2>HÙNG VƯƠNG</h2>
+                <div class="noidung_ngay_gio_to_hung_vuong">
+                    <p class="text_ngay_gio_to_hung_vuong">
+                        “Dù ai đi ngược về xuôi<br>
+                        Nhớ ngày Giỗ Tổ mồng mười tháng Ba”
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <!---------------------------Banner kỉ niệm chiến thắng Điện Biên Phủ  ------------------->
-    <section class="banner_chien_thang_dien_bien_phu">
-        <div class="noidung_chien_thang_dien_bien_phu">
-            <div class="title_chien_thang_dien_bien_phu">KỶ NIỆMv</div>
-                  <h2>CHIẾN THẮNG ĐIỆN BIÊN PHỦ</h2>
-                  <p class="time_chien_thang_dien_bien_phu">07/05/1954 - 07/05/2025</p>
-        </div>
-      </section>
+        <!-- Giải phóng miền Nam -->
+        <section class="banner_giai_phong_mien_nam_30-4 event-banner">
+            <div class="noidung_giai_phong_mien_nam_30-4">
+                <div class="title_giai_phong_mien_nam_30-4">KỶ NIỆM</div>
+                <img src="https://placehold.co/250x250/c40000/ffffff?text=Sao+Vàng" alt="Logo phát sáng" class="logo-banner_phat_sang">
+                <h2>NGÀY GIẢI PHÓNG MIỀN NAM<br>THỐNG NHẤT ĐẤT NƯỚC</h2>
+                <p class="time_giai_phong_mien_nam_30-4">30/4/1975 - 30/4/2025</p>
+            </div>
+        </section>
 
-    <!---------------------------Banner ngày sinh chủ tịch HỒ CHÍ MINH  ------------------->
-      <section class="banner_ngay_sinh_chu_tich_HCM_1905">
-        <div class="noidung_ngay_sinh_chu_tich_HCM_1905">
-            <div class="title_ngay_sinh_chu_tich_HCM_1905">KỶ NIỆMv</div>
-                  <h2>NGÀY SINH CHỦ TỊCH HỒ CHÍ MINH</h2>
-                  <p class="time_ngay_sinh_chu_tich_HCM_1905">19/05/1890 - 19/05/2025</p>
-        </div>
-      </section>
-    <!---------------------------Banner ngày sinh nhật ------------------->
-        <section class="banner_ngay_sinh_nhat_1807">
- <div class="stars"></div>
+        <!-- Chiến thắng Điện Biên Phủ -->
+        <section class="banner_chien_thang_dien_bien_phu event-banner">
+            <div class="banner-content-inner">
+                <div class="title">KỶ NIỆM</div>
+                <h1>CHIẾN THẮNG ĐIỆN BIÊN PHỦ</h1>
+                <h2>07/05/1954 - 07/05/2025</h2>
+            </div>
+        </section>
+
+        <!-- Sinh nhật Bác -->
+        <section class="banner_ngay_sinh_chu_tich_HCM_1905 event-banner">
+             <div class="banner-content-inner">
+                <div class="title">KỶ NIỆM</div>
+                <h1>NGÀY SINH CHỦ TỊCH HỒ CHÍ MINH</h1>
+                <h2>19/05/1890 - 19/05/2025</h2>
+            </div>
+        </section>
+
+        <!-- Sinh nhật -->
+        <section class="banner_ngay_sinh_nhat_1807 event-banner">
+            <div class="stars"></div>
             <div class="twinkling"></div>
             <div class="noidung_ngay_sinh_nhat_1807">
-                <img src="/hinhanh/Trang chủ/HAPPY BIRTHDAY.png" alt="Happy Birthday" class="ing_happybirthday" />
+                <img src="https://placehold.co/350x150/0c001a/ffd700?text=Happy+Birthday" alt="Happy Birthday" class="ing_happybirthday" />
                 <div class="text_ngay_sinh_nhat_1807">ĐAN TRƯỜNG</div>
                 <div class="date_ngay_sinh_nhat_1807">18 - 07 - 2025</div>
-
-                <button id="nut_form_gui_loi_chuc">
-                    💌 Gửi lời chúc
-                </button>
-
-                <div id="form_gui_loi_chuc" style="overflow: hidden; max-height: 0; display: none; transition: max-height 0.5s ease-in-out;">
+                <button id="nut_form_gui_loi_chuc">💌 Gửi lời chúc</button>
+                <div id="form_gui_loi_chuc">
                     <div class="card_form_gui_loi_chuc">
                         <div class="title_form_gui_loi_chuc">
-                            <img src="/hinhanh/Trang chủ//HAPPY BIRTHDAY.2.png" alt="Happy Birthday" />
+                            <img src="https://placehold.co/100x100/ffffff/000000?text=HB" alt="Happy Birthday" />
                         </div>
                         <div class="noidung_loi_chuc">
                             <textarea placeholder="Viết lời chúc của bạn vào đây..."></textarea>
                         </div>
                         <div class="form_actions">
-                            <button id="nut_gui_loi_chuc">
-                                Gửi đi
-                            </button>
+                            <button id="nut_gui_loi_chuc">Gửi đi</button>
                         </div>
-                 <script>
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const targetSelector = '.banner_ngay_sinh_nhat_1807';
-                
-                        const initScript = () => {
-                            const bannerSection = document.querySelector(targetSelector);
-                            if (!bannerSection || bannerSection.offsetParent === null) return;
-                
-                            observer.disconnect(); // Ngắt sau khi đã thấy banner
-                
-                            const nut_form_gui_loi_chuc = document.getElementById('nut_form_gui_loi_chuc');
-                            const form = document.getElementById('form_gui_loi_chuc');
-                            const textarea = form.querySelector('textarea');
-                            const submitBtn = document.getElementById('nut_gui_loi_chuc');
-                            const music = document.getElementById('birthdayMusic');
-                
-                            textarea.addEventListener('input', () => {
-                                textarea.style.height = 'auto';
-                                textarea.style.height = `${textarea.scrollHeight}px`;
-                            });
-                
-                            nut_form_gui_loi_chuc.addEventListener('click', () => {
-                                const isOpen = form.style.maxHeight !== '0px' && form.style.maxHeight !== '';
-                                form.style.maxHeight = isOpen ? '0px' : '800px';
-                                if (!isOpen) form.style.display = 'block';
-                                else setTimeout(() => form.style.display = 'none', 500);
-                            });
-                
-                           submitBtn.addEventListener('click', () => {
-    const message = textarea.value.trim();
-    if (message === '') {
-        Swal.fire({
-            icon: 'warning',
-            title: 'BẠN CHƯA NHẬP LỜI CHÚC',
-            confirmButtonText: 'OK'
-        });
-        return;
-    }
-
-    // --- BẮT ĐẦU HIỆU ỨNG LOADING ---
-    // Hiển thị popup loading trước khi gửi request
-    Swal.fire({
-        title: 'Đang gửi lời chúc...',
-        html: 'Vui lòng chờ trong giây lát',
-        allowOutsideClick: false, // Ngăn người dùng tắt popup
-        didOpen: () => {
-            Swal.showLoading(); // Hiển thị biểu tượng xoay tròn
-        }
-    });
-    // --- KẾT THÚC HIỆU ỨNG LOADING ---
-
-            fetch("https://script.google.com/macros/s/AKfycbxPan-KQDfgVodlpBL06ZjkSrIKUTgS3syVxJCZ67JhJaMktXfjz_99c6WptPuzjzLN_g/exec", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: `wish=${encodeURIComponent(message)}`
-            })
-            .then(res => res.json())
-            .then(data => {
-                // --- CẬP NHẬT KẾT QUẢ SAU KHI FETCH XONG ---
-                // Popup loading sẽ tự động được thay thế bằng popup kết quả
-                if (data.success) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Cảm ơn bạn nhiều nhé! Mình rất vui khi nhận được lời chúc từ bạn",
-                    }).then(() => {
-                        form.style.maxHeight = '0px';
-                        setTimeout(() => form.style.display = 'none', 500);
-                    });
-
-                    textarea.value = '';
-                    textarea.style.height = 'auto';
-                } else {
-                    Swal.fire("Oops", data.message || "Đã xảy ra lỗi!", "error");
-                }
-            })
-            .catch(() => {
-                // Xử lý lỗi mạng và thay thế popup loading bằng popup lỗi
-                Swal.fire("Lỗi", "Không thể gửi lời chúc. Vui lòng thử lại.", "error");
-            });
-        });
-                            // 🎈 Hiệu ứng bóng bay
-                            function createBalloon() {
-                                const balloon = document.createElement('div');
-                                balloon.className = 'balloon';
-                                balloon.style.left = `${5 + Math.random() * 90}%`;
-                                balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
-                                balloon.style.animationDuration = `${6 + Math.random() * 6}s`;
-                
-                                balloon.addEventListener('click', () => popBalloon(balloon));
-                                document.body.appendChild(balloon);
-                                setTimeout(() => balloon.remove(), 10000);
-                            }
-                
-                            function popBalloon(balloon) {
-                                const rect = balloon.getBoundingClientRect();
-                                const burst = document.createElement('div');
-                                burst.className = 'burst';
-                                burst.style.left = `${rect.left + rect.width / 2}px`;
-                                burst.style.top = `${rect.top + rect.height / 2}px`;
-                
-                                document.body.appendChild(burst);
-                                balloon.style.transition = 'transform 0.2s, opacity 0.2s';
-                                balloon.style.transform = 'scale(1.5)';
-                                balloon.style.opacity = 0;
-                
-                                setTimeout(() => {
-                                    balloon.remove();
-                                    burst.remove();
-                                }, 500);
-                            }
-                
-                            setInterval(createBalloon, 500);
-                        };
-                        
-                        const observer = new MutationObserver(() => {
-                            const section = document.querySelector(targetSelector);
-                            if (section && section.offsetParent !== null) {
-                                initScript(); // Gọi script đúng thời điểm
-                            }
-                        });
-                
-                        observer.observe(document.body, { childList: true, subtree: true });
-                    });
-                </script>                        
-                        
                     </div>
                 </div>
-        </div>
-        </section>   
-    <!---------------------------Banner ngày cách mạng tháng tám thành công ------------------->
-        <section class="banner_ngay_cach_mang_thang_tam">
-            <div class="noidung_ngay_cach_mang_thang_tam">
-                <div class="title_ngay_cach_mang_thang_tam">KỈ NIỆM</div>
-                    <h1>NGÀY CÁCH MẠNG THÁNG TÁM THÀNH CÔNG</h1>
-                    <h2>19/8/1945 - 19/8/2025</h2>
             </div>
-        </section> 
-
-    <!---------------------------Banner ngày quốc khánh ------------------->
-        <section class="banner_ngay_quoc_khanh">
-            <div class="noidung_ngay_quoc_khanh">
-                <div class="title_ngay_quoc_khanh">KỈ NIỆM </div>
-                    <h1>QUỐC KHÁNH NƯỚC CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h1>
-                    <h2>2/9/1945 - 2/9/2025</h2>
-            </div>
-        </section> 
-<!--Nội dung -->
-  <section class="banner_mxh">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="/hinhanh/banner titok.PNG" alt="" class="profile-image">
-                <div class="profile-text">
-                    <h2>Trang titok</h2>
-                    <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank">Xem ngay</a>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <img src="/hinhanh/banner fb.jpg" alt="" class="profile-image">
-                <div class="profile-text">
-                    <h2>Trang Facebook</h2>
-                    <a href="https://www.facebook.com/dantruong187/" target="_blank">Xem ngay</a>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <img src="/hinhanh/banner ins.PNG" alt="" class="profile-image">
-                <div class="profile-text">
-                    <h2>Trang Instagram</h2>
-                    <a href="https://www.instagram.com/dantruong_ag/" target="_blank">Theo dõi</a>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-pagination"></div> <!-- Thanh trượt ngang -->
-      </div>
-</section>  
- 
-<section class="writting_index">
-  <div class="card_writting_index">
-    <img src="/tienganh/hinhanh.tienganh/an_giang.png" alt="">
-    <div class="text-box_writting_index">
-      <h2>Discovering the New An Giang Province after the 2025 Merge</h2>
-        <a href="/tienganh/writting/Discovering the New An Giang Province after the 2025 Merge.html" class="learn-btn_leanning">Xem ngay</a>
-    </div>
-  </div>
-</section>
-    <!------------------------------Nội dung hiển thị với người đăng nhập  -----------------> 
-    <section id="protected-content" style="display: none;">
-        <section class="noidung-noibat">
-          <div class="tieude-noidung-noibat">
-            <h1>NỘI DUNG NỔI BẬT</h1>
-            <div class="slider-container">
-              <button class="prev-btn">&#10094;</button>
-              <div class="noidung-noibat-row">
-
-                <div class="noidung-noibat-iten">
-                  <div class="noidung-noibat-ing">
-                    <img src="hinhanh/Trang chủ/tienganh.png" alt="Logo">
-                  </div>
-                  <div class="noidung-noibat-text">
-                      <h2>TIẾNG ANH</h2>
-                      <a href="/tienganh/tienganh.html">
-                      <button>XEM NGAY</button>
-                      </a>
-                  </div>
-                </div>
-
-                <div class="noidung-noibat-iten">
-                  <div class="noidung-noibat-ing">
-                    <img src="hinhanh/Trang chủ/GPSL.png" alt="">
-                  </div>
-                  <div class="noidung-noibat-text">
-                      <h2>GIẢI PHẨU</h2>
-                      <a href="/giai_phau/trang_chu_giai_phau.html">
-                      <button>XEM NGAY</button>
-                      </a>
-                      </a>
-                  </div>
-                </div>
-      
-                <div class="noidung-noibat-iten">
-                  <div class="noidung-noibat-ing">
-                    <img src="hinhanh/Trang chủ/benhhoc.png" alt="Logo">
-                  </div>
-                  <div class="noidung-noibat-text">
-                      <h2>BỆNH HỌC</h2>
-                      <a href="/benhhoc/benhhoc.html">
-                      <button>XEM NGAY</button>
-                      </a>
-                  </div>
-                </div>
-      
-                <div class="noidung-noibat-iten">
-                  <div class="noidung-noibat-ing">
-                    <img src="hinhanh/Trang chủ/sinhlybenh.png" alt="Logo">
-                  </div>
-                  <div class="noidung-noibat-text">
-                      <h2>SINH LÝ BỆNH</h2>
-                      <a href="">
-                      <button>XEM NGAY</button>
-                      </a>
-                  </div>
-                </div>
-                <div class="noidung-noibat-iten">
-                  <div class="noidung-noibat-ing">
-                    <img src="hinhanh/Trang chủ/hoahoc.png" alt="Logo">
-                  </div>
-                  <div class="noidung-noibat-text">
-                      <h2>HÓA HỌC</h2>
-                      <a href="">
-                      <button>XEM NGAY</button>
-                      </a>
-                  </div>
-                </div>
-                <div class="noidung-noibat-iten">
-                  <div class="noidung-noibat-ing">
-                    <img src="hinhanh/Trang chủ/chandoanhinhanh.jpg.png" alt="Logo">
-                  </div>
-                  <div class="noidung-noibat-text">
-                      <h2>CHẲN ĐOÁN HÌNH ẢNH</h2>
-                      <button onclick="window.location.href='index.html'">XEM NGAY</button>
-                  </div>
-                </div>
-                <div class="noidung-noibat-iten">
-                  <div class="noidung-noibat-ing">
-                    <img src="hinhanh/Trang chủ/phcn.png" alt="Logo">
-                  </div>
-                  <div class="noidung-noibat-text">
-                      <h2>PHỤC HỒI CHỨC NĂNG</h2>
-                      <a href="">
-                      <button>XEM NGAY</button>
-                      </a>
-                  </div>
-                </div>
-              </div>
-              <button class="next-btn">&#10095;</button>
-            </div>
-          </div>
         </section>
-<!--HỆ THỐNG TRA CỨU -->  
-<section class="he_thong">
-  <div class="he_thong_tra_cuu">
-      <h1>HỆ THỐNG TRA CỨU</h1>
-      <div class="tabs">
-          <button class="tab-button active" onclick="switchTab('documents')">📚 Tra cứu tài liệu</button>
-          <button class="tab-button" onclick="switchTab('points')">🔍 Tra cứu huyệt</button>
-      </div>
-      <div id="documents" class="search-section active">
-          <h2 style="color: #007bff;margin-bottom: 15px;">Tra cứu tài liệu</h2>
-          <div class="search-box">
-              <input id="docSearch" type="text" placeholder="Nhập tên tài liệu.">
-              <button onclick="fetchData('TAI_LIEU', 'docSearch')"><i class="fas fa-search"></i> Tìm kiếm</button>
-          </div>
-      </div>
-      <div id="points" class="search-section">
-          <h2 style="color: #ff6b6b;margin-bottom: 15px;">Tra cứu huyệt</h2>
-          <div class="search-box">
-              <input id="pointSearch" type="text" placeholder="Nhập tên huyệt.">
-              <button onclick="fetchData('HUYET', 'pointSearch')"><i class="fas fa-search"></i> Tìm kiếm</button>
-          </div>
-      </div>
-      <div id="resultTable"></div>
-  </div>
 
-  <script>
-      function switchTab(tabId) {
-          const sections = document.querySelectorAll('.search-section');
-          const buttons = document.querySelectorAll('.tab-button');
-          sections.forEach(section => section.classList.remove('active'));
-          buttons.forEach(button => button.classList.remove('active'));
-          
-          document.getElementById(tabId).classList.add('active');
-          event.target.classList.add('active');
-      }
-
-      function fetchData(sheetName, inputId) {
-          const query = document.getElementById(inputId).value;
-          if (!query) return;
-          
-          Swal.fire({
-              title: 'Đang tìm kiếm.',
-              text: 'Vui lòng chờ trong giây lát.',
-              allowOutsideClick: false,
-              didOpen: () => {
-                  Swal.showLoading();
-              }
-          });
-
-          fetch(`https://script.google.com/macros/s/AKfycbzzkQRtZNf_k6lohBbe6kzzl64HLQAl1YGae3Cp0cBzNzBs7DU2f07idB1Thjg4jqSa/exec?sheet=${sheetName}&query=${query}`)
-              .then(response => response.json())
-              .then(data => {
-                  Swal.close();
-                  if (data.length === 0) {
-                      Swal.fire('Không tìm thấy kết quả', 'Vui lòng thử lại với từ khóa khác!', 'warning');
-                  }
-                  renderTable(data, sheetName);
-              })
-              .catch(error => {
-                  Swal.close();
-                  console.error('Lỗi:', error);
-                  Swal.fire('Lỗi tìm kiếm', 'Có lỗi xảy ra khi tìm kiếm dữ liệu. Vui lòng thử lại!', 'error');
-              });
-      }
-
-      function renderTable(data, sheetName) {
-          const tableContainer = document.getElementById('resultTable');
-          if (data.length === 0) {
-              tableContainer.innerHTML = '';
-              return;
-          }
-
-          let table = '<table><colgroup>';
-          if (sheetName === 'HUYET') {
-              table += '<col style="width: 11%;"><col style="width: 20%;"><col style="width: 13%;"><col style="width: 25%;"><col style="width: 25%;">';
-          } else if (sheetName === 'TAI_LIEU') {
-              table += '<col style="width: 11%;"><col style="width: 20%;"><col style="width: 17%;"><col style="width: 37%;"><col style="width: 15%;">';
-          }
-          table += '</colgroup><tr>';
-          
-          Object.keys(data[0]).forEach(key => {
-              table += `<th>${key}</th>`;
-          });
-          table += '</tr>';
-
-          data.forEach(row => {
-              table += '<tr>';
-              Object.values(row).forEach(cell => {
-                  table += `<td>${cell}</td>`;
-              });
-              table += '</tr>';
-          });
-
-          table += '</table>';
-          tableContainer.innerHTML = table;
-      }
-  </script>
-</section>
-  
-  
-  
-  
-  
-    </section>
- <!-- Chân trang cố định ---------->      
- <section class="footer-section">
-  <div class="menu-namngang">
-      <a href="index.html">
-          <div class="menu-namngang-item">
-              <i class="fas fa-home"></i>
-              <p>Trang chủ</p>
-          </div>
-      </a>
-      <div class="menu-namngang-item" onclick="showContact()">
-          <i class="fas fa-phone"></i>
-          <p>Liên hệ</p>
-      </div>
-      <a href="gopy.html">
-          <div class="menu-namngang-item">
-              <i class="fas fa-envelope"></i>
-              <p>Góp ý</p>
-          </div>
-      </a>
-  </div>
-</section>
-
-    <!--Chân trang ------------------->
-    <section class="chantrang">
-      <footer class="chantrang-footer">
-          <div class="footer-content">
-            <div class="footer-logo">
-              <a href="index.html">
-                  <img src="hinhanh/logo web.png" alt="" />
-              </a>
+        <!-- Cách mạng tháng Tám -->
+        <section class="banner_ngay_cach_mang_thang_tam event-banner">
+             <div class="banner-content-inner">
+                <div class="title">KỈ NIỆM</div>
+                <h1>NGÀY CÁCH MẠNG THÁNG TÁM THÀNH CÔNG</h1>
+                <h2>19/8/1945 - 19/8/2025</h2>
             </div>
-              <div class="footer-links">
-                  <a href="index.html">Trang chủ</a>
-                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
-                  <a href="gopy.html">Góp ý</a>
-              </div>
-              <div class="footer-social">
-                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
-              </div>
-          </div>
-      </footer>
-    </section>
-    
-    <script src="script.js"></script>
-    <script src="noidung.js"></script>
-    <script src="banner_trang_chu_js"></script>
-    <script src="/tienganh/writting/writting.js"></script>
+        </section>
+
+        <!-- Quốc Khánh -->
+        <section class="banner_ngay_quoc_khanh event-banner">
+            <div class="banner-content-inner">
+                <div class="title">KỈ NIỆM</div>
+                <h1>QUỐC KHÁNH NƯỚC CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h1>
+                <h2>2/9/1945 - 2/9/2025</h2>
+            </div>
+        </section>
+   
+
+        <!--Nội dung -->
+        <section class="banner_mxh">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="/hinhanh/banner fb.jpg" alt="" class="profile-image">
+                        <div class="profile-text">
+                            <h2>Trang Facebook</h2>
+                            <a href="https://web.facebook.com/dantruongag/" target="_blank">Xem ngay</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/hinhanh/banner titok.PNG" alt="" class="profile-image">
+                        <div class="profile-text">
+                            <h2>Trang TikTok</h2>
+                            <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank">Xem ngay</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/hinhanh/banner ins.PNG" alt="" class="profile-image">
+                        <div class="profile-text">
+                            <h2>Trang Instagram</h2>
+                            <a href="https://www.instagram.com/dantruongag/" target="_blank">Theo dõi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <!-- Protected Content Area -->
+        <div id="protected-content" class="hidden">
+            <!-- Content here is only visible to logged-in users -->
+        </div>
+    </main>
+
+    <!-- JS CHO CHÂN TRANG -->
+    <div id="footer-placeholder"></div>
+
+        <script src="/script.js"></script>
+        <script src="/search.js"></script>
 </body>
 </html>

@@ -1,3 +1,77 @@
+function setupMainMediaCarousel() {
+    // 1. Chọn tất cả các card giải phẫu trên trang
+    const anatomyCards = document.querySelectorAll('.noidung_anatomy-card');
+
+    // 2. Lặp qua từng card để thiết lập carousel riêng cho nó
+    anatomyCards.forEach(card => {
+        const carousel = card.querySelector('.anatomy-media-carousel');
+        const prevBtn = card.querySelector('.carousel-btn.prev');
+        const nextBtn = card.querySelector('.carousel-btn.next');
+
+        // Nếu card này không có carousel thì bỏ qua
+        if (!carousel || !prevBtn || !nextBtn) return;
+
+        // Ẩn các slide có video nhưng không có đường dẫn hợp lệ
+        const videoSlides = card.querySelectorAll('.media-slide .anatomy-video-container');
+        videoSlides.forEach(videoContainer => {
+            const source = videoContainer.querySelector('video source');
+            if (!source || !source.getAttribute('src') || source.getAttribute('src').trim() === '') {
+                videoContainer.closest('.media-slide').style.display = 'none';
+            }
+        });
+
+        // Lấy danh sách các slide có thể nhìn thấy (không bị ẩn)
+        const visibleSlides = Array.from(carousel.querySelectorAll('.media-slide')).filter(
+            slide => slide.style.display !== 'none'
+        );
+
+        // 3. Nếu chỉ có 1 slide hoặc không có slide nào, hãy ẩn các nút chuyển
+        if (visibleSlides.length <= 1) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            return; // Dừng thực thi cho carousel này
+        }
+
+        let currentIndex = 0;
+        const totalSlides = visibleSlides.length;
+
+        const updateCarousel = () => {
+            // Sắp xếp lại các slide để đảm bảo chúng liền mạch
+            visibleSlides.forEach(slide => carousel.appendChild(slide));
+            
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            prevBtn.classList.toggle('hidden', currentIndex === 0);
+            nextBtn.classList.toggle('hidden', currentIndex === totalSlides - 1);
+            
+            // Xử lý phát/dừng video
+            const allVideos = card.querySelectorAll('video');
+            allVideos.forEach(vid => vid.pause()); // Dừng tất cả video trước
+
+            const activeSlideVideo = visibleSlides[currentIndex].querySelector('video');
+            if (activeSlideVideo) {
+                activeSlideVideo.play();
+            }
+        };
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        // Khởi tạo trạng thái ban đầu
+        updateCarousel();
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const allAnatomyPages = [
         { pageUrl: '/giai_phau/chi_tren/co_delta.html' },
@@ -6,8 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
         { pageUrl: '/giai_phau/chi_tren/co_tren_gai.html' },
         { pageUrl: '/giai_phau/chi_tren/co_duoi_gai.html' },        
         { pageUrl: '/giai_phau/chi_tren/co_duoi_vai.html' },
-        { pageUrl: '/giai_phau/chi_tren/co_tram_lon.html' },
-        { pageUrl: '/giai_phau/chi_tren/co_tram_be.html' },
         { pageUrl: '/giai_phau/chi_tren/co_nhi_dau_canh_tay.html' },
         { pageUrl: '/giai_phau/chi_tren/co_tam_dau_canh_tay.html' },
         { pageUrl: '/giai_phau/chi_tren/co_canh_tay.html' },
@@ -69,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { pageUrl: '/giai_phau/chi_duoi/co_gap_ngon_chan_cai_ngan.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_duoi_ngon_chan_dai.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_duoi_ngon_chan_ngan.html' },
-        { pageUrl: '/giai_phau/chi_duoi/co_duoi_ngon_chan_cai_dai' },
+        { pageUrl: '/giai_phau/chi_duoi/co_duoi_ngon_chan_cai_dai.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_duoi_ngon_chan_cai_ngan.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_dang_ngon_chan_cai.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_khep_ngon_chan_cai.html' },
@@ -79,8 +151,20 @@ document.addEventListener('DOMContentLoaded', function() {
         { pageUrl: '/giai_phau/chi_duoi/co_vuong_gan_chan.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_gap_ngon_chan_ut_ngan.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_dang_ngon_chan_ut.html' },
-
+        // --- Lưng ---
         { pageUrl: '/giai_phau/lung/co_lung_rong.html' },
+        { pageUrl: '/giai_phau/lung/co_tram_lon.html' },
+        { pageUrl: '/giai_phau/lung/co_tram_be.html' },
+        { pageUrl: '/giai_phau/lung/co_nang_vai.html' },
+        { pageUrl: '/giai_phau/lung/co_rang_cua_sau.html' },
+        { pageUrl: '/giai_phau/lung/co_cuc_dai.html' },
+        { pageUrl: '/giai_phau/lung/co_chau_suon.html' },
+        { pageUrl: '/giai_phau/lung/co_gai_song.html' },
+        { pageUrl: '/giai_phau/lung/co_nhieu_chan.html' },
+        { pageUrl: '/giai_phau/lung/co_xoay.html' },
+        { pageUrl: '/giai_phau/lung/co_gian_gai.html' },
+        { pageUrl: '/giai_phau/lung/co_gian_ngang.html' },
+        { pageUrl: '/giai_phau/lung/co_nang_suon.html' },
         // --- đẦU MẶT CỔT ---
         { pageUrl: '/giai_phau/dau_mat_co/co_tran.html' },
         { pageUrl: '/giai_phau/dau_mat_co/co_vong_mat.html' },
@@ -126,8 +210,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
              
     ];
-
-    // --- HÀM CUỘN MƯỢT ---
     function smoothScrollTo(element, to, duration) {
         const start = element.scrollLeft;
         const change = to - start;
@@ -146,50 +228,66 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animateScroll);
     }
 
-    // --- HÀM TẠO THANH TRƯỢT (Chỉ render và gán sự kiện) ---
     function setupCarousel(containerId, leftBtnId, rightBtnId, pages) {
         const container = document.getElementById(containerId);
         const leftBtn = document.getElementById(leftBtnId);
         const rightBtn = document.getElementById(rightBtnId);
 
         if (!container || !leftBtn || !rightBtn || pages.length === 0) {
-            // Ẩn cả khu vực nếu không có trang nào để hiển thị
-            const section = document.getElementById(containerId).closest('.limb-section');
-            if(section) {
-                section.style.display = 'none';
-            }
+            const section = container?.closest('.limb-section');
+            if (section) section.style.display = 'none';
             return;
-        };
+        }
 
-        // 1. Render các thẻ
+        // Cập nhật số lượng thẻ
+        const section = container.closest('.limb-section');
+        if (section) {
+            const heading = section.querySelector('h4');
+            if (heading) {
+                if (!heading.dataset.originalText) {
+                    heading.dataset.originalText = heading.textContent;
+                }
+                heading.textContent = `${heading.dataset.originalText} (${pages.length})`;
+            }
+        }
+
         container.innerHTML = '';
         pages.forEach(pageData => {
             const item = document.createElement('div');
             item.className = 'suggestion-item';
+
             const img = document.createElement('img');
             img.src = pageData.imageUrl;
             img.alt = `Hình ảnh ${pageData.title}`;
-            img.onerror = function() { this.src = 'https://placehold.co/250x150/007bff/ffffff?text=Not+Found'; };
+            img.onerror = function () {
+                if (!this.dataset.failed) {
+                    this.src = 'https://placehold.co/250x150/007bff/ffffff?text=Not+Found';
+                    this.dataset.failed = 'true';
+                }
+            };
+
             const titleEl = document.createElement('h4');
             titleEl.className = 'suggestion-item-title';
             titleEl.textContent = pageData.title;
+
             const link = document.createElement('a');
             link.className = 'suggestion-btn';
             link.href = pageData.pageUrl;
             link.textContent = 'Xem chi tiết';
+
             item.append(img, titleEl, link);
             container.appendChild(item);
         });
 
-        // 2. Cập nhật và gán sự kiện cho nút
         const updateButtons = () => {
             setTimeout(() => {
                 const hasOverflow = container.scrollWidth > container.clientWidth;
                 if (!hasOverflow) {
-                      leftBtn.classList.add('hidden');
-                      rightBtn.classList.add('hidden');
-                      return;
+                    leftBtn.classList.add('hidden');
+                    rightBtn.classList.add('hidden');
+                    return;
                 }
+
                 const scrollAmount = container.scrollLeft;
                 const maxScroll = container.scrollWidth - container.clientWidth;
                 leftBtn.classList.toggle('hidden', scrollAmount <= 0);
@@ -198,37 +296,46 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         const scrollDistance = container.clientWidth * 0.8;
-        leftBtn.addEventListener('click', () => smoothScrollTo(container, container.scrollLeft - scrollDistance, 400));
-        rightBtn.addEventListener('click', () => smoothScrollTo(container, container.scrollLeft + scrollDistance, 400));
+        leftBtn.addEventListener('click', () =>
+            smoothScrollTo(container, container.scrollLeft - scrollDistance, 400)
+        );
+        rightBtn.addEventListener('click', () =>
+            smoothScrollTo(container, container.scrollLeft + scrollDistance, 400)
+        );
         container.addEventListener('scroll', updateButtons);
         window.addEventListener('resize', updateButtons);
-        
+
         updateButtons();
     }
 
-    // --- HÀM KHỞI TẠO CHÍNH (Fetch, phân loại và gọi setupCarousel) ---
     async function initializeSuggestions() {
         const currentPageTitle = document.querySelector('.anatomy-title')?.textContent.trim() || '';
 
-        // 1. Fetch và phân tích dữ liệu từ tất cả các trang
+        const invalidUrls = ['/giai_phau/chi_duoi', '/giai_phau/lung'];
         const pageDataPromises = allAnatomyPages.map(async (page) => {
             try {
+                if (!page.pageUrl || invalidUrls.includes(page.pageUrl.trim())) return null;
+
                 const response = await fetch(page.pageUrl);
                 if (!response.ok) return null;
-                
+
                 const htmlText = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlText, 'text/html');
 
                 const title = doc.querySelector('.anatomy-title')?.textContent.trim();
                 const imageUrl = doc.querySelector('.anatomy-image-container img')?.src;
-                // Đã thay đổi selector dưới đây để khớp với HTML mới
                 const limbType = doc.querySelector('main.noidung_container')?.dataset.limbType;
 
                 if (!title || !imageUrl || !limbType) return null;
-                if (title === currentPageTitle) return null; // Lọc trang hiện tại
+                if (title === currentPageTitle) return null;
 
-                return { title, imageUrl, pageUrl: page.pageUrl, limbType };
+                return {
+                    title,
+                    imageUrl,
+                    pageUrl: page.pageUrl,
+                    limbType
+                };
             } catch (error) {
                 console.error(`Lỗi khi xử lý ${page.pageUrl}:`, error);
                 return null;
@@ -237,20 +344,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const allPageData = (await Promise.all(pageDataPromises)).filter(Boolean);
 
-        // 2. Phân loại dữ liệu
         const upperLimbData = allPageData.filter(p => p.limbType === 'chi-tren');
         const lowerLimbData = allPageData.filter(p => p.limbType === 'chi-duoi');
         const backLimbData = allPageData.filter(p => p.limbType === 'lung');
-        const Head_and_Neck_AnatomyLimbData = allPageData.filter(p => p.limbType === 'dau_mat_co');
-        // 3. Gọi hàm setup cho mỗi loại
+        const headAndNeckLimbData = allPageData.filter(p => p.limbType === 'dau_mat_co');
+
         setupCarousel('suggestion-container-upper', 'upper-scroll-left', 'upper-scroll-right', upperLimbData);
         setupCarousel('suggestion-container-lower', 'lower-scroll-left', 'lower-scroll-right', lowerLimbData);
         setupCarousel('suggestion-container-back', 'back-scroll-left', 'back-scroll-right', backLimbData);
-        setupCarousel('suggestion-container-Head_and_Neck_Anatomy', 'Head_and_Neck_Anatomy-scroll-left', 'Head_and_Neck_Anatomy-scroll-right', Head_and_Neck_AnatomyLimbData);
-
+        setupCarousel('suggestion-container-Head_and_Neck_Anatomy', 'Head_and_Neck_Anatomy-scroll-left', 'Head_and_Neck_Anatomy-scroll-right', headAndNeckLimbData);
     }
 
-    // --- BẮT ĐẦU THỰC THI ---
+    setupMainMediaCarousel();
     initializeSuggestions();
 });
-

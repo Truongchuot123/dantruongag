@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lượng giá chức năng-Nguyễn Mai Đan Trường</title>
-    <link rel="icon" href="../hinhanh/logo web.png" type="">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../noidung.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- Thanh điều hướng nằm ngang CSS -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <title>Lượng giá chức năng - Nguyễn Mai Đan Trường</title>
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+        
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root {
     --nut: #4d128b;
@@ -154,47 +158,15 @@
     object-fit: cover;
   }
 }
-
-
 </style>
 </head>
-<body>
-<!-- Menu -->   
-    <section class="top">
-        <div class="container">
-            <div class="row justify-cottent">
-                <div class="logo">
-                    <a href="../index.html">
-                        <img src="../hinhanh/logo web.png" alt="">
-                    </a>
-                </div>
-                <div class="menu-bar" id="menu-bar">
-                    <span></span>
-                </div>
-                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="side-nav" id="side-nav">
-                    <div>
-                        <li id="login-btn">
-                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
-                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
-                            </a>
-                        </li>
-                    </div>
-                    <ul>
-                        <li><a href="../index.html">TRANG CHỦ</a></li>
-                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="../gopy.html">GÓP Ý</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <body class="bg-gray-900">  
+       <!-- Menu -->
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div>
 
 
 <!-- giới thiệu khi đăng nhập -->
-<section id="protected-content" style="display: none;">
 <section class="banner_trangcon">
     <div class="banner_trangcon_header">
         <h1>LƯỢNG GIÁ CHỨC NĂNG</h1>
@@ -250,58 +222,14 @@
       <img src="../luonggiachucnang/hinhanh_LGCN/luonggiachucnang.png" alt="" />
     </div>
   </div>
-</div>
+
+</div>  
 
 
 
+    <!-- JS CHO CHÂN TRANG -->
+    <div id="footer-placeholder"></div>
 
-
- <!-- Chân trang cố định ---------->      
- <section class="footer-section">
-  <div class="menu-namngang">
-      <a href="../index.html">
-          <div class="menu-namngang-item">
-              <i class="fas fa-home"></i>
-              <p>Trang chủ</p>
-          </div>
-      </a>
-      <div class="menu-namngang-item" onclick="showContact()">
-          <i class="fas fa-phone"></i>
-          <p>Liên hệ</p>
-      </div>
-      <a href="../gopy.html">
-          <div class="menu-namngang-item">
-              <i class="fas fa-envelope"></i>
-              <p>Góp ý</p>
-          </div>
-      </a>
-  </div>
-</section>
-
-    <!--Chân trang ------------------->
-    <section class="chantrang">
-      <footer class="chantrang-footer">
-          <div class="footer-content">
-            <div class="footer-logo">
-              <a href="../index.html">
-                  <img src="../hinhanh/logo web.png" alt="Logo" />
-              </a>
-            </div>
-              <div class="footer-links">
-                  <a href="../index.html">Trang chủ</a>
-                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
-                  <a href="../gopy.html">Góp ý</a>
-              </div>
-              <div class="footer-social">
-                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
-              </div>
-          </div>
-      </footer>
-    </section>
-</section>  
     <script src="../script.js"></script>
     <script src="../noidung.js"></script>
 </body>

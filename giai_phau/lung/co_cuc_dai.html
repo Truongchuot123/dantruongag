@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studying anatomy - Nguyễn Mai Đan Trường</title>
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/giai_phau/giai_phau.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+</head>
+    <body class="bg-gray-900">
+    <!-- Menu -->
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div> 
+<section class="noidung_giai_phau">
+    <main class="noidung_container" data-limb-type="lung">  <article class="noidung_anatomy-card"> 
+        <h2 class="anatomy-title"> Cơ cực dài (Longissimus Muscle)</h2>
+            <div class="noidung_anatomy-content"> <div class="anatomy-image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Biceps_brachii_muscle_-_animation_small.gif/250px-Biceps_brachii_muscle_-_animation_small.gif" alt="">
+                </div>
+                <div class="anatomy-details">
+                    <h3>Thông tin chi tiết</h3>
+                    <table>
+                        <tr>
+                            <td><strong>Nguyên ủy</strong></td>
+                            <td>
+                                <ul>
+                                    <li><b>Cơ cực dài đầu:</b> Mỏm chủm. <br><b>Cơ cực dài cổ:</b> Mỏm ngang các đốt sống C2-C6. <br><b>Cơ cực dài ngực:</b> Mỏm ngang các đốt sống T1-T12, xương sườn 5-12, các mỏm ngang và mỏm phụ các đốt sống L1-L5.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bám tận</strong></td>
+                            <td><b>Cơ cực dài đầu:</b> Mỏm ngang cỉa C4-T4 <br><b>Cơ cực dài cổ:</b> Mỏm ngang của T1-T5 <br><b>Cơ cực dài ngực:</b> Mỏm gai của L1-L5, mặt sau xương cùng, lồi củ cùng và dây chằng cùng chậu sau.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chức năng</strong></td>
+                            <td>
+                                <ul>
+                                    <li>Duỗi đầu, duỗi và nghiêng cột sống sang bên.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thần kinh chi phối</strong></td>
+                            <td>Thần kinh sống cổ.. td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <section class="noidung_kham_pha_them"> <h3>KHÁM PHÁ THÊM</h3>
+
+            <div class="limb-section">
+                <h4>Chi trên</h4>
+                <div class="card_kha_meht_ahpm"> <button id="upper-scroll-left" class="scroll-btn left hidden">&#10094;</button>
+                    <div class="suggestion-container" id="suggestion-container-upper"></div>
+                    <button id="upper-scroll-right" class="scroll-btn right">&#10095;</button>
+                </div>
+            </div>
+
+            <div class="limb-section">
+                <h4>Chi dưới</h4>
+                <div class="card_kha_meht_ahpm"> <button id="lower-scroll-left" class="scroll-btn left hidden">&#10094;</button>
+                    <div class="suggestion-container" id="suggestion-container-lower"></div>
+                    <button id="lower-scroll-right" class="scroll-btn right">&#10095;</button>
+                </div>
+            </div>
+
+            <div class="limb-section">
+                <h4>Lưng</h4>
+                <div class="card_kha_meht_ahpm"> <button id="back-scroll-left" class="scroll-btn left hidden">&#10094;</button>
+                    <div class="suggestion-container" id="suggestion-container-back"></div>
+                    <button id="back-scroll-right" class="scroll-btn right">&#10095;</button>
+                </div>
+            </div>
+
+            <div class="limb-section">
+                <h4>Đầu - mặt - cổ</h4>
+                <div class="card_kha_meht_ahpm"> <button id="Head_and_Neck_Anatomy-scroll-left" class="scroll-btn left hidden">&#10094;</button>
+                    <div class="suggestion-container" id="suggestion-container-Head_and_Neck_Anatomy"></div>
+                    <button id="Head_and_Neck_Anatomy-scroll-right" class="scroll-btn right">&#10095;</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</section>
+    <script src="/script.js"></script>
+        <script src="/search.js"></script>
+    <script src="/giai_phau/giai_phau.js"></script>
+
+ <!-- JS CHO CHÂN TRANG -->
+    <div id="footer-placeholder"></div>
+</body>
+</html>
+
+ 

@@ -4,61 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studying anatomy - Nguyễn Mai Đan Trường</title>
-    <link rel="icon" href="hinhanh/logo web.png" type="">
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/giai_phau/giai_phau.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- Thanh điều hướng nằm ngang CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Menu -->   
-    <section class="top">
-        <div class="container">
-            <div class="row justify-cottent">
-                <div class="logo">
-                    <a href="/index.html">
-                        <img src="/hinhanh/logo web.png" alt="">
-                    </a>
-                </div>
-                <div class="menu-bar" id="menu-bar">
-                    <span></span>
-                </div>
-                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="side-nav" id="side-nav">
-                    <div>
-                        <li id="login-btn">
-                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
-                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
-                            </a>
-                        </li>
-                    </div>
-                    <ul>
-                        <li><a href="/index.html">TRANG CHỦ</a></li>
-                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="/gopy.html">GÓP Ý</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <body class="bg-gray-900">
+    <!-- Menu -->
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div> 
 <section class="noidung_giai_phau">
     <main class="noidung_container" data-limb-type="chi-tren">  <article class="noidung_anatomy-card"> <h2 class="anatomy-title">Cơ Quạ Cánh Tay (Coracobrachialis Muscle)</h2>
-            <div class="noidung_anatomy-content"> <div class="anatomy-image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Biceps_brachii_muscle_-_animation_small.gif/250px-Biceps_brachii_muscle_-_animation_small.gif" alt="">
+           <div class="noidung_anatomy-content">
+
+                <div class="anatomy-media-wrapper">
+                    <div class="anatomy-media-carousel">
+                        <div class="media-slide">
+                            <figure class="anatomy-image-container">
+                                <img src="/giai_phau/hinhanh/Cơ chi trên/Cơ cánh tay/ảnh/Cơ quạ cánh tay.jpg" alt="">
+                                <figcaption class="media-caption">Cơ quạ cánh tay </figcaption>
+                            </figure>
+                        </div>
+                        <div class="media-slide">
+                            <div class="anatomy-video-container">
+                                <video controls loop muted>
+                                    <source src="/giai_phau/hinhanh/Cơ chi trên/Cơ cánh tay/vidieo/Cơ quạ cánh tay.mp4" type="">
+                                    Trình duyệt của bạn không hỗ trợ video tag.
+                                </video>
+                                <figcaption class="media-caption"> Cở chủ vận cử động gập vai </figcaption>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn prev" aria-label="Previous Slide">&#10094;</button>
+                    <button class="carousel-btn next" aria-label="Next Slide">&#10095;</button>
                 </div>
                 <div class="anatomy-details">
                     <h3>Thông tin chi tiết</h3>
@@ -115,51 +108,10 @@
     </main>
 </section>
     <script src="/script.js"></script>
+        <script src="/search.js"></script>
     <script src="/giai_phau/giai_phau.js"></script>
 
- <section class="footer-section">
-  <div class="menu-namngang">
-      <a href="/index.html">
-          <div class="menu-namngang-item">
-              <i class="fas fa-home"></i>
-              <p>Trang chủ</p>
-          </div>
-      </a>
-      <div class="menu-namngang-item" onclick="showContact()">
-          <i class="fas fa-phone"></i>
-          <p>Liên hệ</p>
-      </div>
-      <a href="/gopy.html">
-          <div class="menu-namngang-item">
-              <i class="fas fa-envelope"></i>
-              <p>Góp ý</p>
-          </div>
-      </a>
-  </div>
-</section>
-
-    <!--Chân trang ------------------->
-    <section class="chantrang">
-      <footer class="chantrang-footer">
-          <div class="footer-content">
-            <div class="footer-logo">
-              <a href="/index.html">
-                  <img src="/hinhanh/logo web.png" alt="" />
-              </a>
-            </div>
-              <div class="footer-links">
-                  <a href="/index.html">Trang chủ</a>
-                  <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
-                  <a href="/gopy.html">Góp ý</a>
-              </div>
-              <div class="footer-social">
-                  <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                  <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
-              </div>
-          </div>
-      </footer>
-    </section>
+ <!-- JS CHO CHÂN TRANG -->
+    <div id="footer-placeholder"></div>
 </body>
 </html>

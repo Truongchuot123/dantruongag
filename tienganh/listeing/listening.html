@@ -159,42 +159,14 @@
 }
   </style>
 </head>
-<body>
-    <section class="top">
-        <div class="container">
-            <div class="row justify-cottent">
-                <div class="logo">
-                    <a href="/index.html">
-                        <img src="/hinhanh/logo web.png" alt="">
-                    </a>
-                </div>
-                <div class="menu-bar" id="menu-bar">
-                    <span></span>
-                </div>
-                <div class="search-icon" id="search-icon" onclick="handleSearchClick()">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="side-nav" id="side-nav">
-                    <div>
-                        <li id="login-btn">
-                            <a href="javascript:void(0);" onclick="showLoginForm()" class="login-button">
-                                <i class="fas fa-user-circle"></i> ĐĂNG NHẬP
-                            </a>
-                        </li>
-                    </div>
-                    <ul>
-                        <li><a href="/index.html">TRANG CHỦ</a></li>
-                        <li><a href="javascript:void(0);" onclick="showContact()">LIÊN HỆ</a></li>
-                        <li><a href="/gopy.html">GÓP Ý</a></li>>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <body class="bg-gray-900">
+    <!-- Menu -->
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div>
 
 
 <!-- giới thiệu khi đăng nhập -->
-<section id="protected-content" style="display: none;">
+
 <section class="banner_trangcon">
     <div class="banner_trangcon_header">
         <h1>LISTENING</h1>
@@ -278,51 +250,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
- <!-- Chân trang cố định ---------->      
- <section class="footer-section">
-    <div class="menu-namngang">
-        <a href="/index.html">
-            <div class="menu-namngang-item">
-                <i class="fas fa-home"></i>
-                <p>Trang chủ</p>
-            </div>
-        </a>
-        <div class="menu-namngang-item" onclick="showContact()">
-            <i class="fas fa-phone"></i>
-            <p>Liên hệ</p>
-        </div>
-        <a href="/gopy.html">
-            <div class="menu-namngang-item">
-                <i class="fas fa-envelope"></i>
-                <p>Góp ý</p>
-            </div>
-        </a>
-    </div>
+ 
+      <div id="footer-placeholder"></div>
   </section>
-      <section class="chantrang">
-        <footer class="chantrang-footer">
-            <div class="footer-content">
-              <div class="footer-logo">
-                <a href="/index.html">
-                    <img src="/hinhanh/logo web.png" alt="Logo" />
-                </a>
-              </div>
-                <div class="footer-links">
-                    <a href="/index.html">Trang chủ</a>
-                    <a href="javascript:void(0);" onclick="showContact()">Liên hệ</a>
-                    <a href="/gopy.html">Góp ý</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.facebook.com/dantruong187/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/dantruong_ag/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@dantruongag?_t=ZS-8x5Kf6XKVAz&_r=1" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://locket.camera/links/rRNxm56LDxb9BAjJ9" target="_blank" class="social-icon"><i class="fas fa-lock"></i></a>
-                </div>
-            </div>
-        </footer>
-      </section>
-  </section>
-        <script src="/script.js"></script> 
+        <script src="/script.js"></script>
+        <script src="/search.js"></script> 
         <script src="/tienganh/listeing/listening.js"></script>    
 </body>
 </html>

@@ -71,20 +71,104 @@ noidung_container {
     min-width: 300px;
 }
 
-/* --- CSS cho hình ảnh --- */
-.anatomy-image-container img {
+/* === BẮT ĐẦU: CSS CHO CAROUSEL MEDIA === */
+
+/* Wrapper cho carousel và các nút điều khiển */
+.anatomy-media-wrapper {
+    flex: 1;
+    min-width: 300px; /* Tăng min-width để phù hợp hơn */
+    position: relative;
+    overflow: hidden; /* Ẩn các phần của slide nằm ngoài wrapper */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+/* Container chính của carousel, chứa các slide */
+.anatomy-media-carousel {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Hiệu ứng trượt mượt mà */
+}
+
+/* Định dạng chung cho mỗi slide */
+.media-slide {
+    flex: 0 0 100%; /* Mỗi slide chiếm toàn bộ chiều rộng */
     width: 100%;
-    height: auto;
+    box-sizing: border-box;
+}
+
+/* Hình ảnh và video */
+.anatomy-image-container img,
+.anatomy-video-container video {
+    width: 100%; /* Giữ lại: Cho chiều rộng lấp đầy container */
+    height: auto;  /* Ghi đè bằng aspect-ratio */
+
+    aspect-ratio: 9 / 16; 
+    object-fit: cover; 
+    
+    display: block; 
     border-radius: 8px;
     border: 1px solid #dee2e6;
 }
 
-.image-caption {
-    font-size: 0.9rem;
-    color: #6c757d;
-    text-align: center;
-    margin-top: 10px;
+.anatomy-video-container {
+    background-color: #000;
+    border-radius: 8px;
+    /* Thêm overflow để bo góc hoạt động với video bên trong */
+    overflow: hidden;
 }
+/* Chú thích cho ảnh và video */
+.media-caption {
+    font-size: 0.9rem;
+    color: black;
+    text-align: center;
+    padding: 12px 10px;
+    background-color: #f8f9fa;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Nút điều khiển carousel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(77, 18, 139, 0.7); /* Màu var(--nut) với độ trong suốt */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4px; /* Căn chỉnh ký tự mũi tên */
+}
+.carousel-btn:hover {
+    background-color: var(--button_hover);
+    transform: translateY(-50%) scale(1.1);
+}
+.carousel-btn:active {
+    transform: translateY(-50%) scale(1);
+}
+.carousel-btn.prev {
+    left: 10px;
+}
+.carousel-btn.next {
+    right: 10px;
+}
+.carousel-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 /* --- Bảng thông tin chi tiết --- */
 table {
