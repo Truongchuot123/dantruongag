@@ -1,6 +1,6 @@
 // --- SEARCH FUNCTIONALITY ---
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // --- Configuration & State Management ---
     const config = {
         searchContainerId: 'search-container',
@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const suggestionsOutput = document.getElementById(config.suggestionsOutputId);
 
     // --- Searchable Data ---
-    const searchableContent = [
-        {
+    let searchableContent = [{
             title: 'Trang Chủ',
             description: 'Quay về trang chủ của website.',
             url: 'index.html',
@@ -40,56 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'Liên Hệ Với Tôi',
             description: 'Tìm thông tin liên hệ: Facebook, Instagram. Gmail...',
-            action: () => showContact(), // Assumes showContact() is a globally available function
+            action: () => showContact(),
             icon: 'fa-phone'
-        },
-        {
-            title: 'Giải Phẫu',
-            description: 'Cùng học giải phẫu thôi nào.',
-            url: '/giai_phau/trang_chu_giai_phau.html',
-            icon: 'fa-dna'
-        },
-        {
-            title: 'Bệnh học',
-            description: 'Cùng học bệnh học thôi nào thôi nào.',
-            url: '/benhhoc/benhhoc.html',
-            icon: 'fa-dna'
-        },
-        {
-            title: 'Tiếng anh',
-            description: 'Cùng học tiếng anh thôi nào.',
-            url: '/tienganh/tienganh.html',
-            icon: 'fa-dna'
-        },
-        {
-            title: 'Học phiên âm quốc tế (IPA)',
-            description: 'Học phiên âm IPA qua vidieo cùng người bản xứ .',
-            url: '/tienganh/IPA.html',
-            icon: 'fa-dna'
-        },
-        {
-            title: 'Học từ vựng',
-            description: 'Hệ thống học từ vựng hơn 500+.',
-            url: '/tienganh/vocabulary.html',
-            icon: 'fa-book'
-        },
-        {
-            title: 'Listenning English',
-            description: 'Hệ thống học nghe tiếng anh.',
-            url: '/tienganh/listeing/listening.html',
-            icon: 'fa-headphones'
-        },
-        {
-            title: 'Tra cứu tài liệu nhanh',
-            description: 'Hệ thống tra cứu tài liệu nhanh chóng.',
-            url: 'index.html',
-            icon: 'fa-search'
-        },
-        {
-            title: 'Tra cứu huyệt',
-            description: 'Hệ thống tra cứu huyệt nhanh chóng.',
-            url: 'index.html',
-            icon: 'fa-search'
         },
         {
             title: 'Góp Ý',
@@ -97,8 +48,221 @@ document.addEventListener('DOMContentLoaded', () => {
             url: 'gopy.html',
             icon: 'fa-envelope'
         }
-       
     ];
+
+    // --- Dynamic Content Indexing ---
+    // ⭐ ĐÃ SỬA LỖI: Chuẩn hóa tất cả đường dẫn thành kiểu tương đối (không có dấu "/" ở đầu) và loại bỏ các mục lặp lại.
+    const pagesToIndex = [
+        // --- Bệnh học ---
+        'benhhoc/tailieu/benh_alzhemer.html',
+        'benhhoc/tailieu/dong_kinh.html',
+        'benhhoc/tailieu/parkinson.html',
+        'benhhoc/tailieu/dot_quy_nao.html',
+        'benhhoc/tailieu/loet_da_day_ta_trang.html',
+        'benhhoc/tailieu/HC_trao_nguoc_da_day_thuc_quan.html',
+        'benhhoc/tailieu/thung_da_day.html',
+        'benhhoc/tailieu/HC_tac_ruot.html',
+        'benhhoc/tailieu/viem_ruot_thua_cap.html',
+        'benhhoc/tailieu/soi_tui_mat.html',
+        'benhhoc/tailieu/viem_gan_toi_cap.html',
+
+        // --- Giải phẫu Chi trên ---
+        'giai_phau/chi_tren/co_delta.html',
+        'giai_phau/chi_tren/co_tron_lon.html',
+        'giai_phau/chi_tren/co_tron_be.html',
+        'giai_phau/chi_tren/co_tren_gai.html',
+        'giai_phau/chi_tren/co_duoi_gai.html',
+        'giai_phau/chi_tren/co_duoi_vai.html',
+        'giai_phau/chi_tren/co_nhi_dau_canh_tay.html',
+        'giai_phau/chi_tren/co_tam_dau_canh_tay.html',
+        'giai_phau/chi_tren/co_canh_tay.html',
+        'giai_phau/chi_tren/co_qua_canh_tay.html',
+        'giai_phau/chi_tren/co_khuyu.html',
+        'giai_phau/chi_tren/co_canh_tay_quay.html',
+        'giai_phau/chi_tren/co_sap_tron.html',
+        'giai_phau/chi_tren/co_sap_vuong.html',
+        'giai_phau/chi_tren/co_ngua.html',
+        'giai_phau/chi_tren/co_gap_co_tay_tru.html',
+        'giai_phau/chi_tren/co_gap_co_tay_quay.html',
+        'giai_phau/chi_tren/co_gan_tay_dai.html',
+        'giai_phau/chi_tren/co_gap_cac_ngon_nong.html',
+        'giai_phau/chi_tren/co_gap_cac_ngon_sau.html',
+        'giai_phau/chi_tren/co_gap_ngon-cai_dai.html',
+        'giai_phau/chi_tren/co_gap_ngon_cai_ngan.html',
+        'giai_phau/chi_tren/co_gap_ngon_ut.html',
+        'giai_phau/chi_tren/co_duoi_co_tay_quay_dai.html',
+        'giai_phau/chi_tren/co_duoi_co_tay_quay_ngan.html',
+        'giai_phau/chi_tren/co_duoi_co_tay_tru.html',
+        'giai_phau/chi_tren/co_duoi_chung_cac_ngon.html',
+        'giai_phau/chi_tren/co_duoi_ngon_cai_dai.html',
+        'giai_phau/chi_tren/co_duoi_ngon_cai_ngan.html',
+        'giai_phau/chi_tren/co_duoi_ngon_tro.html',
+        'giai_phau/chi_tren/co_duoi_ngon_ut.html',
+        'giai_phau/chi_tren/co_giun.html',
+        'giai_phau/chi_tren/co_gian_cot_gan_tay.html',
+        'giai_phau/chi_tren/co_gian_cot_mu_tay.html',
+        'giai_phau/chi_tren/co_dang_ngon_cai_dai.html',
+        'giai_phau/chi_tren/co_dang_ngon_cai_ngan.html',
+        'giai_phau/chi_tren/co_dang_ngon_ut.html',
+        'giai_phau/chi_tren/co_doi_ngon_cai.html',
+        'giai_phau/chi_tren/co_doi_ngon_ut.html',
+
+        // --- Giải phẫu Chi dưới ---
+        'giai_phau/chi_duoi/co_that_lung_chau.html',
+        'giai_phau/chi_duoi/co_mong_lon.html',
+        'giai_phau/chi_duoi/co_mong_be.html',
+        'giai_phau/chi_duoi/co_mong_nho.html',
+        'giai_phau/chi_duoi/co_cang_mac_dui.html',
+        'giai_phau/chi_duoi/nhom_co_xoay_ngoai_hong.html',
+        'giai_phau/chi_duoi/nhom_co_khep.html',
+        'giai_phau/chi_duoi/co_may.html',
+        'giai_phau/chi_duoi/co_tu_dau_dui.html',
+        'giai_phau/chi_duoi/co_tam_dau_dui.html',
+        'giai_phau/chi_duoi/co_luoc.html',
+        'giai_phau/chi_duoi/co_thon.html',
+        'giai_phau/chi_duoi/co_chay_truoc.html',
+        'giai_phau/chi_duoi/co_chay_sau.html',
+        'giai_phau/chi_duoi/co_bung_chan.html',
+        'giai_phau/chi_duoi/co_dep.html',
+        'giai_phau/chi_duoi/co_gan_chan_gay.html',
+        'giai_phau/chi_duoi/co_khoeo.html',
+        'giai_phau/chi_duoi/co_mac_dai.html',
+        'giai_phau/chi_duoi/co_mac_ngan.html',
+        'giai_phau/chi_duoi/co_mac_ba.html',
+        'giai_phau/chi_duoi/co_gap_ngon_chan_dai.html',
+        'giai_phau/chi_duoi/co_gap_ngon_chan_ngan.html',
+        'giai_phau/chi_duoi/co_gap_ngon_chan_cai_dai.html',
+        'giai_phau/chi_duoi/co_gap_ngon_chan_cai_ngan.html',
+        'giai_phau/chi_duoi/co_duoi_ngon_chan_dai.html',
+        'giai_phau/chi_duoi/co_duoi_ngon_chan_ngan.html',
+        'giai_phau/chi_duoi/co_duoi_ngon_chan_cai_dai.html',
+        'giai_phau/chi_duoi/co_duoi_ngon_chan_cai_ngan.html',
+        'giai_phau/chi_duoi/co_dang_ngon_chan_cai.html',
+        'giai_phau/chi_duoi/co_khep_ngon_chan_cai.html',
+        'giai_phau/chi_duoi/co_gian-cot_mu_chan.html',
+        'giai_phau/chi_duoi/co_gian_cot_gan_chan.html',
+        'giai_phau/chi_duoi/co_giun.html',
+        'giai_phau/chi_duoi/co_vuong_gan_chan.html',
+        'giai_phau/chi_duoi/co_gap_ngon_chan_ut_ngan.html',
+        'giai_phau/chi_duoi/co_dang_ngon_chan_ut.html',
+
+        // --- Giải phẫu Lưng ---
+        'giai_phau/lung/co_lung_rong.html',
+        'giai_phau/lung/co_tram_lon.html',
+        'giai_phau/lung/co_tram_be.html',
+        'giai_phau/lung/co_nang_vai.html',
+        'giai_phau/lung/co_rang_cua_sau.html',
+        'giai_phau/lung/co_cuc_dai.html',
+        'giai_phau/lung/co_chau_suon.html',
+        'giai_phau/lung/co_gai_song.html',
+        'giai_phau/lung/co_nhieu_chan.html',
+        'giai_phau/lung/co_xoay.html',
+        'giai_phau/lung/co_gian_gai.html',
+        'giai_phau/lung/co_gian_ngang.html',
+        'giai_phau/lung/co_nang_suon.html',
+
+        // --- Giải phẫu Đầu-Mặt-Cổ ---
+        'giai_phau/dau_mat_co/co_tran.html',
+        'giai_phau/dau_mat_co/co_vong_mat.html',
+        'giai_phau/dau_mat_co/co_cau_may.html',
+        'giai_phau/dau_mat_co/co_manh_khanh.html',
+        'giai_phau/dau_mat_co/co_mui.html',
+        'giai_phau/dau_mat_co/co_vong_mieng.html',
+        'giai_phau/dau_mat_co/co_nang_moi_tren.html',
+        'giai_phau/dau_mat_co/co_nang_moi_tren_canh_mui.html',
+        'giai_phau/dau_mat_co/co_go_ma_nho.html',
+        'giai_phau/dau_mat_co/co_go_ma_lon.html',
+        'giai_phau/dau_mat_co/co_mut.html',
+        'giai_phau/dau_mat_co/co_nang_goc_mieng.html',
+        'giai_phau/dau_mat_co/co_cuoi.html',
+        'giai_phau/dau_mat_co/co_ha_moi_duoi.html',
+        'giai_phau/dau_mat_co/co_can.html',
+        'giai_phau/dau_mat_co/co_thai_duong.html',
+        'giai_phau/dau_mat_co/co_chan_buom_trong.html',
+        'giai_phau/dau_mat_co/co_chan_buom_ngoaoi.html',
+        'giai_phau/dau_mat_co/co_bam_da_co.html',
+        'giai_phau/dau_mat_co/co_uc_don_chum.html',
+        'giai_phau/dau_mat_co/co_hai_than.html',
+        'giai_phau/dau_mat_co/co_ham_mong.html',
+        'giai_phau/dau_mat_co/co_tram_mong.html',
+        'giai_phau/dau_mat_co/co_cam_mong.html',
+        'giai_phau/dau_mat_co/co_uc_mong.html',
+        'giai_phau/dau_mat_co/co_giap_mong.html',
+        'giai_phau/dau_mat_co/co_vai_mong.html',
+        'giai_phau/dau_mat_co/co_uc_giap.html',
+        'giai_phau/dau_mat_co/co_thang_dau_truoc.html',
+        'giai_phau/dau_mat_co/co_thang_dau_ben.html',
+        'giai_phau/dau_mat_co/co_dai_dau.html',
+        'giai_phau/dau_mat_co/co_dai_co.html',
+        'giai_phau/dau_mat_co/co_bac__thang.html',
+        'giai_phau/dau_mat_co/co_thang.html',
+        'giai_phau/dau_mat_co/co_goi_dau.html',
+        'giai_phau/dau_mat_co/co_goi_co.html',
+        'giai_phau/dau_mat_co/co_ban_gai_co.html',
+        'giai_phau/dau_mat_co/co_thang_dau_sau_lon.html',
+        'giai_phau/dau_mat_co/co_thang_dau_sau_be.html',
+        'giai_phau/dau_mat_co/co_cheo_dau_tren.html',
+        'giai_phau/dau_mat_co/co_cheo_dau_duoi.html'
+    ];
+
+
+    const indexPage = async (url) => {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                console.error(`❌ Lỗi Fetch: Không thể tải tệp '${url}'. Trạng thái: ${response.status}`);
+                return null;
+            }
+            const htmlText = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+            let titleElement = null;
+            let titleText = '';
+
+            // 1. Tìm tiêu đề từ cấu trúc anatomy-card (h2)
+            titleElement = doc.querySelector('article.noidung_anatomy-card h2.anatomy-title');
+            if (titleElement) {
+                titleText = titleElement.textContent.replace(/\(.*?\)/g, '').trim();
+            }
+
+            // 2. Nếu không tìm thấy, tìm tiêu đề từ cấu trúc bài viết (h1)
+            if (!titleText) {
+                titleElement = doc.querySelector('div.text-center.py-8.md\\:py-12 h1');
+                if (titleElement) {
+                    titleText = titleElement.textContent.trim();
+                }
+            }
+
+            if (titleText) {
+                console.log(`✅ Lập chỉ mục thành công: "${titleText}" từ tệp '${url}'`);
+                return {
+                    title: titleText,
+                    description: `Xem chi tiết về "${titleText}".`,
+                    url: url,
+                    icon: 'fa-lungs' // Icon phù hợp hơn cho giải phẫu/bệnh học
+                };
+            } else {
+                console.warn(`⚠️ Cảnh báo: Không tìm thấy cấu trúc tiêu đề phù hợp trong tệp '${url}'.`);
+                return null;
+            }
+        } catch (error) {
+            console.error(`❌ Lỗi nghiêm trọng khi xử lý tệp '${url}':`, error);
+            return null;
+        }
+    };
+
+    const buildFullSearchIndex = async () => {
+        console.log("Bắt đầu xây dựng chỉ mục tìm kiếm động...");
+        const uniquePages = [...new Set(pagesToIndex)]; // Lọc các đường dẫn trùng lặp
+        const dynamicContentPromises = uniquePages.map(indexPage);
+        const dynamicContent = await Promise.all(dynamicContentPromises);
+        const finalSearchableContent = [
+            ...searchableContent,
+            ...dynamicContent.filter(item => item !== null)
+        ];
+        searchableContent = finalSearchableContent;
+        console.log("🚀 Xây dựng chỉ mục tìm kiếm hoàn tất! Tổng số mục:", searchableContent.length);
+    };
 
     const openSearch = () => {
         searchContainer.classList.add('active');
@@ -111,48 +275,35 @@ document.addEventListener('DOMContentLoaded', () => {
         suggestionsOutput.innerHTML = '';
     };
 
-    /**
-     * Performs a search based on the query and updates the suggestions.
-     * @param {string} query The search term.
-     */
     const performSearch = (query) => {
         if (!query) {
             suggestionsOutput.innerHTML = '';
             return;
         }
-
         if (!state.isLoggedIn()) {
             suggestionsOutput.innerHTML = config.loginPromptHTML;
             return;
         }
-
         const lowerCaseQuery = query.toLowerCase();
         const results = searchableContent.filter(item =>
             item.title.toLowerCase().includes(lowerCaseQuery) ||
             item.description.toLowerCase().includes(lowerCaseQuery)
         );
-
         renderSuggestions(results);
     };
 
-    /**
-     * Renders the search results in the suggestions container.
-     * @param {Array} results The array of search result objects.
-     */
     const renderSuggestions = (results) => {
         if (results.length === 0) {
             suggestionsOutput.innerHTML = config.noResultsHTML;
             return;
         }
-
-        suggestionsOutput.innerHTML = ''; // Clear previous results
+        suggestionsOutput.innerHTML = '';
         const fragment = document.createDocumentFragment();
-
         results.forEach(item => {
             const suggestionEl = document.createElement('div');
             suggestionEl.className = 'suggestion-item_search';
             suggestionEl.innerHTML = `
-                <i class="fas ${item.icon} icon"></i>
+                <i class="fas ${item.icon || 'fa-file-alt'} icon"></i>
                 <div>
                     <h4>${item.title}</h4>
                     <p>${item.description}</p>
@@ -160,14 +311,9 @@ document.addEventListener('DOMContentLoaded', () => {
             suggestionEl.addEventListener('click', () => handleSuggestionClick(item));
             fragment.appendChild(suggestionEl);
         });
-
         suggestionsOutput.appendChild(fragment);
     };
 
-    /**
-     * Handles the click event on a suggestion item.
-     * @param {object} item The clicked search result item.
-     */
     const handleSuggestionClick = (item) => {
         if (item.action && typeof item.action === 'function') {
             item.action();
@@ -177,28 +323,18 @@ document.addEventListener('DOMContentLoaded', () => {
         closeSearch();
     };
 
-    // --- Event Listeners ---
     if (searchContainer && searchForm && searchInput && closeSearchBtn && suggestionsOutput) {
-        // Make the openSearch function globally accessible for `onclick` attributes
         window.handleSearchClick = openSearch;
-
         closeSearchBtn.addEventListener('click', closeSearch);
         searchContainer.addEventListener('click', (e) => {
-            if (e.target === searchContainer) {
-                closeSearch();
-            }
+            if (e.target === searchContainer) closeSearch();
         });
-
         searchForm.addEventListener('submit', (e) => e.preventDefault());
-
         searchInput.addEventListener('input', () => {
-            const query = searchInput.value.trim();
-            performSearch(query);
+            performSearch(searchInput.value.trim());
         });
+        await buildFullSearchIndex();
     } else {
-        console.error("Search UI elements not found. Please check your HTML structure and IDs.");
+        console.error("Không tìm thấy các thành phần UI tìm kiếm. Vui lòng kiểm tra lại cấu trúc HTML và ID.");
     }
-    
-    // Assuming loadComponents() is defined elsewhere and handles loading of other parts.
-    // loadComponents();
 });

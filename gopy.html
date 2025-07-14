@@ -25,19 +25,13 @@
 </head>
     <body class="bg-gray-900">
 
-    <!-- Menu -->
+    
     <div id="header-placeholder"></div>
     <div id="search-placeholder"></div>
 <!-- giới thiệu -->
         <section class="banner_trangcon event-banner">
             <div class="banner_trangcon_header">
-                <h1>CHÀO MỪNG BẠN ĐẾN VỚI WEBSITE CỦA ĐAN TRƯỜNG</h1>
-                <div class="banner_trangcon_header_underline"></div>
-                <p>
-                    <a href="/gopy.html">
-                        <button class="banner_trangcon_btn btn">GÓP Ý</button>
-                    </a>
-                </p>
+                <h1>GÓP Ý</h1>
             </div>
         </section>
     <section class="about-us">
@@ -67,7 +61,7 @@
                     .then(data => {
                       if (data.status === "success") {
                         Swal.fire({
-                          title: "Ý kiến đã được gửi",
+                          title: "CẢM ƠN BẠN ĐÃ ĐÓNG GÓP Ý KIẾN",
                           text: data.message,
                           icon: "success",
                           confirmButtonText: "Đóng"

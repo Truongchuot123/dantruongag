@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { pageUrl: '/giai_phau/chi_tren/co_doi_ngon_ut.html' },
     // --- Chi dưới ---
         { pageUrl: '/giai_phau/chi_duoi/co_that_lung_chau.html' },
-        { pageUrl: '/giai_phau/chi_duoi/co_mong_lon.html' },        { pageUrl: '/giai_phau/chi_duoi' },
+        { pageUrl: '/giai_phau/chi_duoi/co_mong_lon.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_mong_be.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_mong_nho.html' },
         { pageUrl: '/giai_phau/chi_duoi/co_cang_mac_dui.html' },
