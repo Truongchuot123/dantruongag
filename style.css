@@ -119,7 +119,7 @@
 
         #search-input {
             width: 100%; background-color: var(--background-dark);
-            border: 1px solid var(--button-primary); color: black;
+            border: 1px solid var(--button-primary); color: rgb(255, 255, 255);
             padding: 12px 15px; border-radius: 25px; font-size: 1rem;
         }
         #search-input:focus { outline: none; box-shadow: 0 0 0 2px var(--text-menu-hover); }

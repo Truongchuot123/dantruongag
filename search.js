@@ -47,6 +47,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             description: 'Đóng góp ý kiến để tôi cải thiện hơn.',
             url: 'gopy.html',
             icon: 'fa-envelope'
+        },
+        {
+            title: 'Bảng phiên âm quốc tế IPA',
+            description: 'Cùng người bản cải thiện phát âm ',
+            url: '/tienganh/IPA.html',
+            icon: 'fa-language'
+        },
+        {
+            title: 'Hệ thống tra cứu từ vựng tiếng anh',
+            description: 'Hơn 500 từ tiếng anh với các ví dụ, định nghĩa đa dạng. ',
+            url: '/tienganh/IPA.html',
+            icon: 'fa-language'
         }
     ];
 
