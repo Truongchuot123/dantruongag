@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phục hồi chức năng - Nguyễn Mai Đan Trường</title>
+     <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:title" content="Trang Chủ - Nguyễn Mai Đan Trường">
+    <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:image" content="/hinhanh/logo web.png">
+    <meta property="og:url" content="https://dantruongag.id.vn">
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+        
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+</head>
+    <style>
+        /* Áp dụng font Inter cho toàn bộ trang */
+        .bg-gray-50 text-gray-800 {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Hiệu ứng chuyển động mượt mà cho thẻ bài viết */
+        .article-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        /* Hiệu ứng khi di chuột qua thẻ */
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+    <body class="bg-gray-900">
+          
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header của trang -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-8">
+            <h1 class="text-4xl font-bold text-center text-blue-600">THỬ CƠ VÀ ĐO TẦM VẬN ĐỘNG</h1>
+            <p class="text-center text-gray-500 mt-2">Tham khảo một số cách thử cơ và đo tầm vận động khớp</p>
+        </div>
+    </header>
+
+    <!-- Phần nội dung chính chứa các bài viết -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="grid gap-12">
+
+             <!-- Thử cơ chi trên -->
+            <a href="./bai-viet-luong-gia-chieu-dai-co.html" class="block article-card">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/3">
+                        <img class="h-full w-full object-cover" 
+                             src="/PHCN/hinhanh_phcn/thu_co_chi_tren.jpg" 
+                             alt=""
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/334155?text=Lỗi+tải+ảnh';">
+                    </div>
+                    <!-- Nội dung văn bản của bài viết -->
+                    <div class="p-8 md:w-2/3 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">Thử cơ chi trên</h2>
+                            <p class="mt-3 text-sm text-gray-500">12/07/2025</p>
+                            <p class="mt-4 text-gray-600">Bài viết trình bày cách thử cơ chi trên gòm các cử động xương bả vai, khớp vai, khớp khuỷu, khớp cổ tay, ngón tay </p>
+                        </div>
+                        <div class="mt-6">
+                            <span class="text-blue-600 font-semibold hover:underline">Xem thêm &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+             <!-- Thử cơ chi dưới -->
+            <a href="./bai-viet-luong-gia-chieu-dai-co.html" class="block article-card">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/3">
+                        <img class="h-full w-full object-cover" 
+                             src="/PHCN/hinhanh_phcn/thu_co_chi_duoi.jpg" 
+                             alt=""
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/334155?text=Lỗi+tải+ảnh';">
+                    </div>
+                    <!-- Nội dung văn bản của bài viết -->
+                    <div class="p-8 md:w-2/3 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">Thử cơ chi dưới</h2>
+                            <p class="mt-3 text-sm text-gray-500">12/07/2025</p>
+                            <p class="mt-4 text-gray-600">Bài viết trình bày cách thử cơ chi dưới gòm các cử động của khớp hông, khớp gối, khớp cổ chân, khớp ngón chân </p>
+                        </div>
+                        <div class="mt-6">
+                            <span class="text-blue-600 font-semibold hover:underline">Xem thêm &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            
+                        <!-- Thử cơ chi dưới -->
+            <a href="./bai-viet-luong-gia-chieu-dai-co.html" class="block article-card">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/3">
+                        <img class="h-full w-full object-cover" 
+                             src="https://images.unsplash.com/photo-1554734867-bf3c00a49371?q=80&w=2070&auto=format&fit=crop" 
+                             alt=""
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/334155?text=Lỗi+tải+ảnh';">
+                    </div>
+                    <!-- Nội dung văn bản của bài viết -->
+                    <div class="p-8 md:w-2/3 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">Thử cơ cổ</h2>
+                            <p class="mt-3 text-sm text-gray-500">12/07/2025</p>
+                            <p class="mt-4 text-gray-600">Bài viết trình bày cách thử cơ cổ </p>
+                        </div>
+                        <div class="mt-6">
+                            <span class="text-blue-600 font-semibold hover:underline">Xem thêm &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+             <!-- Thử cơ thân mình -->
+            <a href="./bai-viet-luong-gia-chieu-dai-co.html" class="block article-card">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/3">
+                        <img class="h-full w-full object-cover" 
+                             src="https://images.unsplash.com/photo-1554734867-bf3c00a49371?q=80&w=2070&auto=format&fit=crop" 
+                             alt=""
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/334155?text=Lỗi+tải+ảnh';">
+                    </div>
+                    <!-- Nội dung văn bản của bài viết -->
+                    <div class="p-8 md:w-2/3 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">Thử cơ thân mình</h2>
+                            <p class="mt-3 text-sm text-gray-500">12/07/2025</p>
+                            <p class="mt-4 text-gray-600">Bài viết trình bày cách thử cơ thân mình </p>
+                        </div>
+                        <div class="mt-6">
+                            <span class="text-blue-600 font-semibold hover:underline">Xem thêm &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+        </div>
+    </main>
+
+</body>
+    
+    <div id="footer-placeholder"></div>
+
+        <script src="/script.js"></script>
+        <script src="/search.js"></script>
+</body>
+</html>

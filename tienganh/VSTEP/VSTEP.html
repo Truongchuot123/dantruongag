@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HỌC VSTEP - Nguyễn Mai Đan Trường</title>
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">    <style>
+        /* --- CÀI ĐẶT BIẾN MÀU SẮC VÀ FONT --- */
+        :root {
+            --primary-color: #007BFF;
+            --primary-hover-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --light-gray-color: #e9ecef;
+            --white-color: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Poppins', sans-serif;
+        }
+        /* --- THIẾT LẬP CƠ BẢN --- */
+        .vsteop_body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+.vsstep_lesson-card .vsstep_card-content h3 {
+ color: blue; /* Hoặc bất kỳ mã màu xanh lam nào bạn thích, ví dụ: #007bff */
+ }
+        /* --- CONTAINER CHÍNH --- */
+        .vsstep_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .vsstep_container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* --- LƯỚI HIỂN THỊ CÁC BÀI HỌC --- */
+        .vsstep_lesson-grid {
+            display: grid;
+            /* Bố cục lưới tự động điều chỉnh số cột cho vừa màn hình */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* --- THẺ BÀI HỌC (CARD) --- */
+        .vsstep_lesson-card-link {
+            text-decoration: none; /* Bỏ gạch chân của link */
+            color: inherit;
+        }
+
+        .vsstep_lesson-card {
+            background-color: var(--white-color);
+            border-radius: 15px;
+            overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài góc bo tròn */
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Hiệu ứng khi di chuột vào thẻ */
+        .vsstep_lesson-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .vsstep_lesson-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Đảm bảo ảnh lấp đầy khung mà không bị méo */
+            display: block;
+        }
+
+        .vsstep_card-content {
+            padding: 1.5rem;
+            text-align: left;
+            flex-grow: 1; /* Giúp nội dung thẻ co giãn */
+        }
+
+        .vsstep_card-content h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .vsstep_card-content .vsstep_note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* --- NÚT BẤM CHÍNH --- */
+        .vsstep_btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 12px 30px;
+            border-radius: 50px; /* Bo tròn nút */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .vsstep_btn:hover {
+            background-color: var(--primary-hover-color);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div>
+<body class="vsteop_body">
+
+    <div class="vsstep_container">
+        <h1>Các Bài Học VSTEP</h1>
+
+        <section id="lesson-grid" class="vsstep_lesson-grid">
+            <!-- Các thẻ bài học sẽ được chèn vào đây bằng JavaScript -->
+        </section>
+
+        <a href="/tienganh/vocabulary.html" class="vsstep_btn">Học Từ Vựng Ngay</a>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const lessons = [
+            {
+                file: '/tienganh/VSTEP/lesson/communication.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Communication.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/family.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Family.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/festivals.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Festivals.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/food.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/FOOD.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/travel.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Travel.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/tramsport.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Tramsport.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/health.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Hobby.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/hobby.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Houses.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/hometown.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/hometowwn.jpg'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/houses.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Houses.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/internet.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/internet.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/job.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/job.png'
+            },
+            {
+                file: '/tienganh/VSTEP/lesson/Learning_english.html',
+                image: '/tienganh/hinhanh.tienganh/VSTEP/Learning english.png'
+            },
+
+        ];
+
+        const lessonGrid = document.getElementById('lesson-grid');
+
+        // 2. Hàm để lấy tiêu đề từ một file HTML
+        async function getTitleFromFile(fileUrl) {
+            try {
+                const response = await fetch(fileUrl); // Gửi yêu cầu lấy nội dung file
+                if (!response.ok) {
+                    console.error(`Lỗi: Không thể tải file ${fileUrl}. Status: ${response.status}`);
+                    return null; // Nếu file không tồn tại hoặc có lỗi, bỏ qua
+                }
+
+                const htmlText = await response.text(); // Lấy nội dung dưới dạng văn bản
+
+                // Sử dụng DOMParser để biến văn bản HTML thành một tài liệu có thể truy vấn
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+
+                // Tìm phần tử có id="lesson-title" trong file vừa đọc
+                const titleElement = doc.querySelector('#lesson-title');
+
+                // Nếu tìm thấy, trả về nội dung text của nó, nếu không thì trả về null
+                return titleElement ? titleElement.textContent.trim() : null;
+
+            } catch (error) {
+                console.error('Lỗi khi đọc file hoặc phân tích cú pháp:', fileUrl, error);
+                return null;
+            }
+        }
+
+        // 3. Hàm bất đồng bộ để tạo và hiển thị các thẻ bài học
+        async function createLessonCards() {
+            // Sử dụng for...of để xử lý các tác vụ bất đồng bộ một cách tuần tự
+            for (const lesson of lessons) {
+                const title = await getTitleFromFile(lesson.file);
+
+                // Chỉ tạo thẻ nếu lấy được tiêu đề thành công
+                if (title) {
+                    const cardHTML = `
+                        <a href="${lesson.file}" class="vsstep_lesson-card-link">
+                            <div class="vsstep_lesson-card">
+                                <img 
+                                    src="${lesson.image}" 
+                                    alt="Hình ảnh chủ đề ${title}"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x250/E9ECEF/333?text=Image+Not+Found';"
+                                >
+                                <div class="vsstep_card-content">
+                                    <h3>${title}</h3>
+                                    <p class="vsstep_note">Bài học bao gồm Từ vựng, Speaking, Grammar và Listening.</p>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    // Chèn card mới vào cuối của lưới
+                    lessonGrid.insertAdjacentHTML('beforeend', cardHTML);
+                }
+            }
+        }
+        
+        // 4. Gọi hàm để bắt đầu quá trình
+        createLessonCards();
+    });
+    </script>
+
+        <div id="footer-placeholder"></div>
+
+        <script src="/script.js"></script>
+        <script src="/search.js"></script>
+
+</body>
+</html>

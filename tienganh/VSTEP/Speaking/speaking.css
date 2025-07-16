@@ -1,0 +1,43 @@
+/* Exercise Accordion Styles */
+        .exercise-wrapper { max-width: 800px; margin: 3rem auto 0 auto; background-color: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); overflow: hidden; border: 1px solid #e2e8f0; animation: fade-in-up 0.8s ease-out forwards; }
+        .exercise-header { background: linear-gradient(to right, #3b82f6, #60a5fa); color: white; text-align: center; padding: 20px; font-size: 1.75rem; font-weight: 700; letter-spacing: 1px; }
+        .accordion-item { border-bottom: 1px solid #e5e7eb; }
+        .accordion-item:last-child { border-bottom: none; }
+        .accordion-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px 24px; background-color: #f9fafb; cursor: pointer; font-size: 1.125rem; font-weight: 600; color: #1e3a8a; transition: background-color 0.3s ease; border: none; text-align: left; }
+        .accordion-header:hover { background-color: #f3f4f6; }
+        .accordion-header .icon { width: 24px; height: 24px; transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); color: #3b82f6; }
+        .accordion-header.active .icon { transform: rotate(45deg); }
+        .accordion-content { max-height: 0; overflow: hidden; background-color: #ffffff; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .accordion-content-inner { padding: 24px; }
+        .exercise-title { font-size: 1.5rem; font-weight: bold; color: #1d4ed8; margin-bottom: 20px; border-bottom: 3px solid #60a5fa; display: inline-block; padding-bottom: 8px; }
+        .exercise-questions { list-style: none; padding-left: 0; font-size: 1rem; color: #374151; }
+        
+        /* NEW STYLES for Question-specific practice */
+        .question-item {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .question-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.07); }
+        .question-text { font-weight: 600; color: #1e40af; margin-bottom: 1rem; display: flex; align-items: center; }
+        .question-text::before { content: '🎙️'; margin-right: 0.75rem; font-size: 1.2rem; }
+
+        .speaking-form { display: none; animation: slide-down 0.5s ease-out; margin-top: 1rem;}
+        .speaking-form textarea { width: 100%; min-height: 100px; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; margin-bottom: 12px; transition: border-color 0.3s, box-shadow 0.3s; }
+        .speaking-form textarea:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+        
+        /* NEW STYLES for submitted articles display */
+        .submitted-articles-container { margin-top: 1.5rem; border-top: 1px dashed #cbd5e1; padding-top: 1.25rem; }
+        .submitted-articles-title { font-size: 1rem; font-weight: 600; color: #4b5563; margin-bottom: 0.75rem; }
+        .submitted-article { background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.75rem; }
+        .submitted-article summary { padding: 10px 14px; font-weight: 600; cursor: pointer; color: #1e3a8a; list-style: none; display: flex; align-items: center; }
+        .submitted-article summary::-webkit-details-marker { display: none; }
+        .submitted-article summary::before { content: '📄'; margin-right: 0.5rem; }
+        .submitted-article[open] summary { background-color: #f0f5ff; border-bottom: 1px solid #e5e7eb;}
+        .article-content { padding: 12px 14px; white-space: pre-wrap; word-wrap: break-word; color: #374151; font-size: 0.95rem; line-height: 1.6; }
+
+        @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slide-down { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }

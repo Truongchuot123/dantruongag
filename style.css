@@ -1,7 +1,7 @@
         /* Custom Variables and Base Styles */
         :root {
             --main-color: #191F3A;
-            --background-dark: #ffffff;
+            --background-dark: #191F3A;
             --text-menu: #E3E313; /* Yellowish text */
             --text-menu-hover: #F1C40F; /* Brighter yellow for hover */
             --button-primary: #8E44AD; /* Purple */
@@ -656,3 +656,79 @@
             td, th { font-size: 10px; }
             .profile-text h2 { font-size: 6vw; }
         }
+
+
+
+ /* CSS CHO DỮ LIỆU  */
+
+                @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        .thong_ke_truy_cap {
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .stats-container {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        .stats-header {
+            background-color: #4a47a3; /* Màu xanh tím than */
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 12px 20px;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); /* Hiệu ứng vát góc */
+        }
+
+        .stats-list {
+            list-style-type: none;
+            padding: 15px 20px;
+            margin: 0;
+        }
+
+        .stats-list li {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 15px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stats-list li:last-child {
+            border-bottom: none;
+        }
+
+        .stats-list i {
+            font-size: 18px;
+            margin-right: 15px;
+            width: 25px; /* Đảm bảo icon thẳng hàng */
+            text-align: center;
+        }
+
+        .stats-value {
+            margin-left: auto;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+            background-color: #e9ecef;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* Màu sắc cho các icon */
+        .icon-today { color: #3498db; }
+        .icon-yesterday { color: #2ecc71; }
+        .icon-month { color: #f1c40f; }
+        .icon-last-month { color: #e67e22; }
+        .icon-year { color: #e74c3c; }

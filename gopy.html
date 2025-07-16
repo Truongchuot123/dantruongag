@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Góp ý - Nguyễn Mai Đan Trường</title>
     <!-- Tailwind CSS for rapid UI development -->
+     <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:image" content="/hinhanh/logo web.png">
+    <meta property="og:url" content="https://dantruongag.id.vn">
+    <!-- Tailwind CSS for rapid UI development -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="/style.css">
@@ -22,7 +27,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-</head>
+
+
+    <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZYHW8CJY9"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-GZYHW8CJY9');
+      </script>
+  </head>
     <body class="bg-gray-900">
 
     
@@ -90,6 +106,40 @@
               </section>
               </div>
               </section>
+
+
+              <div class="stats-container">
+              <div class="stats-header">
+                  THỐNG KÊ TRUY CẬP
+              </div>
+              <ul class="stats-list">
+                  <li>
+                      <i class="fas fa-user-friends icon-today"></i>
+                      Hôm nay :
+                      <span id="stats-today" class="stats-value">...</span>
+                  </li>
+                  <li>
+                      <i class="fas fa-user-friends icon-yesterday"></i>
+                      Hôm qua :
+                      <span id="stats-yesterday" class="stats-value">...</span>
+                  </li>
+                  <li>
+                      <i class="fas fa-calendar-week icon-month"></i>
+                      Tháng 07 :
+                      <span id="stats-month" class="stats-value">...</span>
+                  </li>
+                  <li>
+                      <i class="fas fa-calendar-alt icon-last-month"></i>
+                      Tháng trước :
+                      <span id="stats-last-month" class="stats-value">...</span>
+                  </li>
+                  <li>
+                      <i class="fas fa-globe-asia icon-year"></i>
+                      Năm 2025 :
+                      <span id="stats-year" class="stats-value">...</span>
+                  </li>
+              </ul>
+          </div>
     <!-- Placeholder for Footer -->
     <div id="footer-placeholder"></div>
     

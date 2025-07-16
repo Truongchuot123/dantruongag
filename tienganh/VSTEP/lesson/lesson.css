@@ -2,7 +2,10 @@
             font-family: 'Be Vietnam Pro', sans-serif;
             background-color: #f0f4f8; /* Light blue-gray background */
         }
-        
+        #lesson-title {
+            color: white;
+            margin-top: 20px;
+        }    
         .section-title {
             font-weight: 800;
             color: #1e3a8a;
@@ -12,7 +15,12 @@
             padding-bottom: 0.5rem;
             border-bottom: 3px solid #dbeafe;
         }
-
+        #grammar-section p,
+        .structure-group p,
+        #writing-section p,
+        .example-block-new p {
+            color: black;
+        }
         [contenteditable="true"]:focus {
             outline: 2px solid #3b82f6;
             border-radius: 8px;
@@ -54,6 +62,11 @@
             padding: 1rem; /* Adjusted for mobile */
             margin-top: 1.5rem;
             transition: all 0.3s ease;
+        }
+        .structure-group strong,
+        .example-block-new strong,
+        .structure-block strong {
+            color: #299470;
         }
         @media (min-width: 640px) { /* sm breakpoint */
             .speaking-point {

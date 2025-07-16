@@ -20,7 +20,7 @@
             buttonContainer.className = 'ml-auto';
             
             const buttonLink = document.createElement('a');
-            buttonLink.href = 'hoc-tu-vung.html';
+            buttonLink.href = '/tienganh/vocabulary.html';
             buttonLink.target = '_blank';
             buttonLink.className = 'text-sm font-semibold bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white py-2 px-4 sm:px-5 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 flex items-center';
 

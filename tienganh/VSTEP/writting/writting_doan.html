@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỹ Năng Viết Phần 1 – Tương Tác Xã Hội</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .exercise-wrapper { max-width: 800px; margin: 3rem auto 0 auto; background-color: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); overflow: hidden; border: 1px solid #e2e8f0; animation: fade-in-up 0.8s ease-out forwards; }
+        .exercise-header { background: linear-gradient(to right, #059669, #10b981); color: white; text-align: center; padding: 20px; font-size: 1.75rem; font-weight: 700; letter-spacing: 1px; }
+        .accordion-item { border-bottom: 1px solid #e5e7eb; }
+        .accordion-item:last-child { border-bottom: none; }
+        .accordion-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px 24px; background-color: #f9fafb; cursor: pointer; font-size: 1.125rem; font-weight: 600; color: #1e3a8a; transition: background-color 0.3s ease; border: none; text-align: left; }
+        .accordion-header:hover { background-color: #f3f4f6; }
+        .accordion-header .icon { width: 24px; height: 24px; transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); color: #059669; }
+        .accordion-header.active .icon { transform: rotate(45deg); }
+        .accordion-content { max-height: 0; overflow: hidden; background-color: #ffffff; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .accordion-content-inner { padding: 24px; }
+        .exercise-title { font-size: 1.5rem; font-weight: bold; color: #047857; margin-bottom: 20px; border-bottom: 3px solid #34d399; display: inline-block; padding-bottom: 8px; }
+        .exercise-questions { list-style: none; padding-left: 0; }
+
+        /* Styles for individual questions */
+        .question-item { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; transition: box-shadow 0.3s ease; }
+        .question-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.07); }
+        .question-text { font-weight: 600; color: #064e3b; margin-bottom: 1rem; display: flex; align-items: center; }
+        .question-text::before { content: '✍️'; margin-right: 0.75rem; font-size: 1.2rem; }
+        .writing-form { display: none; animation: slide-down 0.5s ease-out; margin-top: 1rem; }
+        .writing-form textarea { width: 100%; min-height: 120px; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; margin-bottom: 12px; transition: border-color 0.3s, box-shadow 0.3s; }
+        .writing-form textarea:focus { outline: none; border-color: #10b981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); }
+        
+        /* Styles for submitted articles display */
+        .submitted-articles-container { margin-top: 1.5rem; border-top: 1px dashed #cbd5e1; padding-top: 1.25rem; }
+        .submitted-articles-title { font-size: 1rem; font-weight: 600; color: #4b5563; margin-bottom: 0.75rem; }
+        .submitted-article { background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 0.75rem; }
+        .submitted-article summary { padding: 10px 14px; font-weight: 600; cursor: pointer; color: #065f46; list-style: none; display: flex; align-items: center; }
+        .submitted-article summary::-webkit-details-marker { display: none; }
+        .submitted-article summary::before { content: '📄'; margin-right: 0.5rem; }
+        .submitted-article[open] summary { background-color: #ecfdf5; border-bottom: 1px solid #e5e7eb; }
+        .article-content { padding: 12px 14px; white-space: pre-wrap; word-wrap: break-word; color: #374151; font-size: 0.95rem; line-height: 1.6; }
+
+        @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slide-down { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 p-4 sm:p-6 lg:p-8">
+    <div class="w-full max-w-5xl mx-auto">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-emerald-700 mb-8 animate-fade-in-down">
+            KỸ NĂNG VIẾT PHẦN 1 – VIẾT ĐOẠN
+        </h1>
+
+        <div class="exercise-wrapper">
+            <div class="exercise-header">Practice Topics</div>
+            <div class="accordion"></div>
+        </div>
+    </div>
+
+<script>
+// ===================================================================================
+// CONFIGURATION
+// QUAN TRỌNG: Thay thế bằng URL Google Apps Script của chính bạn
+// ===================================================================================
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec'; // <--- SỬ DỤNG CÙNG URL VỚI TRANG SPEAKING
+
+const topics = [
+    { title: "Learning English", questions: ["How long have you been learning English?", "What do you find most difficult when learning English?", "Why is English important for your career?"] },
+    { title: "Hometown", questions: ["Describe your hometown.", "What is the most interesting part of your hometown?", "Has your hometown changed much over the years?"] },
+    { title: "Hobbies", questions: ["What is your favorite hobby?", "How did you get interested in it?", "What are the benefits of having a hobby?"] },
+    { title: "Food", questions: ["What’s your favorite food and why?", "Do you prefer home-cooked meals or eating out?", "Describe a traditional dish from your country."] }
+];
+
+document.addEventListener('DOMContentLoaded', function () {
+    const accordionContainer = document.querySelector('.accordion');
+    
+    // Generate accordion HTML
+    topics.forEach((topic, index) => {
+        const questionsHTML = topic.questions.map(q => `
+            <li class="question-item" data-question="${q.replace(/"/g, '&quot;')}">
+                <p class="question-text">${q}</p>
+                <div class="practice-area" data-practice-type="Writing">
+                    <button class="practice-btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
+                        Luyện viết
+                    </button>
+                    <div class="writing-form mt-4">
+                        <textarea placeholder="Nhập bài viết của bạn cho câu hỏi này..."></textarea>
+                        <div class="flex gap-2 mt-2">
+                            <button class="submit-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Gửi bài</button>
+                            <button class="cancel-btn bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Hủy</button>
+                        </div>
+                    </div>
+                    <div class="submitted-articles-container">
+                        <h4 class="submitted-articles-title hidden">Bài đã nộp:</h4>
+                        <div class="articles-list"></div>
+                        <div class="loading-indicator hidden text-sm text-gray-500">Đang tải...</div>
+                    </div>
+                </div>
+            </li>
+        `).join('');
+
+        const itemHTML = `
+        <div class="accordion-item" data-topic-title="${topic.title}">
+            <button class="accordion-header">
+                <span>Topic ${index + 1}: ${topic.title}</span>
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-content-inner">
+                    <h3 class="exercise-title">Let’s write about ${topic.title.toLowerCase()}</h3>
+                    <ul class="exercise-questions">
+                        ${questionsHTML}
+                    </ul>
+                </div>
+            </div>
+        </div>`;
+        accordionContainer.innerHTML += itemHTML;
+    });
+    
+    setupEventListeners();
+    loadAllSubmissions();
+});
+
+function setupEventListeners() {
+    // Accordion open/close logic
+    document.querySelectorAll('.accordion-header').forEach(button => {
+        button.addEventListener('click', () => {
+            const isActive = button.classList.contains('active');
+            document.querySelectorAll('.accordion-header').forEach(b => {
+                b.classList.remove('active');
+                b.nextElementSibling.style.maxHeight = null;
+            });
+            if (!isActive) {
+                button.classList.add('active');
+                const content = button.nextElementSibling;
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // "Luyện viết" button logic
+    document.querySelectorAll('.practice-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            const form = e.target.nextElementSibling;
+            form.style.display = 'block';
+            e.target.style.display = 'none';
+            updateAccordionHeight(e.target);
+        });
+    });
+
+    // "Hủy" button logic
+    document.querySelectorAll('.cancel-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            const form = e.target.closest('.writing-form');
+            form.style.display = 'none';
+            form.previousElementSibling.style.display = 'block';
+            form.querySelector('textarea').value = '';
+            updateAccordionHeight(e.target);
+        });
+    });
+
+    // "Gửi bài" button logic
+    document.querySelectorAll('.submit-btn').forEach(btn => btn.addEventListener('click', handleSubmit));
+}
+
+function updateAccordionHeight(element) {
+    const content = element.closest('.accordion-content');
+    if (content && content.style.maxHeight) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+    }
+}
+
+async function handleSubmit(event) {
+    const button = event.target;
+    const questionItem = button.closest('.question-item');
+    const topicItem = button.closest('.accordion-item');
+    
+    const topic = topicItem.dataset.topicTitle;
+    const question = questionItem.dataset.question;
+    const practiceType = questionItem.querySelector('.practice-area').dataset.practiceType; // "Writing"
+    const textarea = questionItem.querySelector('textarea');
+    const articleContent = textarea.value.trim();
+
+    if (!articleContent) {
+        alert('Vui lòng nhập nội dung bài viết.');
+        return;
+    }
+
+    const submissionNumber = questionItem.querySelectorAll('.articles-list .submitted-article').length + 1;
+    const data = { type: practiceType, topic, question, submissionNumber, articleContent };
+
+    button.disabled = true;
+    button.textContent = 'Đang gửi...';
+
+    try {
+        await fetch(APPS_SCRIPT_URL, { 
+            method: 'POST', 
+            mode: 'no-cors',
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data) 
+        });
+        
+        alert('Gửi bài thành công!');
+        addSubmissionToUI(questionItem.querySelector('.practice-area'), data.articleContent, data.submissionNumber);
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Đã có lỗi xảy ra khi gửi bài. Vui lòng thử lại.');
+    } finally {
+        button.disabled = false;
+        button.textContent = 'Gửi bài';
+        textarea.value = '';
+        const form = button.closest('.writing-form');
+        form.style.display = 'none';
+        form.previousElementSibling.style.display = 'block';
+        updateAccordionHeight(button);
+    }
+}
+
+function addSubmissionToUI(practiceArea, content, number) {
+    const articlesList = practiceArea.querySelector('.articles-list');
+    const titleContainer = practiceArea.querySelector('.submitted-articles-title');
+    
+    const sanitizedContent = content.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    const newArticle = document.createElement('details');
+    newArticle.className = 'submitted-article';
+    newArticle.innerHTML = `
+        <summary>Bài viết ${number}</summary>
+        <div class="article-content">${sanitizedContent}</div>
+    `;
+    articlesList.appendChild(newArticle);
+
+    if (titleContainer.classList.contains('hidden')) {
+        titleContainer.classList.remove('hidden');
+    }
+    updateAccordionHeight(articlesList);
+}
+
+async function loadAllSubmissions() {
+    document.querySelectorAll('.loading-indicator').forEach(el => el.classList.remove('hidden'));
+    
+    try {
+        const response = await fetch(APPS_SCRIPT_URL);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+
+        document.querySelectorAll('.articles-list').forEach(list => list.innerHTML = '');
+
+        for (const topicTitle in data) {
+            const topicElement = document.querySelector(`.accordion-item[data-topic-title="${topicTitle}"]`);
+            if (!topicElement) continue;
+
+            const questionsData = data[topicTitle];
+            for (const questionText in questionsData) {
+                const questionElement = topicElement.querySelector(`.question-item[data-question="${questionText.replace(/"/g, '&quot;')}"]`);
+                if (!questionElement) continue;
+                
+                const typesData = questionsData[questionText];
+                // IMPORTANT: Look for the "Writing" key here
+                if(typesData.Writing) { 
+                    const writingArea = questionElement.querySelector('.practice-area');
+                    typesData.Writing.forEach((sub, index) => {
+                         addSubmissionToUI(writingArea, sub.articleContent, index + 1);
+                    });
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Could not load submissions:', error);
+        document.querySelectorAll('.accordion-item').forEach(item => {
+             const listContainer = item.querySelector('.submitted-articles-container');
+             if(listContainer) {
+                 listContainer.innerHTML = '<p class="text-red-500 text-sm p-2">Lỗi: Không thể tải các bài đã nộp.</p>';
+             }
+        });
+    } finally {
+        document.querySelectorAll('.loading-indicator').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.accordion-header.active').forEach(header => {
+            const content = header.nextElementSibling;
+            if (content) content.style.maxHeight = content.scrollHeight + 'px';
+        });
+    }
+}
+</script>
+
+</body>
+</html>

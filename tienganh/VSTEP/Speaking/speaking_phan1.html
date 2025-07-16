@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn thi VSTEP - Nguyễn Mai Đan Trường</title>
+     <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:title" content="Trang Chủ - Nguyễn Mai Đan Trường">
+    <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:image" content="/hinhanh/logo web.png">
+    <meta property="og:url" content="https://dantruongag.id.vn">
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/tienganh/VSTEP/Speaking/speaking.css">
+
+        
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .timeline-connector { position: absolute; left: 2rem; width: 2px; height: 100%; background-color: #e2e8f0; top: 0; z-index: 1; }
+        .timeline-item-content { position: relative; padding-left: 5rem; }
+        .timeline-circle-container { position: absolute; left: 0; top: 0; width: 4rem; display: flex; justify-content: center; z-index: 2; }
+        .timeline-circle { width: 3rem; height: 3rem; border-width: 3px; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; position: sticky; top: 2rem; }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 p-4 sm:p-6 lg:p-8">
+    <div class="w-full max-w-5xl mx-auto">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-red-600 mb-8 animate-fade-in-down">
+            KỸ NĂNG NÓI PHẦN 1 – TƯƠNG TÁC XÃ HỘI
+        </h1>
+
+        <div class="bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800 p-6 rounded-lg shadow-md mb-12 mx-auto max-w-md animate-fade-in">
+             <ul class="space-y-2">
+                 <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Dài 3 phút</span></li>
+                 <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg><span>Trả lời câu hỏi thuộc 2 chủ đề</span></li>
+                 <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>03 câu hỏi/chủ đề</span></li>
+             </ul>
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl font-semibold text-center text-slate-700 mb-12 animate-fade-in-up">
+            Lưu ý khi thi nói tiếng anh phần 1
+        </h2>
+
+        <div class="relative">
+            <div class="timeline-connector hidden sm:block"></div>
+            <div class="space-y-12">
+                <div class="timeline-item sm:flex animate-fade-in-left">
+                    <div class="timeline-circle-container hidden sm:flex"><div class="timeline-circle border-orange-400 text-orange-500 shadow-lg">1</div></div>
+                    <div class="timeline-item-content"><div class="bg-orange-50 p-6 rounded-lg shadow-md border border-orange-200 transition-all duration-300 hover:shadow-xl hover:border-orange-300"><h3 class="text-2xl font-semibold text-orange-800 mb-4">Phát triển ý khi nói</h3><p class="text-slate-600 mb-4">Sử dụng những từ để hỏi: <strong class="text-sky-600">When?, Where?, Who?, What?, How?, Why?</strong> để phát triển ý khi nói.</p><div class="bg-white p-4 rounded-lg border border-slate-200"><p class="font-semibold text-slate-700">Ví dụ: Do you play sports?</p><div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 mt-2 text-slate-600"><span><strong>What:</strong> play football</span><span><strong>When:</strong> after school</span><span><strong>Who:</strong> with my friends</span><span><strong>Where:</strong> Can Tho stadium</span><span class="md:col-span-2"><strong>How long:</strong> For about one hour and thirty minutes</span><span class="md:col-span-2"><strong>Why:</strong> relax, good for your health</span></div><p class="mt-4 bg-green-50 p-3 rounded-md text-green-800 border-l-4 border-green-400"><strong class="font-bold">Câu trả lời hoàn chỉnh:</strong> Yes, I do. I love playing football. I often play with my friends after school at Can Tho Stadium for about an hour and a half. It's good for your health and helps you relax.</p></div></div></div>
+                </div>
+                <div class="timeline-item sm:flex animate-fade-in-right">
+                    <div class="timeline-circle-container hidden sm:flex"><div class="timeline-circle border-sky-400 text-sky-500 shadow-lg">2</div></div>
+                    <div class="timeline-item-content"><div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 transition-all duration-300 hover:shadow-xl hover:border-sky-300"><h3 class="text-2xl font-semibold text-sky-800 mb-4">Liên kết các ý</h3><p class="text-slate-600 mb-4">Sử dụng các từ nối (linking words) để làm cho câu trả lời của bạn mạch lạc và logic hơn.</p><div class="bg-white p-4 rounded-lg border border-slate-200"><p class="font-semibold text-slate-700">Một số từ nối thông dụng:</p><ul class="list-disc list-inside mt-2 space-y-1 text-slate-600"><li><strong>Thêm thông tin:</strong> and, also, in addition, moreover</li><li><strong>Nguyên nhân & Kết quả:</strong> so, because, therefore, as a result</li><li><strong>Tương phản:</strong> but, however, although, on the other hand</li></ul><p class="mt-4 bg-blue-50 p-3 rounded-md text-blue-800 border-l-4 border-blue-400"><strong class="font-bold">Ví dụ:</strong> I enjoy playing video games, <strong class="text-blue-600">but</strong> I know I should spend more time outdoors <strong class="text-blue-600">because</strong> it's healthier.</p></div></div></div>
+                </div>
+                <div class="timeline-item sm:flex animate-fade-in-left">
+                    <div class="timeline-circle-container hidden sm:flex"><div class="timeline-circle border-teal-400 text-teal-500 shadow-lg">3</div></div>
+                    <div class="timeline-item-content"><div class="bg-teal-50 p-6 rounded-lg shadow-md border border-teal-200 transition-all duration-300 hover:shadow-xl hover:border-teal-300"><h3 class="text-2xl font-semibold text-teal-800 mb-4">Dùng từ vựng tốt và câu phức</h3><p class="text-slate-600 mb-4">Cố gắng sử dụng đa dạng từ vựng và kết hợp các câu đơn thành câu phức để thể hiện khả năng ngôn ngữ.</p><div class="bg-white p-4 rounded-lg border border-slate-200"><p class="font-semibold text-slate-700">Ví dụ cải thiện câu:</p><div class="mt-2 space-y-4"><div><p class="text-red-600 bg-red-50 p-2 rounded-md"><strong>Thay vì:</strong> I like music. It is good.</p><p class="text-green-600 bg-green-50 p-2 rounded-md mt-1"><strong>Hãy thử:</strong> I'm passionate about music because it has the power to uplift my mood, especially when I'm listening to energetic pop songs.</p></div><div><p class="text-red-600 bg-red-50 p-2 rounded-md"><strong>Thay vì:</strong> The movie was interesting.</p><p class="text-green-600 bg-green-50 p-2 rounded-md mt-1"><strong>Hãy thử:</strong> The film was absolutely captivating; I was engrossed from the very beginning to the final scene.</p></div></div></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-wrapper">
+            <div class="exercise-header">Practice Topics</div>
+            <div class="accordion"></div>
+        </div>
+    </div>
+
+<script>
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec'; // <--- THAY THẾ URL NÀY
+
+const topics = [
+    { title: "Learning English", questions: ["How long have you been learning English?", "How do you usually study it?", "What do you find most difficult when learning English?"] },
+    { title: "Family", questions: ["Tell me about your family?", "Do you have a large or small family?", "What do your family like doing together?", "Who are you close to in your family?"] },
+    { title: "Houses", questions: ["Do you live in a house or a flat?", "Who do you live with?", "Are there many rooms in your home?", "What is your favourite room?", "What would you change about your home?", "Do you plan to live there in the future?"] },
+    { title: "Hobby", questions: ["What do you often do in your free time?", "Do you play sports?", "Do you watch TV?", "What TV programs do you often watch?", "Do you read books?", "What kinds of books do you often read?"] },
+    { title: "Job", questions: ["What do you do? / What's your job?", "Where do you work?", "What responsibilities do you have at work?", "What do you like about your job?", "Is there anything you dislike about your job?"] },
+    { title: "Travel", questions: ["Do you like travelling?", "Have you travelled this year?", "Where do you like to travel during the holidays?", "What do you often do when you travel?"] },
+    { title: "Hometown", questions: ["Where do you live? Where are you from?", "What is it famous for?", "What do people do when visiting your hometown?", "How's the weather in your hometown?", "What do you like best about it?"] },
+    { title: "Food", questions: ["What food do you like best?", "What do you usually have for breakfast?", "What's your favourite meal of the day?", "Where do you usually have lunch?", "How often do you eat out?", "What restaurant do you often go to?", "What kind of food does it serve?"] },
+    { title: "Health", questions: ["Is it important to eat healthy food?", "What do you do to keep fit and healthy?", "Do you do anything which is not healthy?", "What do you think is more important, eating a healthy diet or doing exercise?"] },
+    { title: "Tramsport", questions: ["How do you usually get to and from work/ college? Why?", "How often do you use public transport?", "What types of public transport do you use?", "How often do you take taxis?", "Do you have any suggestions to improve travel and transport in the town?"] },
+    { title: "Communication", questions: ["How do you usually keep in touch with members of your family? Your friends?", "How often do you make phone calls?", "How often do you send emails?", "Do you prefer to write by hand or on a computer?"] },
+    { title: "The internet", questions: ["How often do you go online?", "What do you use the internet for?", "How do you get online?", "What's your favourite website?"] },
+    { title: "Festivals", questions: ["What's your favourite festival?", "Are there many festivals in the area where you live?", "Do you think festivals are important?", "How did you last celebrate your birthday party?"] }
+];
+
+document.addEventListener('DOMContentLoaded', function () {
+    const accordionContainer = document.querySelector('.accordion');
+    
+    // Generate accordion HTML
+    topics.forEach((topic, index) => {
+        const questionsHTML = topic.questions.map(q => `
+            <li class="question-item" data-question="${q.replace(/"/g, '&quot;')}">
+                <p class="question-text">${q}</p>
+                <div class="practice-area" data-practice-type="Speaking">
+                    <button class="practice-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
+                        Viết bài nói
+                    </button>
+                    <div class="speaking-form mt-4">
+                        <textarea placeholder="Nhập dàn ý hoặc nội dung nói của bạn cho câu hỏi này..."></textarea>
+                        <div class="flex gap-2 mt-2">
+                            <button class="submit-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Gửi bài</button>
+                            <button class="cancel-btn bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Hủy</button>
+                        </div>
+                    </div>
+                    <div class="submitted-articles-container">
+                        <h4 class="submitted-articles-title hidden">Bài đã nộp:</h4>
+                        <div class="articles-list"></div>
+                        <div class="loading-indicator hidden text-sm text-gray-500">Đang tải...</div>
+                    </div>
+                </div>
+            </li>
+        `).join('');
+
+        const itemHTML = `
+        <div class="accordion-item" data-topic-title="${topic.title}">
+            <button class="accordion-header">
+                <span>Topic ${index + 1}: ${topic.title}</span>
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-content-inner">
+                    <h3 class="exercise-title">Let’s talk about ${topic.title.toLowerCase()}</h3>
+                    <ul class="exercise-questions">
+                        ${questionsHTML}
+                    </ul>
+                </div>
+            </div>
+        </div>`;
+        accordionContainer.innerHTML += itemHTML;
+    });
+    
+    setupEventListeners();
+    loadAllSubmissions();
+});
+
+function setupEventListeners() {
+    // Accordion open/close logic
+    document.querySelectorAll('.accordion-header').forEach(button => {
+        button.addEventListener('click', () => {
+            const isActive = button.classList.contains('active');
+            // Close all items
+            document.querySelectorAll('.accordion-header').forEach(b => {
+                b.classList.remove('active');
+                b.nextElementSibling.style.maxHeight = null;
+            });
+            // Open the clicked one if it wasn't active
+            if (!isActive) {
+                button.classList.add('active');
+                const content = button.nextElementSibling;
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // "Luyện tập" button logic
+    document.querySelectorAll('.practice-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            const form = e.target.nextElementSibling;
+            form.style.display = 'block';
+            e.target.style.display = 'none';
+            updateAccordionHeight(e.target);
+        });
+    });
+
+    // "Hủy" button logic
+    document.querySelectorAll('.cancel-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            const form = e.target.closest('.speaking-form');
+            form.style.display = 'none';
+            form.previousElementSibling.style.display = 'block'; // Show practice button
+            form.querySelector('textarea').value = '';
+            updateAccordionHeight(e.target);
+        });
+    });
+
+    // "Gửi bài" button logic
+    document.querySelectorAll('.submit-btn').forEach(btn => btn.addEventListener('click', handleSubmit));
+}
+
+function updateAccordionHeight(element) {
+    const content = element.closest('.accordion-content');
+    if (content && content.style.maxHeight) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+    }
+}
+
+async function handleSubmit(event) {
+    const button = event.target;
+    const questionItem = button.closest('.question-item');
+    const topicItem = button.closest('.accordion-item');
+    
+    const topic = topicItem.dataset.topicTitle;
+    const question = questionItem.dataset.question;
+    const practiceType = questionItem.querySelector('.practice-area').dataset.practiceType;
+    const textarea = questionItem.querySelector('textarea');
+    const articleContent = textarea.value.trim();
+
+    if (!articleContent) {
+        alert('Vui lòng nhập nội dung bài nói.');
+        return;
+    }
+
+    // A bit complex: find number of submissions for THIS question
+    const submissionNumber = questionItem.querySelectorAll('.articles-list .submitted-article').length + 1;
+    const data = { type: practiceType, topic, question, submissionNumber, articleContent };
+
+    button.disabled = true;
+    button.textContent = 'Đang gửi...';
+
+    try {
+        // Using 'no-cors' means we can't read the success response, but it avoids CORS errors.
+        // We will assume success and update the UI optimistically.
+        await fetch(APPS_SCRIPT_URL, { 
+            method: 'POST', 
+            mode: 'no-cors', // Important for simple deployment
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data) 
+        });
+        
+        // Optimistic UI update
+        alert('Gửi bài thành công!');
+        addSubmissionToUI(questionItem.querySelector('.practice-area'), data.articleContent, data.submissionNumber);
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Đã có lỗi xảy ra khi gửi bài. Vui lòng thử lại.');
+    } finally {
+        // Reset form and UI
+        button.disabled = false;
+        button.textContent = 'Gửi bài';
+        textarea.value = '';
+        const form = button.closest('.speaking-form');
+        form.style.display = 'none';
+        form.previousElementSibling.style.display = 'block'; // Show practice button
+        updateAccordionHeight(button);
+    }
+}
+
+function addSubmissionToUI(practiceArea, content, number) {
+    const articlesList = practiceArea.querySelector('.articles-list');
+    const titleContainer = practiceArea.querySelector('.submitted-articles-title');
+    
+    // Sanitize content to prevent HTML injection
+    const sanitizedContent = content.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    const newArticle = document.createElement('details');
+    newArticle.className = 'submitted-article';
+    newArticle.innerHTML = `
+        <summary>Bài nói ${number}</summary>
+        <div class="article-content">${sanitizedContent}</div>
+    `;
+    articlesList.appendChild(newArticle);
+
+    // Show the "Bài đã nộp" title if it's hidden
+    if (titleContainer.classList.contains('hidden')) {
+        titleContainer.classList.remove('hidden');
+    }
+    updateAccordionHeight(articlesList);
+}
+
+async function loadAllSubmissions() {
+    document.querySelectorAll('.loading-indicator').forEach(el => el.classList.remove('hidden'));
+    
+    try {
+        const response = await fetch(APPS_SCRIPT_URL);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+
+        // Clear existing lists to prevent duplicates on reload
+        document.querySelectorAll('.articles-list').forEach(list => list.innerHTML = '');
+
+        // Iterate through the data and populate the UI
+        for (const topicTitle in data) {
+            const topicElement = document.querySelector(`.accordion-item[data-topic-title="${topicTitle}"]`);
+            if (!topicElement) continue;
+
+            const questionsData = data[topicTitle];
+            for (const questionText in questionsData) {
+                const questionElement = topicElement.querySelector(`.question-item[data-question="${questionText.replace(/"/g, '&quot;')}"]`);
+                if (!questionElement) continue;
+                
+                const typesData = questionsData[questionText];
+                if(typesData.Speaking) {
+                    const speakingArea = questionElement.querySelector('.practice-area');
+                    typesData.Speaking.forEach((sub, index) => {
+                         addSubmissionToUI(speakingArea, sub.articleContent, index + 1);
+                    });
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Could not load submissions:', error);
+        document.querySelectorAll('.accordion-item').forEach(item => {
+             const listContainer = item.querySelector('.submitted-articles-container');
+             if(listContainer) {
+                 listContainer.innerHTML = '<p class="text-red-500 text-sm p-2">Lỗi: Không thể tải các bài đã nộp.</p>';
+             }
+        });
+    } finally {
+        document.querySelectorAll('.loading-indicator').forEach(el => el.classList.add('hidden'));
+        // Re-calculate accordion heights after loading content
+        document.querySelectorAll('.accordion-header.active').forEach(header => {
+            const content = header.nextElementSibling;
+            content.style.maxHeight = content.scrollHeight + 'px';
+        });
+    }
+}
+</script>
+
+</body>
+</html>

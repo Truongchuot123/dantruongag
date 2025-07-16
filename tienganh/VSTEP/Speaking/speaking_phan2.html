@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn thi VSTEP - Nguyễn Mai Đan Trường</title>
+     <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:title" content="Trang Chủ - Nguyễn Mai Đan Trường">
+    <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:image" content="/hinhanh/logo web.png">
+    <meta property="og:url" content="https://dantruongag.id.vn">
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/tienganh/VSTEP/Speaking/speaking.css">
+
+        
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 for beautiful pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper.js for banner slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Confetti.js for effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Custom Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fade-in-down { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fade-in 1s ease-out forwards; animation-delay: 0.2s; }
+        .animate-fade-in-down { animation: fade-in-down 0.8s ease-out forwards; }
+        .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+        .animate-delay-1 { animation-delay: 0.4s; }
+        .animate-delay-2 { animation-delay: 0.6s; }
+        .animate-delay-3 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 sm:p-6 lg:p-8">
+
+    <div class="w-full max-w-5xl mx-auto">
+        <!-- Tiêu đề chính -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-red-600 mb-8 animate-fade-in-down">
+            KỸ NĂNG NÓI PHẦN 2 – THẢO LUẬN GIẢI PHÁP
+        </h1>
+
+        <!-- Hộp thông tin tóm tắt -->
+        <div class="bg-blue-100 border-l-4 border-blue-400 text-blue-800 p-6 rounded-lg shadow-md mb-12 mx-auto max-w-md animate-fade-in card-hover-effect">
+            <ul class="space-y-3">
+                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Dài 4 phút</span></li>
+                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h2l4-4v4z"></path></svg><span>Có 1 tình huống và 3 lựa chọn trả lời</span></li>
+                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg><span>Có 1 phút chuẩn bị trước khi nói</span></li>
+                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4m0 0l4 4m-4-4v18"></path></svg><span>Trình bày bài nói trong 2 phút</span></li>
+            </ul>
+        </div>
+
+        <!-- Tiêu đề phụ -->
+        <h2 class="text-2xl sm:text-3xl font-semibold text-center text-gray-700 mb-12 animate-fade-in-up animate-delay-1">
+            Lưu ý khi thi nói tiếng anh phần 2
+        </h2>
+
+        <!-- Hai cột lưu ý -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Cột 1: Trước khi nói -->
+            <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 animate-fade-in-up animate-delay-2 card-hover-effect">
+                <h3 class="text-2xl font-bold mb-4 text-center gradient-text">Trước khi nói</h3>
+                <div class="w-1/4 h-1 bg-yellow-400 mx-auto mb-6"></div>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded bg-yellow-200 border border-yellow-400 mr-4 mt-1"></div>
+                        <span class="text-gray-700">Chọn phương án dễ nói nhất</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded bg-green-200 border border-green-400 mr-4 mt-1"></div>
+                        <span class="text-gray-700">Tìm 2 lợi ích của lựa chọn và 1 bất lợi</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Cột 2: Trong khi nói -->
+            <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 animate-fade-in-up animate-delay-2 card-hover-effect">
+                <h3 class="text-2xl font-bold mb-4 text-center gradient-text">Trong khi nói</h3>
+                <div class="w-1/4 h-1 bg-blue-400 mx-auto mb-6"></div>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded bg-blue-200 border border-blue-400 mr-4 mt-1"></div>
+                        <span class="text-gray-700">Phát triển bài nói thành 3 phần: mở bài, thân bài, kết bài</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded bg-indigo-200 border border-indigo-400 mr-4 mt-1"></div>
+                        <span class="text-gray-700">Tham khảo dàn ý đã chuẩn bị và nói theo mẫu</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Dàn ý -->
+        <div class="bg-gray-800 text-gray-200 p-6 sm:p-8 rounded-lg shadow-2xl animate-fade-in-up animate-delay-3 card-hover-effect">
+            <h3 class="text-3xl font-bold mb-4 text-center text-white">Dàn ý</h3>
+            <div class="w-1/4 h-1 bg-teal-400 mx-auto mb-6"></div>
+            <div class="font-mono text-sm sm:text-base space-y-4 leading-relaxed">
+                <p><span class="text-teal-400">When choosing/ considering among three options...</span> I believe that <strong class="text-yellow-300">[option A]</strong> is the best choice for several ressons</p>
+                <p><span class="text-teal-400">First at all,</span> [resson 1 + example 1]. <span class="text-teal-400">Secondly/Moreover/Besides,</span> [resson 2 + example 2]</p>
+                <p><span class="text-teal-400">However,</span> there are several reasons why I don't choose the other options. <strong class="text-yellow-300">[Option B]</strong> isn't a choice/ because................ <span class="text-teal-400">Besiders/Moreover,</span> I don't choose <strong class="text-yellow-300">[option C]</strong> since......</p>
+                <p><span class="text-teal-400">In conclusion/ In short/ To sum up,</span> If I were in the situation, I would opt to/ for <strong class="text-yellow-300">[option A]</strong></p>
+            </div>
+        </div>
+
+                <div class="exercise-wrapper">
+            <div class="exercise-header">Practice Topics</div>
+            <div class="accordion"></div>
+        </div>
+    </div>
+
+
+    <script>
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec'; // <--- THAY THẾ URL NÀY
+
+const topics = [
+    { title: "Learning English", questions: ["You want to improve your English speaking skills. There are three possible choices: joining an English class at centre, joining an English club or talking to foreigners in public places. Which is the best choice for you?"] },
+    { title: "Family", questions: ["Your family are choosing an activity for your parents' wedding anniversary. Which one is the best choice: a party at a restaurant, going on holiday, a party at home."] },
+    { title: "Houses", questions: ["You are going to get married soon. Where would you choose: live with your parents, buy a flat near the city centre, buy a house 10 kms far away."] },
+    { title: "Hobby", questions: ["You have a Sunday evening out with your friends: seeing a movie, going shopping a singing karaoke. Which one would you choose?"] },
+    { title: "Job", questions: ["You're finding a part-time job to practice English. Your friend suggested 3. types of jobs: a telephone operator, a hotel receptionist and a tourism agent. Which option do you think is the best choice?"] },
+    { title: "Travel", questions: ["It's getting hotter so your family is going to plan a trip: a seaside resort, a lakeside hotel or a countryside cottage. Which one is the best choice?"] },
+    { title: "Hometown", questions: ["You are going on a 3.-day holiday. Which option is the best choice: Da Nang, Hanoi or Hue?"] },
+    { title: "Food", questions: ["Your sister's birthday is coming. Your family are choosing where to hold her birthday party: at home, in a restaurant, in the park. Which do you think is the best choice for her?"] },
+    { title: "Health", questions: ["Your friend wants to improve his/her health. He/ she is thinking of jogging in the park, going to the gym or doing yoga in a yoga club. Which is the best option for him/ her?"] },
+    { title: "Tramsport", questions: ["A group of people is planning a trip from Danang to Hanoi. Three means of transport are suggested: by train, by plane, and by coach. Which means of transport do you think is the best choice?"] },
+    { title: "Communication", questions: ["You are going to contact your close friend. Which option is the best choice: an email, a post mail or a postcard?"] },
+    { title: "The internet", questions: ["You are going to graduate from university and look for a job. Where would you find information: the person who is doing that job, the Internet, newspaper?"] },
+    { title: "Festivals", questions: ["You are considering a birthday present for a friend. There are three suggestions: a clothing item, a book, a pair of movie tickets. Which one would you choose?"] }
+];
+
+document.addEventListener('DOMContentLoaded', function () {
+    const accordionContainer = document.querySelector('.accordion');
+    
+    // Generate accordion HTML
+    topics.forEach((topic, index) => {
+        const questionsHTML = topic.questions.map(q => `
+            <li class="question-item" data-question="${q.replace(/"/g, '&quot;')}">
+                <p class="question-text">${q}</p>
+                <div class="practice-area" data-practice-type="Speaking">
+                    <button class="practice-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
+                        Viết bài nói
+                    </button>
+                    <div class="speaking-form mt-4">
+                        <textarea placeholder="Nhập dàn ý hoặc nội dung nói của bạn cho câu hỏi này..."></textarea>
+                        <div class="flex gap-2 mt-2">
+                            <button class="submit-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Gửi bài</button>
+                            <button class="cancel-btn bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Hủy</button>
+                        </div>
+                    </div>
+                    <div class="submitted-articles-container">
+                        <h4 class="submitted-articles-title hidden">Bài đã nộp:</h4>
+                        <div class="articles-list"></div>
+                        <div class="loading-indicator hidden text-sm text-gray-500">Đang tải...</div>
+                    </div>
+                </div>
+            </li>
+        `).join('');
+
+        const itemHTML = `
+        <div class="accordion-item" data-topic-title="${topic.title}">
+            <button class="accordion-header">
+                <span>Topic ${index + 1}: ${topic.title}</span>
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-content-inner">
+                    <ul class="exercise-questions">
+                        ${questionsHTML}
+                    </ul>
+                </div>
+            </div>
+        </div>`;
+        accordionContainer.innerHTML += itemHTML;
+    });
+    
+    setupEventListeners();
+    loadAllSubmissions();
+});
+
+function setupEventListeners() {
+    // Accordion open/close logic
+    document.querySelectorAll('.accordion-header').forEach(button => {
+        button.addEventListener('click', () => {
+            const isActive = button.classList.contains('active');
+            // Close all items
+            document.querySelectorAll('.accordion-header').forEach(b => {
+                b.classList.remove('active');
+                b.nextElementSibling.style.maxHeight = null;
+            });
+            // Open the clicked one if it wasn't active
+            if (!isActive) {
+                button.classList.add('active');
+                const content = button.nextElementSibling;
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // "Luyện tập" button logic
+    document.querySelectorAll('.practice-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            const form = e.target.nextElementSibling;
+            form.style.display = 'block';
+            e.target.style.display = 'none';
+            updateAccordionHeight(e.target);
+        });
+    });
+
+    // "Hủy" button logic
+    document.querySelectorAll('.cancel-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            const form = e.target.closest('.speaking-form');
+            form.style.display = 'none';
+            form.previousElementSibling.style.display = 'block'; // Show practice button
+            form.querySelector('textarea').value = '';
+            updateAccordionHeight(e.target);
+        });
+    });
+
+    // "Gửi bài" button logic
+    document.querySelectorAll('.submit-btn').forEach(btn => btn.addEventListener('click', handleSubmit));
+}
+
+function updateAccordionHeight(element) {
+    const content = element.closest('.accordion-content');
+    if (content && content.style.maxHeight) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+    }
+}
+
+async function handleSubmit(event) {
+    const button = event.target;
+    const questionItem = button.closest('.question-item');
+    const topicItem = button.closest('.accordion-item');
+    
+    const topic = topicItem.dataset.topicTitle;
+    const question = questionItem.dataset.question;
+    const practiceType = questionItem.querySelector('.practice-area').dataset.practiceType;
+    const textarea = questionItem.querySelector('textarea');
+    const articleContent = textarea.value.trim();
+
+    if (!articleContent) {
+        alert('Vui lòng nhập nội dung bài nói.');
+        return;
+    }
+
+    // A bit complex: find number of submissions for THIS question
+    const submissionNumber = questionItem.querySelectorAll('.articles-list .submitted-article').length + 1;
+    const data = { type: practiceType, topic, question, submissionNumber, articleContent };
+
+    button.disabled = true;
+    button.textContent = 'Đang gửi...';
+
+    try {
+        // Using 'no-cors' means we can't read the success response, but it avoids CORS errors.
+        // We will assume success and update the UI optimistically.
+        await fetch(APPS_SCRIPT_URL, { 
+            method: 'POST', 
+            mode: 'no-cors', // Important for simple deployment
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data) 
+        });
+        
+        // Optimistic UI update
+        alert('Gửi bài thành công!');
+        addSubmissionToUI(questionItem.querySelector('.practice-area'), data.articleContent, data.submissionNumber);
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Đã có lỗi xảy ra khi gửi bài. Vui lòng thử lại.');
+    } finally {
+        // Reset form and UI
+        button.disabled = false;
+        button.textContent = 'Gửi bài';
+        textarea.value = '';
+        const form = button.closest('.speaking-form');
+        form.style.display = 'none';
+        form.previousElementSibling.style.display = 'block'; // Show practice button
+        updateAccordionHeight(button);
+    }
+}
+
+function addSubmissionToUI(practiceArea, content, number) {
+    const articlesList = practiceArea.querySelector('.articles-list');
+    const titleContainer = practiceArea.querySelector('.submitted-articles-title');
+    
+    // Sanitize content to prevent HTML injection
+    const sanitizedContent = content.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    const newArticle = document.createElement('details');
+    newArticle.className = 'submitted-article';
+    newArticle.innerHTML = `
+        <summary>Bài nói ${number}</summary>
+        <div class="article-content">${sanitizedContent}</div>
+    `;
+    articlesList.appendChild(newArticle);
+
+    // Show the "Bài đã nộp" title if it's hidden
+    if (titleContainer.classList.contains('hidden')) {
+        titleContainer.classList.remove('hidden');
+    }
+    updateAccordionHeight(articlesList);
+}
+
+async function loadAllSubmissions() {
+    document.querySelectorAll('.loading-indicator').forEach(el => el.classList.remove('hidden'));
+    
+    try {
+        const response = await fetch(APPS_SCRIPT_URL);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+
+        // Clear existing lists to prevent duplicates on reload
+        document.querySelectorAll('.articles-list').forEach(list => list.innerHTML = '');
+
+        // Iterate through the data and populate the UI
+        for (const topicTitle in data) {
+            const topicElement = document.querySelector(`.accordion-item[data-topic-title="${topicTitle}"]`);
+            if (!topicElement) continue;
+
+            const questionsData = data[topicTitle];
+            for (const questionText in questionsData) {
+                const questionElement = topicElement.querySelector(`.question-item[data-question="${questionText.replace(/"/g, '&quot;')}"]`);
+                if (!questionElement) continue;
+                
+                const typesData = questionsData[questionText];
+                if(typesData.Speaking) {
+                    const speakingArea = questionElement.querySelector('.practice-area');
+                    typesData.Speaking.forEach((sub, index) => {
+                         addSubmissionToUI(speakingArea, sub.articleContent, index + 1);
+                    });
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Could not load submissions:', error);
+        document.querySelectorAll('.accordion-item').forEach(item => {
+             const listContainer = item.querySelector('.submitted-articles-container');
+             if(listContainer) {
+                 listContainer.innerHTML = '<p class="text-red-500 text-sm p-2">Lỗi: Không thể tải các bài đã nộp.</p>';
+             }
+        });
+    } finally {
+        document.querySelectorAll('.loading-indicator').forEach(el => el.classList.add('hidden'));
+        // Re-calculate accordion heights after loading content
+        document.querySelectorAll('.accordion-header.active').forEach(header => {
+            const content = header.nextElementSibling;
+            content.style.maxHeight = content.scrollHeight + 'px';
+        });
+    }
+}
+</script>
+</body>
+</html>
