@@ -175,9 +175,47 @@
                 '/benhhoc/tailieu/HC_tac_ruot.html',
                 '/benhhoc/tailieu/viem_ruot_thua_cap.html',
                 '/benhhoc/tailieu/soi_tui_mat.html',
-                '/benhhoc/tailieu/viem_gan_toi_cap.html',
-
-                '/benhhoc/tailieu/dot_quy_nao.html'
+                '/benhhoc/tailieu/viem_gan_toi_cap.html'
+            ],
+            countUnit: 'tài liệu'
+        },
+        {
+            title: 'HÔ HẤP',
+            iconSvg: `<div class="icon"><i class="fas fa-lungs"></i></div>`,
+            links: [
+                '/benhhoc/tailieu/lao_phoi.html', 
+                '/benhhoc/tailieu//viem_phoi_cong_dong.html', 
+                '/benhhoc/tailieu/nhiem_khuan_ho_hap_cap_tinh_tre_em.html'
+            ],
+            countUnit: 'tài liệu'
+        },
+         {
+            title: 'Nội tiết',
+            iconSvg: `<div class="icon"><i class="fas fa-vial"></i></div>`,
+            links: [
+                '/benhhoc/tailieu', 
+                '/benhhoc/tailieu/', 
+                '/benhhoc/tailieu/'
+            ],
+            countUnit: 'tài liệu'
+        },
+        {
+            title: 'TIẾT NIỆU',
+            iconSvg: `<div class="icon"><i class=""></i></div>`,
+            links: [
+                '/benhhoc/tailieu', 
+                '/benhhoc/tailieu/', 
+                '/benhhoc/tailieu/'
+            ],
+            countUnit: 'tài liệu'
+        },
+         {
+            title: 'TIẾT NIỆU',
+            iconSvg: `<div class="icon"><i class=""></i></div>`,
+            links: [
+                '/benhhoc/tailieu', 
+                '/benhhoc/tailieu/', 
+                '/benhhoc/tailieu/'
             ],
             countUnit: 'tài liệu'
         }

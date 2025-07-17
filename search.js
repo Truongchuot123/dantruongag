@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
         {
             title: 'Bảng phiên âm quốc tế IPA',
-            description: 'Cùng người bản cải thiện phát âm ',
+            description: 'Học và luyện tập tất cả các âm trong bảng ký hiệu ngữ âm quốc tế để cải thiện phát âm tiếng Anh của bạn một cách hiệu quả. ',
             url: '/tienganh/IPA.html',
             icon: 'fa-language'
         },
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     title: titleText,
                     description: `Xem chi tiết về "${titleText}".`,
                     url: url,
-                    icon: 'fa-lungs' // Icon phù hợp hơn cho giải phẫu/bệnh học
+                    icon: 'fa fa-file' 
                 };
             } else {
                 console.warn(`⚠️ Cảnh báo: Không tìm thấy cấu trúc tiêu đề phù hợp trong tệp '${url}'.`);

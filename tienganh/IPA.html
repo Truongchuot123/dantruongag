@@ -31,48 +31,51 @@
     <script src="https://www.youtube.com/iframe_api"></script>
   </head>
     <style>
-        /* Custom styles and animations */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+     /* Custom styles and animations */
+    body {
+        font-family: 'Inter', sans-serif;
+    }
 
-        /* Animation for cards appearing on load */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    /* Animation for IPA cards */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .ipa-card {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s ease-out forwards;
+    }
 
-        .ipa-card {
-            /* Initial state for animation */
+    /* Video container transition */
+    .video-frame {
+        max-height: 0;
+        transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+    }
+    .video-frame.open {
+        max-height: 500px;
+    }
+    
+    /* Button style when video is open */
+    .learn-btn.open { background-color: #ef4444; }
+    .learn-btn.open:hover { background-color: #dc2626; }
+
+    /* --- ✨ NEW CSS FOR HEADER APPEARANCE ✨ --- */
+    @keyframes fadeInDown {
+        from {
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.5s ease-out forwards;
+            transform: translateY(-20px);
         }
-
-        /* Style for the video container transition */
-        .video-frame {
-            max-height: 0;
-            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        .video-frame.open {
-            max-height: 500px; /* Adjust if videos are taller */
-        }
-        
-        /* Style for the button when video is open */
-        .learn-btn.open {
-            background-color: #ef4444; /* Red-500 */
-        }
-        .learn-btn.open:hover {
-            background-color: #dc2626; /* Red-600 */
-        }
+    }
+    #info-container {
+        /* Apply the animation */
+        animation: fadeInDown 0.8s ease-out forwards;
+    }
     </style>
 </head>
     <body class="bg-slate-50 text-slate-800">
@@ -80,159 +83,158 @@
         
     <div id="header-placeholder"></div>
     <div id="search-placeholder"></div>
+        <div class="container mx-auto px-4 py-12 md:py-20">
+                <header class="mb-12 md:mb-16">
+                    <div id="info-container" class="text-center rounded-2xl shadow-2xl p-6 md:p-8 border border-slate-200 bg-gradient-to-br from-blue-50 to-purple-50">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-600 tracking-tight">Bảng Phiên Âm Quốc Tế</h1>
+                        <p class="text-lg md:text-xl text-slate-500 mt-2">International Phonetic Alphabet (IPA)</p>
+                        
+                        <div class="mt-6 max-w-4xl mx-auto text-left">
+                            <hr class="my-6 border-slate-300/70">
+                            
+                            <h2 class="text-xl font-semibold text-slate-800 mb-2">1. Bảng phiên âm quốc tế IPA là gì?</h2>
+                            <p class="text-slate-600 mb-6">
+                                Bảng phiên âm quốc tế IPA là một bảng gồm những ký tự Latin với 44 âm tiếng Anh cơ bản, trong đó bao gồm 24 phụ âm (consonant sounds) và 20 nguyên âm (vowel sounds). Trong các từ điển tiếng Anh, cách phiên âm thường được đặt trong ô ngoặc bên cạnh hoặc phía dưới từ vựng. Dựa vào đó mà người học có thể phát âm chính xác từ vựng này.
+                            </p>
 
-    <div class="container mx-auto px-4 py-12 md:py-20">
-
-        <!-- Header Section -->
-        <header class="text-center mb-12 md:mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-600 mb-2 tracking-tight">Bảng Phiên Âm Quốc Tế</h1>
-            <p class="text-lg md:text-xl text-slate-500">International Phonetic Alphabet (IPA)</p>
-            <p class="mt-4 max-w-3xl mx-auto text-slate-600">
-                Học và luyện tập tất cả các âm trong bảng ký hiệu ngữ âm quốc tế để cải thiện phát âm tiếng Anh của bạn một cách hiệu quả.
-            </p>
-        </header>
-
-        <!-- IPA Grid Container -->
-        <main id="ipa-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- IPA cards will be dynamically inserted here by JavaScript -->
-        </main>
-
-    </div>
-
-    <script>
-        // --- DATA ---
-        // An array of objects to hold the data for each IPA sound.
-        // This makes the HTML cleaner and easier to manage.
-        const ipaSounds = [
-            { symbol: 'p', videoId: 'CxtAwAfEhao' }, { symbol: 'b', videoId: 'fCenV8TgWpQ' },
-            { symbol: 't', videoId: 'EDfOv-WhWmE' }, { symbol: 'd', videoId: 'xPPGX4dv5Eo' },
-            { symbol: 'tʃ', text: 'ʧ', videoId: 'WIvIrCz-k1M' }, { symbol: 'dʒ', text: 'ʤ', videoId: 'm8jaDyWq4zk' },
-            { symbol: 'k', videoId: 'eMlci4X6SeI' }, { symbol: 'g', videoId: 'hIm7BwZMqPo' },
-            { symbol: 'f', videoId: 'pz7QO_Ye3YQ' }, { symbol: 'v', videoId: 'ui-UtFPZYds' },
-            { symbol: 'θ', videoId: 'iDlbkyzJNcY' }, { symbol: 'ð', videoId: 'kCHZoPZcPXg' },
-            { symbol: 's', videoId: 'Yof1BQPaRc4' }, { symbol: 'z', videoId: 'dGTIMhKR4n0' },
-            { symbol: 'ʃ', videoId: 'cN4ZkIktnTo' }, { symbol: 'ʒ', videoId: 'mUCFMXqU43o' },
-            { symbol: 'h', videoId: '2AvwyD-bihM' }, { symbol: 'm', videoId: '8meCF9Hrj4U' },
-            { symbol: 'n', videoId: 'AbAk0jnUMlg' }, { symbol: 'ŋ', videoId: 'wnxutoJOLoQ' },
-            { symbol: 'l', videoId: '7Ma-SGB3fug' }, { symbol: 'r', videoId: 'ZMV0aNx-1Jg' },
-            { symbol: 'w', videoId: 'HpfPSzMF63Q' }, { symbol: 'j', videoId: 'MTXxsNEE8EY' },
-            { symbol: 'ɪ', videoId: 'HsKWHxhSwnc' }, { symbol: 'iː', text: 'i:', videoId: 'PjnoeDmSO_w' },
-            { symbol: 'ʊ', videoId: 'cnqb2qGhdbU' }, { symbol: 'uː', text: 'u:', videoId: 'HOZngteqqzM' },
-            { symbol: 'e', videoId: 'kmNc8FGNGMk' }, { symbol: 'ə', videoId: '8gwWFwxbJNw' },
-            { symbol: 'ɜː', text: 'ɜ:', videoId: 'Mhb55KK8P1g' }, { symbol: 'ɔː', text: 'ɔ:', videoId: 'hUIpo2hD8b0' },
-            { symbol: 'æ', videoId: 'ouMXAWG8hZ0' }, { symbol: 'ʌ', videoId: '5cOVsoZiuU0' },
-            { symbol: 'ɑː', text: 'ɑ:', videoId: 'guge8DCl8ho' }, { symbol: 'ɒ', videoId: 'Mhb55KK8P1g' }, // Note: Re-using video for example
-            { symbol: 'eɪ', text: 'eɪ', videoId: '26zPMG2rzuI' }, { symbol: 'aɪ', text: 'aɪ', videoId: 'Y4uYs85BoLU' },
-            { symbol: 'ɔɪ', text: 'ɔɪ', videoId: 'aH1QN2CmkY0' }, { symbol: 'əʊ', text: 'əʊ', videoId: 'hS6I--dmtkM' },
-            { symbol: 'aʊ', text: 'aʊ', videoId: '8wSdmU8CmLU' }, { symbol: 'ɪə', text: 'ɪə', videoId: 'HiwVDA-tjfo' },
-            { symbol: 'eə', text: 'eə', videoId: 'pHARyStoz3w' }, { symbol: 'ʊə', text: 'ʊə', videoId: 'cnqb2qGhdbU' } // Note: Re-using video for example
-        ];
-
-        // --- GLOBAL STATE ---
-        let players = {}; // To store YouTube player instances
-        let openVideoId = null; // To track the currently open video
-
-        // --- DYNAMIC CONTENT GENERATION ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const grid = document.getElementById('ipa-grid');
-            if (!grid) return;
-
-            ipaSounds.forEach((sound, index) => {
-                // Create the main card container
-                const card = document.createElement('div');
-                card.className = 'ipa-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1';
-                card.style.animationDelay = `${index * 50}ms`; // Staggered animation effect
-                
-                const displayText = sound.text || sound.symbol;
-
-                // Card's inner HTML
-                card.innerHTML = `
-                    <div class="p-4 flex justify-between items-center cursor-pointer">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-blue-100 text-blue-800 w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl">${displayText}</span>
-                            <span class="text-lg font-semibold text-slate-700">Âm /${displayText}/</span>
+                            <h2 class="text-xl font-semibold text-slate-800 mb-4">2. Tại sao cần học phát âm theo bảng phiên âm chuẩn quốc tế IPA?</h2>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                                <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
+                                    <i class="fa-solid fa-microphone-lines text-3xl text-green-500 mb-2"></i>
+                                    <h3 class="font-semibold text-slate-700">Giúp phát âm chuẩn xác</h3>
+                                </div>
+                                <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
+                                    <i class="fa-solid fa-ear-listen text-3xl text-purple-500 mb-2"></i>
+                                    <h3 class="font-semibold text-slate-700">Hiểu rõ ngữ âm</h3>
+                                </div>
+                                <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
+                                    <i class="fa-solid fa-book-open-reader text-3xl text-orange-500 mb-2"></i>
+                                    <h3 class="font-semibold text-slate-700">Giúp tự học và tự kiểm tra</h3>
+                                </div>
+                            </div>
                         </div>
-                        <button class="learn-btn flex-shrink-0 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" data-video-id="${sound.videoId}">
-                            Học
-                        </button>
                     </div>
-                    <div class="video-frame">
-                        <div id="player-${sound.videoId}"></div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        });
-        
-        // --- EVENT HANDLING ---
-        document.body.addEventListener('click', function(e) {
-            const button = e.target.closest('.learn-btn');
-            if (button) {
-                const videoId = button.dataset.videoId;
-                toggleVideo(videoId, button);
-            }
-        });
+                </header>
 
-        /**
-         * Toggles the visibility of a video player.
-         * @param {string} videoId - The YouTube video ID.
-         * @param {HTMLElement} clickedButton - The button that was clicked.
-         */
-        function toggleVideo(videoId, clickedButton) {
-            const currentVideoFrame = clickedButton.closest('.ipa-card').querySelector('.video-frame');
-            const isOpening = !currentVideoFrame.classList.contains('open');
+                <main id="ipa-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    </main>
 
-            // 1. Close any previously opened video
-            if (openVideoId && openVideoId !== videoId) {
-                const oldPlayer = players[openVideoId];
-                if (oldPlayer && typeof oldPlayer.pauseVideo === 'function') {
-                    oldPlayer.pauseVideo();
-                }
-                const oldCard = document.querySelector(`#player-${openVideoId}`).closest('.ipa-card');
-                if(oldCard) {
-                    oldCard.querySelector('.video-frame').classList.remove('open');
-                    const oldButton = oldCard.querySelector('.learn-btn');
-                    oldButton.classList.remove('open');
-                    oldButton.innerHTML = 'Học';
-                }
-            }
-            
-            // 2. Toggle the current video
-            currentVideoFrame.classList.toggle('open');
-            clickedButton.classList.toggle('open');
+            </div>
 
-            if (isOpening) {
-                openVideoId = videoId;
-                clickedButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>`; // Close Icon
-                
-                // 3. Create or play the video
-                if (players[videoId]) {
-                    players[videoId].playVideo();
-                } else {
-                    // Create a new player instance (lazy loading)
-                    players[videoId] = new YT.Player(`player-${videoId}`, {
-                        height: '270',
-                        width: '100%',
-                        videoId: videoId,
-                        playerVars: {
-                            'playsinline': 1,
-                            'autoplay': 1,
-                            'rel': 0 // Hide related videos
-                        },
-                        events: {
-                            'onReady': (event) => event.target.playVideo()
-                        }
+            <script>
+                // --- DATA ---
+                const ipaSounds = [
+                    { symbol: 'p', videoId: 'CxtAwAfEhao' }, { symbol: 'b', videoId: 'fCenV8TgWpQ' },
+                    { symbol: 't', videoId: 'EDfOv-WhWmE' }, { symbol: 'd', videoId: 'xPPGX4dv5Eo' },
+                    { symbol: 'tʃ', text: 'ʧ', videoId: 'WIvIrCz-k1M' }, { symbol: 'dʒ', text: 'ʤ', videoId: 'm8jaDyWq4zk' },
+                    { symbol: 'k', videoId: 'eMlci4X6SeI' }, { symbol: 'g', videoId: 'hIm7BwZMqPo' },
+                    { symbol: 'f', videoId: 'pz7QO_Ye3YQ' }, { symbol: 'v', videoId: 'ui-UtFPZYds' },
+                    { symbol: 'θ', videoId: 'iDlbkyzJNcY' }, { symbol: 'ð', videoId: 'kCHZoPZcPXg' },
+                    { symbol: 's', videoId: 'Yof1BQPaRc4' }, { symbol: 'z', videoId: 'dGTIMhKR4n0' },
+                    { symbol: 'ʃ', videoId: 'cN4ZkIktnTo' }, { symbol: 'ʒ', videoId: 'mUCFMXqU43o' },
+                    { symbol: 'h', videoId: '2AvwyD-bihM' }, { symbol: 'm', videoId: '8meCF9Hrj4U' },
+                    { symbol: 'n', videoId: 'AbAk0jnUMlg' }, { symbol: 'ŋ', videoId: 'wnxutoJOLoQ' },
+                    { symbol: 'l', videoId: '7Ma-SGB3fug' }, { symbol: 'r', videoId: 'ZMV0aNx-1Jg' },
+                    { symbol: 'w', videoId: 'HpfPSzMF63Q' }, { symbol: 'j', videoId: 'MTXxsNEE8EY' },
+                    { symbol: 'ɪ', videoId: 'HsKWHxhSwnc' }, { symbol: 'iː', text: 'i:', videoId: 'PjnoeDmSO_w' },
+                    { symbol: 'ʊ', videoId: 'cnqb2qGhdbU' }, { symbol: 'uː', text: 'u:', videoId: 'HOZngteqqzM' },
+                    { symbol: 'e', videoId: 'kmNc8FGNGMk' }, { symbol: 'ə', videoId: '8gwWFwxbJNw' },
+                    { symbol: 'ɜː', text: 'ɜ:', videoId: 'Mhb55KK8P1g' }, { symbol: 'ɔː', text: 'ɔ:', videoId: 'hUIpo2hD8b0' },
+                    { symbol: 'æ', videoId: 'ouMXAWG8hZ0' }, { symbol: 'ʌ', videoId: '5cOVsoZiuU0' },
+                    { symbol: 'ɑː', text: 'ɑ:', videoId: 'guge8DCl8ho' }, { symbol: 'ɒ', videoId: 'Mhb55KK8P1g' },
+                    { symbol: 'eɪ', text: 'eɪ', videoId: '26zPMG2rzuI' }, { symbol: 'aɪ', text: 'aɪ', videoId: 'Y4uYs85BoLU' },
+                    { symbol: 'ɔɪ', text: 'ɔɪ', videoId: 'aH1QN2CmkY0' }, { symbol: 'əʊ', text: 'əʊ', videoId: 'hS6I--dmtkM' },
+                    { symbol: 'aʊ', text: 'aʊ', videoId: '8wSdmU8CmLU' }, { symbol: 'ɪə', text: 'ɪə', videoId: 'HiwVDA-tjfo' },
+                    { symbol: 'eə', text: 'eə', videoId: 'pHARyStoz3w' }, { symbol: 'ʊə', text: 'ʊə', videoId: 'cnqb2qGhdbU' }
+                ];
+
+                // --- GLOBAL STATE ---
+                let players = {};
+                let openVideoId = null; 
+
+                // --- DYNAMIC CONTENT GENERATION ---
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Logic for IPA grid is now the only main function here
+                    const grid = document.getElementById('ipa-grid');
+                    if (!grid) return;
+
+                    ipaSounds.forEach((sound, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'ipa-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1';
+                        card.style.animationDelay = `${index * 50}ms`;
+                        
+                        const displayText = sound.text || sound.symbol;
+
+                        card.innerHTML = `
+                            <div class="p-4 flex justify-between items-center cursor-pointer">
+                                <div class="flex items-center gap-4">
+                                    <span class="bg-blue-100 text-blue-800 w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl">${displayText}</span>
+                                    <span class="text-lg font-semibold text-slate-700">Âm /${displayText}/</span>
+                                </div>
+                                <button class="learn-btn flex-shrink-0 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" data-video-id="${sound.videoId}">Học</button>
+                            </div>
+                            <div class="video-frame">
+                                <div id="player-${sound.videoId}"></div>
+                            </div>
+                        `;
+                        grid.appendChild(card);
                     });
+                });
+                
+                // --- EVENT HANDLING ---
+                document.body.addEventListener('click', function(e) {
+                    const button = e.target.closest('.learn-btn');
+                    if (button) {
+                        const videoId = button.dataset.videoId;
+                        toggleVideo(videoId, button);
+                    }
+                });
+
+                function toggleVideo(videoId, clickedButton) {
+                    const currentVideoFrame = clickedButton.closest('.ipa-card').querySelector('.video-frame');
+                    const isOpening = !currentVideoFrame.classList.contains('open');
+
+                    if (openVideoId && openVideoId !== videoId) {
+                        const oldPlayer = players[openVideoId];
+                        if (oldPlayer && typeof oldPlayer.pauseVideo === 'function') {
+                            oldPlayer.pauseVideo();
+                        }
+                        const oldCard = document.querySelector(`#player-${openVideoId}`).closest('.ipa-card');
+                        if(oldCard) {
+                            oldCard.querySelector('.video-frame').classList.remove('open');
+                            const oldButton = oldCard.querySelector('.learn-btn');
+                            oldButton.classList.remove('open');
+                            oldButton.innerHTML = 'Học';
+                        }
+                    }
+                    
+                    currentVideoFrame.classList.toggle('open');
+                    clickedButton.classList.toggle('open');
+
+                    if (isOpening) {
+                        openVideoId = videoId;
+                        clickedButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>`;
+                        
+                        if (players[videoId]) {
+                            players[videoId].playVideo();
+                        } else {
+                            players[videoId] = new YT.Player(`player-${videoId}`, {
+                                height: '270',
+                                width: '100%',
+                                videoId: videoId,
+                                playerVars: { 'playsinline': 1, 'autoplay': 1, 'rel': 0 },
+                                events: { 'onReady': (event) => event.target.playVideo() }
+                            });
+                        }
+                    } else {
+                        if (players[videoId]) {
+                            players[videoId].pauseVideo();
+                        }
+                        openVideoId = null;
+                        clickedButton.textContent = 'Học';
+                    }
                 }
-            } else {
-                // Closing the video
-                if (players[videoId]) {
-                    players[videoId].pauseVideo();
-                }
-                openVideoId = null;
-                clickedButton.textContent = 'Học';
-            }
-        }
     </script>
 
 
