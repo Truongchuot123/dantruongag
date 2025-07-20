@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocabulary - Nguyễn Mai Đan Trường</title>
-    <!-- Tailwind CSS for rapid UI development -->
-     <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
     <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
     <meta property="og:image" content="/hinhanh/logo web.png">
     <meta property="og:url" content="https://dantruongag.id.vn">
     <!-- Tailwind CSS for rapid UI development -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/style.css">
-        
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- SweetAlert2 for beautiful pop-ups -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Swiper.js for banner slider -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Confetti.js for effects -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <!-- Custom Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,13 +40,7 @@
         
         /* Animation for highlighting a card when scrolling to it */
         .highlight-scroll {
-            animation: highlight-animation-light 2s ease-out;
-        }
-
-        @keyframes highlight-animation-light {
-            0% { background-color: rgba(254, 249, 195, 0.8); transform: scale(1); } /* yellow-100 with opacity */
-            20% { transform: scale(1.02); }
-            100% { background-color: transparent; transform: scale(1); }
+            animation: highlight-animation-dark 2s ease-out;
         }
 
         @keyframes highlight-animation-dark {
@@ -63,10 +49,6 @@
             100% { background-color: transparent; transform: scale(1); }
         }
         
-        html.dark .highlight-scroll {
-            animation-name: highlight-animation-dark;
-        }
-
         /* Custom styles for Swal2 Form */
         .swal2-input, .swal2-textarea, .swal2-select {
             width: 100% !important;
@@ -119,46 +101,42 @@
 
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 p-4 sm:p-6 lg:p-8">
+<body class="bg-gray-900 text-gray-200 p-4 sm:p-6 lg:p-8">
 
     <div class="max-w-5xl mx-auto">
         <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-            <h1 class="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">Hệ thống học từ vựng</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-purple-400">Hệ thống học từ vựng</h1>
             <div class="flex items-center gap-2 sm:gap-4">
-                <button onclick="goBack()" class="bg-white dark:bg-gray-700 dark:hover:bg-gray-600 hover:bg-gray-100 font-bold py-2 px-4 rounded-lg transition-colors shadow-sm border dark:border-gray-600">
+                <button onclick="goBack()" class="bg-gray-700 hover:bg-gray-600 font-bold py-2 px-4 rounded-lg transition-colors shadow-sm border border-gray-600">
                     &larr; Quay về
                 </button>
                 <button id="add-word-btn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-md">
                     + Thêm từ
                 </button>
-                <button id="dark-mode-toggle" class="p-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-sm border dark:border-gray-600">
-                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                </button>
             </div>
         </header>
 
         <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" id="search" placeholder="Tìm kiếm từ vựng..." class="w-full p-3 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-purple-500 dark:focus:border-purple-400 transition-colors">
-            <div class="flex items-center justify-center space-x-1 bg-gray-200 dark:bg-gray-800 p-1 rounded-lg">
+            <input type="text" id="search" placeholder="Tìm kiếm từ vựng..." class="w-full p-3 bg-gray-800 border-2 border-gray-600 rounded-lg focus:outline-none focus:border-purple-400 transition-colors">
+            <div class="flex items-center justify-center space-x-1 bg-gray-800 p-1 rounded-lg">
                 <button onclick="setFilter('all', this)" class="filter-btn active w-full py-2 px-4 rounded-md font-semibold transition-all">Tất cả</button>
                 <button onclick="setFilter('checked', this)" class="filter-btn w-full py-2 px-4 rounded-md font-semibold transition-all">Đã học</button>
                 <button onclick="setFilter('unchecked', this)" class="filter-btn w-full py-2 px-4 rounded-md font-semibold transition-all">Chưa học</button>
             </div>
         </div>
         
-        <div id="stats" class="text-center text-gray-600 dark:text-gray-400 font-semibold mb-4"></div>
+        <div id="stats" class="text-center text-gray-400 font-semibold mb-4"></div>
         
         <!-- Topic Search Input -->
         <div class="mb-4">
-            <input type="text" id="topic-search" placeholder="Tìm kiếm chủ đề..." class="w-full p-3 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-purple-500 dark:focus:border-purple-400 transition-colors">
+            <input type="text" id="topic-search" placeholder="Tìm kiếm chủ đề..." class="w-full p-3 bg-gray-800 border-2 border-gray-600 rounded-lg focus:outline-none focus:border-purple-400 transition-colors">
         </div>
 
-        <div id="topicNav" class="mb-4 border-b-2 dark:border-gray-700 sticky top-0 bg-gray-50 dark:bg-gray-900 py-2 z-10 overflow-x-auto whitespace-nowrap"></div>
+        <div id="topicNav" class="mb-4 border-b-2 border-gray-700 sticky top-0 bg-gray-900 py-2 z-10 overflow-x-auto whitespace-nowrap"></div>
 
         <div id="vocab-list" class="space-y-4">
             <div id="loader" class="text-center p-10">
-                <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-purple-600 dark:border-purple-400 mx-auto"></div>
+                <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-purple-400 mx-auto"></div>
                 <p class="mt-4 text-lg font-semibold text-gray-500">hệ thống đang lấy dữ liệu...</p>
             </div>
         </div>
@@ -183,7 +161,7 @@
         window.history.back();
     }
     
-    async function apiCall(formData) {
+    async function apiCall(formData, isUpdate = false) {
         Swal.fire({
             title: 'Hệ thống đang xử lý...',
             html: 'Vui lòng đợi trong giây lát...',
@@ -194,10 +172,13 @@
         try {
             await fetch(SCRIPT_URL, { method: 'POST', body: formData });
             await loadVocabulary(); 
+            const successTitle = isUpdate ? 'Cập nhật thành công!' : 'Thêm thành công!';
+            const successHtml = isUpdate ? 'Đã cập nhật từ vựng trong hệ thống.' : 'Đã thêm từ vựng mới vào hệ thống.';
+            
             const result = await Swal.fire({
                 icon: 'success',
-                title: 'Thành công!',
-                html: 'Đã thêm từ vựng mới vào hệ thống.',
+                title: successTitle,
+                html: successHtml,
                 showConfirmButton: true,
                 confirmButtonText: 'Nhập tiếp từ mới',
                 showCancelButton: true,
@@ -231,7 +212,6 @@
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
 
-            // *** FIX: Handle case-insensitivity for all properties from Google Sheet ***
             allWords = data.map((word) => {
                 const englishWord = word.english || word.English || '';
                 return {
@@ -245,7 +225,7 @@
                     example: word.example || word.Example || '',
                     topic: word.topic || word.Topic || 'Chưa phân loại',
                     checked: localStorage.getItem(`vocab_checked_${englishWord}`) === "true",
-                    id: word.ID || word.Id || englishWord 
+                    id: word.ID || word.Id || englishWord // IMPORTANT: Using the row number as a unique ID
                 };
             });
 
@@ -253,7 +233,7 @@
         } catch (error) {
             console.error("Fetch error:", error);
             if(container) {
-                container.innerHTML = `<div class="text-center p-6 bg-red-100 dark:bg-red-900 border-l-4 border-red-500 text-red-700 dark:text-red-300 rounded-lg">
+                container.innerHTML = `<div class="text-center p-6 bg-red-900 border-l-4 border-red-500 text-red-300 rounded-lg">
                     <p class="font-bold">Xin lỗi! Hệ thống đang bị lỗi.</p>
                     <p class="text-sm mt-2">Vui lòng kiểm tra lại kết nối mạng.</p>
                 </div>`;
@@ -273,7 +253,7 @@
 
     function setFilter(filter, btn) {
         currentFilter = filter;
-        const activeClasses = ['active', 'bg-purple-600', 'text-white', 'dark:bg-purple-500'];
+        const activeClasses = ['active', 'bg-purple-500', 'text-white'];
         $$('.filter-btn').forEach(b => b.classList.remove(...activeClasses));
         btn.classList.add(...activeClasses);
         displayVocabulary();
@@ -328,7 +308,7 @@
             Object.keys(grouped).sort().forEach(topic => {
                 const topicHeader = document.createElement('h3');
                 topicHeader.textContent = topic;
-                topicHeader.className = 'text-2xl font-bold text-purple-600 dark:text-purple-400 my-4 pb-2 border-b-2 border-purple-200 dark:border-purple-700';
+                topicHeader.className = 'text-2xl font-bold text-purple-400 my-4 pb-2 border-b-2 border-purple-700';
                 topicHeader.id = `section-${topic.replace(/\s+/g, '-')}`;
                 container.appendChild(topicHeader);
 
@@ -353,9 +333,9 @@
         // Create and append the "All Topics" button
         const allBtn = document.createElement('button');
         allBtn.textContent = 'Tất cả chủ đề';
-        allBtn.className = 'nav-button inline-block whitespace-nowrap mr-2 mb-2 px-4 py-2 rounded-full border dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-purple-100 dark:hover:bg-purple-900 hover:border-purple-400 transition-colors';
+        allBtn.className = 'nav-button inline-block whitespace-nowrap mr-2 mb-2 px-4 py-2 rounded-full border border-gray-600 bg-gray-800 hover:bg-purple-900 hover:border-purple-400 transition-colors';
         if (selectedTopic === 'all') {
-            allBtn.classList.add('bg-purple-600', 'text-white', 'dark:bg-purple-500', 'border-purple-600');
+            allBtn.classList.add('bg-purple-500', 'text-white', 'border-purple-600');
         }
         allBtn.onclick = () => selectTopic('all');
         nav.appendChild(allBtn);
@@ -364,9 +344,9 @@
         filteredTopics.sort().forEach(topic => {
             const button = document.createElement('button');
             button.textContent = topic;
-            button.className = 'nav-button inline-block whitespace-nowrap mr-2 mb-2 px-4 py-2 rounded-full border dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-purple-100 dark:hover:bg-purple-900 hover:border-purple-400 transition-colors';
+            button.className = 'nav-button inline-block whitespace-nowrap mr-2 mb-2 px-4 py-2 rounded-full border border-gray-600 bg-gray-800 hover:bg-purple-900 hover:border-purple-400 transition-colors';
             if (selectedTopic === topic) {
-                button.classList.add('bg-purple-600', 'text-white', 'dark:bg-purple-500', 'border-purple-600');
+                button.classList.add('bg-purple-500', 'text-white', 'border-purple-600');
             }
             button.onclick = () => selectTopic(topic);
             nav.appendChild(button);
@@ -375,23 +355,24 @@
 
     function createWordCard(word) {
         const card = document.createElement('div');
-        card.className = `card relative p-5 bg-white dark:bg-gray-800 shadow-md rounded-xl border dark:border-gray-700 transition-all duration-300`;
-        card.id = `card-${String(word.id).toLowerCase().replace(/\s+/g, '-')}`;
-        if (word.checked) card.classList.add('bg-purple-50', 'dark:bg-opacity-20', 'dark:bg-purple-900');
+        card.className = `card relative p-5 bg-gray-800 shadow-md rounded-xl border border-gray-700 transition-all duration-300`;
+        card.id = `card-${String(word.id)}`; // Use the unique ID for the card
+        if (word.checked) card.classList.add('bg-opacity-20', 'bg-purple-900');
 
         card.innerHTML = `
             <div class="flex-1 pr-12">
                 <div class="flex items-center mb-1">
-                    <span class="word text-xl font-bold text-gray-800 dark:text-gray-100">${word.english}</span>
+                    <span class="word text-xl font-bold text-gray-100">${word.english}</span>
                     <button class="speak-btn ml-2 text-gray-500 hover:text-purple-600" title="Đọc từ">🔊</button>
                     ${word.definition ? `<button class="view-def-btn ml-2 text-gray-500 hover:text-purple-600" title="Hiện định nghĩa">👁️</button>` : ''}
+                    <button class="edit-btn ml-2 text-gray-500 hover:text-purple-600" title="Chỉnh sửa từ">✏️</button>
                 </div>
-                <div class="text-gray-500 dark:text-gray-400 text-sm mb-2">
+                <div class="text-gray-400 text-sm mb-2">
                     ${word.ipa ? `<small>[${word.ipa}]</small>` : ''} 
                     ${word.type ? `<small class="font-semibold uppercase ml-2">(${word.type})</small>` : ''}
                 </div>
                 <div class="definition-box mt-2 text-sm space-y-1" style="display: none;" id="def-${word.id}">${formatDefinition(word.definition)}</div>
-                <span class="vietnamese text-lg text-purple-600 dark:text-purple-400 font-medium mt-1">${word.vietnamese}</span>
+                <span class="vietnamese text-lg text-purple-400 font-medium mt-1">${word.vietnamese}</span>
                 ${word.synonym.length ? `<div class="synonym mt-2 text-sm"><strong>Đồng nghĩa:</strong> ${word.synonym.map(s => `<span class="clickable-word text-blue-500 hover:underline cursor-pointer">${s}</span>`).join(', ')}</div>` : ''}
                 ${word.antonym.length ? `<div class="antonym mt-1 text-sm"><strong>Trái nghĩa:</strong> ${word.antonym.map(a => `<span class="clickable-word text-red-500 hover:underline cursor-pointer">${a}</span>`).join(', ')}</div>` : ''}
                 ${formatExamples(word.example, word)}
@@ -402,6 +383,7 @@
         `;
         
         card.querySelector('.speak-btn').addEventListener('click', (e) => { e.stopPropagation(); speak(word.english); });
+        card.querySelector('.edit-btn').addEventListener('click', (e) => { e.stopPropagation(); openForm(word); });
         
         const viewDefBtn = card.querySelector('.view-def-btn');
         if (viewDefBtn) {
@@ -419,9 +401,8 @@
         card.querySelector('.checkbox').addEventListener('change', (e) => {
             word.checked = e.target.checked;
             localStorage.setItem(`vocab_checked_${word.english}`, e.target.checked);
-            card.classList.toggle('bg-purple-50', e.target.checked);
-            card.classList.toggle('dark:bg-opacity-20', e.target.checked);
-            card.classList.toggle('dark:bg-purple-900', e.target.checked);
+            card.classList.toggle('bg-opacity-20', e.target.checked);
+            card.classList.toggle('bg-purple-900', e.target.checked);
             updateStats();
             if (currentFilter !== 'all' || selectedTopic !== 'all') {
                 setTimeout(() => card.remove(), 300);
@@ -431,7 +412,11 @@
     }
 
     const scrollAndHighlight = (text) => {
-        const target = $(`#card-${text.toLowerCase().replace(/\s+/g, '-')}`);
+        // Find the word object first to get its ID
+        const wordObject = allWords.find(w => w.english.toLowerCase() === text.toLowerCase());
+        if (!wordObject) return;
+
+        const target = $(`#card-${wordObject.id}`);
         if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'center' });
             target.classList.add('highlight-scroll');
@@ -443,7 +428,7 @@
         if (!definition) return '';
         return definition.split(/\n|[;；]/).map(line => {
             const parts = line.split(':');
-            if (parts.length > 1) return `<div class="mb-1"><strong class="text-gray-700 dark:text-gray-300">${parts[0].trim()}</strong>: ${parts.slice(1).join(':').trim()}</div>`;
+            if (parts.length > 1) return `<div class="mb-1"><strong class="text-gray-300">${parts[0].trim()}</strong>: ${parts.slice(1).join(':').trim()}</div>`;
             return `<div class="mb-1">${line.trim()}</div>`;
         }).join('');
     }
@@ -459,7 +444,7 @@
         const rest = highlighted.slice(1).map(e => `<div class='extra-example mt-1'>${e}</div>`).join('');
         const seeMoreBtn = highlighted.length > 1 ? `<button class="text-blue-500 text-sm ml-2 hover:underline" onclick="toggleExamples(this, event)">Xem thêm</button>` : '';
 
-        return `<div class="info mt-2 text-sm text-gray-600 dark:text-gray-400"><strong>Ví dụ:</strong><div class="example-line italic">${first} ${seeMoreBtn}</div><div class="hidden">${rest}</div></div>`;
+        return `<div class="info mt-2 text-sm text-gray-400"><strong>Ví dụ:</strong><div class="example-line italic">${first} ${seeMoreBtn}</div><div class="hidden">${rest}</div></div>`;
     }
 
     function toggleExamples(button, event) {
@@ -494,67 +479,68 @@
         speechSynthesis.speak(utterance);
     }
 
-    function openForm() {
+    function openForm(wordToEdit = null) {
+        const isUpdate = wordToEdit !== null;
         const uniqueTopics = [...new Set(allWords.map(word => word.topic).filter(topic => topic && topic !== 'Chưa phân loại'))].sort();
 
         Swal.fire({
-            title: `<h2 class="text-2xl font-bold">Thêm từ vựng mới</h2>`,
+            title: `<h2 class="text-2xl font-bold">${isUpdate ? 'Chỉnh sửa từ vựng' : 'Thêm từ vựng mới'}</h2>`,
             html: `
                 <div class="text-left">
-                    <div class="py-4 border-b dark:border-gray-700">
-                        <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">Thông tin cơ bản</h3>
+                    <div class="py-4 border-b border-gray-700">
+                        <h3 class="text-lg font-semibold text-purple-400 mb-4">Thông tin cơ bản</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="swal-eng" class="block mb-1 font-medium text-sm">Tiếng Anh <span class="text-red-500">*</span></label>
-                                <input id="swal-eng" class="swal2-input" placeholder="Nhập từ tiếng anh..." value="">
+                                <input id="swal-eng" class="swal2-input" placeholder="Nhập từ tiếng anh..." value="${isUpdate ? wordToEdit.english : ''}" ${isUpdate ? 'readonly' : ''}>
                                 <div id="swal-eng-exists-warning" class="text-red-500 text-xs mt-1 h-4"></div>
                             </div>
                             <div>
                                 <label for="swal-ipa" class="block mb-1 font-medium text-sm">IPA <span class="text-red-500">*</span></label>
-                                <input id="swal-ipa" class="swal2-input" placeholder="Nhập phiên âm IPA..." value="">
+                                <input id="swal-ipa" class="swal2-input" placeholder="Nhập phiên âm IPA..." value="${isUpdate ? wordToEdit.ipa : ''}">
                             </div>
                             <div>
                                 <label for="swal-type" class="block mb-1 font-medium text-sm">Loại từ</label>
-                                <input id="swal-type" class="swal2-input" placeholder="e.g., noun, verb..." value="">
+                                <input id="swal-type" class="swal2-input" placeholder="e.g., noun, verb..." value="${isUpdate ? wordToEdit.type : ''}">
                             </div>
                             <div>
                                 <label for="swal-topic-select" class="block mb-1 font-medium text-sm">Chủ đề</label>
                                 <select id="swal-topic-select" class="swal2-select p-3">
                                     <option value="Chưa phân loại">Chưa phân loại</option>
-                                    ${uniqueTopics.map(topic => `<option value="${topic}">${topic}</option>`).join('')}
+                                    ${uniqueTopics.map(topic => `<option value="${topic}" ${isUpdate && wordToEdit.topic === topic ? 'selected' : ''}>${topic}</option>`).join('')}
                                     <option value="--new-topic--">--- Nhập chủ đề mới ---</option>
                                 </select>
                                 <input id="swal-topic-new" class="swal2-input mt-2" placeholder="Nhập tên chủ đề mới..." style="display: none;">
                             </div>
                         </div>
                     </div>
-                    <div class="py-4 border-b dark:border-gray-700">
-                        <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">Nghĩa & Từ liên quan</h3>
+                    <div class="py-4 border-b border-gray-700">
+                        <h3 class="text-lg font-semibold text-purple-400 mb-4">Nghĩa & Từ liên quan</h3>
                         <div>
                             <label for="swal-viet" class="block mb-1 font-medium text-sm">Tiếng Việt <span class="text-red-500">*</span></label>
-                            <input id="swal-viet" class="swal2-input" placeholder="Nhập nghĩa tiếng Việt..." value="">
+                            <input id="swal-viet" class="swal2-input" placeholder="Nhập nghĩa tiếng Việt..." value="${isUpdate ? wordToEdit.vietnamese : ''}">
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                             <div>
                                 <label for="swal-syn" class="block mb-1 font-medium text-sm">Đồng nghĩa</label>
-                                <textarea id="swal-syn" class="swal2-textarea h-24" placeholder="Các từ cách nhau bằng dấu phẩy..."></textarea>
+                                <textarea id="swal-syn" class="swal2-textarea h-24" placeholder="Các từ cách nhau bằng dấu phẩy...">${isUpdate ? wordToEdit.synonym.join(', ') : ''}</textarea>
                             </div>
                             <div>
                                 <label for="swal-ant" class="block mb-1 font-medium text-sm">Trái nghĩa</label>
-                                <textarea id="swal-ant" class="swal2-textarea h-24" placeholder="Các từ cách nhau bằng dấu phẩy..."></textarea>
+                                <textarea id="swal-ant" class="swal2-textarea h-24" placeholder="Các từ cách nhau bằng dấu phẩy...">${isUpdate ? wordToEdit.antonym.join(', ') : ''}</textarea>
                             </div>
                         </div>
                     </div>
                     <div class="pt-4">
-                        <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">Chi tiết & Ví dụ</h3>
+                        <h3 class="text-lg font-semibold text-purple-400 mb-4">Chi tiết & Ví dụ</h3>
                         <div class="space-y-4">
                             <div>
                                 <label for="swal-def" class="block mb-1 font-medium text-sm">Định nghĩa</label>
-                                <textarea id="swal-def" class="swal2-textarea h-28" placeholder="Định nghĩa chi tiết bằng tiếng Anh..."></textarea>
+                                <textarea id="swal-def" class="swal2-textarea h-28" placeholder="Định nghĩa chi tiết bằng tiếng Anh...">${isUpdate ? wordToEdit.definition : ''}</textarea>
                             </div>
                             <div>
                                 <label for="swal-ex" class="block mb-1 font-medium text-sm">Ví dụ</label>
-                                <textarea id="swal-ex" class="swal2-textarea h-28" placeholder="Các câu ví dụ, mỗi câu một dòng..."></textarea>
+                                <textarea id="swal-ex" class="swal2-textarea h-28" placeholder="Các câu ví dụ, mỗi câu một dòng...">${isUpdate ? wordToEdit.example : ''}</textarea>
                             </div>
                         </div>
                     </div>
@@ -568,7 +554,7 @@
             },
             showConfirmButton: true,
             showCancelButton: true,
-            confirmButtonText: 'Thêm từ',
+            confirmButtonText: isUpdate ? 'Cập nhật từ' : 'Thêm từ',
             cancelButtonText: 'Hủy',
             confirmButtonColor: '#8b5cf6',
             focusConfirm: false,
@@ -579,17 +565,33 @@
                 const topicSelect = $('#swal-topic-select');
                 const newTopicInput = $('#swal-topic-new');
 
-                if (engInput) {
+                if (engInput && !isUpdate) { // Only add listener if it's a new word
                     engInput.focus(); 
                     engInput.addEventListener('blur', function() {
-                        const engWord = this.value.trim();
+                        const engWord = this.value.trim().toLowerCase();
                         if (!engWord) {
                             if(warningDiv) warningDiv.textContent = '';
                             return;
                         }
-                        const exists = allWords.some(word => word.english.toLowerCase() === engWord.toLowerCase());
-                        if(warningDiv) {
-                           warningDiv.textContent = exists ? '(!) Từ này đã tồn tại trong sổ tay.' : '';
+                        const existingWord = allWords.find(word => word.english.toLowerCase() === engWord);
+                        if(existingWord) {
+                           warningDiv.textContent = '(!) Từ này đã tồn tại.';
+                           Swal.fire({
+                               title: 'Từ đã tồn tại',
+                               text: `"${existingWord.english}" đã có trong sổ tay. Bạn có muốn chỉnh sửa nó không?`,
+                               icon: 'question',
+                               showCancelButton: true,
+                               confirmButtonColor: '#8b5cf6',
+                               cancelButtonColor: '#d33',
+                               confirmButtonText: 'Có, chỉnh sửa!',
+                               cancelButtonText: 'Không'
+                           }).then((result) => {
+                               if (result.isConfirmed) {
+                                   openForm(existingWord); // Re-open the form in edit mode
+                               }
+                           });
+                        } else {
+                           if(warningDiv) warningDiv.textContent = '';
                         }
                     });
                 }
@@ -616,16 +618,18 @@
                     return false;
                 }
                 
-                const englishRegex = /^[a-zA-Z0-9\s-']+$/; 
-                if (!englishRegex.test(eng)) {
-                    Swal.showValidationMessage(`Ô Tiếng Anh không được chứa ký tự có dấu hoặc ký tự đặc biệt.`);
-                    return false; 
-                }
+                if (!isUpdate) {
+                    const englishRegex = /^[a-zA-Z0-9\s-']+$/; 
+                    if (!englishRegex.test(eng)) {
+                        Swal.showValidationMessage(`Ô Tiếng Anh không được chứa ký tự có dấu hoặc ký tự đặc biệt.`);
+                        return false; 
+                    }
 
-                const exists = allWords.some(word => word.english.toLowerCase() === eng.toLowerCase());
-                if (exists) {
-                    Swal.showValidationMessage(`Từ "${eng}" đã tồn tại. Vui lòng nhập một từ khác.`);
-                    return false;
+                    const exists = allWords.some(word => word.english.toLowerCase() === eng.toLowerCase());
+                    if (exists) {
+                        Swal.showValidationMessage(`Từ "${eng}" đã tồn tại. Vui lòng nhập một từ khác.`);
+                        return false;
+                    }
                 }
 
                 let topic = getVal('swal-topic-select');
@@ -634,7 +638,10 @@
                 }
 
                 const formData = new FormData();
-                formData.append("action", "add");
+                formData.append("action", isUpdate ? "update" : "add");
+                if (isUpdate) {
+                    formData.append("id", wordToEdit.id); // Send the row ID for update
+                }
                 formData.append("english", eng);
                 formData.append("ipa", ipa);
                 formData.append("vietnamese", viet);
@@ -648,45 +655,19 @@
             }
         }).then((result) => {
             if (result.isConfirmed && result.value) {
-                apiCall(result.value);
+                apiCall(result.value, isUpdate);
             }
         });
     }
     
     // --- INITIALIZATION ---
     document.addEventListener('DOMContentLoaded', () => {
-        const toggle = $('#dark-mode-toggle');
-        const html = document.documentElement;
-        const moon = $('#moon-icon');
-        const sun = $('#sun-icon');
-        
-        const applyTheme = (theme) => {
-            if (theme === 'dark') {
-                html.classList.add('dark');
-                if (moon) moon.classList.add('hidden');
-                if (sun) sun.classList.remove('hidden');
-            } else {
-                html.classList.remove('dark');
-                if (moon) moon.classList.remove('hidden');
-                if (sun) sun.classList.add('hidden');
-            }
-        };
-        
-        const currentTheme = localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        applyTheme(currentTheme);
-
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
-                localStorage.theme = newTheme;
-                applyTheme(newTheme);
-            });
-        }
+        // Dark mode is now set by default in the HTML tag with class="dark"
+        // All theme-switching logic has been removed.
         
         $('#search')?.addEventListener('input', displayVocabulary);
-        $('#add-word-btn')?.addEventListener('click', openForm);
+        $('#add-word-btn')?.addEventListener('click', () => openForm());
         $('#topic-search')?.addEventListener('input', () => {
-            // This event only needs to redraw the topic nav, not the whole vocabulary list, for better performance.
             const allAvailableTopics = [...new Set(allWords.map(word => word.topic || 'Chưa phân loại'))];
             updateTopicNav(allAvailableTopics);
         });
@@ -695,7 +676,5 @@
         loadVocabulary();
     });
 </script>
-      <script src="/script.js"></script>
-        <script src="/search.js"></script>
 </body>
 </html>
