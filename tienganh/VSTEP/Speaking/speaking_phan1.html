@@ -347,10 +347,13 @@ function addSubmissionToUI(practiceArea, content, number, scores = {}) {
     // If totalScore is 6.9, progress will be 69. If totalScore is already 69, then just use it.
     const progress = totalScore !== 'N/A' ? (parseFloat(totalScore) * 10) : 0;
 
+    // Determine if the "Xem điểm số" button should be hidden
+    const hideScoreButtonClass = totalScore === 'N/A' ? 'hidden' : '';
+
     newArticle.innerHTML = `
         <summary class="flex justify-between items-center cursor-pointer py-2 px-3 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors duration-200 mb-2">
             <span class="font-semibold text-slate-700">Bài nói ${number}</span>
-            <button class="view-score-btn bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full transition-colors duration-300 ml-auto">
+            <button class="view-score-btn bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full transition-colors duration-300 ml-auto ${hideScoreButtonClass}">
                 Xem điểm số
             </button>
             <svg class="icon ml-2 w-5 h-5 text-gray-600 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
