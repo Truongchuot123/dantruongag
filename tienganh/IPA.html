@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ</title>
+    <title>Bảng phiên âm quốc tế - Nguyễn Mai Đan Trường</title>
     <!-- Tailwind CSS for rapid UI development -->
-     <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
     <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
     <meta property="og:image" content="/hinhanh/logo web.png">
     <meta property="og:url" content="https://dantruongag.id.vn">
@@ -29,9 +29,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <!-- YouTube Iframe API -->
     <script src="https://www.youtube.com/iframe_api"></script>
-  </head>
-    <style>
-     /* Custom styles and animations */
+</head>
+<style>
+    /* Custom styles and animations */
     body {
         font-family: 'Inter', sans-serif;
     }
@@ -47,21 +47,25 @@
         animation: fadeInUp 0.5s ease-out forwards;
     }
 
-    /* Video container transition */
-    .video-frame {
+    /* Video section transition - now controls the entire video area including the toggle button */
+    .video-section {
         max-height: 0;
         transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         overflow: hidden;
     }
-    .video-frame.open {
-        max-height: 500px;
+    .video-section.open {
+        max-height: 600px; /* Increased max-height to accommodate video and button */
     }
     
     /* Button style when video is open */
-    .learn-btn.open { background-color: #ef4444; }
-    .learn-btn.open:hover { background-color: #dc2626; }
+    .learn-btn-main.open {
+        background-color: #ef4444; /* Red color for 'close' state */
+    }
+    .learn-btn-main.open:hover {
+        background-color: #dc2626;
+    }
 
-    /* --- ✨ NEW CSS FOR HEADER APPEARANCE ✨ --- */
+    /* Header appearance animation */
     @keyframes fadeInDown {
         from {
             opacity: 0;
@@ -73,175 +77,269 @@
         }
     }
     #info-container {
-        /* Apply the animation */
         animation: fadeInDown 0.8s ease-out forwards;
     }
-    </style>
-</head>
-    <body class="bg-slate-50 text-slate-800">
+</style>
+<body class="bg-slate-50 text-slate-800">
 
-        
     <div id="header-placeholder"></div>
     <div id="search-placeholder"></div>
-        <div class="container mx-auto px-4 py-12 md:py-20">
-                <header class="mb-12 md:mb-16">
-                    <div id="info-container" class="text-center rounded-2xl shadow-2xl p-6 md:p-8 border border-slate-200 bg-gradient-to-br from-blue-50 to-purple-50">
-                        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-600 tracking-tight">Bảng Phiên Âm Quốc Tế</h1>
-                        <p class="text-lg md:text-xl text-slate-500 mt-2">International Phonetic Alphabet (IPA)</p>
-                        
-                        <div class="mt-6 max-w-4xl mx-auto text-left">
-                            <hr class="my-6 border-slate-300/70">
-                            
-                            <h2 class="text-xl font-semibold text-slate-800 mb-2">1. Bảng phiên âm quốc tế IPA là gì?</h2>
-                            <p class="text-slate-600 mb-6">
-                                Bảng phiên âm quốc tế IPA là một bảng gồm những ký tự Latin với 44 âm tiếng Anh cơ bản, trong đó bao gồm 24 phụ âm (consonant sounds) và 20 nguyên âm (vowel sounds). Trong các từ điển tiếng Anh, cách phiên âm thường được đặt trong ô ngoặc bên cạnh hoặc phía dưới từ vựng. Dựa vào đó mà người học có thể phát âm chính xác từ vựng này.
-                            </p>
+    <div class="container mx-auto px-4 py-12 md:py-20">
+        <header class="mb-12 md:mb-16">
+            <div id="info-container" class="text-center rounded-2xl shadow-2xl p-6 md:p-8 border border-slate-200 bg-gradient-to-br from-blue-50 to-purple-50">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-blue-600 tracking-tight">Bảng Phiên Âm Quốc Tế</h1>
+                <p class="text-lg md:text-xl text-slate-500 mt-2">International Phonetic Alphabet (IPA)</p>
+                
+                <div class="mt-6 max-w-4xl mx-auto text-left">
+                    <hr class="my-6 border-slate-300/70">
+                    
+                    <h2 class="text-xl font-semibold text-slate-800 mb-2">1. Bảng phiên âm quốc tế IPA là gì?</h2>
+                    <p class="text-slate-600 mb-6">
+                        Bảng phiên âm quốc tế IPA là một bảng gồm những ký tự Latin với 44 âm tiếng Anh cơ bản, trong đó bao gồm 24 phụ âm (consonant sounds) và 20 nguyên âm (vowel sounds). Trong các từ điển tiếng Anh, cách phiên âm thường được đặt trong ô ngoặc bên cạnh hoặc phía dưới từ vựng. Dựa vào đó mà người học có thể phát âm chính xác từ vựng này.
+                    </p>
 
-                            <h2 class="text-xl font-semibold text-slate-800 mb-4">2. Tại sao cần học phát âm theo bảng phiên âm chuẩn quốc tế IPA?</h2>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                                <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
-                                    <i class="fa-solid fa-microphone-lines text-3xl text-green-500 mb-2"></i>
-                                    <h3 class="font-semibold text-slate-700">Giúp phát âm chuẩn xác</h3>
-                                </div>
-                                <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
-                                    <i class="fa-solid fa-ear-listen text-3xl text-purple-500 mb-2"></i>
-                                    <h3 class="font-semibold text-slate-700">Hiểu rõ ngữ âm</h3>
-                                </div>
-                                <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
-                                    <i class="fa-solid fa-book-open-reader text-3xl text-orange-500 mb-2"></i>
-                                    <h3 class="font-semibold text-slate-700">Giúp tự học và tự kiểm tra</h3>
-                                </div>
-                            </div>
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">2. Tại sao cần học phát âm theo bảng phiên âm chuẩn quốc tế IPA?</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                        <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
+                            <i class="fa-solid fa-microphone-lines text-3xl text-green-500 mb-2"></i>
+                            <h3 class="font-semibold text-slate-700">Giúp phát âm chuẩn xác</h3>
+                        </div>
+                        <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
+                            <i class="fa-solid fa-ear-listen text-3xl text-purple-500 mb-2"></i>
+                            <h3 class="font-semibold text-slate-700">Hiểu rõ ngữ âm</h3>
+                        </div>
+                        <div class="bg-white/60 p-4 rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center">
+                            <i class="fa-solid fa-book-open-reader text-3xl text-orange-500 mb-2"></i>
+                            <h3 class="font-semibold text-slate-700">Giúp tự học và tự kiểm tra</h3>
                         </div>
                     </div>
-                </header>
-
-                <main id="ipa-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    </main>
-
+                </div>
             </div>
+        </header>
 
-            <script>
-                // --- DATA ---
-                const ipaSounds = [
-                    { symbol: 'p', videoId: 'CxtAwAfEhao' }, { symbol: 'b', videoId: 'fCenV8TgWpQ' },
-                    { symbol: 't', videoId: 'EDfOv-WhWmE' }, { symbol: 'd', videoId: 'xPPGX4dv5Eo' },
-                    { symbol: 'tʃ', text: 'ʧ', videoId: 'WIvIrCz-k1M' }, { symbol: 'dʒ', text: 'ʤ', videoId: 'm8jaDyWq4zk' },
-                    { symbol: 'k', videoId: 'eMlci4X6SeI' }, { symbol: 'g', videoId: 'hIm7BwZMqPo' },
-                    { symbol: 'f', videoId: 'pz7QO_Ye3YQ' }, { symbol: 'v', videoId: 'ui-UtFPZYds' },
-                    { symbol: 'θ', videoId: 'iDlbkyzJNcY' }, { symbol: 'ð', videoId: 'kCHZoPZcPXg' },
-                    { symbol: 's', videoId: 'Yof1BQPaRc4' }, { symbol: 'z', videoId: 'dGTIMhKR4n0' },
-                    { symbol: 'ʃ', videoId: 'cN4ZkIktnTo' }, { symbol: 'ʒ', videoId: 'mUCFMXqU43o' },
-                    { symbol: 'h', videoId: '2AvwyD-bihM' }, { symbol: 'm', videoId: '8meCF9Hrj4U' },
-                    { symbol: 'n', videoId: 'AbAk0jnUMlg' }, { symbol: 'ŋ', videoId: 'wnxutoJOLoQ' },
-                    { symbol: 'l', videoId: '7Ma-SGB3fug' }, { symbol: 'r', videoId: 'ZMV0aNx-1Jg' },
-                    { symbol: 'w', videoId: 'HpfPSzMF63Q' }, { symbol: 'j', videoId: 'MTXxsNEE8EY' },
-                    { symbol: 'ɪ', videoId: 'HsKWHxhSwnc' }, { symbol: 'iː', text: 'i:', videoId: 'PjnoeDmSO_w' },
-                    { symbol: 'ʊ', videoId: 'cnqb2qGhdbU' }, { symbol: 'uː', text: 'u:', videoId: 'HOZngteqqzM' },
-                    { symbol: 'e', videoId: 'kmNc8FGNGMk' }, { symbol: 'ə', videoId: '8gwWFwxbJNw' },
-                    { symbol: 'ɜː', text: 'ɜ:', videoId: 'Mhb55KK8P1g' }, { symbol: 'ɔː', text: 'ɔ:', videoId: 'hUIpo2hD8b0' },
-                    { symbol: 'æ', videoId: 'ouMXAWG8hZ0' }, { symbol: 'ʌ', videoId: '5cOVsoZiuU0' },
-                    { symbol: 'ɑː', text: 'ɑ:', videoId: 'guge8DCl8ho' }, { symbol: 'ɒ', videoId: 'Mhb55KK8P1g' },
-                    { symbol: 'eɪ', text: 'eɪ', videoId: '26zPMG2rzuI' }, { symbol: 'aɪ', text: 'aɪ', videoId: 'Y4uYs85BoLU' },
-                    { symbol: 'ɔɪ', text: 'ɔɪ', videoId: 'aH1QN2CmkY0' }, { symbol: 'əʊ', text: 'əʊ', videoId: 'hS6I--dmtkM' },
-                    { symbol: 'aʊ', text: 'aʊ', videoId: '8wSdmU8CmLU' }, { symbol: 'ɪə', text: 'ɪə', videoId: 'HiwVDA-tjfo' },
-                    { symbol: 'eə', text: 'eə', videoId: 'pHARyStoz3w' }, { symbol: 'ʊə', text: 'ʊə', videoId: 'cnqb2qGhdbU' }
-                ];
+        <main id="ipa-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        </main>
 
-                // --- GLOBAL STATE ---
-                let players = {};
-                let openVideoId = null; 
+    </div>
 
-                // --- DYNAMIC CONTENT GENERATION ---
-                document.addEventListener('DOMContentLoaded', () => {
-                    // Logic for IPA grid is now the only main function here
-                    const grid = document.getElementById('ipa-grid');
-                    if (!grid) return;
+    <script>
+        // --- DATA ---
+        // Added videoId2 for some sounds to demonstrate the "Xem cách khác" functionality.
+        // You can add videoId2 to more entries or modify existing ones.
+        const ipaSounds = [
+            { symbol: 'p', videoId: 'CxtAwAfEhao', videoId2: 'g_t2r2y0Rz0' }, // Re-added videoId2
+            { symbol: 'b', videoId: 'fCenV8TgWpQ', videoId2: '07h67W7N-84' }, // Re-added videoId2
+            { symbol: 't', videoId: 'EDfOv-WhWmE' },
+            { symbol: 'd', videoId: 'xPPGX4dv5Eo' },
+            { symbol: 'tʃ', text: 'ʧ', videoId: 'WIvIrCz-k1M', videoId2: 'j66Qc5gE_3A' }, // Re-added videoId2
+            { symbol: 'dʒ', text: 'ʤ', videoId: 'm8jaDyWq4zk', videoId2: '2LxRluHh3S0' },
+            { symbol: 'k', videoId: 'eMlci4X6SeI' },
+            { symbol: 'g', videoId: 'hIm7BwZMqPo' },
+            { symbol: 'f', videoId: 'pz7QO_Ye3YQ' },
+            { symbol: 'v', videoId: 'ui-UtFPZYds' },
+            { symbol: 'θ', videoId: 'iDlbkyzJNcY' },
+            { symbol: 'ð', videoId: 'kCHZoPZcPXg' },
+            { symbol: 's', videoId: 'Yof1BQPaRc4' },
+            { symbol: 'z', videoId: 'dGTIMhKR4n0' },
+            { symbol: 'ʃ', videoId: 'cN4ZkIktnTo' },
+            { symbol: 'ʒ', videoId: 'mUCFMXqU43o', videoId2: '2LxRluHh3S0' },
+            { symbol: 'h', videoId: '2AvwyD-bihM' },
+            { symbol: 'm', videoId: '8meCF9Hrj4U' },
+            { symbol: 'n', videoId: 'AbAk0jnUMlg' },
+            { symbol: 'ŋ', videoId: 'wnxutoJOLoQ' },
+            { symbol: 'l', videoId: '7Ma-SGB3fug' },
+            { symbol: 'r', videoId: 'ZMV0aNx-1Jg' },
+            { symbol: 'w', videoId: 'HpfPSzMF63Q' },
+            { symbol: 'j', videoId: 'MTXxsNEE8EY' },
+            { symbol: 'ɪ', videoId: 'HsKWHxhSwnc' },
+            { symbol: 'iː', text: 'i:', videoId: 'PjnoeDmSO_w' },
+            { symbol: 'ʊ', videoId: 'cnqb2qGhdbU' },
+            { symbol: 'uː', text: 'u:', videoId: 'HOZngteqqzM' },
+            { symbol: 'e', videoId: 'kmNc8FGNGMk' },
+            { symbol: 'ə', videoId: '8gwWFwxbJNw' },
+            { symbol: 'ɜː', text: 'ɜ:', videoId: 'Mhb55KK8P1g' },
+            { symbol: 'ɔː', text: 'ɔ:', videoId: 'hUIpo2hD8b0' },
+            { symbol: 'æ', videoId: 'ouMXAWG8hZ0' },
+            { symbol: 'ʌ', videoId: '5cOVsoZiuU0' },
+            { symbol: 'ɑː', text: 'ɑ:', videoId: 'guge8DCl8ho' },
+            { symbol: 'ɒ', videoId: 'Mhb55KK8P1g' }, // Note: This videoId is duplicated with 'ɜː', consider changing if needed.
+            { symbol: 'eɪ', text: 'eɪ', videoId: '26zPMG2rzuI' },
+            { symbol: 'aɪ', text: 'aɪ', videoId: 'Y4uYs85BoLU' },
+            { symbol: 'ɔɪ', text: 'ɔɪ', videoId: 'aH1QN2CmkY0' },
+            { symbol: 'əʊ', text: 'əʊ', videoId: 'hS6I--dmtkM' },
+            { symbol: 'aʊ', text: 'aʊ', videoId: '8wSdmU8CmLU' },
+            { symbol: 'ɪə', text: 'ɪə', videoId: 'HiwVDA-tjfo' },
+            { symbol: 'eə', text: 'eə', videoId: 'pHARyStoz3w' },
+            { symbol: 'ʊə', text: 'ʊə', videoId: 'cnqb2qGhdbU' } // Note: This videoId is duplicated with 'ʊ', consider changing if needed.
+        ];
+        let players = {}; 
+        // Tracks the currently open card's symbol and the type of video ('main' or 'alt') being shown in it.
+        let openVideoInfo = { symbol: null, videoType: null }; 
 
-                    ipaSounds.forEach((sound, index) => {
-                        const card = document.createElement('div');
-                        card.className = 'ipa-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1';
-                        card.style.animationDelay = `${index * 50}ms`;
-                        
-                        const displayText = sound.text || sound.symbol;
+        // --- DYNAMIC CONTENT GENERATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('ipa-grid');
+            if (!grid) return;
 
-                        card.innerHTML = `
-                            <div class="p-4 flex justify-between items-center cursor-pointer">
-                                <div class="flex items-center gap-4">
-                                    <span class="bg-blue-100 text-blue-800 w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl">${displayText}</span>
-                                    <span class="text-lg font-semibold text-slate-700">Âm /${displayText}/</span>
-                                </div>
-                                <button class="learn-btn flex-shrink-0 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" data-video-id="${sound.videoId}">Học</button>
-                            </div>
-                            <div class="video-frame">
-                                <div id="player-${sound.videoId}"></div>
-                            </div>
-                        `;
-                        grid.appendChild(card);
-                    });
-                });
+            ipaSounds.forEach((sound, index) => {
+                const card = document.createElement('div');
+                card.className = 'ipa-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1';
+                card.style.animationDelay = `${index * 50}ms`;
                 
-                // --- EVENT HANDLING ---
-                document.body.addEventListener('click', function(e) {
-                    const button = e.target.closest('.learn-btn');
-                    if (button) {
-                        const videoId = button.dataset.videoId;
-                        toggleVideo(videoId, button);
-                    }
-                });
+                const displayText = sound.text || sound.symbol;
 
-                function toggleVideo(videoId, clickedButton) {
-                    const currentVideoFrame = clickedButton.closest('.ipa-card').querySelector('.video-frame');
-                    const isOpening = !currentVideoFrame.classList.contains('open');
+                card.innerHTML = `
+                    <div class="p-4 flex justify-between items-center cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-blue-100 text-blue-800 w-12 h-12 flex items-center justify-center rounded-full font-bold text-xl">${displayText}</span>
+                            <span class="text-lg font-semibold text-slate-700">Âm /${displayText}/</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2">
+                            <button class="learn-btn-main flex-shrink-0 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" data-symbol="${sound.symbol}">Học</button>
+                        </div>
+                    </div>
+                    <div class="video-section">
+                        <div class="video-frame">
+                            <div id="player-${sound.symbol}"></div>
+                        </div>
+                        ${sound.videoId2 ? `
+                        <div class="flex justify-center mt-4">
+                            <button class="toggle-alt-video-btn bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
+                                    data-symbol="${sound.symbol}" data-current-video-type="main">
+                                Xem video khác
+                            </button>
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        });
+        
+        // --- EVENT HANDLING ---
+        document.body.addEventListener('click', function(e) {
+            const learnBtn = e.target.closest('.learn-btn-main');
+            const toggleAltBtn = e.target.closest('.toggle-alt-video-btn');
 
-                    if (openVideoId && openVideoId !== videoId) {
-                        const oldPlayer = players[openVideoId];
-                        if (oldPlayer && typeof oldPlayer.pauseVideo === 'function') {
-                            oldPlayer.pauseVideo();
-                        }
-                        const oldCard = document.querySelector(`#player-${openVideoId}`).closest('.ipa-card');
-                        if(oldCard) {
-                            oldCard.querySelector('.video-frame').classList.remove('open');
-                            const oldButton = oldCard.querySelector('.learn-btn');
-                            oldButton.classList.remove('open');
-                            oldButton.innerHTML = 'Học';
-                        }
-                    }
-                    
-                    currentVideoFrame.classList.toggle('open');
-                    clickedButton.classList.toggle('open');
+            if (learnBtn) {
+                const symbol = learnBtn.dataset.symbol;
+                toggleVideoCard(symbol, learnBtn);
+            } else if (toggleAltBtn) {
+                const symbol = toggleAltBtn.dataset.symbol;
+                const currentVideoType = toggleAltBtn.dataset.currentVideoType;
+                const newVideoType = currentVideoType === 'main' ? 'alt' : 'main';
+                switchVideoInCard(symbol, newVideoType, toggleAltBtn);
+            }
+        });
 
-                    if (isOpening) {
-                        openVideoId = videoId;
-                        clickedButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>`;
-                        
-                        if (players[videoId]) {
-                            players[videoId].playVideo();
-                        } else {
-                            players[videoId] = new YT.Player(`player-${videoId}`, {
-                                height: '270',
-                                width: '100%',
-                                videoId: videoId,
-                                playerVars: { 'playsinline': 1, 'autoplay': 1, 'rel': 0 },
-                                events: { 'onReady': (event) => event.target.playVideo() }
-                            });
-                        }
-                    } else {
-                        if (players[videoId]) {
-                            players[videoId].pauseVideo();
-                        }
-                        openVideoId = null;
-                        clickedButton.textContent = 'Học';
+        /**
+         * Toggles the visibility and playback of a video card.
+         * Manages closing previously open videos and initializing new players.
+         * @param {string} symbol - The IPA symbol for the card.
+         * @param {HTMLElement} clickedButton - The "Học" button element that was clicked.
+         */
+        function toggleVideoCard(symbol, clickedButton) {
+            const card = clickedButton.closest('.ipa-card');
+            const videoSection = card.querySelector('.video-section');
+            const isOpening = !videoSection.classList.contains('open');
+            const soundData = ipaSounds.find(s => s.symbol === symbol);
+
+            // If another card is open, close it first
+            if (openVideoInfo.symbol && openVideoInfo.symbol !== symbol) {
+                const oldCard = document.querySelector(`.ipa-card .learn-btn-main[data-symbol="${openVideoInfo.symbol}"]`).closest('.ipa-card');
+                if (oldCard) {
+                    const oldVideoSection = oldCard.querySelector('.video-section');
+                    oldVideoSection.classList.remove('open');
+                    const oldButton = oldCard.querySelector('.learn-btn-main');
+                    oldButton.classList.remove('open');
+                    oldButton.innerHTML = 'Học';
+                    // Pause the old video player if it exists
+                    if (players[openVideoInfo.symbol] && typeof players[openVideoInfo.symbol].pauseVideo === 'function') {
+                        players[openVideoInfo.symbol].pauseVideo();
                     }
                 }
-    </script>
+            }
 
+            // Toggle the clicked video card's section and button state
+            videoSection.classList.toggle('open');
+            clickedButton.classList.toggle('open');
+
+            if (isOpening) {
+                // If the video section is being opened
+                openVideoInfo = { symbol: symbol, videoType: 'main' }; // Set initial state to main video
+                clickedButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>`;
+
+                // Load and play the main video
+                loadAndPlayVideo(symbol, soundData.videoId);
+
+                // Update the state of the "Xem video khác" button
+                const toggleAltBtn = card.querySelector('.toggle-alt-video-btn');
+                if (toggleAltBtn) {
+                    toggleAltBtn.dataset.currentVideoType = 'main';
+                    toggleAltBtn.textContent = 'Xem video khác';
+                }
+
+            } else {
+                // If the video section is being closed
+                if (players[symbol] && typeof players[symbol].pauseVideo === 'function') {
+                    players[symbol].pauseVideo();
+                }
+                openVideoInfo = { symbol: null, videoType: null }; // Reset global state
+                clickedButton.textContent = 'Học';
+            }
+        }
+
+        /**
+         * Switches the video playing within an already open card.
+         * @param {string} symbol - The IPA symbol for the card.
+         * @param {'main'|'alt'} newVideoType - The type of video to switch to.
+         * @param {HTMLElement} toggleButton - The "Xem video khác" / "Xem video chính" button.
+         */
+        function switchVideoInCard(symbol, newVideoType, toggleButton) {
+            const soundData = ipaSounds.find(s => s.symbol === symbol);
+            let videoIdToLoad;
+
+            if (newVideoType === 'alt') {
+                videoIdToLoad = soundData.videoId2;
+                toggleButton.dataset.currentVideoType = 'alt';
+                toggleButton.textContent = 'Xem video chính';
+            } else { // newVideoType === 'main'
+                videoIdToLoad = soundData.videoId;
+                toggleButton.dataset.currentVideoType = 'main';
+                toggleButton.textContent = 'Xem video khác';
+            }
+            openVideoInfo.videoType = newVideoType; // Update global state
+
+            loadAndPlayVideo(symbol, videoIdToLoad);
+        }
+
+        /**
+         * Loads and plays a specific YouTube video in a card's player.
+         * @param {string} symbol - The IPA symbol for the card.
+         * @param {string} videoId - The YouTube video ID to load.
+         */
+        function loadAndPlayVideo(symbol, videoId) {
+            const playerDivId = `player-${symbol}`;
+            if (players[symbol]) {
+                // If player exists, load and play new video
+                players[symbol].loadVideoById(videoId);
+            } else {
+                // Create new player if it doesn't exist
+                players[symbol] = new YT.Player(playerDivId, {
+                    height: '270',
+                    width: '100%',
+                    videoId: videoId,
+                    playerVars: { 'playsinline': 1, 'autoplay': 1, 'rel': 0 },
+                    events: { 'onReady': (event) => event.target.playVideo() }
+                });
+            }
+        }
+    </script>
 
     <div id="footer-placeholder"></div>
     
     <script src="/script.js"></script>
     <script src="/search.js"></script>
-    </body>
+</body>
 </html>
-

@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="vi">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ôn thi VSTEP - Nguyễn Mai Đan Trường</title>
-     <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
     <meta property="og:title" content="Trang Chủ - Nguyễn Mai Đan Trường">
     <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
     <meta property="og:image" content="/hinhanh/logo web.png">
     <meta property="og:url" content="https://dantruongag.id.vn">
+
     <!-- Tailwind CSS for rapid UI development -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/hinhanh/logo web.png" type="">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/tienganh/VSTEP/Speaking/speaking.css">
 
-        
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- SweetAlert2 for beautiful pop-ups -->
@@ -34,6 +35,63 @@
         .timeline-item-content { position: relative; padding-left: 5rem; }
         .timeline-circle-container { position: absolute; left: 0; top: 0; width: 4rem; display: flex; justify-content: center; z-index: 2; }
         .timeline-circle { width: 3rem; height: 3rem; border-width: 3px; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; position: sticky; top: 2rem; }
+        
+        /* Custom styles for submitted articles and scores */
+        .submitted-article summary {
+            list-style: none; /* Remove default marker */
+        }
+        .submitted-article summary::-webkit-details-marker {
+            display: none; /* Remove default marker for webkit browsers */
+        }
+        /* New styles for the circular score display */
+        .score-circle-container {
+            position: relative;
+            width: 120px; /* Adjust size as needed */
+            height: 120px; /* Adjust size as needed */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* The conic-gradient creates the progress bar effect */
+            background: conic-gradient(
+                #3B82F6 var(--progress, 0%), /* Blue color for progress */
+                #E5E7EB var(--progress, 0%) /* Light gray for remaining */
+            );
+            /* This box-shadow creates the inner white border, making the outer ring visible */
+            box-shadow: inset 0 0 0 10px #ffffff, 0 0 0 2px #E5E7EB; /* Added a subtle outer border */
+        }
+
+        .score-circle-inner {
+            position: absolute;
+            width: calc(100% - 24px); /* Adjusted based on box-shadow and new outer border width */
+            height: calc(100% - 24px); /* Adjusted based on box-shadow and new outer border width */
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-circle-value {
+            font-size: 2.5rem; /* Adjust as needed for 69% */
+            font-weight: bold;
+            color: #3B82F6; /* Blue color for the score */
+            /* Center the text vertically and horizontally */
+            line-height: 1; 
+        }
+
+        /* The score-circle-label is no longer needed and is explicitly hidden */
+        .score-circle-label {
+            display: none; /* Hide the label */
+        }
+
+        /* Adjustments for the existing score-circle-fill to integrate with the new structure */
+        /* This rule is now effectively overridden or can be removed if not used elsewhere */
+        .score-circle-fill {
+            background: none !important; /* Ensure no background from here */
+            transform: none !important; /* Ensure no transform from here */
+        }
     </style>
 </head>
 
@@ -80,7 +138,6 @@
     </div>
 
 <script>
-
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec'; // <--- THAY THẾ URL NÀY
 
 const topics = [
@@ -212,7 +269,12 @@ async function handleSubmit(event) {
     const articleContent = textarea.value.trim();
 
     if (!articleContent) {
-        alert('Vui lòng nhập nội dung bài nói.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Vui lòng nhập nội dung bài nói.',
+            confirmButtonText: 'Đã hiểu'
+        });
         return;
     }
 
@@ -226,20 +288,31 @@ async function handleSubmit(event) {
     try {
         // Using 'no-cors' means we can't read the success response, but it avoids CORS errors.
         // We will assume success and update the UI optimistically.
-        await fetch(APPS_SCRIPT_URL, { 
-            method: 'POST', 
+        await fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
             mode: 'no-cors', // Important for simple deployment
             cache: 'no-cache',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data) 
+            body: JSON.stringify(data)
         });
         
         // Optimistic UI update
-        alert('Gửi bài thành công!');
+        Swal.fire({
+            icon: 'success',
+            title: 'Thành công!',
+            text: 'Gửi bài thành công!',
+            showConfirmButton: false,
+            timer: 1500
+        });
         addSubmissionToUI(questionItem.querySelector('.practice-area'), data.articleContent, data.submissionNumber);
     } catch (error) {
         console.error('Error:', error);
-        alert('Đã có lỗi xảy ra khi gửi bài. Vui lòng thử lại.');
+        Swal.fire({
+            icon: 'error',
+            title: 'Lỗi!',
+            text: 'Đã có lỗi xảy ra khi gửi bài. Vui lòng thử lại.',
+            confirmButtonText: 'Đã hiểu'
+        });
     } finally {
         // Reset form and UI
         button.disabled = false;
@@ -252,7 +325,7 @@ async function handleSubmit(event) {
     }
 }
 
-function addSubmissionToUI(practiceArea, content, number) {
+function addSubmissionToUI(practiceArea, content, number, scores = {}) {
     const articlesList = practiceArea.querySelector('.articles-list');
     const titleContainer = practiceArea.querySelector('.submitted-articles-title');
     
@@ -260,12 +333,72 @@ function addSubmissionToUI(practiceArea, content, number) {
     const sanitizedContent = content.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     const newArticle = document.createElement('details');
-    newArticle.className = 'submitted-article';
+    newArticle.className = 'submitted-article group'; // Added group for styling
+
+    // Get scores, defaulting to N/A or appropriate message if not available
+    const grammarScore = scores.grammar !== null ? scores.grammar : 'N/A';
+    const vocabularyScore = scores.vocabulary !== null ? scores.vocabulary : 'N/A';
+    const coherenceScore = scores.coherence !== null ? scores.coherence : 'N/A';
+    const developmentScore = scores.development !== null ? scores.development : 'N/A';
+    const totalScore = scores.total !== null ? scores.total : 'N/A';
+    const feedback = scores.feedback && scores.feedback.trim() !== '' ? scores.feedback : 'Chưa có gợi ý.';
+
+    // Calculate progress for conic-gradient (assuming max score is 10 for total)
+    // If totalScore is 6.9, progress will be 69. If totalScore is already 69, then just use it.
+    const progress = totalScore !== 'N/A' ? (parseFloat(totalScore) * 10) : 0;
+
     newArticle.innerHTML = `
-        <summary>Bài nói ${number}</summary>
-        <div class="article-content">${sanitizedContent}</div>
+        <summary class="flex justify-between items-center cursor-pointer py-2 px-3 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors duration-200 mb-2">
+            <span class="font-semibold text-slate-700">Bài nói ${number}</span>
+            <button class="view-score-btn bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full transition-colors duration-300 ml-auto">
+                Xem điểm số
+            </button>
+            <svg class="icon ml-2 w-5 h-5 text-gray-600 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </summary>
+        <div class="article-content p-3 bg-white border-t border-gray-200 rounded-t-lg">${sanitizedContent}</div>
+        <div class="score-display mt-2 p-4 bg-gray-50 rounded-b-lg border border-gray-200 hidden">
+            <h5 class="font-semibold text-gray-700 mb-3">Điểm số:</h5>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                <div class="score-box bg-blue-100 text-blue-800 p-3 rounded-md text-center">
+                    <p class="text-xs font-medium">Ngữ pháp</p>
+                    <p class="text-lg font-bold">${grammarScore}</p>
+                </div>
+                <div class="score-box bg-green-100 text-green-800 p-3 rounded-md text-center">
+                    <p class="text-xs font-medium">Từ vựng</p>
+                    <p class="text-lg font-bold">${vocabularyScore}</p>
+                </div>
+                <div class="score-box bg-purple-100 text-purple-800 p-3 rounded-md text-center">
+                    <p class="text-xs font-medium">Mạch lạc</p>
+                    <p class="text-lg font-bold">${coherenceScore}</p>
+                </div>
+                <div class="score-box bg-red-100 text-red-800 p-3 rounded-md text-center">
+                    <p class="text-xs font-medium">Phát triển ý</p>
+                    <p class="text-lg font-bold">${developmentScore}</p>
+                </div>
+            </div>
+            <div class="flex justify-center items-center mb-4">
+                <div class="score-circle-container" style="--progress: ${progress}%;">
+                    <div class="score-circle-inner">
+                        <p class="score-circle-value">${totalScore}</p> <!-- Removed the '%' sign -->
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-2">Điểm số chỉ mang tính chất tham khảo</p>
+            <div class="feedback-area bg-white p-3 rounded-md border border-gray-200">
+                <p class="font-semibold text-gray-700">Gợi ý thêm:</p>
+                <p class="text-sm text-gray-600">${feedback}</p>
+            </div>
+        </div>
     `;
     articlesList.appendChild(newArticle);
+
+    // Add event listener for the "Xem điểm số" button
+    newArticle.querySelector('.view-score-btn').addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent the details element from toggling
+        const scoreDisplay = newArticle.querySelector('.score-display');
+        scoreDisplay.classList.toggle('hidden');
+        updateAccordionHeight(newArticle); // Recalculate height
+    });
 
     // Show the "Bài đã nộp" title if it's hidden
     if (titleContainer.classList.contains('hidden')) {
@@ -299,7 +432,14 @@ async function loadAllSubmissions() {
                 if(typesData.Speaking) {
                     const speakingArea = questionElement.querySelector('.practice-area');
                     typesData.Speaking.forEach((sub, index) => {
-                         addSubmissionToUI(speakingArea, sub.articleContent, index + 1);
+                        addSubmissionToUI(speakingArea, sub.articleContent, index + 1, {
+                            grammar: sub.grammar,
+                            vocabulary: sub.vocabulary,
+                            coherence: sub.coherence,
+                            development: sub.development,
+                            total: sub.total,
+                            feedback: sub.feedback
+                        });
                     });
                 }
             }
