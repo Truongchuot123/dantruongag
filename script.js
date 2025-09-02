@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
             '19-5': document.querySelector(".banner_ngay_sinh_chu_tich_HCM_1905"),
             '18-7': document.querySelector(".banner_ngay_sinh_nhat_1807"),
             '19-8': document.querySelector(".banner_ngay_cach_mang_thang_tam"),
-            '2-9': document.querySelector(".banner_ngay_quoc_khanh"),
+            '2-9': document.querySelector(".banner_ngay_quoc_khanh")
         };
 
         const todayKey = `${day}-${month}`;

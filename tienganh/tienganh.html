@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/hinhanh/logo web.png" type="">
         
-    <!-- Font Awesome for icons -->
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- SweetAlert2 for beautiful pop-ups -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -46,7 +46,10 @@
   max-width: 300px;
   min-width: 260px;
   transition: transform 0.2s, box-shadow 0.2s;
-  display: block;
+  /* Thêm các thuộc tính flexbox để căn giữa nội dung bên trong */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .intro-features a:hover {
@@ -54,14 +57,14 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.feature img {
+.intro-features img {
   width: 100%;
   max-width: 200px;
   height: auto;
   margin-bottom: 10px;
 }
 
-.feature p {
+.intro-features p {
   font-size: 16px;
   color: #333;
   margin: 0;
@@ -165,7 +168,7 @@
 
   <a href="/tienganh/Everyday English Learning.html" class="feature" data-aos="fade-up" data-aos-delay="200">
     <img src="/tienganh/hinhanh.tienganh/Everyday English Learning.png" alt="">
-    <p><strong>Hệ thông học tiếng anh mỗi ngày </strong></p>
+    <p><strong>Hệ thống học tiếng anh mỗi ngày </strong></p>
   </a>
   <a href="/tienganh/VSTEP/VSTEP.html" class="feature" data-aos="fade-up" data-aos-delay="200">
     <img src="/tienganh/hinhanh.tienganh/vocabulary.png" alt="">

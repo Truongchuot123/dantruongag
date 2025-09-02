@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồng Ngoại - Thông tin chi tiết</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f0f2f5; /* Light gray background */
+            color: #374151; /* Darker gray text for better readability */
+        }
+        /* Custom styling for ordered lists to ensure consistent numbering and spacing */
+        ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem; /* Indent for list numbers */
+        }
+        ol li {
+            margin-bottom: 0.75rem; /* Space between list items */
+            line-height: 1.6; /* Improved line height for readability */
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        /* Smooth transition for hover effects on image only now */
+        .hover-effect {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .hover-effect:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+        }
+        /* Custom gradient text for H1 */
+        .gradient-text {
+            background-image: linear-gradient(to right, #2563eb, #8b5cf6); /* Blue to purple gradient for text */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers that don't support text-fill-color */
+        }
+        .disclaimer-highlight {
+            background-color: #ffeccf; /* Light orange/yellow background */
+            color: #8c5a00; /* Darker orange text */
+            padding: 0.75rem 1.5rem; /* Padding around the text */
+            border-radius: 0.5rem; /* Slightly rounded corners */
+            margin-top: 1rem; /* Space above the disclaimer */
+            display: inline-block; /* To make padding and border-radius apply correctly */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight gradient-text pb-2">HỒNG NGOẠI</h1>
+            <div id="disclaimer-container"></div>
+        </header>
+
+        <div class="mb-10 rounded-lg overflow-hidden shadow-lg hover-effect mx-auto w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
+            <img src="https://placehold.co/1200x600/4F46E5/FFFFFF?text=H%E1%BB%93ng+Ngo%E1%BA%A1i" alt="Hình ảnh về Hồng ngoại" class="w-full h-auto object-cover">
+            <p class="text-center text-sm text-gray-600 mt-2">Hình ảnh minh họa về tia hồng ngoại</p>
+        </div>
+        <main class="space-y-10">
+            <section id="dai-cuong" class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">1. Đại Cương</h2>
+                <ol class="text-lg leading-relaxed">
+                    <li>Tia hồng ngoại được phát hiện năm 1799 do William Herschel.</li>
+                    <li>Tia hồng ngoại là sóng điện từ có bước sóng ($\lambda$) từ 760 nm – 1 mm.</li>
+                    <li>Hồng ngoại nguồn nhân tạo do các loại đèn hồng ngoại phát ra có công suất khác nhau. Tác dụng chủ yếu là nhiệt nóng.</li>
+                </ol>
+            </section>
+
+            <section id="tac-dung" class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">2. Tác dụng</h2>
+                <ol class="text-lg leading-relaxed">
+                    <li>
+                        <strong>Tác dụng tại chỗ:</strong>
+                        <ul class="text-base">
+                            <li><b>Tác dụng giãn mạch:</b> Trong vòng vài phút sau khi chiếu, da trở nên ấm thì các mạch máu ngoại biên sẽ giãn nở gây nên hiện tượng đỏ da xung huyết. Da càng mỏng đỏ da càng đậm. Sự giãn mạch ngoại vi là do tác dụng trực tiếp của nhiệt, ngoài trừ khi chiếu rất nhẹ thì nó kích thích các mút tận cùng cảm giác tạo nên giãn mạch phản xạ. Hậu quả tuần hoàn tại chỗ tăng, gia tăng sự cung cấp oxy và các chất dinh dưỡng, gia tăng chuyển hóa và tăng cường các quá trình bài tiết của các tuyến mồ hôi.</li>
+                            <li><b>Tác dụng trên mút thần kinh cảm giác:</b> Nóng nhẹ có tác dụng làm dịu các đầu thần kinh thụ cảm. Cơ chế có thể là do ngưỡng tiếp thu của các đầu thần kinh thụ cảm gia tăng. Ngược lại, khi cường độ sưởi nóng nhiều hơn lại có tác dụng kích thích. Tác dụng kích thích này có thể ức chế được các cơn đau tại vùng chiếu.</li>
+                            <li><b>Tác dụng lên mô cơ:</b> Gia tăng nhiệt độ làm cho cơ thư giãn và gia tăng hiệu năng co cơ. Các sợi cơ co và giãn nhanh hơn, và sự thư giãn các cơ đối kháng cho phép các cơ chủ vận hoạt động dễ dàng hơn.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Tác dụng toàn thân:</strong> Khi điều trị diện rộng và kéo dài, thân nhiệt sẽ tăng. Máu ngoại vi nhận nhiệt lượng và di chuyển khắp cơ thể. Máu được sưởi nóng sẽ kích thích trung khu điều hòa thân nhiệt hoạt động. Hậu quả là giãn mạch toàn thể hệ thống mạch ngoại biên, gia tăng hoạt động của tuyến mồ hôi. Hiệu quả xa hơn là sự giãn mạch đưa đến huyết áp hạ, cũng như tăng hoạt tuyến mồ hôi, làm gia tăng sự thải bỏ chất cặn bã.
+                    </li>
+                </ol>
+            </section>
+
+            <section id="chi-dinh" class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">3. Chỉ Định</h2>
+                <ol class="text-lg leading-relaxed">
+                    <li>
+                        <b>Gia tăng lưu lượng tuần hoàn:</b> Hiệu quả này được nhận thấy ở các mô nông. Nên bức xạ hồng ngoại được sử dụng để điều trị vết thương cạn và nhiễm trùng ngoài da. Sẽ gia tăng cung cấp máu làm sự nuôi dưỡng mô được cải thiện, số lượng bạch cầu đến vết thương nhiều hơn. Vì thế vết thương nhanh chóng lành sẹo và lên da non. Gia tăng sự tiết mồ hôi làm tiêu tan các chất dịch thâm nhập các tổ chức dưới da nên hồng ngoại giải quyết được một số trường hợp phù do viêm, phù do ứ trệ tuần hoàn. Như thế các mút thần kinh thụ cảm được giải phóng khỏi sự chèn ép của các tổ chức viêm.
+                    </li>
+                    <li>
+                        <b>Giảm đau:</b> Bức xạ hồng ngoại thường được sử dụng để làm giảm đau. Tác dụng này dựa vào tính chất làm dịu các đầu thần kinh thụ cảm. Vì thế, hồng ngoại có hiệu quả trong một số trường hợp đau lưng cơ năng, các cơn đau khớp, đau do viêm dây thần kinh, do chấn thương... Cần nhớ rằng, trong các trường hợp viêm cấp hay tổn thương mới, nhiệt độ vừa phải có hiệu quả tối đa. Ngược lại, điều trị với cường độ quá cao làm gia tăng hiệu năng tiết dịch và làm gia tăng cơn đau do chèn ép. Khi đau do bệnh mạn tính thì liều lớn lại được áp dụng dựa vào hiệu quả phản kích thích. Ngoài tác dụng lên mút thần kinh thụ cảm, tác dụng giảm đau còn dựa vào hiệu quả giảm viêm, giảm sưng cũng như thư giãn cơ của hồng ngoại.
+                    </li>
+                    <li>
+                        <b>Giãn cơ:</b> Cơ thư giãn hoàn toàn khi mô cơ được sưởi ấm; và sự giảm đau cũng làm thư giãn cơ. Vì thế bức xạ hồng ngoại có giá trị giúp cơ đạt được sự thư giãn và làm giảm sự co thắt khi bị tổn thương hay viêm nhiễm. Dựa trên hiệu quả này, bức xạ hồng ngoại được sử dụng để chuẩn bị trước khi vận động. Tầm độ vận động khớp được gia tăng và các động tác thực hiện được dễ dàng hơn.
+                    </li>
+                </ol>
+            </section>
+
+            <section id="chong-chi-dinh" class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">4. Chống Chỉ Định</h2>
+                <ol class="text-lg leading-relaxed">
+                    <li>Những chấn thương mới, vì có nguy cơ gia tăng phù nề và chảy máu.</li>
+                    <li>Những trường hợp nhiễm trùng não có mủ, vì làm nhiễm khuẩn lan rộng.</li>
+                    <li>Bệnh nhân có u lành hay u độc, vì làm u phát triển nhanh.</li>
+                    <li>Bệnh nhân có khuynh hướng chảy máu.</li>
+                    <li>Bệnh nhân mất cảm giác nóng lạnh.</li>
+                    <li>Bệnh nhân có rối loạn cung cấp máu.</li>
+                </ol>
+            </section>
+
+            <section id="tai-bien-xu-tri" class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">5. Tai Biến và Xử Trí</h2>
+                <ol class="text-lg leading-relaxed">
+                    <li>
+                        <strong>Bỏng da:</strong>
+                        <ul class="text-base">
+                            <li>Chiếu hồng ngoại có thể gây bỏng nông. Bỏng có thể xuất hiện trong lúc điều trị hay sau đó với một vết đỏ ở da rồi biến thành phồng nước. Bỏng thường do sử dụng cường độ bức xạ quá lớn, mà người bệnh lại không hiểu rõ bản chất của cuộc điều trị, nên không báo cho KTV khi nhiệt độ tăng cao, di chuyển lại gần đèn hay ngủ quên trong khi điều trị.</li>
+                            <li>Bỏng cũng xảy ra nếu cảm giác da của người bệnh bị rối loạn, nên không thể ghi nhận được sự gia tăng nhiệt độ quá mức. Bỏng còn xảy ra do chạm vào đèn đang còn nóng hoặc do bóng đèn rơi.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Hoại thư:</strong>
+                        <ul class="text-base">
+                            <li>Sử dụng hồng ngoại có những vùng da có rối loạn tuần hoàn, do đó không thể cung cấp đủ nhu cầu oxy cho mô trong khi quá trình biểu dưỡng gia tăng dưới tác dụng nhiệt.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Đau đầu:</strong>
+                        <ul class="text-base">
+                            <li>Đau đầu có thể xảy ra do chiếu hồng ngoại, đặc biệt là trong trường hợp mồ hôi không bài tiết, hoặc điều trị trong điều kiện thời tiết quá nóng. Đây là biểu hiện của một tình trạng say nóng.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Ngất:</strong>
+                        <ul class="text-base">
+                            <li>Chiếu hồng ngoại trên diện rộng gây nên hạ huyết áp, có thể làm người bệnh ngất xỉu do thiếu máu não. Ngất cũng xảy ra khi người bệnh bật dậy sau khi điều trị toàn thân.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Tổn thương mắt:</strong>
+                        <ul class="text-base">
+                            <li>Có giả thuyết cho rằng, tia hồng ngoại có thể gây đục thủy tinh thể. Cũng có thể hồng ngoại gây bỏng võng mạc. Do đó cần phải bảo vệ mắt khi sử dụng hồng ngoại.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const disclaimerContainer = document.getElementById('disclaimer-container');
+
+            // Create a new paragraph element
+            const disclaimerParagraph = document.createElement('p');
+
+            // Set the text content for the paragraph
+            disclaimerParagraph.textContent = 'Thông tin trong bài viết này chỉ mang tính chất tham khảo, bạn nên tham khảo ý kiến của bác sĩ.';
+
+            // Add Tailwind CSS classes to the paragraph
+            disclaimerParagraph.classList.add(
+                'mt-2',
+                'text-sm',
+                'opacity-90',
+                'disclaimer-highlight',
+                'mx-auto',
+                'max-w-2xl'
+            );
+
+            // Append the new paragraph to the container
+            disclaimerContainer.appendChild(disclaimerParagraph);
+        });
+    </script>
+</body>
+</html>

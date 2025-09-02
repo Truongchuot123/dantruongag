@@ -338,7 +338,7 @@
         .banner_chien_thang_dien_bien_phu { background-image: url('https://placehold.co/1920x1080/1a2b4c/ffffff?text=7/5'); }
         .banner_ngay_sinh_chu_tich_HCM_1905 { background-image: url('https://placehold.co/1920x1080/b4a07d/ffffff?text=19/5'); }
         .banner_ngay_cach_mang_thang_tam { background-image: url('https://placehold.co/1920x1080/d94a3d/ffffff?text=19/8'); }
-        .banner_ngay_quoc_khanh { background-image: url('https://placehold.co/1920x1080/c0272d/ffffff?text=2/9'); }
+        .banner_ngay_quoc_khanh { background-image: url('/hinhanh//banner_quoc_khanh_0209.png'); }
 .banner_ngay_sinh_nhat_1807 { background-image: url('/hinhanh/banner_ngay_sinh_nhat_1807.png'); }
         /* Footer Styles */
         .main-footer {
@@ -545,6 +545,7 @@
             td, th { font-size: 12px; }
             .search-box { flex-direction: column; gap: 10px; align-items: stretch; }
             .search-box input, .search-box button { width: 100%; }
+            .banner_ngay_quoc_khanh { background-image: url('/hinhanh/banner_quoc_khanh_0209_mobile.png'); }
         }
         @media (max-width: 480px) {
             .he_thong_tra_cuu h1, .tieude-noidung-noibat h1 { font-size: 30px; }
