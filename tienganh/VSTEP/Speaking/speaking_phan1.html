@@ -138,333 +138,437 @@
     </div>
 
 <script>
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec'; // <--- THAY THẾ URL NÀY
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec'; // <--- THAY THẾ URL NÀY
 
-const topics = [
-    { title: "Learning English", questions: ["How long have you been learning English?", "How do you usually study it?", "What do you find most difficult when learning English?"] },
-    { title: "Family", questions: ["Tell me about your family?", "Do you have a large or small family?", "What do your family like doing together?", "Who are you close to in your family?"] },
-    { title: "Houses", questions: ["Do you live in a house or a flat?", "Who do you live with?", "Are there many rooms in your home?", "What is your favourite room?", "What would you change about your home?", "Do you plan to live there in the future?"] },
-    { title: "Hobby", questions: ["What do you often do in your free time?", "Do you play sports?", "Do you watch TV?", "What TV programs do you often watch?", "Do you read books?", "What kinds of books do you often read?"] },
-    { title: "Job", questions: ["What do you do? / What's your job?", "Where do you work?", "What responsibilities do you have at work?", "What do you like about your job?", "Is there anything you dislike about your job?"] },
-    { title: "Travel", questions: ["Do you like travelling?", "Have you travelled this year?", "Where do you like to travel during the holidays?", "What do you often do when you travel?"] },
-    { title: "Hometown", questions: ["Where do you live? Where are you from?", "What is it famous for?", "What do people do when visiting your hometown?", "How's the weather in your hometown?", "What do you like best about it?"] },
-    { title: "Food", questions: ["What food do you like best?", "What do you usually have for breakfast?", "What's your favourite meal of the day?", "Where do you usually have lunch?", "How often do you eat out?", "What restaurant do you often go to?", "What kind of food does it serve?"] },
-    { title: "Health", questions: ["Is it important to eat healthy food?", "What do you do to keep fit and healthy?", "Do you do anything which is not healthy?", "What do you think is more important, eating a healthy diet or doing exercise?"] },
-    { title: "Tramsport", questions: ["How do you usually get to and from work/ college? Why?", "How often do you use public transport?", "What types of public transport do you use?", "How often do you take taxis?", "Do you have any suggestions to improve travel and transport in the town?"] },
-    { title: "Communication", questions: ["How do you usually keep in touch with members of your family? Your friends?", "How often do you make phone calls?", "How often do you send emails?", "Do you prefer to write by hand or on a computer?"] },
-    { title: "The internet", questions: ["How often do you go online?", "What do you use the internet for?", "How do you get online?", "What's your favourite website?"] },
-    { title: "Festivals", questions: ["What's your favourite festival?", "Are there many festivals in the area where you live?", "Do you think festivals are important?", "How did you last celebrate your birthday party?"] }
-];
+        const topics = [
+            { title: "Learning English", questions: [
+                "How long have you been learning English?", 
+                "How do you usually study it?", 
+                "What do you find most difficult when learning English?"] },
+            { title: "Family", questions: [
+                "Tell me about your family?", 
+                "Do you have a large or small family?", 
+                "What do your family like doing together?", 
+                "Who are you close to in your family?"] },
+            { title: "Houses", questions: [
+                "Do you live in a house or a flat?", 
+                "Who do you live with?", 
+                "Are there many rooms in your home?", 
+                "What is your favourite room?", 
+                "What would you change about your home?", 
+                "Do you plan to live there in the future?"] },
+            { title: "Hobby", questions: [
+                "What time do you usually go to bed and wake up?",
+                "What do you like to do after school or work?",
+                "Do you have any hobbies?",
+                "Do you have a different routine on weekends?",
+                "What's a habit you would like to start?",
+                "Is it hard for you to wake up early?",
+                "Do you have any chores you do every day?",
+                "What do you often do in your free time?", 
+                "Do you play sports?", "Do you watch TV?", 
+                "What TV programs do you often watch?", 
+                "Do you read books?", 
+                "What kinds of books do you often read?"] },
+            { title: "Job", questions: [
+                "What do you do? / What's your job?", 
+                "Where do you work?", 
+                "What responsibilities do you have at work?", 
+                "What do you like about your job?", 
+                "Is there anything you dislike about your job?"] },
+            { title: "Travel", questions: [
+                "Do you like travelling?", 
+                "Have you travelled this year?", 
+                "Where do you like to travel during the holidays?", 
+                "What do you often do when you travel?"] },
+            { title: "Hometown", questions: [
+                "Where do you live? Where are you from?", 
+                "What is it famous for?", 
+                "What do people do when visiting your hometown?", 
+                "How's the weather in your hometown?", 
+                "What do you like best about it?"] },
+            { title: "Food", questions: [
+                "What food do you like best?", 
+                "What do you usually have for breakfast?", 
+                "What's your favourite meal of the day?", 
+                "Where do you usually have lunch?", 
+                "How often do you eat out?", 
+                "What restaurant do you often go to?", 
+                "What kind of food does it serve?"] },
+            { title: "Health", questions: [
+                "Is it important to eat healthy food?", 
+                "What do you do to keep fit and healthy?", 
+                "Do you do anything which is not healthy?", 
+                "What do you think is more important, eating a healthy diet or doing exercise?"] },
+            { title: "Tramsport", questions: [
+                "How do you usually get to and from work/ college? Why?", 
+                "How often do you use public transport?", 
+                "What types of public transport do you use?", 
+                "How often do you take taxis?", 
+                "Do you have any suggestions to improve travel and transport in the town?"] },
+            { title: "Communication", questions: [
+                "How do you usually keep in touch with members of your family? Your friends?", 
+                "How often do you make phone calls?", "How often do you send emails?", 
+                "Do you prefer to write by hand or on a computer?"] },
+            { title: "The internet", questions: [
+                "How often do you go online?", 
+                "What do you use the internet for?", 
+                "How do you get online?", 
+                "What's your favourite website?"] },
+            { title: "Festivals", questions: [
+                "What's your favourite festival?", 
+                "Are there many festivals in the area where you live?", 
+                "Do you think festivals are important?", 
+                "How did you last celebrate your birthday party?"] }
+        ];
 
-document.addEventListener('DOMContentLoaded', function () {
-    const accordionContainer = document.querySelector('.accordion');
-    
-    // Generate accordion HTML
-    topics.forEach((topic, index) => {
-        const questionsHTML = topic.questions.map(q => `
-            <li class="question-item" data-question="${q.replace(/"/g, '&quot;')}">
-                <p class="question-text">${q}</p>
-                <div class="practice-area" data-practice-type="Speaking">
-                    <button class="practice-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
-                        Viết bài nói
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionContainer = document.querySelector('.accordion');
+            
+            // Generate accordion HTML
+            topics.forEach((topic, index) => {
+                const questionsHTML = topic.questions.map(q => `
+                    <li class="question-item" data-question="${q.replace(/"/g, '&quot;')}">
+                        <p class="question-text">${q}</p>
+                        <div class="practice-area" data-practice-type="Speaking">
+                            <button class="practice-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
+                                Viết bài nói
+                            </button>
+                            <div class="speaking-form mt-4">
+                                <textarea placeholder="Nhập dàn ý hoặc nội dung nói của bạn cho câu hỏi này..."></textarea>
+                                <div class="flex gap-2 mt-2">
+                                    <button class="submit-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Gửi bài</button>
+                                    <button class="cancel-btn bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Hủy</button>
+                                </div>
+                            </div>
+                            <div class="submitted-articles-container">
+                                <h4 class="submitted-articles-title hidden">Bài đã nộp:</h4>
+                                <div class="articles-list"></div>
+                                <div class="loading-indicator hidden text-sm text-gray-500">Đang tải...</div>
+                            </div>
+                        </div>
+                    </li>
+                `).join('');
+
+                const itemHTML = `
+                <div class="accordion-item" data-topic-title="${topic.title}">
+                    <button class="accordion-header">
+                        <span>Topic ${index + 1}: ${topic.title}</span>
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                     </button>
-                    <div class="speaking-form mt-4">
-                        <textarea placeholder="Nhập dàn ý hoặc nội dung nói của bạn cho câu hỏi này..."></textarea>
-                        <div class="flex gap-2 mt-2">
-                            <button class="submit-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Gửi bài</button>
-                            <button class="cancel-btn bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Hủy</button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <h3 class="exercise-title">Let’s talk about ${topic.title.toLowerCase()}</h3>
+                            <ul class="exercise-questions">
+                                ${questionsHTML}
+                            </ul>
                         </div>
                     </div>
-                    <div class="submitted-articles-container">
-                        <h4 class="submitted-articles-title hidden">Bài đã nộp:</h4>
-                        <div class="articles-list"></div>
-                        <div class="loading-indicator hidden text-sm text-gray-500">Đang tải...</div>
-                    </div>
-                </div>
-            </li>
-        `).join('');
-
-        const itemHTML = `
-        <div class="accordion-item" data-topic-title="${topic.title}">
-            <button class="accordion-header">
-                <span>Topic ${index + 1}: ${topic.title}</span>
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            </button>
-            <div class="accordion-content">
-                <div class="accordion-content-inner">
-                    <h3 class="exercise-title">Let’s talk about ${topic.title.toLowerCase()}</h3>
-                    <ul class="exercise-questions">
-                        ${questionsHTML}
-                    </ul>
-                </div>
-            </div>
-        </div>`;
-        accordionContainer.innerHTML += itemHTML;
-    });
-    
-    setupEventListeners();
-    loadAllSubmissions();
-});
-
-function setupEventListeners() {
-    // Accordion open/close logic
-    document.querySelectorAll('.accordion-header').forEach(button => {
-        button.addEventListener('click', () => {
-            const isActive = button.classList.contains('active');
-            // Close all items
-            document.querySelectorAll('.accordion-header').forEach(b => {
-                b.classList.remove('active');
-                b.nextElementSibling.style.maxHeight = null;
+                </div>`;
+                accordionContainer.innerHTML += itemHTML;
             });
-            // Open the clicked one if it wasn't active
-            if (!isActive) {
-                button.classList.add('active');
-                const content = button.nextElementSibling;
+            
+            setupEventListeners();
+            loadAllSubmissions();
+        });
+
+        function setupEventListeners() {
+            // Accordion open/close logic
+            document.querySelectorAll('.accordion-header').forEach(button => {
+                button.addEventListener('click', () => {
+                    const isActive = button.classList.contains('active');
+                    // Close all items
+                    document.querySelectorAll('.accordion-header').forEach(b => {
+                        b.classList.remove('active');
+                        b.nextElementSibling.style.maxHeight = null;
+                    });
+                    // Open the clicked one if it wasn't active
+                    if (!isActive) {
+                        button.classList.add('active');
+                        const content = button.nextElementSibling;
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            });
+
+            // "Viết bài nói" button logic
+            document.querySelectorAll('.practice-btn').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    const form = e.target.nextElementSibling;
+                    form.style.display = 'block';
+                    e.target.style.display = 'none';
+                    updateAccordionHeight(e.target);
+                });
+            });
+
+            // "Hủy" button logic
+            document.querySelectorAll('.cancel-btn').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    const form = e.target.closest('.speaking-form');
+                    form.style.display = 'none';
+                    form.previousElementSibling.style.display = 'block'; // Show practice button
+                    form.querySelector('textarea').value = '';
+                    updateAccordionHeight(e.target);
+                });
+            });
+
+            // "Gửi bài" button logic
+            document.querySelectorAll('.submit-btn').forEach(btn => btn.addEventListener('click', handleSubmit));
+
+            // Event delegation for "Chỉnh sửa ghi chú" / "Lưu ghi chú" button
+            document.addEventListener('click', async (event) => {
+                const btn = event.target.closest('.note-btn');
+                if (!btn) return;
+                
+                const detailsElement = btn.closest('.submitted-article');
+                const noteDisplay = detailsElement.querySelector('.note-display');
+                const noteTextarea = detailsElement.querySelector('.user-notes-textarea');
+                
+                // Toggle logic
+                if (btn.classList.contains('add-note') || btn.classList.contains('edit-mode')) {
+                    // Switch to edit mode
+                    btn.textContent = 'Lưu ghi chú';
+                    btn.classList.remove('add-note', 'edit-mode');
+                    btn.classList.add('save-mode');
+                    if (noteDisplay) noteDisplay.style.display = 'none';
+                    noteTextarea.style.display = 'block';
+                    noteTextarea.focus();
+                } else if (btn.classList.contains('save-mode')) {
+                    // Save the note
+                    const notesContent = noteTextarea.value.trim();
+                    // Thêm kiểm tra ở đây để không lưu ghi chú trống
+                    if (!notesContent) {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Oops...',
+                            text: 'Ghi chú không được để trống.',
+                            confirmButtonText: 'Đã hiểu'
+                        });
+                        return;
+                    }
+                    
+                    const topic = btn.dataset.topic;
+                    const question = btn.dataset.question;
+                    const submissionNumber = btn.dataset.submissionNumber;
+
+                    btn.disabled = true;
+                    btn.textContent = 'Đang lưu...';
+
+                    try {
+                        const data = {
+                            type: 'saveNote',
+                            topic,
+                            question,
+                            submissionNumber,
+                            notesContent
+                        };
+                        
+                        await fetch(APPS_SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            cache: 'no-cache',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Đã lưu!',
+                            text: 'Ghi chú của bạn đã được lưu thành công.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        
+                        // Update display and switch back to view mode
+                        if (noteDisplay) {
+                            noteDisplay.textContent = notesContent;
+                            noteDisplay.style.display = 'block';
+                        }
+                        noteTextarea.style.display = 'none';
+
+                        if (notesContent) {
+                            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M17 3a2.85 2.85 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>`;
+                            btn.classList.remove('save-mode');
+                            btn.classList.add('edit-mode');
+                        } else {
+                            btn.textContent = 'Thêm ghi chú';
+                            btn.classList.remove('save-mode');
+                            btn.classList.add('add-note');
+                        }
+
+                    } catch (error) {
+                        console.error('Error saving note:', error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi!',
+                            text: 'Đã có lỗi xảy ra khi lưu ghi chú. Vui lòng thử lại.',
+                            confirmButtonText: 'Đã hiểu'
+                        });
+                    } finally {
+                        btn.disabled = false;
+                    }
+                }
+                updateAccordionHeight(btn);
+            });
+        }
+
+        function updateAccordionHeight(element) {
+            const content = element.closest('.accordion-content');
+            if (content && content.style.maxHeight) {
                 content.style.maxHeight = content.scrollHeight + 'px';
             }
-        });
-    });
+        }
 
-    // "Luyện tập" button logic
-    document.querySelectorAll('.practice-btn').forEach(btn => {
-        btn.addEventListener('click', e => {
-            const form = e.target.nextElementSibling;
-            form.style.display = 'block';
-            e.target.style.display = 'none';
-            updateAccordionHeight(e.target);
-        });
-    });
+        async function handleSubmit(event) {
+            const button = event.target;
+            const questionItem = button.closest('.question-item');
+            const topicItem = button.closest('.accordion-item');
+            
+            const topic = topicItem.dataset.topicTitle;
+            const question = questionItem.dataset.question;
+            const practiceType = questionItem.querySelector('.practice-area').dataset.practiceType;
+            const textarea = questionItem.querySelector('textarea');
+            const articleContent = textarea.value.trim();
 
-    // "Hủy" button logic
-    document.querySelectorAll('.cancel-btn').forEach(btn => {
-        btn.addEventListener('click', e => {
-            const form = e.target.closest('.speaking-form');
-            form.style.display = 'none';
-            form.previousElementSibling.style.display = 'block'; // Show practice button
-            form.querySelector('textarea').value = '';
-            updateAccordionHeight(e.target);
-        });
-    });
+            if (!articleContent) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Vui lòng nhập nội dung bài nói.',
+                    confirmButtonText: 'Đã hiểu'
+                });
+                return;
+            }
 
-    // "Gửi bài" button logic
-    document.querySelectorAll('.submit-btn').forEach(btn => btn.addEventListener('click', handleSubmit));
-}
+            const submissionNumber = questionItem.querySelectorAll('.articles-list .submitted-article').length + 1;
+            const data = { type: practiceType, topic, question, submissionNumber, articleContent };
 
-function updateAccordionHeight(element) {
-    const content = element.closest('.accordion-content');
-    if (content && content.style.maxHeight) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-    }
-}
+            button.disabled = true;
+            button.textContent = 'Đang gửi...';
 
-async function handleSubmit(event) {
-    const button = event.target;
-    const questionItem = button.closest('.question-item');
-    const topicItem = button.closest('.accordion-item');
-    
-    const topic = topicItem.dataset.topicTitle;
-    const question = questionItem.dataset.question;
-    const practiceType = questionItem.querySelector('.practice-area').dataset.practiceType;
-    const textarea = questionItem.querySelector('textarea');
-    const articleContent = textarea.value.trim();
-
-    if (!articleContent) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Oops...',
-            text: 'Vui lòng nhập nội dung bài nói.',
-            confirmButtonText: 'Đã hiểu'
-        });
-        return;
-    }
-
-    // A bit complex: find number of submissions for THIS question
-    const submissionNumber = questionItem.querySelectorAll('.articles-list .submitted-article').length + 1;
-    const data = { type: practiceType, topic, question, submissionNumber, articleContent };
-
-    button.disabled = true;
-    button.textContent = 'Đang gửi...';
-
-    try {
-        // Using 'no-cors' means we can't read the success response, but it avoids CORS errors.
-        // We will assume success and update the UI optimistically.
-        await fetch(APPS_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors', // Important for simple deployment
-            cache: 'no-cache',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-        
-        // Optimistic UI update
-        Swal.fire({
-            icon: 'success',
-            title: 'Thành công!',
-            text: 'Gửi bài thành công!',
-            showConfirmButton: false,
-            timer: 1500
-        });
-        addSubmissionToUI(questionItem.querySelector('.practice-area'), data.articleContent, data.submissionNumber);
-    } catch (error) {
-        console.error('Error:', error);
-        Swal.fire({
-            icon: 'error',
-            title: 'Lỗi!',
-            text: 'Đã có lỗi xảy ra khi gửi bài. Vui lòng thử lại.',
-            confirmButtonText: 'Đã hiểu'
-        });
-    } finally {
-        // Reset form and UI
-        button.disabled = false;
-        button.textContent = 'Gửi bài';
-        textarea.value = '';
-        const form = button.closest('.speaking-form');
-        form.style.display = 'none';
-        form.previousElementSibling.style.display = 'block'; // Show practice button
-        updateAccordionHeight(button);
-    }
-}
-
-function addSubmissionToUI(practiceArea, content, number, scores = {}) {
-    const articlesList = practiceArea.querySelector('.articles-list');
-    const titleContainer = practiceArea.querySelector('.submitted-articles-title');
-    
-    // Sanitize content to prevent HTML injection
-    const sanitizedContent = content.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-    const newArticle = document.createElement('details');
-    newArticle.className = 'submitted-article group'; // Added group for styling
-
-    // Get scores, defaulting to N/A or appropriate message if not available
-    const grammarScore = scores.grammar !== null ? scores.grammar : 'N/A';
-    const vocabularyScore = scores.vocabulary !== null ? scores.vocabulary : 'N/A';
-    const coherenceScore = scores.coherence !== null ? scores.coherence : 'N/A';
-    const developmentScore = scores.development !== null ? scores.development : 'N/A';
-    const totalScore = scores.total !== null ? scores.total : 'N/A';
-    const feedback = scores.feedback && scores.feedback.trim() !== '' ? scores.feedback : 'Chưa có gợi ý.';
-
-    // Calculate progress for conic-gradient (assuming max score is 10 for total)
-    // If totalScore is 6.9, progress will be 69. If totalScore is already 69, then just use it.
-    const progress = totalScore !== 'N/A' ? (parseFloat(totalScore) * 10) : 0;
-
-    // Determine if the "Xem điểm số" button should be hidden
-    const hideScoreButtonClass = totalScore === 'N/A' ? 'hidden' : '';
-
-    newArticle.innerHTML = `
-        <summary class="flex justify-between items-center cursor-pointer py-2 px-3 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors duration-200 mb-2">
-            <span class="font-semibold text-slate-700">Bài nói ${number}</span>
-            <button class="view-score-btn bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full transition-colors duration-300 ml-auto ${hideScoreButtonClass}">
-                Xem điểm số
-            </button>
-            <svg class="icon ml-2 w-5 h-5 text-gray-600 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </summary>
-        <div class="article-content p-3 bg-white border-t border-gray-200 rounded-t-lg">${sanitizedContent}</div>
-        <div class="score-display mt-2 p-4 bg-gray-50 rounded-b-lg border border-gray-200 hidden">
-            <h5 class="font-semibold text-gray-700 mb-3">Điểm số:</h5>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-                <div class="score-box bg-blue-100 text-blue-800 p-3 rounded-md text-center">
-                    <p class="text-xs font-medium">Ngữ pháp</p>
-                    <p class="text-lg font-bold">${grammarScore}</p>
-                </div>
-                <div class="score-box bg-green-100 text-green-800 p-3 rounded-md text-center">
-                    <p class="text-xs font-medium">Từ vựng</p>
-                    <p class="text-lg font-bold">${vocabularyScore}</p>
-                </div>
-                <div class="score-box bg-purple-100 text-purple-800 p-3 rounded-md text-center">
-                    <p class="text-xs font-medium">Mạch lạc</p>
-                    <p class="text-lg font-bold">${coherenceScore}</p>
-                </div>
-                <div class="score-box bg-red-100 text-red-800 p-3 rounded-md text-center">
-                    <p class="text-xs font-medium">Phát triển ý</p>
-                    <p class="text-lg font-bold">${developmentScore}</p>
-                </div>
-            </div>
-            <div class="flex justify-center items-center mb-4">
-                <div class="score-circle-container" style="--progress: ${progress}%;">
-                    <div class="score-circle-inner">
-                        <p class="score-circle-value">${totalScore}</p> <!-- Removed the '%' sign -->
-                    </div>
-                </div>
-            </div>
-            <p class="text-center text-sm text-gray-500 mt-2">Điểm số chỉ mang tính chất tham khảo</p>
-            <div class="feedback-area bg-white p-3 rounded-md border border-gray-200">
-                <p class="font-semibold text-gray-700">Gợi ý thêm:</p>
-                <p class="text-sm text-gray-600">${feedback}</p>
-            </div>
-        </div>
-    `;
-    articlesList.appendChild(newArticle);
-
-    // Add event listener for the "Xem điểm số" button
-    newArticle.querySelector('.view-score-btn').addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent the details element from toggling
-        const scoreDisplay = newArticle.querySelector('.score-display');
-        scoreDisplay.classList.toggle('hidden');
-        updateAccordionHeight(newArticle); // Recalculate height
-    });
-
-    // Show the "Bài đã nộp" title if it's hidden
-    if (titleContainer.classList.contains('hidden')) {
-        titleContainer.classList.remove('hidden');
-    }
-    updateAccordionHeight(articlesList);
-}
-
-async function loadAllSubmissions() {
-    document.querySelectorAll('.loading-indicator').forEach(el => el.classList.remove('hidden'));
-    
-    try {
-        const response = await fetch(APPS_SCRIPT_URL);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const data = await response.json();
-
-        // Clear existing lists to prevent duplicates on reload
-        document.querySelectorAll('.articles-list').forEach(list => list.innerHTML = '');
-
-        // Iterate through the data and populate the UI
-        for (const topicTitle in data) {
-            const topicElement = document.querySelector(`.accordion-item[data-topic-title="${topicTitle}"]`);
-            if (!topicElement) continue;
-
-            const questionsData = data[topicTitle];
-            for (const questionText in questionsData) {
-                const questionElement = topicElement.querySelector(`.question-item[data-question="${questionText.replace(/"/g, '&quot;')}"]`);
-                if (!questionElement) continue;
+            try {
+                await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for simple deployment
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
                 
-                const typesData = questionsData[questionText];
-                if(typesData.Speaking) {
-                    const speakingArea = questionElement.querySelector('.practice-area');
-                    typesData.Speaking.forEach((sub, index) => {
-                        addSubmissionToUI(speakingArea, sub.articleContent, index + 1, {
-                            grammar: sub.grammar,
-                            vocabulary: sub.vocabulary,
-                            coherence: sub.coherence,
-                            development: sub.development,
-                            total: sub.total,
-                            feedback: sub.feedback
-                        });
-                    });
-                }
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thành công!',
+                    text: 'Gửi bài thành công!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                addSubmissionToUI(questionItem.querySelector('.practice-area'), data.articleContent, data.submissionNumber, '', ''); // Pass empty feedback and notes
+            } catch (error) {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi!',
+                    text: 'Đã có lỗi xảy ra khi gửi bài. Vui lòng thử lại.',
+                    confirmButtonText: 'Đã hiểu'
+                });
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Gửi bài';
+                textarea.value = '';
+                const form = button.closest('.speaking-form');
+                form.style.display = 'none';
+                form.previousElementSibling.style.display = 'block'; // Show practice button
+                updateAccordionHeight(button);
             }
         }
-    } catch (error) {
-        console.error('Could not load submissions:', error);
-        document.querySelectorAll('.accordion-item').forEach(item => {
-             const listContainer = item.querySelector('.submitted-articles-container');
-             if(listContainer) {
-                 listContainer.innerHTML = '<p class="text-red-500 text-sm p-2">Lỗi: Không thể tải các bài đã nộp.</p>';
-             }
-        });
-    } finally {
-        document.querySelectorAll('.loading-indicator').forEach(el => el.classList.add('hidden'));
-        // Re-calculate accordion heights after loading content
-        document.querySelectorAll('.accordion-header.active').forEach(header => {
-            const content = header.nextElementSibling;
-            content.style.maxHeight = content.scrollHeight + 'px';
-        });
-    }
-}
-</script>
+
+        function addSubmissionToUI(practiceArea, content, number, feedback = '', notes = '') {
+            const articlesList = practiceArea.querySelector('.articles-list');
+            const titleContainer = practiceArea.querySelector('.submitted-articles-title');
+            
+            const sanitizedContent = content.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            
+            const newArticle = document.createElement('details');
+            newArticle.className = 'submitted-article group';
+
+            const isNotesExist = !!notes.trim();
+            const notesButtonHtml = isNotesExist
+                ? `<button class="note-btn edit-mode" data-submission-number="${number}" data-topic="${practiceArea.closest('.accordion-item').dataset.topicTitle}" data-question="${practiceArea.closest('.question-item').dataset.question.replace(/"/g, '&quot;')}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M17 3a2.85 2.85 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                  </button>`
+                : `<button class="note-btn add-note" data-submission-number="${number}" data-topic="${practiceArea.closest('.accordion-item').dataset.topicTitle}" data-question="${practiceArea.closest('.question-item').dataset.question.replace(/"/g, '&quot;')}">Thêm ghi chú</button>`;
+
+            const userNotesHtml = `
+                <div class="user-notes-area">
+                    <div class="flex justify-between items-center mb-2">
+                         <p class="font-semibold text-indigo-800">Ghi chú của bạn</p>
+                         ${notesButtonHtml}
+                    </div>
+                    <div class="note-display" style="${isNotesExist ? '' : 'display: none;'}">${notes}</div>
+                    <textarea class="user-notes-textarea" placeholder="Nhập ghi chú của bạn vào đây...">${notes}</textarea>
+                </div>`;
+
+            newArticle.innerHTML = `
+                <summary class="flex justify-between items-center cursor-pointer py-2 px-3 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors duration-200 mb-2">
+                    <span class="font-semibold text-slate-700">Bài nói ${number}</span>
+                    <svg class="icon ml-2 w-5 h-5 text-gray-600 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </summary>
+                <div class="article-content p-3 bg-white border-t border-gray-200">${sanitizedContent}</div>
+                ${userNotesHtml}
+            `;
+            articlesList.appendChild(newArticle);
+
+            if (titleContainer.classList.contains('hidden')) {
+                titleContainer.classList.remove('hidden');
+            }
+            updateAccordionHeight(articlesList);
+        }
+
+        async function loadAllSubmissions() {
+            document.querySelectorAll('.loading-indicator').forEach(el => el.classList.remove('hidden'));
+            
+            try {
+                const response = await fetch(APPS_SCRIPT_URL);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+
+                document.querySelectorAll('.articles-list').forEach(list => list.innerHTML = '');
+
+                for (const topicTitle in data) {
+                    const topicElement = document.querySelector(`.accordion-item[data-topic-title="${topicTitle}"]`);
+                    if (!topicElement) continue;
+
+                    const questionsData = data[topicTitle];
+                    for (const questionText in questionsData) {
+                        const questionElement = topicElement.querySelector(`.question-item[data-question="${questionText.replace(/"/g, '&quot;')}"]`);
+                        if (!questionElement) continue;
+                        
+                        const typesData = questionsData[questionText];
+                        if(typesData.Speaking) {
+                            const speakingArea = questionElement.querySelector('.practice-area');
+                            typesData.Speaking.forEach((sub, index) => {
+                                addSubmissionToUI(speakingArea, sub.articleContent, index + 1, sub.feedback, sub.notes);
+                            });
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Could not load submissions:', error);
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    const listContainer = item.querySelector('.submitted-articles-container');
+                    if(listContainer) {
+                        listContainer.innerHTML = '<p class="text-red-500 text-sm p-2">Lỗi: Không thể tải các bài đã nộp.</p>';
+                    }
+                });
+            } finally {
+                document.querySelectorAll('.loading-indicator').forEach(el => el.classList.add('hidden'));
+                document.querySelectorAll('.accordion-header.active').forEach(header => {
+                    const content = header.nextElementSibling;
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                });
+            }
+        }
+    </script>
 
 </body>
 </html>
