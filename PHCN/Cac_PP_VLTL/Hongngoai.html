@@ -3,84 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hồng Ngoại - Thông tin chi tiết</title>
+    <title>Trang Chủ - Nguyễn Mai Đan Trường</title>
+     <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:title" content="Trang Chủ - Nguyễn Mai Đan Trường">
+    <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:image" content="/hinhanh/logo web.png">
+    <meta property="og:url" content="https://dantruongag.id.vn">
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/PHCN/Cac_PP_VLTL/Cac_phuong_phap_vltl.css">
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for Inter font and smooth scrolling */
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #f0f2f5; /* Light gray background */
-            color: #374151; /* Darker gray text for better readability */
-        }
-        /* Custom styling for ordered lists to ensure consistent numbering and spacing */
-        ol {
-            list-style-type: decimal;
-            padding-left: 1.5rem; /* Indent for list numbers */
-        }
-        ol li {
-            margin-bottom: 0.75rem; /* Space between list items */
-            line-height: 1.6; /* Improved line height for readability */
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-top: 0.5rem;
-        }
-        ul li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-        /* Smooth transition for hover effects on image only now */
-        .hover-effect {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .hover-effect:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
-        }
-        /* Custom gradient text for H1 */
-        .gradient-text {
-            background-image: linear-gradient(to right, #2563eb, #8b5cf6); /* Blue to purple gradient for text */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent; /* Fallback for browsers that don't support text-fill-color */
-        }
-        .disclaimer-highlight {
-            background-color: #ffeccf; /* Light orange/yellow background */
-            color: #8c5a00; /* Darker orange text */
-            padding: 0.75rem 1.5rem; /* Padding around the text */
-            border-radius: 0.5rem; /* Slightly rounded corners */
-            margin-top: 1rem; /* Space above the disclaimer */
-            display: inline-block; /* To make padding and border-radius apply correctly */
-        }
     </style>
 </head>
-<body class="bg-gray-100">
+    <body class="bg-gray-900">
+    <div id="header-placeholder"></div>
+    <div id="search-placeholder"></div>
+<section class="noidung">
     <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
-        <header class="mb-10 text-center">
+        <header class="mb-12 text-center">
             <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight gradient-text pb-2">HỒNG NGOẠI</h1>
-            <div id="disclaimer-container"></div>
+            <!-- Disclaimer added directly to HTML -->
+            <p class="mt-4 text-sm opacity-90 disclaimer-highlight mx-auto max-w-2xl">
+                Thông tin trong bài viết này chỉ mang tính chất tham khảo, bạn nên tham khảo ý kiến của bác sĩ.
+            </p>
         </header>
 
-        <div class="mb-10 rounded-lg overflow-hidden shadow-lg hover-effect mx-auto w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
-            <img src="https://placehold.co/1200x600/4F46E5/FFFFFF?text=H%E1%BB%93ng+Ngo%E1%BA%A1i" alt="Hình ảnh về Hồng ngoại" class="w-full h-auto object-cover">
-            <p class="text-center text-sm text-gray-600 mt-2">Hình ảnh minh họa về tia hồng ngoại</p>
+        <!-- Improved Image Section with a working placeholder -->
+        <div class="mb-12 rounded-2xl overflow-hidden shadow-2xl card-hover-effect mx-auto w-full md:w-5/6 lg:w-3/4">
+            <img src="/PHCN/hinhanh_phcn/hong_ngoai.jpg" alt="Hình ảnh minh họa tia hồng ngoại và tác dụng nhiệt" class="w-full h-auto object-cover">
         </div>
-        <main class="space-y-10">
-            <section id="dai-cuong" class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">1. Đại Cương</h2>
+
+        <main class="space-y-12">
+            <section id="dai-cuong" class="bg-white p-8 rounded-2xl shadow-xl card-hover-effect">
+                <div class="section-header mb-4 border-b-2 pb-2 border-blue-200">
+                    <!-- Icon for overview -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm1-13h-2v6h2v-6zm0 8h-2v2h2v-2z"/>
+                    </svg>
+                    <h2 class="text-3xl font-bold text-blue-700">1. Đại Cương</h2>
+                </div>
                 <ol class="text-lg leading-relaxed">
                     <li>Tia hồng ngoại được phát hiện năm 1799 do William Herschel.</li>
-                    <li>Tia hồng ngoại là sóng điện từ có bước sóng ($\lambda$) từ 760 nm – 1 mm.</li>
+                    <li>Tia hồng ngoại là sóng điện từ có bước sóng (λ) từ 760 nm – 1 mm.</li>
                     <li>Hồng ngoại nguồn nhân tạo do các loại đèn hồng ngoại phát ra có công suất khác nhau. Tác dụng chủ yếu là nhiệt nóng.</li>
                 </ol>
             </section>
 
-            <section id="tac-dung" class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">2. Tác dụng</h2>
+            <section id="tac-dung" class="bg-white p-8 rounded-2xl shadow-xl card-hover-effect">
+                <div class="section-header mb-4 border-b-2 pb-2 border-blue-200">
+                    <!-- Icon for effects -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-10h2v6h-2v-6zm0 8h2v2h-2v-2z"/>
+                    </svg>
+                    <h2 class="text-3xl font-bold text-blue-700">2. Tác dụng</h2>
+                </div>
                 <ol class="text-lg leading-relaxed">
                     <li>
                         <strong>Tác dụng tại chỗ:</strong>
@@ -96,8 +78,14 @@
                 </ol>
             </section>
 
-            <section id="chi-dinh" class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">3. Chỉ Định</h2>
+            <section id="chi-dinh" class="bg-white p-8 rounded-2xl shadow-xl card-hover-effect">
+                <div class="section-header mb-4 border-b-2 pb-2 border-blue-200">
+                    <!-- Icon for indications -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-15h2v6h-2V7zm0 8h2v2h-2v-2z"/>
+                    </svg>
+                    <h2 class="text-3xl font-bold text-blue-700">3. Chỉ Định</h2>
+                </div>
                 <ol class="text-lg leading-relaxed">
                     <li>
                         <b>Gia tăng lưu lượng tuần hoàn:</b> Hiệu quả này được nhận thấy ở các mô nông. Nên bức xạ hồng ngoại được sử dụng để điều trị vết thương cạn và nhiễm trùng ngoài da. Sẽ gia tăng cung cấp máu làm sự nuôi dưỡng mô được cải thiện, số lượng bạch cầu đến vết thương nhiều hơn. Vì thế vết thương nhanh chóng lành sẹo và lên da non. Gia tăng sự tiết mồ hôi làm tiêu tan các chất dịch thâm nhập các tổ chức dưới da nên hồng ngoại giải quyết được một số trường hợp phù do viêm, phù do ứ trệ tuần hoàn. Như thế các mút thần kinh thụ cảm được giải phóng khỏi sự chèn ép của các tổ chức viêm.
@@ -111,8 +99,14 @@
                 </ol>
             </section>
 
-            <section id="chong-chi-dinh" class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">4. Chống Chỉ Định</h2>
+            <section id="chong-chi-dinh" class="bg-white p-8 rounded-2xl shadow-xl card-hover-effect">
+                <div class="section-header mb-4 border-b-2 pb-2 border-blue-200">
+                    <!-- Icon for contraindications -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM9 11h6v2H9v-2z"/>
+                    </svg>
+                    <h2 class="text-3xl font-bold text-blue-700">4. Chống Chỉ Định</h2>
+                </div>
                 <ol class="text-lg leading-relaxed">
                     <li>Những chấn thương mới, vì có nguy cơ gia tăng phù nề và chảy máu.</li>
                     <li>Những trường hợp nhiễm trùng não có mủ, vì làm nhiễm khuẩn lan rộng.</li>
@@ -123,8 +117,14 @@
                 </ol>
             </section>
 
-            <section id="tai-bien-xu-tri" class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 pb-2 border-blue-200">5. Tai Biến và Xử Trí</h2>
+            <section id="tai-bien-xu-tri" class="bg-white p-8 rounded-2xl shadow-xl card-hover-effect">
+                <div class="section-header mb-4 border-b-2 pb-2 border-blue-200">
+                    <!-- Icon for complications and management -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 1L3 21h18L12 1zm0 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0-4a1 1 0 0 1 0-2 1 1 0 0 1 0 2z"/>
+                    </svg>
+                    <h2 class="text-3xl font-bold text-blue-700">5. Tai Biến và Xử Trí</h2>
+                </div>
                 <ol class="text-lg leading-relaxed">
                     <li>
                         <strong>Bỏng da:</strong>
@@ -161,30 +161,10 @@
             </section>
         </main>
     </div>
+</section>
+    <div id="footer-placeholder"></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const disclaimerContainer = document.getElementById('disclaimer-container');
-
-            // Create a new paragraph element
-            const disclaimerParagraph = document.createElement('p');
-
-            // Set the text content for the paragraph
-            disclaimerParagraph.textContent = 'Thông tin trong bài viết này chỉ mang tính chất tham khảo, bạn nên tham khảo ý kiến của bác sĩ.';
-
-            // Add Tailwind CSS classes to the paragraph
-            disclaimerParagraph.classList.add(
-                'mt-2',
-                'text-sm',
-                'opacity-90',
-                'disclaimer-highlight',
-                'mx-auto',
-                'max-w-2xl'
-            );
-
-            // Append the new paragraph to the container
-            disclaimerContainer.appendChild(disclaimerParagraph);
-        });
-    </script>
+        <script src="/script.js"></script>
+        <script src="/search.js"></script>
 </body>
 </html>

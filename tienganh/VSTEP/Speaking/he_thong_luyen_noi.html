@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hệ thống luyện nói tiếng anh - Nguyễn Mai Đan Trường</title>
+    <!-- Tailwind CSS for rapid UI development -->
+    <meta name="description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:description" content="Chào bạn! Đây là không gian cá nhân của Đan Trường. Khám phá thôi nào!.">
+    <meta property="og:image" content="/hinhanh/logo web.png">
+    <meta property="og:url" content="https://dantruongag.id.vn">
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/hinhanh/logo web.png" type="">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/tienganh/writting/writting.css"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+
+        /* General screen transition classes */
+        .screen {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(0);
+        }
+        .screen.hidden {
+            display: block !important; /* Override Tailwind's hidden */
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            position: absolute; /* Stack screens on top of each other */
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        /* Intro typing line */
+        .typing-hero {
+            font-weight: 800;
+            font-size: clamp(20px, 4vw, 34px);
+            text-align: center;
+            background: linear-gradient(90deg, #1d4ed8, #9333ea, #0ea5e9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        /* Record button */
+        .record-button {
+            width: 90px;
+            height: 90px;
+            background: #ef4444;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+            transition: 0.3s;
+        }
+        .record-button:hover { background: #dc2626; transform: scale(1.05); }
+        .record-button.recording { background: #10b981; animation: pulse 1.5s infinite; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Progress bar */
+        #progress-bar {
+            height: 10px;
+            background: #3b82f6;
+            transition: width 1s linear;
+        }
+
+        .control-btn:disabled {
+            background-color: #9ca3af; /* bg-gray-400 */
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Message box transition */
+        #message-box {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        #message-box.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        #message-box.visible .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="container text-center p-6 max-w-2xl w-full relative">
+
+        <!-- START -->
+        <div id="start-screen" class="screen space-y-6">
+            <h1 class="text-4xl font-extrabold text-gray-800">English Speaking Practice</h1>
+            <button id="start-btn" class="px-8 py-4 text-xl font-bold rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-transform hover:scale-105">Start</button>
+        </div>
+
+        <!-- INTRO -->
+        <div id="intro-screen" class="screen hidden">
+            <p id="typing-text" class="typing-hero"></p>
+        </div>
+
+        <!-- MAIN -->
+        <div id="main-content" class="screen hidden">
+            <!-- Timer -->
+            <div class="mb-6">
+                <div id="progress-container" class="w-full bg-gray-300 rounded-full overflow-hidden">
+                    <div id="progress-bar" style="width:100%"></div>
+                </div>
+                <div id="countdown" class="mt-2 font-bold text-red-600 text-lg">02:00</div>
+            </div>
+
+            <!-- Question -->
+            <div id="question" class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-12 min-h-[5rem] flex items-center justify-center"></div>
+
+            <!-- Record -->
+            <div class="flex flex-col items-center space-y-6">
+                <button id="record-btn" class="record-button"><i id="mic-icon" class="fas fa-microphone text-3xl"></i></button>
+
+                <!-- Buttons row -->
+                <div class="flex items-center justify-center w-full mt-6 relative">
+                    <!-- Prev icon -->
+                    <button id="prev-btn" class="flex items-center justify-center font-semibold rounded-full transition-transform duration-300 shadow-lg hover:scale-105 w-14 h-14 bg-gray-500 text-white text-2xl disabled:opacity-50"><i class="fas fa-arrow-left"></i></button>
+
+                    <!-- Center buttons -->
+                    <div class="flex gap-4 justify-center">
+                        <button id="hint-btn" class="flex items-center justify-center font-semibold rounded-full transition-transform duration-300 shadow-lg hover:scale-105 px-6 py-3 text-white bg-purple-500 hover:bg-purple-600"><i class="fas fa-lightbulb mr-2"></i>Hint</button>
+                        <button id="sample-btn" class="flex items-center justify-center font-semibold rounded-full transition-transform duration-300 shadow-lg hover:scale-105 px-6 py-3 text-white bg-green-500 hover:bg-green-600"><i class="fas fa-book-open mr-2"></i>Sample</button>
+                    </div>
+
+                    <!-- Next icon -->
+                    <button id="next-btn" class="flex items-center justify-center font-semibold rounded-full transition-transform duration-300 shadow-lg hover:scale-105 w-14 h-14 bg-gray-500 text-white text-2xl"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Hint and Sample Display Section -->
+            <div id="hint-and-sample-display" class="mt-8 text-left space-y-4">
+                <div id="hint-display" class="p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-lg hidden">
+                    <h4 class="font-bold mb-2 flex items-center"><i class="fas fa-lightbulb mr-2"></i>Gợi ý</h4>
+                    <p id="hint-text"></p>
+                </div>
+                <div id="sample-display" class="p-4 bg-blue-100 border-l-4 border-blue-500 text-blue-800 rounded-lg hidden">
+                    <h4 class="font-bold mb-2 flex items-center"><i class="fas fa-book-open mr-2"></i>Bài mẫu</h4>
+                    <p id="sample-text"></p>
+                </div>
+            </div>
+
+            <!-- Audio player -->
+            <div id="audio-container" class="hidden mt-8 flex items-center justify-center gap-4">
+                <audio id="audio-player" controls class="w-full max-w-lg"></audio>
+                <button id="download-btn" class="text-blue-600 hover:text-blue-800 transition-colors"><i class="fas fa-download text-2xl"></i></button>
+                <button id="delete-btn" class="text-red-500 hover:text-red-700 transition-colors"><i class="fas fa-trash text-2xl"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Message Box/Modal -->
+    <div id="message-box" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full">
+            <h3 id="message-title" class="text-xl font-bold mb-4 text-gray-800"></h3>
+            <p id="message-body" class="text-gray-600 mb-6"></p>
+            <button id="message-close-btn" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Đóng</button>
+        </div>
+    </div>
+
+<script>
+    // Vui lòng dán URL đã triển khai của Google Apps Script tại đây
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5-L81bL0mtFx3UDGsl8dHpK4AX_tm8WOKcsk7y7b2N48UOEIaq9oGkJvlzn3OXBfa/exec';
+
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let timer, mediaRecorder, chunks = [], blob = null;
+    const duration = 120; // in seconds
+
+    const elements = {
+        startScreen: document.getElementById('start-screen'),
+        introScreen: document.getElementById('intro-screen'),
+        mainContent: document.getElementById('main-content'),
+        typingText: document.getElementById('typing-text'),
+        question: document.getElementById('question'),
+        countdown: document.getElementById('countdown'),
+        progressBar: document.getElementById('progress-bar'),
+        recordBtn: document.getElementById('record-btn'),
+        micIcon: document.getElementById('mic-icon'),
+        prevBtn: document.getElementById('prev-btn'),
+        nextBtn: document.getElementById('next-btn'),
+        hintBtn: document.getElementById('hint-btn'),
+        sampleBtn: document.getElementById('sample-btn'),
+        audioContainer: document.getElementById('audio-container'),
+        audioPlayer: document.getElementById('audio-player'),
+        downloadBtn: document.getElementById('download-btn'),
+        deleteBtn: document.getElementById('delete-btn'),
+        messageBox: document.getElementById('message-box'),
+        messageTitle: document.getElementById('message-title'),
+        messageBody: document.getElementById('message-body'),
+        messageCloseBtn: document.getElementById('message-close-btn'),
+        // NEW elements for hint and sample display
+        hintDisplay: document.getElementById('hint-display'),
+        hintText: document.getElementById('hint-text'),
+        sampleDisplay: document.getElementById('sample-display'),
+        sampleText: document.getElementById('sample-text'),
+    };
+
+    // Helper function for screen transitions
+    function transitionScreen(screenToHide, screenToShow) {
+        if (screenToHide) {
+            screenToHide.classList.add('hidden');
+        }
+        if (screenToShow) {
+            screenToShow.classList.remove('hidden');
+        }
+    }
+
+    // Typewriter effect function
+    function typeWriter(text, element, callback) {
+        element.textContent = '';
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                element.textContent += text[i++];
+                setTimeout(type, 40);
+            } else {
+                if (callback) callback();
+            }
+        }
+        type();
+    }
+
+    // Show a specific question
+    function showQuestion() {
+        if (mediaRecorder && mediaRecorder.state === "recording") stopRec();
+        
+        // Sửa lỗi: Đảm bảo rằng questions[currentQuestionIndex] tồn tại trước khi truy cập
+        const currentQuestion = questions[currentQuestionIndex];
+        if (currentQuestion) {
+            elements.question.textContent = currentQuestion.question;
+            resetAudio();
+            startTimer();
+            updateButtonStates();
+            // NEW: Hide hint/sample when a new question loads
+            elements.hintDisplay.classList.add('hidden');
+            elements.sampleDisplay.classList.add('hidden');
+        } else {
+            showMessageBox('Lỗi', 'Không tìm thấy câu hỏi. Vui lòng thử lại.');
+        }
+    }
+
+    // Start the countdown timer
+    function startTimer() {
+        clearInterval(timer);
+        let timeLeft = duration;
+        updateTimerDisplay(timeLeft);
+        timer = setInterval(() => {
+            timeLeft--;
+            updateTimerDisplay(timeLeft);
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                stopRec();
+            }
+        }, 1000);
+    }
+
+    // Update the timer display and progress bar
+    function updateTimerDisplay(timeLeft) {
+        const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+        const seconds = String(timeLeft % 60).padStart(2, '0');
+        elements.countdown.textContent = `${minutes}:${seconds}`;
+        elements.progressBar.style.width = (timeLeft / duration * 100) + "%";
+    }
+
+    // Reset audio player
+    function resetAudio() {
+        blob = null;
+        elements.audioContainer.classList.add('hidden');
+        elements.audioPlayer.src = '';
+    }
+
+    // Start recording
+    async function startRec() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            chunks = [];
+            mediaRecorder.ondataavailable = e => chunks.push(e.data);
+            mediaRecorder.onstop = () => {
+                blob = new Blob(chunks, { type: 'audio/webm' });
+                const audioURL = URL.createObjectURL(blob);
+                elements.audioPlayer.src = audioURL;
+                elements.audioContainer.classList.remove('hidden');
+            };
+            mediaRecorder.start();
+            elements.recordBtn.classList.add('recording');
+            elements.micIcon.classList.replace('fa-microphone', 'fa-stop');
+        } catch (err) {
+            showMessageBox('Lỗi', 'Không thể truy cập microphone. Vui lòng cho phép truy cập.');
+        }
+    }
+
+    // Stop recording
+    function stopRec() {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.stop();
+            elements.recordBtn.classList.remove('recording');
+            elements.micIcon.classList.replace('fa-stop', 'fa-microphone');
+        }
+    }
+
+    // Show custom message box
+    function showMessageBox(title, message) {
+        elements.messageTitle.textContent = title;
+        elements.messageBody.textContent = message;
+        elements.messageBox.classList.remove('hidden');
+        setTimeout(() => {
+            elements.messageBox.classList.add('visible');
+        }, 10);
+    }
+
+    // Hide custom message box
+    function hideMessageBox() {
+        elements.messageBox.classList.remove('visible');
+        setTimeout(() => {
+            elements.messageBox.classList.add('hidden');
+        }, 300); // Corresponds to CSS transition duration
+    }
+
+    // Update button states (e.g., disable Prev on first question)
+    function updateButtonStates() {
+        elements.prevBtn.disabled = currentQuestionIndex === 0;
+        elements.nextBtn.disabled = currentQuestionIndex === questions.length - 1;
+    }
+
+    // Fetch questions from Google Sheet
+    async function fetchQuestions() {
+        elements.question.textContent = "Đang tải câu hỏi...";
+        elements.question.classList.add('animate-pulse');
+        try {
+            const response = await fetch(SCRIPT_URL + '?action=get_speaking_questions');
+
+            if (!response.ok) {
+                throw new Error('Lỗi mạng khi tải dữ liệu.');
+            }
+            
+            const contentData = await response.json();
+
+            let flattenedQuestions = [];
+            
+            if (contentData && typeof contentData === 'object' && !Array.isArray(contentData)) {
+                for (const topicKey in contentData) {
+                    if (Object.prototype.hasOwnProperty.call(contentData, topicKey)) {
+                        const topicQuestions = contentData[topicKey];
+                        for (const questionKey in topicQuestions) {
+                            if (Object.prototype.hasOwnProperty.call(topicQuestions, questionKey)) {
+                                const speakingSubmissions = topicQuestions[questionKey].Speaking;
+                                if (speakingSubmissions && Array.isArray(speakingSubmissions)) {
+                                    speakingSubmissions.forEach(submission => {
+                                        flattenedQuestions.push({
+                                            question: questionKey,
+                                            hint: submission.notes || 'Không có gợi ý.',
+                                            sample: submission.articleContent || 'Không có câu trả lời mẫu.'
+                                        });
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            questions = flattenedQuestions;
+
+            if (questions.length === 0) {
+                showMessageBox('Lỗi', 'Không tìm thấy câu hỏi nào hoặc dữ liệu không đúng định dạng. Vui lòng kiểm tra lại Google Sheet.');
+                elements.question.textContent = "Không có câu hỏi.";
+            } else {
+                // Smoothly transition from intro screen to main content
+                transitionScreen(elements.introScreen, elements.mainContent);
+                showQuestion();
+            }
+        } catch (error) {
+            showMessageBox('Lỗi', `Không thể tải câu hỏi từ Google Sheet. Lỗi: ${error.message}`);
+            console.error('Error fetching questions:', error);
+            elements.question.textContent = "Lỗi tải câu hỏi.";
+        } finally {
+            elements.question.classList.remove('animate-pulse');
+        }
+    }
+
+    // Event Listeners
+    document.getElementById('start-btn').onclick = () => {
+        // Smoothly transition from start screen to intro screen
+        transitionScreen(elements.startScreen, elements.introScreen);
+        typeWriter("You have 2 minutes to answer each question. Good luck!", elements.typingText, () => {
+            setTimeout(() => {
+                fetchQuestions();
+            }, 2000); // 2-second delay after typing
+        });
+    };
+
+    elements.recordBtn.onclick = () => {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+            stopRec();
+        } else {
+            startRec();
+        }
+    };
+
+    elements.nextBtn.onclick = () => {
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion();
+        }
+    };
+
+    elements.prevBtn.onclick = () => {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            showQuestion();
+        }
+    };
+
+    elements.downloadBtn.onclick = () => {
+        if (blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `recording-${currentQuestionIndex + 1}.webm`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+    };
+
+    elements.deleteBtn.onclick = resetAudio;
+
+    elements.hintBtn.onclick = () => {
+        const currentQuestion = questions[currentQuestionIndex];
+        if (currentQuestion && currentQuestion.hint) {
+            elements.hintText.textContent = currentQuestion.hint;
+            elements.hintDisplay.classList.toggle('hidden');
+            elements.sampleDisplay.classList.add('hidden');
+        } else {
+            showMessageBox('Không có gợi ý', 'Chưa có gợi ý nào cho câu hỏi này.');
+        }
+    };
+
+    elements.sampleBtn.onclick = () => {
+        const currentQuestion = questions[currentQuestionIndex];
+        if (currentQuestion && currentQuestion.sample) {
+            elements.sampleText.textContent = currentQuestion.sample;
+            elements.sampleDisplay.classList.toggle('hidden');
+            elements.hintDisplay.classList.add('hidden');
+        } else {
+            showMessageBox('Không có câu trả lời mẫu', 'Chưa có câu trả lời mẫu cho câu hỏi này.');
+        }
+    };
+
+    elements.messageCloseBtn.onclick = hideMessageBox;
+
+    updateButtonStates();
+</script>
+</body>
+</html>

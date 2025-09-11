@@ -1,0 +1,43 @@
+ /* Custom styles for Inter font and smooth scrolling */
+        .noidung {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f5f7fa;
+            color: #374151;
+        }
+        /* Adjusted styles for bulleted lists */
+        .noidung ul {
+            list-style-type: disc;
+            padding-left: 1.5rem; 
+        }
+        .noidung ul li {
+            margin-bottom: 0.75rem; 
+            line-height: 1.6; 
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+        }
+        .gradient-text {
+            background-image: linear-gradient(to right, #2563eb, #8b5cf6);
+            margin-top: 40px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* fallback for browsers that don't support -webkit-text-fill-color */
+        }
+        .disclaimer-highlight {
+            background-color: #fef3c7; /* Light orange/yellow background */
+            color: #92400e; /* Darker orange text */
+            padding: 0.75rem 1.5rem; /* Padding around the text */
+            border-radius: 0.75rem; /* More rounded corners */
+            margin-top: 1rem; /* Space above the disclaimer */
+            display: inline-block; /* To make padding and border-radius apply correctly */
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+        }

@@ -72,7 +72,7 @@ function createCardElement(config) {
             } catch (err) {
                 console.error(`Failed to fetch ${url}:`, err);
                 const dummyTitle = url.split('/').pop().replace('.html', '').replace(/-/g, ' ');
-                return { title: `(Lỗi) ${capitalizeFirstWordOnly(dummyTitle)}`, url, success: false };
+                return { title: `${capitalizeFirstWordOnly(dummyTitle)}`, url, success: false };
             }
         });
 
@@ -176,7 +176,8 @@ function setupCardPaginator(cardElement, config) {
                 title: 'Thần kinh',
                 iconSvg: `<div class="icon text-purple-600 text-4xl"><i class="fas fa-brain"></i></div>`,
                 links: [
-                    '/benhhoc/tailieu/benh_alzhemer.html'
+                    '/benhhoc/tailieu/benh_alzhemer.html',
+                    '/benhhoc/tailieu/đau_day_than_kinh_tam_thoa'
                 ],
                 countUnit: 'tài liệu'
             },
