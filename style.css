@@ -737,3 +737,23 @@
         .icon-month { color: #f1c40f; }
         .icon-last-month { color: #e67e22; }
         .icon-year { color: #e74c3c; }
+
+
+
+/* CSS CHO VIDIEO Ở MỘT SỐ HTML  */
+        .floating-video {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        width: 400px; /
+        height: 225px;
+        z-index: 999;
+      }
+      @media (max-width: 640px) {
+        .floating-video {
+          bottom: 120px; /* Cách lề dưới 70px */
+          right: 20px; /* Khoảng cách lề phải */
+          width: 45vw; /* Chiếm 45% chiều rộng màn hình */
+          height: calc(45vw * 9 / 16); /* Duy trì tỷ lệ 16:9 */
+        }
+      }

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu mẫu nhập liệu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1.5rem;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 5px 15px -5px rgba(0, 0, 0, 0.04);
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .input-group input, .input-group textarea, .input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            border: 2px solid #e5e7eb;
+            background-color: #f9fafb;
+            font-size: 1rem;
+            color: #1f2937;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .input-group input:focus, .input-group textarea:focus, .input-group select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+        }
+        .button {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            color: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #3b82f6;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: #2563eb;
+        }
+        #statusMessage {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        #statusMessage.success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        #statusMessage.error {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #3b82f6;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1 class="text-3xl text-center font-bold text-gray-800 mb-6">TẠO CÂU HỎI TRẢ LỜI NGẮN</h1>
+        <form id="dataForm" class="flex flex-col">
+            <div class="input-group">
+                <label for="subject">Môn học</label>
+                <select id="subjectSelect"></select>
+                <input type="text" id="newSubjectInput" style="display: none;" placeholder="Nhập tên môn học mới...">
+            </div>
+            <div class="input-group">
+                <label for="topic">Tên bài</label>
+                <select id="topicSelect"></select>
+                <input type="text" id="newTopicInput" style="display: none;" placeholder="Nhập tên bài mới...">
+            </div>
+            <div class="input-group">
+                <label for="question">Câu hỏi</label>
+                <textarea id="question" name="question" rows="4" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="answer">Đáp án</label>
+                <textarea id="answer" name="answer" rows="2" required></textarea>
+            </div>
+            <button type="submit" class="button">Lưu dữ liệu</button>
+            <div id="statusMessage" class="flex items-center justify-center p-4 rounded-xl mt-4 hidden">
+                <div id="loadingSpinner" class="spinner"></div>
+                <div id="statusText" class="ml-4"></div>
+            </div>
+        </form>
+    </div>
+
+    <script type="module">
+        const SAVE_DATA_URL = 'https://script.google.com/macros/s/AKfycbwzjWbidENkl-aCiymK83RQ-P_RyDazUQoAsvzVjp46mJabF-JHvZalU2zocG-h85ed/exec';
+        const SUBJECTS_DATA_URL = 'https://script.google.com/macros/s/AKfycbwzjWbidENkl-aCiymK83RQ-P_RyDazUQoAsvzVjp46mJabF-JHvZalU2zocG-h85ed/exec';
+        
+        const form = document.getElementById('dataForm');
+        const statusMessage = document.getElementById('statusMessage');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const statusText = document.getElementById('statusText');
+        const subjectSelect = document.getElementById('subjectSelect');
+        const newSubjectInput = document.getElementById('newSubjectInput');
+        const topicSelect = document.getElementById('topicSelect');
+        const newTopicInput = document.getElementById('newTopicInput');
+
+        let subjectsAndTopics = {};
+
+        // Hiển thị trạng thái tải
+        function showLoading(message) {
+            statusMessage.classList.remove('hidden');
+            loadingSpinner.classList.remove('hidden');
+            statusText.classList.remove('hidden');
+            statusText.textContent = message;
+            statusMessage.className = 'flex items-center justify-center p-4 rounded-xl mt-4';
+        }
+
+        // Hiển thị thông báo thành công hoặc thất bại
+        function showStatus(message, isSuccess) {
+            statusMessage.classList.remove('hidden');
+            loadingSpinner.classList.add('hidden');
+            statusText.classList.remove('hidden');
+            statusText.textContent = message;
+            statusMessage.className = isSuccess ? 'success' : 'error';
+        }
+
+        // Lấy dữ liệu môn học từ Google Sheet
+        async function fetchSubjectsAndTopics() {
+            try {
+                showLoading('Đang tải dữ liệu môn học...');
+                const response = await fetch(SUBJECTS_DATA_URL);
+                const data = await response.json();
+                
+                subjectsAndTopics = {};
+                data.forEach(item => {
+                    const subject = item.subject;
+                    const topic = item.topic;
+                    if (subject && topic) {
+                        if (!subjectsAndTopics[subject]) {
+                            subjectsAndTopics[subject] = new Set();
+                        }
+                        subjectsAndTopics[subject].add(topic);
+                    }
+                });
+                
+                populateSubjects();
+                showStatus('Đã tải xong!', true);
+            } catch (error) {
+                console.error("Lỗi khi tải dữ liệu môn học:", error);
+                showStatus('Lỗi khi tải dữ liệu môn học. Vui lòng thử lại sau.', false);
+            }
+        }
+
+        // Điền dữ liệu vào dropdown môn học
+        function populateSubjects() {
+            subjectSelect.innerHTML = '';
+            subjectSelect.innerHTML += '<option value="">Chọn môn học...</option>';
+            Object.keys(subjectsAndTopics).sort().forEach(subject => {
+                subjectSelect.innerHTML += `<option value="${subject}">${subject}</option>`;
+            });
+            subjectSelect.innerHTML += '<option value="new">Nhập mới</option>';
+            
+            populateTopics();
+        }
+
+        // Điền dữ liệu vào dropdown tên bài
+        function populateTopics() {
+            const selectedSubject = subjectSelect.value;
+            topicSelect.innerHTML = '';
+            
+            if (selectedSubject && subjectsAndTopics[selectedSubject]) {
+                topicSelect.innerHTML += '<option value="">Chọn tên bài...</option>';
+                subjectsAndTopics[selectedSubject].forEach(topic => {
+                    topicSelect.innerHTML += `<option value="${topic}">${topic}</option>`;
+                });
+            }
+            
+            topicSelect.innerHTML += '<option value="new">Nhập mới</option>';
+        }
+
+        // Xử lý khi người dùng chọn "Nhập mới"
+        subjectSelect.addEventListener('change', () => {
+            if (subjectSelect.value === 'new') {
+                subjectSelect.style.display = 'none';
+                newSubjectInput.style.display = 'block';
+                newSubjectInput.focus();
+                
+                topicSelect.style.display = 'none';
+                newTopicInput.style.display = 'block';
+                newTopicInput.focus();
+
+            } else {
+                subjectSelect.style.display = 'block';
+                newSubjectInput.style.display = 'none';
+                
+                topicSelect.style.display = 'block';
+                newTopicInput.style.display = 'none';
+
+                populateTopics();
+            }
+        });
+
+        topicSelect.addEventListener('change', () => {
+            if (topicSelect.value === 'new') {
+                topicSelect.style.display = 'none';
+                newTopicInput.style.display = 'block';
+                newTopicInput.focus();
+            } else {
+                topicSelect.style.display = 'block';
+                newTopicInput.style.display = 'none';
+            }
+        });
+
+        // Gửi dữ liệu biểu mẫu
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const subject = (subjectSelect.value === 'new') ? newSubjectInput.value.trim() : subjectSelect.value.trim();
+            const topic = (topicSelect.value === 'new') ? newTopicInput.value.trim() : topicSelect.value.trim();
+
+            if (!subject || !topic) {
+                showStatus('Vui lòng nhập đủ Môn học và Tên bài.', false);
+                return;
+            }
+
+            showLoading('Đang lưu dữ liệu...');
+            
+            const data = {
+                subject: subject,
+                topic: topic,
+                question: document.getElementById('question').value,
+                answer: document.getElementById('answer').value,
+            };
+
+            try {
+                const response = await fetch(SAVE_DATA_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                showStatus('Dữ liệu đã được lưu thành công!', true);
+                form.reset();
+                subjectSelect.style.display = 'block';
+                newSubjectInput.style.display = 'none';
+                topicSelect.style.display = 'block';
+                newTopicInput.style.display = 'none';
+                
+            } catch (error) {
+                console.error("Lỗi khi gửi dữ liệu:", error);
+                showStatus('Lỗi khi lưu dữ liệu. Vui lòng thử lại.', false);
+            }
+        });
+
+        // Khởi tạo trang web
+        window.onload = () => {
+            if (SAVE_DATA_URL === 'YOUR_DEPLOYED_GOOGLE_APPS_SCRIPT_HERE' || SAVE_DATA_URL === '') {
+                showStatus('Vui lòng cập nhật URL Google Apps Script của bạn để lưu dữ liệu.', false);
+                return;
+            }
+            fetchSubjectsAndTopics();
+        };
+    </script>
+</body>
+</html>

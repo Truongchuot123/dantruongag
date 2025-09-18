@@ -28,46 +28,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
-    <body class="bg-gray-900">
+ <body class="bg-gray-900">
 
     <div id="header-placeholder"></div>
     <div id="search-placeholder"></div>
-<body class="text-gray-800">
-       
-      <div class="text-center py-8 md:py-12">
-        <h1 class="text-3xl md:text-4xl font-bold tracking-wide text-gradient">
-          BỆNH UỐN VÁN
-        </h1>
-      </div>
 
-      <!-- Embedded Content Section -->
-      <div class="flex justify-center mb-12 px-4">
-            <div class="w-full max-w-5xl rounded-lg shadow-xl transition-all duration-300 hover:shadow-2xl">
-                <iframe
+<body class="bg-gray-900 text-gray-100">
+
+    <div class="text-center py-8 md:py-12">
+        <h1 id="subject-title" class="text-3xl md:text-4xl font-bold tracking-wide text-gradient">
+            BỆNH UỐN VÁN
+        </h1>
+    </div>
+
+    <!-- Embedded Content Section -->
+    <div class="flex justify-center mb-12 px-4">
+        <div class="w-full max-w-5xl rounded-lg shadow-xl transition-all duration-300 hover:shadow-2xl">
+            <iframe
                 id="driveFrame"
                 src="https://drive.google.com/file/d/194mb33AX2_FHQPX-3BLByWLflryGckBg/view?usp=sharing"
                 class="w-full h-full rounded-lg"
                 style="height: 600px;"
                 allow="autoplay"
                 onerror="this.parentElement.innerHTML = '<div class=\'w-full h-full bg-gray-200 flex items-center justify-center rounded-lg\' style=\'height: 600px;\'><p class=\'text-gray-500\'>Failed to load content.</p></div>';"
-                ></iframe>
-            </div>
+            ></iframe>
+        </div>
     </div>
-
-      <!-- Card Container: JS will populate this -->
+    <!-- Card Container: JS will populate this -->
        <div id="card-container" class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-2 mb-12">
       </div>
-      </section>
-</body>
-
-
-
-
     
-    <div id="footer-placeholder"></div>
+
+</body>
+      <div id="footer-placeholder"></div>
 
       <script src="/script.js"></script>
         <script src="/search.js"></script>
+      <script src="/quiz.js"></script>
       <script src="/benhhoc/benhhoc.js"></script>
 </body>
 </html>

@@ -679,4 +679,14 @@ function showLoginForm() {
         }
     });
 }
+
+        // JS CHO VIDIEO MỘT SỐ HTML
+        const videoIframe = document.querySelector('.floating-video iframe');
+        const floatingVideoContainer = document.querySelector('.floating-video');
+
+        // Kiểm tra nếu thẻ iframe tồn tại và thuộc tính src rỗng
+        if (floatingVideoContainer && videoIframe && !videoIframe.src) {
+          // Ẩn toàn bộ div chứa video
+          floatingVideoContainer.style.display = 'none';
+        }
 window.showLoginForm = showLoginForm;

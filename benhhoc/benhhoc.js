@@ -177,6 +177,7 @@ function setupCardPaginator(cardElement, config) {
                 iconSvg: `<div class="icon text-purple-600 text-4xl"><i class="fas fa-brain"></i></div>`,
                 links: [
                     '/benhhoc/tailieu/benh_alzhemer.html',
+                    '/benhhoc/tailieu/HC_duong_ham_co_tay.html',
                     '/benhhoc/tailieu/đau_day_than_kinh_tam_thoa'
                 ],
                 countUnit: 'tài liệu'
@@ -243,7 +244,9 @@ function setupCardPaginator(cardElement, config) {
                 iconSvg: `<div class="icon text-indigo-600 text-4xl"><i class="fas fa-bone"></i></div>`, // Assuming fas-bone exists or use a generic one
                 links: [
                     '/benhhoc/tailieu/viem_khop_dang_thap.html', 
-                    '/benhhoc/tailieu/gout.html', 
+                    '/benhhoc/tailieu/gout.html',
+                    '/benhhoc/tailieu/HC_ De_Quuervain.html',
+                    '/benhhoc/tailieu/HC_ngon_tay_lo_xo.html', 
                     '/benhhoc/tailieu/loang_xuong.html'
                 ],
                 countUnit: 'tài liệu'
