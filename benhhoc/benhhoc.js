@@ -177,8 +177,9 @@ function setupCardPaginator(cardElement, config) {
                 iconSvg: `<div class="icon text-purple-600 text-4xl"><i class="fas fa-brain"></i></div>`,
                 links: [
                     '/benhhoc/tailieu/benh_alzhemer.html',
+                    '/benhhoc/tailieu/Parkinson.html',
                     '/benhhoc/tailieu/HC_duong_ham_co_tay.html',
-                    '/benhhoc/tailieu/đau_day_than_kinh_tam_thoa'
+                    '/benhhoc/tailieu/dau_day_than_kinh_tam_thoa.html'
                 ],
                 countUnit: 'tài liệu'
             },
